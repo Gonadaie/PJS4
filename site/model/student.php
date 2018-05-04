@@ -11,12 +11,9 @@ class Student {
 	private $pic;
 	
 
-	public function __construct($surname, $description=NULL, $adj1=NULL, $adj2=NULL, $adj3=NULL, $year=NULL, $email=NULL, $pic=NULL) {
+	public function __construct($surname, $description=NULL, $year=NULL, $email=NULL, $pic=NULL) {
 		$this->surname = $surname;
 		if(!$description == NULL) $this->description = $description;
-		if(!$adj1 == NULL)	$this->adj1 = $adj1;
-		if(!$adj2 == NULL)	$this->adj2 = $adj2;
-		if(!$adj3 == NULL)	$this->adj3 = $adj3;
 		if(!$year == NULL) 	$this->year = $year;
 		if(!$email == NULL) $this->email = $email;
 		if(!$pic == NULL) 	$this->pic = $pic;
@@ -41,11 +38,27 @@ class Student {
 	public function getYear(){
 		return $this->year;
 	}
+
 	public function getEmail(){
 		return $this->email;
 	}
+
 	public function getPic(){
 		return $this->pic;
+	}
+
+	public function setId($id){
+		$this->id = $id;
+	}
+
+	public function setScore($score){
+		$this->score = $score;
+	}
+
+	public function setAdjectives($adj1, $adj2, $adj3){
+		$this->adj1 = $adj1;
+		$this->adj2 = $adj2;
+		$this->adj3 = $adj3;
 	}
 
 	public function to_array(){
