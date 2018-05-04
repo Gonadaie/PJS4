@@ -9,7 +9,8 @@ class Student {
 	private $year;
 	private $email;
 	private $pic;
-	
+	private $id;
+	private $score;
 
 	public function __construct($surname, $description=NULL, $year=NULL, $email=NULL, $pic=NULL) {
 		$this->surname = $surname;
@@ -45,6 +46,14 @@ class Student {
 
 	public function getPic(){
 		return $this->pic;
+	}
+	
+	public function getId(){
+		return $this->id;
+	}
+	
+	public function getScore(){
+		return $this->score;
 	}
 
 	public function setId($id){
