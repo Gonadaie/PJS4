@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 class Student {
 	private $surname;
@@ -9,7 +9,8 @@ class Student {
 	private $year;
 	private $email;
 	private $pic;
-	
+	private $score;
+	private $id;
 
 	public function __construct($surname, $description=NULL, $year=NULL, $email=NULL, $pic=NULL) {
 		$this->surname = $surname;
@@ -30,7 +31,7 @@ class Student {
 	public function getAdjectives() {
 		return array($this->adj1, $this->adj2, $this->adj3);
 	}
-	
+
 	public function getStringAdjectives() {
 		return $this->adj1." - ".$this->adj2." - ".$this->adj3;
 	}
@@ -47,6 +48,9 @@ class Student {
 		return $this->pic;
 	}
 
+	public function getId(){
+		return $this->$id;
+	}
 	public function setId($id){
 		$this->id = $id;
 	}
