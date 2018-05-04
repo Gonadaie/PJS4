@@ -84,7 +84,7 @@ function get_adj() {
 		}
 	};
 
-	xhttp.open("GET", "../model/get-adj.php", true);
+	xhttp.open("GET", "../model/get_adjs.php", true);
 	xhttp.send();
 }
 
