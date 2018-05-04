@@ -49,6 +49,14 @@ class Student {
 	}
 
 	public function getId(){
+		return $this->id;
+	}
+
+	public function getScore(){
+		return $this->score;
+	}
+
+	public function getId(){
 		return $this->$id;
 	}
 	public function setId($id){

@@ -2,10 +2,9 @@
 
 	require("better_crypt.php");
 	
-	
 	$student_mail =	$_POST['mail'];
 
-	require("../model/sign_up.php");
+	require("../model/student_exists.php");
 
 	if($statement->rowCount()>0) {
 		echo "NOK";
