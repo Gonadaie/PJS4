@@ -1,7 +1,12 @@
 <?php
 
 
-
+/**
+ * Get match between to student in database
+ * @param integer $id id of the first student
+ * @param integer $id id of the second student
+ * @return integer the number of row found in the table
+ */
 function get_match($id1, $id2){
   $db = db_connect();
   if($db) {
@@ -16,6 +21,12 @@ function get_match($id1, $id2){
   }
 }
 
+/**
+ * Update match between two student in database
+ * @param integer $id id of the first student
+ * @param integer $id id of the second student
+ * @return void
+ */
   function update_match($id1, $id2){
     $db = db_connect();
     if($db) {
@@ -27,6 +38,13 @@ function get_match($id1, $id2){
     }
   }
 
+  /**
+   * Insert a match between two student in database.
+   * Use it when the student connected is in year 1.
+   * @param integer $id id of the first student
+   * @param integer $id id of the second student
+   * @return void
+   */
   function insert_match_first($id1, $id2){
     $db = db_connect();
     if($db) {
@@ -38,6 +56,13 @@ function get_match($id1, $id2){
     }
   }
 
+  /**
+   * Insert a match between two student in database.
+   * Use it when the student connected is in year 2.
+   * @param integer $id id of the first student
+   * @param integer $id id of the second student
+   * @return void
+   */
   function insert_match_second($id1, $id2){
     $db = db_connect();
     if($db) {

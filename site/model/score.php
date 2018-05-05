@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Update score of student in database
+ * @param integer $id id of the student
+ * @param integer $score score of the student
+ * @return void 
+ */
 function update_score($id, $score){
 	$db = db_connect();
 	if($db) {

@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Calculate a new score for two student.
+ * We run a formul, and remove the result to the
+ * highest score and add it to the lowest.
+ */
 require("../model/score.php");
 
   $s1 = $student_connected->getScore();
