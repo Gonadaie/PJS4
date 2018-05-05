@@ -9,39 +9,35 @@ session_start();
 		$mail_student_liked = $_POST["mail"];
 	}
 
-	error_log(print_r($id_student_connected, TRUE));
-	error_log(print_r($mail_student_liked , TRUE));
 
 	$student_connected = get_student_by_id($id_student_connected);
 	$student_liked = get_student_by_email($mail_student_liked);
 
+	$id_student_liked = $student_liked->getId();
 
 	if($student_connected->getYear()==1){
-		$get_match_first = get_match($student_liked->getId(), $student_connected->getId());
-
+		$get_match_first = get_match($id_student_liked, $id_student_connected);
 		if($get_match_first>0){
-			update_match($student_liked->getId(), $student_connected->getId());
+			update_match($id_student_liked, $id_student_connected);
+			require("score.php");
 			echo("MATCH");
 		}
 		else{
-			insert_match_first($student_connected->getId(), $student_liked->getId());
+			insert_match_first($id_student_connected, $id_student_liked);
 			echo("LIKE");
 		}
 	}
 
 	else{
-
-		$get_match_second = get_match($student_connected->getId(), $student_liked->getId());
-
-
+		$get_match_second = get_match($id_student_connected, $id_student_liked);
 		if($get_match_second>0){
-			update_match($student_connected->getId(), $student_liked->getId());
-			require("../model/score.php");
+			update_match($id_student_connected, $id_student_liked);
+			require("score.php");
 			echo("MATCH");
 		}
 		else{
-
-			insert_match_second($student_liked->getId(), $student_connected->getId());
+			insert_match_second($id_student_liked, $id_student_connected);
+			require("score.php");
 			echo("LIKE");
 		}
 	}
