@@ -1,6 +1,6 @@
 <?php
 
-require("../model/query.php");
+require("../model/get_student.php");
 require("../model/like_student.php");
 
 session_start();
@@ -9,12 +9,15 @@ session_start();
 		$mail_student_liked = $_POST["mail"];
 	}
 
-	$student_connected->get_student_by_id($id_student_connected);
-	$student_liked->get_student_by_email($mail_student_liked);
+	error_log(print_r($id_student_connected, TRUE));
+	error_log(print_r($mail_student_liked , TRUE));
+
+	$student_connected = get_student_by_id($id_student_connected);
+	$student_liked = get_student_by_email($mail_student_liked);
 
 
 	if($student_connected->getYear()==1){
-		$get_match_first->get_match($student_liked->getId(), $student_connected->getId());
+		$get_match_first = get_match($student_liked->getId(), $student_connected->getId());
 
 		if($get_match_first>0){
 			update_match($student_liked->getId(), $student_connected->getId());
@@ -28,7 +31,7 @@ session_start();
 
 	else{
 
-		$get_match_second->get_match($student_connected->getId(), $student_liked->getId());
+		$get_match_second = get_match($student_connected->getId(), $student_liked->getId());
 
 
 		if($get_match_second>0){

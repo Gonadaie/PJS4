@@ -28,7 +28,7 @@ function get_student_by_id($id){
 function get_student_by_email($email){
   $db = db_connect();
   if($db) {
-    $query= "SELECT id_student, surname, description, year, email, pic, score
+    $query= "SELECT surname, description, year, email, pic, score, id_student
   	FROM student WHERE email = :email_student";
 
   	$statement = $db->prepare($query);

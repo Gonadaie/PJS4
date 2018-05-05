@@ -48,16 +48,12 @@ class Student {
 		return $this->pic;
 	}
 
-	public function getId(){
-		return $this->id;
-	}
-
 	public function getScore(){
 		return $this->score;
 	}
 
 	public function getId(){
-		return $this->$id;
+		return $this->id;
 	}
 	public function setId($id){
 		$this->id = $id;
