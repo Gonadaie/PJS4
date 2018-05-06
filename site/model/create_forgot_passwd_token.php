@@ -3,6 +3,11 @@
 require_once("db_connect.php");
 require_once("get_student.php");
 
+/**
+ * @brief Create a token linked to a user account in the database. The token will be send via email to the user to verify its identity
+ * @param token_hash	The hash of the token meant to be insert in the databse
+ * @param student_mail	Email adress of the user
+ */
 function create_forgot_passwd_token($token_hash, $student_mail) {
 
 	$db = db_connect();

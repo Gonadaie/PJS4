@@ -2,6 +2,11 @@
 
 require('db_connect.php');
 
+/**
+ * @brief Change the password of the account linked to the a given token
+ * @param token			The token linked to the user account (also sent via email)
+ * @param passwd_hash	The new password hash to insert in the database
+ */
 function change_passwd_for($token, $passwd_hash) {
 
 	$db = db_connect();
