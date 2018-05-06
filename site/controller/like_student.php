@@ -28,11 +28,12 @@ session_start();
 		if($get_match_first>0){
 			update_match($id_student_liked, $id_student_connected);
 			require("score.php");
-			echo("MATCH");
+			echo(json_encode("MATCH"));
 		}
 		else{
 			insert_match_first($id_student_connected, $id_student_liked);
-			echo("LIKE");
+			require("score.php");
+			echo(json_encode("LIKE"));
 		}
 	}
 
@@ -41,11 +42,11 @@ session_start();
 		if($get_match_second>0){
 			update_match($id_student_connected, $id_student_liked);
 			require("score.php");
-			echo("MATCH");
+			echo(json_encode("MATCH"));
 		}
 		else{
 			insert_match_second($id_student_liked, $id_student_connected);
 			require("score.php");
-			echo("LIKE");
+			echo(json_encode("LIKE"));
 		}
 	}

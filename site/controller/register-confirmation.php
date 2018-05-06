@@ -101,8 +101,6 @@ $message = (new Swift_Message("Registration confirmation"))
 '		</html>'
 	, "text/html");
 
-//	->setBody("Please, confirm your registration by clicking on the following link : http://tinder.student.elwinar.com/view/loginPerso.php?token=".$token_hash."&name=".$student_name."\n")
-//	->setBody("Please, confirm your registration by clicking on the following link : " . $_SERVER['SERVER_NAME'] . "/view/loginPerso.php?token=".$token_hash."&name=".$student_name."\n")
 
 
 
@@ -110,5 +108,5 @@ $result = $mailer->send($message);
 
 if($result)
 	create_token($token_hash, $student_mail);
-echo "END";
+
 ?>

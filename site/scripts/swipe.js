@@ -39,9 +39,9 @@ function ajax_liked_someone() {
 
 	xhttp.onreadystatechange = function () {
 		if (this.readyState == 4 && this.status == 200) {
-			if (this.responseText == "MATCH") {
+			if (JSON.parse(this.responseText) == "MATCH") {
 				document.location.href = "../view/match.php?email=" + email;
-			} else if (this.responseText == "LIKE") {
+			} else if (JSON.parse(this.responseText) == "LIKE") {
 				return true;
 			}
 

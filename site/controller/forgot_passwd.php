@@ -99,6 +99,5 @@ if($result)
 	create_forgot_passwd_token($token_hash, $student_mail);
 
 
-//equire("../view/forgot_passwd_sent.html");
 
 ?>
