@@ -4,13 +4,9 @@ if(!isset($_SESSION['id']))
 {
     header('Location: ../view/logout.php');
 }
+require("../controller/profil_other_user.php");
+$info_student = json_decode($json_array);?>
 
-if (isset($_GET['email'])){
-	$student_mail = $_GET['email'];
-} else {
-	    header('Location: ../view/notfound.html');
-}
-require("../model/profil_other_user.php"); ?>
 	<!DOCTYPE html>
 	<html lang="fr">
 
@@ -35,26 +31,26 @@ require("../model/profil_other_user.php"); ?>
 			<a href="../view/logout.php" class="menu_inactive">log out</a>
 		</div>
 		<div class="back"></div>
-		<div class="picture_profile img_profile"><img src="<?php echo htmlspecialchars($student->getPic()); ?> " alt=""></div>
+		<div class="picture_profile img_profile"><img src="<?php echo htmlspecialchars($info_student->pic); ?> " alt=""></div>
 		<div class="cloud_profile"><img src="../images/cloud.svg" alt=""></div>
 		<div class="year_email_profile">
 			<span class="DUT">DUT
-			<?php echo($student->getYear()); ?> -</span>
+			<?php echo($info_student->year); ?> -</span>
 
-			<?php echo($student->getEmail()); ?>@etu.parisdescartes.fr</div>
+			<?php echo($info_student->email);  ?>@etu.parisdescartes.fr</div>
 		<div class="stats_profile">
 			<div>
-				<?php echo($match); ?> matchs</div>
+				<?php echo($info_student->match);  ?> matchs</div>
 			<div>0 parrainage</div>
 		</div>
 		<div class="name_profile">
-			<?php echo($student->getSurname()); ?>
+			<?php echo($info_student->name);  ?>
 		</div>
 		<div class="adj_profile">
-			<?php echo($student->getStringAdjectives()); ?>
+			<?php echo($info_student->adj);  ?>
 		</div>
 		<div class="description_profile">
-			<?php echo htmlspecialchars($student->getDescription()); ?>
+			<?php echo htmlspecialchars($info_student->description); ?>
 		</div>
 	</body>
 
