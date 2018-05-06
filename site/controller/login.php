@@ -25,11 +25,11 @@
 		$_SESSION['id'] = $id_student;
 		$_SESSION['mail'] = $student_mail;
 		if(is_null($adj1))
-			echo(json_encode("FIRST"));
+			echo "FIRST";
 		else
-			echo(json_encode("OK"));
+			echo "OK";
 	}
 	else
-		echo(json_encode("FAIL"));
+		echo "FAIL";
 
 ?>

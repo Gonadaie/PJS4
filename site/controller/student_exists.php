@@ -7,9 +7,9 @@
 	require("../model/student_exists.php");
 
 	if($statement->rowCount()>0) {
-		echo(json_encode("NOK"));
+		echo "NOK";
 	}
 	else
-		echo(json_encode("FAIL"));
+		echo "FAIL";
 
 ?>

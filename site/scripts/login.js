@@ -7,12 +7,12 @@ function login() {
 
 	xhttp.onreadystatechange = function(){
 		if(this.readyState == 4 && this.status == 200){
-			if(JSON.parse(this.responseText) == "OK"){
+			if(this.responseText == "OK"){
 				highlight(document.getElementsByName("mail")[0], false);
 				highlight(document.getElementsByName("password")[0], false);
 				window.location.href="../view/swipe.php";
 
-			} else if(JSON.parse(this.responseText) == "FIRST"){
+			} else if(this.responseText == "FIRST"){
 				highlight(document.getElementsByName("mail")[0], false);
 				highlight(document.getElementsByName("password")[0], false);
 				window.location.href="../view/test.php";
