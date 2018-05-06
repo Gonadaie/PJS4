@@ -1,29 +1,15 @@
 <?php
-require("db_connect.php");
-require("student.php");
 
-function getArrayStudents() {
+function getArrayStudents($student) {
 
 	$db = db_connect();
 	$tab_student = array();
 	if($db) {
 
-		$query_get_score = "SELECT score, year
-			FROM student
-			WHERE id_student = :student_id";
-		$statement_score = $db->prepare($query_get_score);
-		$statement_score->bindValue(':student_id', $_SESSION['id']);
-		$statement_score->execute();
+		$score_min = $student->getScore() - 10;
+		$score_max = $student->getScore() + 10;
 
-		while($row = $statement_score->fetch(PDO::FETCH_ASSOC)){
-			$score_student = $row['score'];
-			$student_year = $row['year'];
-		}
-
-		$score_min = $score_student - 10;
-		$score_max = $score_student + 10;
-
-		if($student_year == 1){
+		if($student->getYear() == 1){
 			$query_get_student =
 			"SELECT A.wording as adj1, A2.wording as adj2, A3.wording as adj3, S.surname, S.description, S.pic, S.email
 			FROM ADJECTIVE A, ADJECTIVE A2, ADJECTIVE A3, STUDENT S
@@ -39,7 +25,7 @@ function getArrayStudents() {
 		$statement_student = $db->prepare($query_get_student);
 		$statement_student->bindValue(':score_min', $score_min, PDO::PARAM_INT);
 		$statement_student->bindValue(':score_max', $score_max, PDO::PARAM_INT);
-		$statement_student->bindValue(':student_id', $_SESSION['id']);
+		$statement_student->bindValue(':student_id',$student->getId());
 		$statement_student->execute();
 
 		$tab_student = array();
@@ -53,5 +39,5 @@ function getArrayStudents() {
 			$count=$count+1;
 		}
 	}
-	return $tab_student;
+	return json_encode($tab_student);
 }

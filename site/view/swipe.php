@@ -1,10 +1,10 @@
 <?php
 session_start();
-require("../model/swipe.php");
 if(!isset($_SESSION['id'])) {
 	require('../model/stay_connected.php');
 	if(is_stay_connected($_COOKIE['fr81_stay_connected']))
 		header('Location: ../view/logout.php');
+require("../controller/swipe.php");
 }
 ?>
 	<!DOCTYPE html>
@@ -26,7 +26,7 @@ if(!isset($_SESSION['id'])) {
 	<body>
 		<script type="text/javascript">
 			console.log("debut de la recuperation des data");
-			var students = <?php echo json_encode(getArrayStudents()); ?>;
+			var students = <?php echo $array_student; ?>;
 			var email;
 			console.log(students);
 			//students = JSON.parse(students);
