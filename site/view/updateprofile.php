@@ -5,8 +5,8 @@ if(!isset($_SESSION['id']))
     header('Location: ../view/logout.php');
 }
 
-include("../model/updateprofile.php"); 
-
+include("../controller/updateprofile.php");
+$info_student = json_decode($json_array);
 
 ?>
 	<!DOCTYPE html>
@@ -43,22 +43,22 @@ include("../model/updateprofile.php");
 		<div class="cloud_profile"><img src="../images/cloud.svg" alt=""></div>
 		<div class="year_email_profile">
 			<span class="DUT">DUT
-			<?php echo($student->getYear()); ?> -</span>
+			<?php echo($info_student->year); ?> -</span>
 
-			<?php echo($student->getEmail()); ?>@etu.parisdescartes.fr</div>
+			<?php echo($info_student->email); ?>@etu.parisdescartes.fr</div>
 		<div class="stats_profile">
 			<div>
-				<?php echo($match); ?> matchs</div>
+				<?php echo($info_student->match); ?> matchs</div>
 			<div>0 parainage</div>
 		</div>
 		<div class="name_profile">
-			<?php echo($student->getSurname()); ?>
+			<?php echo($info_student->name); ?>
 		</div>
 		<div class="adj_profile">
-			<?php echo($student->getStringAdjectives()); ?>
+			<?php echo($info_student->adj); ?>
 		</div>
 		<div class="description_profile old_description">
-			<?php echo htmlspecialchars($student->getDescription()); ?>
+			<?php echo htmlspecialchars($info_student->description); ?>
 		</div>
 		<form method="post" id="changeDescription" action="#">
 			<textarea class="description_profile new_description" name="description" rows="4" cols="7" maxlength="280"><?php echo htmlspecialchars($student->getDescription()); ?></textarea>

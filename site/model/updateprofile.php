@@ -1,27 +1,11 @@
 <?php
 
-require("../model/db_connect.php");
-require_once("student.php");
-/*fichier php updateprofile*/
-	/* A faire !!!
-		- Recuperer et afficher la photo stocké dans la base
-		-Match request
-		-change basephoty.jpg par la bonne
-		-Supprimer les tags géo de la photo*/
 
-	//Connect to db
-	$id = $_SESSION['id'];
-	$db = db_connect();
-	$student;
+$id = $_SESSION['id'];
+$db = db_connect();
+
+
 if($db) {
-	$query = "SELECT S.year, S.surname, S.email, S.pic, S.description, A.wording as adj1, A2.wording as adj2, A3.wording as adj3
-	FROM ADJECTIVE A, ADJECTIVE A2, ADJECTIVE A3, STUDENT S WHERE id_student=:student_id AND S.adjective_1 = A.id_adjective AND S.adjective_2 = A2.id_adjective AND S.adjective_3 = A3.id_adjective";
-	$statement = $db->prepare($query);
-	$statement->bindvalue(':student_id', $id);
-	$statement->execute();
-	$row = $statement->fetch(PDO::FETCH_ASSOC);
-	$student = new Student($row['surname'], $row['description'], $row['adj1'], $row['adj2'], $row['adj3'], $row['year'], $row['email'], $row['pic']);
-
 
 	if ($student->getYear() == 2){
 		$sql = "SELECT count(*) FROM match WHERE id_student_god_father =:id and result = true";
@@ -29,9 +13,6 @@ if($db) {
 		$result -> bindvalue(':id',$id);
 		$result->execute();
 		$match = $result->fetchColumn();
-		/*while ($row = $statement->fetch(PDO::FETCH_ASSOC)){
-			$god_son_exist = $row['statement'];
-		}*/
 	}
 	else if($student->getYear()==1){
 		$sql = "SELECT COUNT (*) from match WHERE id_student_god_son =:id and result = true";
@@ -40,7 +21,7 @@ if($db) {
 		$result->execute();
 		$match = $result->fetchColumn();
 	}
-	
+
 	if(isset($_POST["description"])){
 	if(!empty($_POST["description"])){
 		$newDescription = $_POST['description'];
@@ -59,8 +40,8 @@ if(isset($_FILES["fileToUpload"])){
 	$target_file = $target_dir .str_replace(".", "", $student->getEmail()).".".$imageFileType;
 	$uploadOk = 1;
 	$errorMessages = [];
-	
-	// Check if image file is a actual image 
+
+	// Check if image file is a actual image
 	if(isset($_POST["submit"])) {
 		$check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
 		if($check !== false) {
@@ -84,7 +65,7 @@ if(isset($_FILES["fileToUpload"])){
 	if ($uploadOk == 1)  {
 		if(file_exists($target_file)){
 			unlink($target_file);
-			
+
 		}
 		move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file);
 		header('Location:http://tinder.student.elwinar.com/view/updateprofile.php');
