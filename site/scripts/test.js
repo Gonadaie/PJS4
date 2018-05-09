@@ -186,7 +186,7 @@ module.exports = camelizeStyleName;
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  *
- * 
+ *
  */
 
 var isTextNode = require('./isTextNode');
@@ -224,7 +224,7 @@ module.exports = containsNode;
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  *
- * 
+ *
  */
 
 function makeEmptyFunction(arg) {
@@ -512,7 +512,7 @@ module.exports = isTextNode;
  * LICENSE file in the root directory of this source tree.
  *
  * @typechecks
- * 
+ *
  */
 
 /*eslint-disable no-self-compare */
@@ -6570,7 +6570,7 @@ var AsyncUpdates = 1;
   try {
     var nonExtensibleObject = Object.preventExtensions({});
     /* eslint-disable no-new */
-    
+
     /* eslint-enable no-new */
   } catch (e) {
     // TODO: Consider warning about bad polyfills
@@ -12700,7 +12700,7 @@ function setValueForProperty(node, name, value) {
   }
 
   {
-    
+
   }
 }
 
@@ -12715,7 +12715,7 @@ function setValueForAttribute(node, name, value) {
   }
 
   {
-    
+
   }
 }
 
@@ -18116,7 +18116,7 @@ var Adjective = function (_React$Component2) {
 		_this2.x = Math.random() * 0.5;
 		//this.y = Math.random()*1;
 
-		//Act like a static variable	
+		//Act like a static variable
 		if (Adjective.yPos === undefined) Adjective.yPos = 0;
 
 		_this2.y = Adjective.yPos;
@@ -18183,7 +18183,7 @@ function get_adj() {
 		}
 	};
 
-	xhttp.open("GET", "../model/get-adj.php", true);
+	xhttp.open("GET", "../controller/get_adjs.php", true);
 	xhttp.send();
 }
 
