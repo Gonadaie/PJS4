@@ -11,7 +11,7 @@ function sign_up(e) {
 					document.getElementById("mail_already_exist").style.display = "block";
 					console.log("nok");
 				}
-				else if (this.responseText == "OK"){
+				else{
 					var request = new XMLHttpRequest();
 					highlight(document.getElementsByName("mail")[0], false);
 					highlight(document.getElementsByName("password")[0], false);
