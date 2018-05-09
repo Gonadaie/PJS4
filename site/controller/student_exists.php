@@ -8,7 +8,7 @@
 
 	if($statement->rowCount()>0)
 		echo "NOK";
-	else if($statement->rowCount()==0)
+	else if($statement->rowCount()<0)
 		echo "OK";
 	else {
 		echo "FAIL"
