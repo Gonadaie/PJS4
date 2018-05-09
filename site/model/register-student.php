@@ -13,5 +13,6 @@ function register_student($student_name, $student_mail, $password_hash, $student
 		$statement->bindValue(':pass', $password_hash);
 		$statement->bindValue(':year', $student_year);
 		$statement->execute();
+
 	}
 }
