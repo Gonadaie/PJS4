@@ -1,14 +1,14 @@
 <?php
 
-require_once("db_connect.php");
+
 require_once("get_student.php");
 
 function create_token($token_hash, $student_mail) {
-	
+
 	$db = db_connect();
 
 	if($db){
-		
+
 		$student_id = get_student_by_email($student_mail)->getId();
 
 		$insert_query = "INSERT INTO token values (:date, :token, true, :id)";

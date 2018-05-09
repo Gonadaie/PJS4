@@ -11,10 +11,9 @@ $student_year =  $_POST['year'];
 
 register_student($student_name, $student_mail, $password_hash, $student_year);
 
-require("../view/register-confirmation.php");
+//require("../view/register-confirmation.php");
 
 $token_hash = md5($student_mail.date('Y-m-d H:i:s').rand());
-
 
 require_once("../model/create-token.php");
 require_once("../vendor/autoload.php");
