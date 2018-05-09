@@ -6,10 +6,12 @@
 
 	require("../model/student_exists.php");
 
-	if($statement->rowCount()>0) {
+	if($statement->rowCount()>0)
 		echo "NOK";
+	else if($statement->rowCount()==0)
+		echo "OK";
+	else {
+		echo "FAIL"
 	}
-	else
-		echo "FAIL";
 
 ?>
