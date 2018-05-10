@@ -1,9 +1,6 @@
 <?php
 
-
-//$id = $_SESSION['id'];
 $db = db_connect();
-
 
 if($db) {
 

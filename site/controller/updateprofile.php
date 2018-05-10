@@ -6,9 +6,7 @@ require("../model/get_student.php");
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $student = get_student_by_email($_POST['mail']);
-  error_log(print_r("POST", TRUE));
-  error_log(print_r($_POST['mail'], TRUE));
-  error_log(print_r($student->getId(), TRUE));
+
 }
 else{
   $student = get_student_by_id($_SESSION['id']);

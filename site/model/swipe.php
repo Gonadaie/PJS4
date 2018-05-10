@@ -39,5 +39,6 @@ function getArrayStudents($student) {
 			$count=$count+1;
 		}
 	}
+	error_log(print_r("swipe model", TRUE));
 	return json_encode($tab_student);
 }
