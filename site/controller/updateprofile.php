@@ -2,7 +2,12 @@
 
 require("../model/get_student.php");
 
-$student = get_student_by_id($_SESSION['id']);
+if(isset($_SESSION['id'])){
+  $student = get_student_by_id($_SESSION['id']);
+}
+else{
+  $student = get_student_by_email($_POST['mail']);
+}
 
 require("../model/updateprofile.php");
 
