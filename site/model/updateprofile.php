@@ -1,7 +1,7 @@
 <?php
 
 
-$id = $_SESSION['id'];
+//$id = $_SESSION['id'];
 $db = db_connect();
 
 
@@ -10,14 +10,14 @@ if($db) {
 	if ($student->getYear() == 2){
 		$sql = "SELECT count(*) FROM match WHERE id_student_god_father =:id and result = true";
 		$result = $db->prepare($sql);
-		$result -> bindvalue(':id',$id);
+		$result -> bindvalue(':id',$student->getId());
 		$result->execute();
 		$match = $result->fetchColumn();
 	}
 	else if($student->getYear()==1){
 		$sql = "SELECT COUNT (*) from match WHERE id_student_god_son =:id and result = true";
 		$result = $db->prepare($sql);
-		$result -> bindvalue(':id',$id);
+		$result -> bindvalue(':id',$student->getId());
 		$result->execute();
 		$match = $result->fetchColumn();
 	}
@@ -28,7 +28,7 @@ if($db) {
 		$query = "UPDATE student SET description = :newDescription WHERE id_student = :id";
 		$statement = $db->prepare($query);
 		$statement->bindvalue(':newDescription',$newDescription);
-		$statement->bindvalue(':id', $id);
+		$statement->bindvalue(':id', $student->getId());
 		$statement -> execute();
 		header('Location:http://tinder.student.elwinar.com/view/updateprofile.php');
 	}
@@ -72,7 +72,7 @@ if(isset($_FILES["fileToUpload"])){
 		$query = "UPDATE student SET pic = :image WHERE id_student = :id";
 		$statement = $db->prepare($query);
 		$statement->bindvalue(':image', $target_file);
-		$statement->bindvalue(':id', $id);
+		$statement->bindvalue(':id', $student->getId());
 		$statement -> execute();
 	}
 
