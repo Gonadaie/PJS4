@@ -22,5 +22,7 @@ $array = array("name"=>$student->getPic(), "year"=>$student->getYear(),
 "pic"=>$student->getPic());
 
 $json_array = json_encode($array);
-
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  echo $json_array;
+}
  ?>
