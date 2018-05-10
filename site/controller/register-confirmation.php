@@ -104,7 +104,12 @@ $message = (new Swift_Message("Registration confirmation"))
 
 $result = $mailer->send($message);
 
-if($result)
+if($result) {
 	create_token($token_hash, $student_mail);
+	echo "OK";
+}
+else
+	echo "FAIL";
+
 
 ?>
