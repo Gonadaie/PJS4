@@ -14,10 +14,7 @@ else{
 
 require("../model/updateprofile.php");
 
-$array = array("name"=>$student->getPic(), "year"=>$student->getYear(),
-"email"=>$student->getEmail(), "match"=>$match, "name"=>$student->getSurname(),
-"adj"=>$student->getStringAdjectives(), "description"=>$student->getDescription(),
-"pic"=>$student->getPic());
+$array = array('student' => $student->to_array(), 'match' => $match);
 
 $json_array = json_encode($array);
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
