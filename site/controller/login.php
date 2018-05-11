@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * Log a user in if the given login and password match in the database
+ * If the credentials match, we create a session
+ * If the 'keep me logged' checkbox is checked, we also create a token in the database
+ * Then echo 'FIRST' if it's the first time the user logged in in order to redirect him to the adjectives page
+ * Or echo 'OK' meaning everything went fine
+ * Otherwise, echo 'Fail'
+ */
 	require("better_crypt.php");
 
 	$student_name =	 explode('.', $_POST['mail'])[0];
