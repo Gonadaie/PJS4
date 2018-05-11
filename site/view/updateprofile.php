@@ -7,6 +7,7 @@ if(!isset($_SESSION['id']))
 
 include("../controller/updateprofile.php");
 $info_student = json_decode($json_array);
+$student = $info_student->student;
 
 ?>
 	<!DOCTYPE html>
@@ -35,7 +36,7 @@ $info_student = json_decode($json_array);
 		<div class="back"></div>
 		<form action="#" id="imageForm" method="post" enctype="multipart/form-data">
 			<label for="fileToUpload">
-					<div class="picture_profile img_profile modify-image"><div class="hover_modify">Modifier la photo</div><img src="<?php echo htmlspecialchars($student->getPic()); ?>" alt=""></div>
+					<div class="picture_profile img_profile modify-image"><div class="hover_modify">Modifier la photo</div><img src="<?= htmlspecialchars($student->pic); ?>" alt=""></div>
  			</label>
 			<input type="file" name="fileToUpload" id="fileToUpload">
 		</form>
@@ -43,25 +44,25 @@ $info_student = json_decode($json_array);
 		<div class="cloud_profile"><img src="../images/cloud.svg" alt=""></div>
 		<div class="year_email_profile">
 			<span class="DUT">DUT
-			<?php echo($info_student->year); ?> -</span>
+			<?= $student->year ?> -</span>
 
-			<?php echo($info_student->email); ?>@etu.parisdescartes.fr</div>
+			<?= $student->email ?>@etu.parisdescartes.fr</div>
 		<div class="stats_profile">
 			<div>
-				<?php echo($info_student->match); ?> matchs</div>
+				<?= $info_student->match ?> matchs</div>
 			<div>0 parainage</div>
 		</div>
 		<div class="name_profile">
-			<?php echo($info_student->name); ?>
+			<?= $student->surname ?>
 		</div>
 		<div class="adj_profile">
-			<?php echo($info_student->adj); ?>
+			<?= $student->adj1 ?> - <?= $student->adj2 ?> - <?= $student->adj3 ?>
 		</div>
 		<div class="description_profile old_description">
-			<?php echo htmlspecialchars($info_student->description); ?>
+			<?= htmlspecialchars($student->description); ?>
 		</div>
 		<form method="post" id="changeDescription" action="#">
-			<textarea class="description_profile new_description" name="description" rows="4" cols="7" maxlength="280"><?php echo htmlspecialchars($student->getDescription()); ?></textarea>
+			<textarea class="description_profile new_description" name="description" rows="4" cols="7" maxlength="280"><?= htmlspecialchars($student->description); ?></textarea>
 		</form>
 		<div class="edit_profile">
 			<img class="edit" src="../images/edit.png" alt="edit">
