@@ -4,13 +4,12 @@ require("../model/get_student.php");
 
 
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+/*if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $student = get_student_by_email($_POST['mail']);
 
 }
-else{
+else{*/
   $student = get_student_by_id($_SESSION['id']);
-}
 
 require("../model/updateprofile.php");
 
