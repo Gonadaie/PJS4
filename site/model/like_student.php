@@ -12,9 +12,11 @@ function get_match($id1, $id2){
   if($db) {
     $query = "SELECT id_student_god_father, id_student_god_son FROM match WHERE id_student_god_father = :id1 AND id_student_god_son = :id2";
 
+
     $statement = $db->prepare($query);
     $statement->bindValue(':id1', $id1);
-    $statement->bindValue(':id2', $id1);
+    $statement->bindValue(':id2', $id2);
+
     $statement->execute();
 
     return $statement->rowCount();

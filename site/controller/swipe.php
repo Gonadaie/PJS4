@@ -8,7 +8,6 @@ if (isset($_POST['mail'])) {
 }
 else{
   $array_student = getArrayStudents(get_student_by_id($_SESSION['id']));
-  error_log(print_r($array_student, TRUE));
 }
 
  ?>

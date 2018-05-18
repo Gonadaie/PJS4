@@ -25,6 +25,7 @@ session_start();
 
 	if($student_connected->getYear()==1){
 		$get_match_first = get_match($id_student_liked, $id_student_connected);
+
 		if($get_match_first>0){
 			update_match($id_student_liked, $id_student_connected);
 			require("score.php");
@@ -39,6 +40,7 @@ session_start();
 
 	else{
 		$get_match_second = get_match($id_student_connected, $id_student_liked);
+
 		if($get_match_second>0){
 			update_match($id_student_connected, $id_student_liked);
 			require("score.php");
