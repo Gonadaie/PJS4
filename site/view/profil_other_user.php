@@ -12,7 +12,7 @@ $info_student = json_decode($json_array);?>
 
 	<head>
 		<meta charset="utf-8" />
-		<title>Profil Other User</title>
+		<title><?php echo('Profil de ' . $info_student->name ?></title>
 		<!--		<CSS>				-->
 		<link rel="stylesheet" href="../styles/main.css">
 		<link rel="stylesheet" href="../styles/signup_login.css">
