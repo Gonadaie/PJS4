@@ -11,15 +11,26 @@
 require("../model/get_student.php");
 require("../model/like_student.php");
 
+
 session_start();
+
+if(isset($_SESSION['id'])){
 	$id_student_connected = $_SESSION['id'];
 	if (isset($_POST["mail"])){
 		$mail_student_liked = $_POST["mail"];
 	}
-
-
 	$student_connected = get_student_by_id($id_student_connected);
 	$student_liked = get_student_by_email($mail_student_liked);
+}
+else {
+	$mail_student_liked = $_POST["mail"];
+	$mail_student_connected = $_POST["mail_co"];
+	$student_connected = get_student_by_email($mail_student_connected);
+	$student_liked = get_student_by_email($mail_student_liked);
+	$id_student_connected = $student_connected->getId();
+}
+
+
 
 	$id_student_liked = $student_liked->getId();
 

@@ -4,9 +4,10 @@
  * Update score of student in database
  * @param integer $id id of the student
  * @param integer $score score of the student
- * @return void 
+ * @return void
  */
 function update_score($id, $score){
+	error_log(print_r("update_score", TRUE));
 	$db = db_connect();
 	if($db) {
 		$query_update_score= "UPDATE student SET score = :score

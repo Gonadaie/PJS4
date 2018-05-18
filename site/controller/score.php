@@ -20,5 +20,5 @@ require("../model/score.php");
 		$s2 = $s2-$ratio;
 	}
 
-  update_score($id_student_connected, ceil($s1));
+  update_score($student_connected->getId(), ceil($s1));
   update_score($student_liked->getId(), ceil($s2));
