@@ -47,7 +47,7 @@ function mailexist(){
 		}
 	};
 
-	xhttp.open("POST", "../controller/sign_up.php", true);
+	xhttp.open("POST", "../controller/student_exists.php", true);
 	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
 	var mail = document.getElementsByName("mail")[0].value;
