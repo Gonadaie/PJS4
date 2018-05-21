@@ -6,7 +6,7 @@ $mobile = false;
 if (isset($_GET['email'])){
 	$student_mail = $_GET['email'];
 	$student = get_student_by_email($student_mail);
-} if (isset($_POST['mail'])) {
+} else if (isset($_POST['mail'])) {
 		$student = get_student_by_email($_POST['mail']);
 		$mobile = true;
 }else{
