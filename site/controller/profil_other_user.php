@@ -2,16 +2,24 @@
 
 require("../model/get_student.php");
 //modif tibo
-$mobile = true;
-//fin
+$mobile = false;
 if (isset($_GET['email'])){
 	$student_mail = $_GET['email'];
-} else {
-	    header('Location: ../view/notfound.html');
+	$student = get_student_by_email($student_mail);
+} if (isset($_POST['mail'])) {
+		$student = get_student_by_email($_POST['mail']);
+		$mobile = true;
+}else{
+	header('Location: ../view/notfound.html');
 }
-
-$student = get_student_by_email($student_mail);
-
+//fin
+/*original code
+if (isset($_GET['email'])){
+	$student_mail = $_GET['email'];
+}else{
+	header('Location: ../view/notfound.html');
+}
+*/
 require("../model/profil_other_user.php");
 
 $array = array("name"=>$student->getPic(), "year"=>$student->getYear(),
@@ -25,6 +33,4 @@ $json_array = json_encode($array);
 if ($mobile == true){
 	echo $json_array;
 }
-
-
  ?>
