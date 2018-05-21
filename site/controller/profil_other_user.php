@@ -1,7 +1,9 @@
 <?php
 
 require("../model/get_student.php");
-
+//modif tibo
+$mobile = true;
+//fin
 if (isset($_GET['email'])){
 	$student_mail = $_GET['email'];
 } else {
@@ -19,6 +21,10 @@ $array = array("name"=>$student->getPic(), "year"=>$student->getYear(),
 
 $json_array = json_encode($array);
 
-//echo $json_array;
+//modif tibo
+if ($mobile == true){
+	echo $json_array;
+}
+
 
  ?>
