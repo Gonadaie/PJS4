@@ -20,9 +20,8 @@ $student = $info_student->student;
 		<link rel="stylesheet" href="../styles/main.css">
 		<link rel="stylesheet" href="../styles/signup_login.css">
         <link rel="stylesheet" href="../styles/croppie.css">
-        <!--		<js>				-->
-        <script src="../scripts/croppie.js"></script>
-        <script src="../scripts/jquery.min.js"></script>
+
+
         <!--		<font>				-->
 		<link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
@@ -50,7 +49,8 @@ $student = $info_student->student;
 			<a href="../view/logout.php" class="menu_inactive">log out</a>
 		</div>
 		<div class="back"></div>
-		<form action="#" id="imageForm" method="post" enctype="multipart/form-data">
+
+		<form action="#" id="imageForm" method="post" enctype="multipart/form-data"> <!imageForm->
 			<label for="fileToUpload">
 					<div class="picture_profile img_profile modify-image"><div class="hover_modify">Modifier la photo</div><img src="<?= htmlspecialchars($student->pic); ?>" alt=""></div>
  			</label>
@@ -98,7 +98,10 @@ $student = $info_student->student;
 		</p>
 		<?php endforeach ?>
 
+        <!--		<js>				-->
 		<script src="../scripts/updateprofile.js"></script>
+        <script src="../scripts/jquery.min.js"></script>
+        <script src="../scripts/croppie.js"></script>
 	</body>
 
 	</html>
