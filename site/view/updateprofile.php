@@ -22,7 +22,8 @@ $student = $info_student->student;
         <link rel="stylesheet" href="../styles/croppie.css">
         <!--		<js>				-->
         <script src="../scripts/croppie.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 		<!--		<font>				-->
 		<link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
