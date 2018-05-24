@@ -4,7 +4,7 @@
  * First we test in what year the student is.
  * Then we check if the other student had already like him or not.
  * We run the appropriate query : update if match exist, insert otherwise.
- * ALl the echo are user in js, to know witch page to run next (match or keep
+ * ALl the echo are user in js, to know wich page to run next (match or keep
  * up swipe)
  */
 

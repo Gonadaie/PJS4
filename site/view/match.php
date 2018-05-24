@@ -36,22 +36,23 @@ if(!isset($_SESSION['id']))
 			<a href="#" class="menu_inactive">messages</a>
 			<a href="../view/logout.php" class="menu_inactive">log out</a>
 		</div>
+		<?= $_POST['mail']?>
+			<?= $_POST['pic']?>
+				<div class="match_container">
+					<div class="match_continue">
+						<a href="swipe.php"><img src="../images/continue.png" alt="continue"></a>
+					</div>
+					<div class="img_profile match_pic_top">
+						<a href="updateprofile.php"><img src="../images/images_student/alice.png" alt=""></a>
+					</div>
 
-		<div class="match_container">
-			<div class="match_continue">
-				<a href="swipe.php"><img src="../images/continue.png" alt="continue"></a>
-			</div>
-			<div class="img_profile match_pic_top">
-				<a href="updateprofile.php"><img src="../images/images_student/alice.png" alt=""></a>
-			</div>
-
-			<div class="match_talk"><img src="../images/Talk.png" alt="talk"></div>
-			<!-- faire un truc en js qui permette d'aller sur le profil de la personne cf match -->
-			<div class="img_profile match_pic_bot">
-				<img src="../images/images_student/alice.png" alt="">
-			</div>
-			<div class="match_slogan">Votre histoire commence ici.</div>
-		</div>
+					<div class="match_talk"><img src="../images/Talk.png" alt="talk"></div>
+					<!-- faire un truc en js qui permette d'aller sur le profil de la personne cf match -->
+					<div class="img_profile match_pic_bot">
+						<img src="../images/images_student/alice.png" alt="">
+					</div>
+					<div class="match_slogan">Votre histoire commence ici.</div>
+				</div>
 
 
 	</body>

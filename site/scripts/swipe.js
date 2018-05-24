@@ -40,7 +40,8 @@ function ajax_liked_someone() {
 	xhttp.onreadystatechange = function () {
 		if (this.readyState == 4 && this.status == 200) {
 			if (this.responseText == "MATCH") {
-				document.location.href = "../view/match.php";
+				CreateAFormInsideMyDivAndSubmitIt();
+
 			} else if (this.responseText == "LIKE") {
 				return true;
 			}
@@ -73,10 +74,9 @@ function setNewProfile() {
 		document.getElementById("swipe_adj").innerHTML = adjs;
 
 		if (students[0].pic != undefined) {
-			pic=students[0].pic;
+			pic = students[0].pic;
 			document.getElementById("swipe_picture").src = pic;
-		}
-		else document.getElementById("swipe_picture").src = '';
+		} else document.getElementById("swipe_picture").src = '';
 		email = students[0].email;
 		students.splice(0, 1);
 	} else {
@@ -97,3 +97,12 @@ setNewProfile();
 profil_link.addEventListener("click", () => {
 	document.location.href = "../view/profil_other_user.php?email=" + email;
 })
+
+//redirection with POST data
+function CreateAFormInsideMyDivAndSubmitIt() {
+	var mydiv = document.getElementById('myformcontainer').innerHTML = '<form id="post_data" method="post" action="../view/match.php"><input name="mail" type="hidden" value="' + email + ' "/><input name="pic" type="hidden" value="' + pic + '" /></form>';
+	f = document.getElementById('post_data');
+	if (f) {
+		f.submit();
+	}
+}

@@ -87,6 +87,7 @@ require("../controller/swipe.php");
 
 
 		</div>
+		<div id="myformcontainer"></div>
 		<script src="../scripts/swipe.js"></script>
 	</body>
 
