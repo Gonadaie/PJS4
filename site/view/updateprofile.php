@@ -22,14 +22,13 @@ $student = $info_student->student;
         <link rel="stylesheet" href="../styles/croppie.css">
         <!--		<js>				-->
         <script src="../scripts/croppie.js"></script>
-        
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-		<!--		<font>				-->
+        <script src="../scripts/jquery.min.js"></script>
+        <!--		<font>				-->
 		<link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
 		<!--		<bootstrap>				-->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="../scripts/bootstrap.min.js"></script>
 
         <!--		<fav icon>				-->
 		<link rel="apple-touch-icon" sizes="180x180" href="../favicon_package_v0.16/apple-touch-icon.png">
