@@ -19,15 +19,22 @@ $student = $info_student->student;
 		<!--		<CSS>				-->
 		<link rel="stylesheet" href="../styles/main.css">
 		<link rel="stylesheet" href="../styles/signup_login.css">
-        <link rel="stylesheet" href="../styles/croppie.css">
+
+
+        <script src="../scripts/jquery.min.js"></script>
+        <script src="../scripts/croppie.js"></script>
 
 
         <!--		<font>				-->
 		<link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
 		<!--		<bootstrap>				-->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
         <script src="../scripts/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+        <link rel="stylesheet" href="../styles/croppie.css">
 
         <!--		<fav icon>				-->
 		<link rel="apple-touch-icon" sizes="180x180" href="../favicon_package_v0.16/apple-touch-icon.png">
@@ -100,8 +107,7 @@ $student = $info_student->student;
 
         <!--		<js>				-->
 		<script src="../scripts/updateprofile.js"></script>
-        <script src="../scripts/jquery.min.js"></script>
-        <script src="../scripts/croppie.js"></script>
+
 	</body>
 
 	</html>
