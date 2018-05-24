@@ -14,7 +14,7 @@ yes.addEventListener("click", () => {
 		setNewProfile();
 	}, 1000);
 	swipe_profile.classList.add("bounceOutRight");
-	if(!end_of_swipe)
+	if (!end_of_swipe)
 		ajax_liked_someone();
 });
 
@@ -40,7 +40,7 @@ function ajax_liked_someone() {
 	xhttp.onreadystatechange = function () {
 		if (this.readyState == 4 && this.status == 200) {
 			if (this.responseText == "MATCH") {
-				document.location.href = "../view/match.php?email=" + email;
+				document.location.href = "../view/match.php";
 			} else if (this.responseText == "LIKE") {
 				return true;
 			}
@@ -48,10 +48,12 @@ function ajax_liked_someone() {
 
 
 		}
+
 	}
 	xhttp.open("POST", "../controller/like_student.php", true);
 	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	console.log(email);
+	console.log(pic);
 	xhttp.send("mail=" + email);
 
 	console.log("end");
@@ -70,7 +72,10 @@ function setNewProfile() {
 		var adjs = students[0].adj1 + " - " + students[0].adj2 + " - " + students[0].adj3;
 		document.getElementById("swipe_adj").innerHTML = adjs;
 
-		if (students[0].pic != undefined) document.getElementById("swipe_picture").src = students[0].pic;
+		if (students[0].pic != undefined) {
+			pic=students[0].pic;
+			document.getElementById("swipe_picture").src = pic;
+		}
 		else document.getElementById("swipe_picture").src = '';
 		email = students[0].email;
 		students.splice(0, 1);
