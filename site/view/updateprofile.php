@@ -62,98 +62,6 @@ $student = $info_student->student;
 
 
 
-
-        <!apparait pour couper la photo-->
-
-        <div id="uploadimageModal" class="modal" role="dialog">
-            <div class="modal-dialog">
-                <div class="modal-content">
-
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>  <!boutton exit-->
-                        <h4 class="modal-title">Title</h4>
-                    </div>
-
-                    <div class="modal-body">
-                        <div class="row">
-
-
-                            <div class="col-md-8 text-center">
-                                <!--	image_demo-->
-                                <div id="image_demo" style="width:350px; margin-top:30px"></div>
-                            </div>
-
-                            <div class="col-md-4" style="padding-top:30px;">  <!à effacer????!!-->
-                                <br />
-                                <br />
-                                <br/>
-
-
-                                <!--	bouton final -->
-
-                                <button class="btn btn-success crop_image">Crop & Upload Image</button>
-
-                            </div>
-                        </div>
-                    </div>
-
-
-                </div>
-            </div>
-        </div>
-
-        <script>
-            $(document).ready(function(){
-
-                $image_crop = $('#image_demo').croppie({ <!--	image demo dans la forme coupée, affichage niveau coupage-->
-                    enableExif: true,
-                    viewport: {
-                        width:200,  <!--dimensions caré pour couper-->
-                        height:200,
-                        type:'circle' //square
-                    },
-                    boundary:{ <!--	conteneur zone de coupage-->
-                        width:300,
-                        height:300
-                    }
-                });
-
-                $('#fileToUpload').on('change', function(){     <!--	nom immage originale bloc base-->
-                    <!--	quand on choisi l'immage ce code s'execute-->
-
-                    var reader = new FileReader();   <!--	stocket tous les infos de l'immage-->
-                    reader.onload = function (event) {
-                        $image_crop.croppie('bind', {
-                            url: event.target.result
-                        }).then(function(){
-                            console.log('jQuery bind complete');
-                        });
-                    }
-
-                    reader.readAsDataURL(this.files[0]); <!--	afficher l'immage choisie dans la zone de coupage!!!!-->
-
-                    $('#uploadimageModal').modal('show'); <!--	afficher toute la fenetre de coupage!!!!-->
-
-
-                });
-
-
-
-
-                <!--	click sur le bouton final!!!!-->
-
-
-            });
-        </script>
-
-
-
-        <!--	fin couper photo-->
-
-
-
-
-
 		<div class="cloud_profile"><img src="../images/cloud.svg" alt=""></div>
 		<div class="year_email_profile">
 			<span class="DUT">DUT
@@ -194,3 +102,93 @@ $student = $info_student->student;
 	</body>
 
 	</html>
+
+
+
+
+
+
+
+<!apparait pour couper la photo-->
+
+<div id="uploadimageModal" class="modal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>  <!boutton exit-->
+                <h4 class="modal-title">Title</h4>
+            </div>
+
+            <div class="modal-body">
+                <div class="row">
+
+
+                    <div class="col-md-8 text-center">
+                        <!--	image_demo-->
+                        <div id="image_demo" style="width:350px; margin-top:30px"></div>
+                    </div>
+
+                    <div class="col-md-4" style="padding-top:30px;">  <!à effacer????!!-->
+                        <br />
+                        <br />
+                        <br/>
+
+
+                        <!--	bouton final -->
+
+                        <button class="btn btn-success crop_image">Crop & Upload Image</button>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function(){
+
+        $image_crop = $('#image_demo').croppie({ <!--	image demo dans la forme coupée, affichage niveau coupage-->
+            enableExif: true,
+            viewport: {
+                width:200,  <!--dimensions caré pour couper-->
+                height:200,
+                type:'circle' //square
+            },
+            boundary:{ <!--	conteneur zone de coupage-->
+                width:300,
+                height:300
+            }
+        });
+
+        $('#fileToUpload').on('change', function(){     <!--	nom immage originale bloc base-->
+            <!--	quand on choisi l'immage ce code s'execute-->
+
+            var reader = new FileReader();   <!--	stocket tous les infos de l'immage-->
+            reader.onload = function (event) {
+                $image_crop.croppie('bind', {
+                    url: event.target.result
+                }).then(function(){
+                    console.log('jQuery bind complete');
+                });
+            }
+
+            reader.readAsDataURL(this.files[0]); <!--	afficher l'immage choisie dans la zone de coupage!!!!-->
+
+            $('#uploadimageModal').modal('show'); <!--	afficher toute la fenetre de coupage!!!!-->
+
+
+        });
+
+
+
+
+        <!--	click sur le bouton final!!!!-->
+
+
+    });
+</script>
+
