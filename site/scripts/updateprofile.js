@@ -32,6 +32,6 @@ cancel.addEventListener('click', () => {
 
 })
 
-fileUploaded.onchange = function () {
-	imageForm.submit();
-};
+//fileUploaded.onchange = function () {
+//	imageForm.submit();
+//};
