@@ -61,7 +61,7 @@ $student = $info_student->student;
 			<label for="fileToUpload">
 					<div class="picture_profile img_profile modify-image"><div class="hover_modify">Modifier la photo</div><img src="<?= htmlspecialchars($student->pic); ?>" alt=""></div>
  			</label>
-			<input type="file" name="fileToUpload" id="fileToUpload">
+			<input type="file" accept="image/x-png, image/gif, image/jpeg" name="fileToUpload" id="fileToUpload">
 		</form>
 
 
