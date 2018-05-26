@@ -1,19 +1,17 @@
 <?php
 
 require_once("db_connect.php");
+require_once("get_student.php");
 
 $db = db_connect();
 
 if($db) {
-	$query = "SELECT password_student, id_student, validate_account, adjective_1 FROM STUDENT WHERE email = :mail";
-	$statement = $db->prepare($query);
-	$statement->bindValue(':mail', $student_mail);
-	$statement->execute();
+	$student = get_student_by_email_one_adj($student_mail);
 
-	while($row = $statement->fetch(PDO::FETCH_ASSOC)){
-		$password_hash = $row['password_student'];
-		$id_student = $row['id_student'];
-		$validate_account = $row['validate_account'];
-		$adj1 = $row['adjective_1'];
-	}
+	$password_hash = $student->getPassword();
+	$id_student = $student->getId();
+	$validate_account = $student->getValidateAccount();
+	$adj1 = $student->getAdj1();
+
+
 }

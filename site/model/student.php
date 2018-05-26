@@ -11,6 +11,8 @@ class Student {
 	private $pic;
 	private $score;
 	private $id;
+	private $password;
+	private $validate_account;
 
 	public function __construct($surname, $description=NULL, $year=NULL, $email=NULL, $pic=NULL) {
 		$this->surname = $surname;
@@ -20,8 +22,20 @@ class Student {
 		if(!$pic == NULL) 	$this->pic = $pic;
 	}
 
+	public function getAdj1() {
+		return $this->adj1;
+	}
+
 	public function getSurname() {
 		return $this->surname;
+	}
+
+	public function getValidateAccount() {
+		return $this->validate_account;
+	}
+
+	public function getPassword() {
+		return $this->password;
 	}
 
 	public function getDescription() {
@@ -63,6 +77,17 @@ class Student {
 		$this->score = $score;
 	}
 
+	public function setPassword($password){
+		$this->password = $password;
+	}
+	public function setValidateAccount($validate_account){
+		$this->validate_account = $validate_account;
+	}
+
+	public function setAdjectiveOne($adj1){
+		$this->adj1 = $adj1;
+	}
+
 	public function setAdjectives($adj1, $adj2, $adj3){
 		$this->adj1 = $adj1;
 		$this->adj2 = $adj2;
@@ -83,5 +108,5 @@ class Student {
 		return $return;
 	}
 
-	
+
 }
