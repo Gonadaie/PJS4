@@ -15,7 +15,7 @@ $student = $info_student->student;
 
 	<head>
 		<meta charset="utf-8" />
-		<title>Profil Other User</title>
+		<title>Mon profile</title>
 		<!--		<CSS>				-->
 		<link rel="stylesheet" href="../styles/main.css">
 		<link rel="stylesheet" href="../styles/signup_login.css">
@@ -200,4 +200,3 @@ $student = $info_student->student;
 
     });
 </script>
-

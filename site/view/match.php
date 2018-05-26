@@ -10,7 +10,7 @@ if(!isset($_SESSION['id']))
 
 	<head>
 		<meta charset="utf-8" />
-		<title>You Find The Right One</title>
+		<title>That's a match !</title>
 		<!--		<CSS>				-->
 		<link rel="stylesheet" href="../styles/main.css">
 		<link rel="stylesheet" href="../styles/signup_login.css">

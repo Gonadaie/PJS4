@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8" />
-	<title>Log In</title>
+	<title>Nouveau mot de passe</title>
 	<link rel="stylesheet" href="../styles/main.css">
 	<link rel="stylesheet" href="../styles/signup_login.css">
 	<link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">

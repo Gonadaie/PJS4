@@ -4,7 +4,7 @@
 
 <head>
 	<meta charset="utf-8" />
-	<title>Personality Test</title>
+	<title>Test de personnalité</title>
 	<link rel="stylesheet" href="../styles/main.css">
 	<link rel="stylesheet" href="../styles/signup_login.css">
 	<link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
@@ -24,7 +24,7 @@
 			display: block;
 			text-align: center;
 		}
-		
+
 		.title_logo {
 			margin-top: 25%;
 		}
