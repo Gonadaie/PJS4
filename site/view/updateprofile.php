@@ -197,6 +197,26 @@ $student = $info_student->student;
 
         <!--	click sur le bouton final!!!!-->
 
+        $('.crop_image').click(function(event){      <!--	fonction qui s'execute quand on click sur le bouton final!!!!-->
+            $image_crop.croppie('result', {    <!--	methode pour obtenir l'immage coupée!!!!-->
+                type: 'canvas',
+                size: 'viewport' <!--	la taille de limmage va être la taille de la zone de coupage !!!!-->
+
+            }).then(function(response){ <!--fonction qui envoie l'immage coupée finale !!!!-->
+                $.ajax({
+                    url:"../model/updateprofile.php",  <!--	appel fichier php pour enregistrer immage-->
+                    type: "POST",      <!--	envoie réponse au server!!!!-->
+                    data:{"image": response}, <!--	ce qu'on veut envoyer au serveur, une immage qui est contenue dans la réponse pour le serveur!!!!-->
+
+
+                    success:function(data) <!--	fonction qui reçoit des données du serveur!!!!-->
+                    {
+                        $('#uploadimageModal').modal('hide'); <!--	cacher la fenetre de coupage !!!!-->
+                    }
+                });
+            })
+        });
+
 
     });
 </script>

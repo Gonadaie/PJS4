@@ -29,6 +29,7 @@ if($db) {
 		header('Location:http://tinder.student.elwinar.com/view/updateprofile.php');
 	}
 }
+/*
 if(isset($_FILES["fileToUpload"])){
 	$target_dir = "../images/images_student/";
 	$file_type = $target_dir . basename($_FILES["fileToUpload"]["name"]);
@@ -89,6 +90,61 @@ if(isset($_FILES["fileToUpload"])){
 	}
 
 }
+*/
+
+
+
+
+    if(isset($_POST["image"])){
+        $target_dir = "../images/images_student/";
+        $file_type = $target_dir . basename($_POST["image"]["name"]);
+        $imageFileType = strtolower(pathinfo($file_type,PATHINFO_EXTENSION));
+        $target_file = $target_dir .str_replace(".", "", $student->getEmail()).".".$imageFileType;
+        $uploadOk = 1;
+        $errorMessages = [];
+
+
+
+
+
+        // Check if $uploadOk is set to 0 by an error
+        if ($uploadOk == 1)  {
+            if(file_exists($target_file)){
+                unlink($target_file);
+
+            }
+            move_uploaded_file($_POST["image"]["tmp_name"], $target_file);
+            //Delete EXIF DATA (tibo maj)
+            $path = $target_file;
+            switch ($imageFileType){
+                case "jpg":
+                case "jpeg":
+                    $img = imagecreatefromjpeg($path);
+                    $imagejpeg($img, $path, 100);
+                    $imagedestroy ($img);
+                    break;
+                case  "png":
+                    $img = imagecreatefrompng($path);
+                    $imagepng($img, $path, 100);
+                    $imagedestroy ($img);
+                    break;
+            }
+            //EnD
+            header('Location:http://tinder.student.elwinar.com/view/updateprofile.php');
+            $query = "UPDATE student SET pic = :image WHERE id_student = :id";
+            $statement = $db->prepare($query);
+            $statement->bindvalue(':image', $target_file);
+            $statement->bindvalue(':id', $student->getId());
+            $statement -> execute();
+        }
+
+    }
+
+
+
+
+
+
 }
 
 //
