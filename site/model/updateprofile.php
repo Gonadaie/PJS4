@@ -29,7 +29,8 @@ if($db) {
 		header('Location:http://tinder.student.elwinar.com/view/updateprofile.php');
 	}
 }
-/*
+
+
 if(isset($_FILES["fileToUpload"])){
 	$target_dir = "../images/images_student/";
 	$file_type = $target_dir . basename($_FILES["fileToUpload"]["name"]);
@@ -90,21 +91,18 @@ if(isset($_FILES["fileToUpload"])){
 	}
 
 }
-*/
 
 
 
 
-    if(isset($_POST["image"])){
+
+    /*if(isset($_POST["image"])){
         $target_dir = "../images/images_student/";
         $file_type = $target_dir . basename($_POST["image"]["name"]);
         $imageFileType = strtolower(pathinfo($file_type,PATHINFO_EXTENSION));
         $target_file = $target_dir .str_replace(".", "", $student->getEmail()).".".$imageFileType;
         $uploadOk = 1;
         $errorMessages = [];
-
-
-
 
 
         // Check if $uploadOk is set to 0 by an error
@@ -140,12 +138,14 @@ if(isset($_FILES["fileToUpload"])){
 
     }
 
-
-
-
+*/
 
 
 }
+
+
+
+
 
 //
 //	//UPDATE de la description
