@@ -6,7 +6,7 @@ $mobile = false;
 if (isset($_GET['email'])){
 	$student_mail = $_GET['email'];
 	$student = get_student_by_email($student_mail);
-	$currentUser = get_student_by_id($_SESSION['id'];
+	$currentUser = get_student_by_id($_SESSION['id']);
 	if ($student -> getEmail() <> $currentUser-> getEmail()){
 		header('Location:../view/updateprofile.php');
 	}
