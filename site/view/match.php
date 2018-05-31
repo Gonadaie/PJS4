@@ -42,9 +42,7 @@ if(!isset($_SESSION['id']))
 			<div class="match_continue">
 				<a href="swipe.php"><img src="../images/continue.png" alt="continue"></a>
 			</div>
-			<div class="img_profile match_pic_top">
-				<a href="updateprofile.php"><img src="../images/images_student/alice.png" alt=""></a>
-			</div>
+		
 
 			<div class="match_talk"><img src="../images/Talk.png" alt="talk"></div>
 			<!-- faire un truc en js qui permette d'aller sur le profil de la personne cf match -->
