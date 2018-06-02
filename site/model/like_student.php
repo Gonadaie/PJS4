@@ -32,7 +32,7 @@ function get_student_match($id1, $id2){
   function update_student_match($id1, $id2){
     $db = db_connect();
     if($db) {
-      $query_update_match_first = "UPDATE student_match SET liked_by_god_son = true, result = true, liked_by_god_father = true WHERE student_id_god_father = :id1 AND student_id_god_son = :id2";
+      $query_update_match_first = "UPDATE student_match SET liked_by_god_son = 1, result = true, liked_by_god_father = 1 WHERE id_student_god_father = :id1 AND id_student_god_son = :id2";
       $statement_update_match_first = $db->prepare($query_update_match_first);
       $statement_update_match_first->bindValue(':id1', $id1);
       $statement_update_match_first->bindValue(':id2', $id2);
@@ -50,7 +50,7 @@ function get_student_match($id1, $id2){
   function insert_match_first($id1, $id2){
     $db = db_connect();
     if($db) {
-      $query_set_match_first = "INSERT INTO student_match(student_id_god_son, student_id_god_father, liked_by_god_son) VALUES(:id1,:id2, true)";
+      $query_set_match_first = "INSERT INTO student_match(id_student_god_son, id_student_god_father, liked_by_god_son) VALUES(:id1,:id2, 1)";
       $statement_set_match_first = $db->prepare($query_set_match_first);
       $statement_set_match_first->bindValue(':id1', $id1);
       $statement_set_match_first->bindValue(':id2', $id2);
@@ -68,7 +68,7 @@ function get_student_match($id1, $id2){
   function insert_match_second($id1, $id2){
     $db = db_connect();
     if($db) {
-      $query_set_match_first = "INSERT INTO student_match(student_id_god_son, student_id_god_father, liked_by_god_father) VALUES(:id1,:id2, true)";
+      $query_set_match_first = "INSERT INTO student_match(id_student_god_son, id_student_god_father, liked_by_god_father) VALUES(:id1,:id2, 1)";
       $statement_set_match_first = $db->prepare($query_set_match_first);
       $statement_set_match_first->bindValue(':id1', $id1);
       $statement_set_match_first->bindValue(':id2', $id2);
