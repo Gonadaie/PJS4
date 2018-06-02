@@ -36,13 +36,40 @@ function updateDescription($student) {
 }
 
 
-/*if(isset($_POST["image"])){
+
+
+
+
+/*if(isset($_FILES["fileToUpload"])){
   $target_dir = "../images/images_student/";
-  $file_type = $target_dir . basename($_POST["image"]["name"]);
+  $file_type = $target_dir . basename($_FILES["fileToUpload"]["name"]);
   $imageFileType = strtolower(pathinfo($file_type,PATHINFO_EXTENSION));
   $target_file = $target_dir .str_replace(".", "", $student->getEmail()).".".$imageFileType;
   $uploadOk = 1;
   $errorMessages = [];
+
+  //Check if image is an image
+  if(isset($_POST["submit"])){
+	  $check=getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+	  if($check!==false){
+		  $uploadOk=1;
+	  }else{
+		  array_push($array:$errorMessssages, var: "Le fichier choisi n'est pas une immage");
+		  $uploadOk=0;
+	  }
+  }
+
+  //Check file size
+  if($_FILE["fileToUpload"]["size"]>2000000){
+	  array_push($array:$errorMessssages, var: "La taille maximale autorisée est de 2Mb");	  
+	  $uploadOk=0;
+  }
+
+  //Allow certain file formats
+  if($imageFileType!="jpg" && $imageFileType!="png" && $imageFileType!="jpeg") {
+	  array_push($array:$errorMessssages, var: "Seuls les fichiers JPG, JPEG et PNG sont autorisés");	  
+	  $uploadOk=0;
+  }
 
 
 // Check if $uploadOk is set to 0 by an error
@@ -51,7 +78,7 @@ if(file_exists($target_file)){
 unlink($target_file);
 
 }
-move_uploaded_file($_POST["image"]["tmp_name"], $target_file);
+move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file);
 //Delete EXIF DATA (tibo maj)
 $path = $target_file;
 switch ($imageFileType){
@@ -79,6 +106,11 @@ $statement -> execute();
 }
 
  */
+
+
+
+
+
 
 //
 //	//UPDATE de la description
