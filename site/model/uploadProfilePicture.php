@@ -25,17 +25,15 @@ if(isset($_POST["image"]))
 //    echo '<img src="'.$imageName.'" class="img-thumbnail" />';
 
 
+//    $imagePath="../images/images_student/";
+//    $imageName = $imagePath.str_replace(".", "", "marina.botnari").".png";
+//    file_put_contents($imageName, $data);
+//    echo '<img src="'.$imageName.'" class="img-thumbnail" />';
 
-// marche pas
-//    $target_dir = "../images/images_student/";
-//    $target_file = $target_dir .str_replace(".", "", "marina.botnari").".png";
-//    file_put_contents($target_file, $data);
-//    echo '<img src="'.$target_file.'" class="img-thumbnail" />';
-
-    $imagePath="../images/images_student/";
-    $imageName = $imagePath.str_replace(".", "", "marina.botnari").".png";
-    file_put_contents($imageName, $data);
-    echo '<img src="'.$imageName.'" class="img-thumbnail" />';
+      $imagePath="../images/images_student/";
+      $imageName = $imagePath.str_replace(".", "", $student->getEmail()).".png";
+      file_put_contents($imageName, $data);
+      echo '<img src="'.$imageName.'" class="img-thumbnail" />';
 
 }
 
