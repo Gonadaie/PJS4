@@ -1,5 +1,7 @@
 <?php
-
+/**
+ *Send a mail to the student once he sign up
+**/
 require("better_crypt.php");
 require("../model/register-student.php");
 

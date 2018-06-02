@@ -1,9 +1,11 @@
 drop table if exists student CASCADE;
-drop table if exists matched CASCADE;
+drop table if exists student_match CASCADE;
 drop table if exists message CASCADE;
 drop table if exists adjective CASCADE;
-drop table if exists token CASCADE;
+drop table if exists token_on_create CASCADE;
 drop table if exists token_keep_me_logged CASCADE;
+drop table if exists token_forgot_passwd CASCADE;
+drop table if exists conversation CASCADE;
  
 create table adjective (
     id_adjective SERIAL primary key,
@@ -26,7 +28,7 @@ create table student (
     validate_account boolean default false,
     foreign key (adjective_1) references adjective(id_adjective) ,
     foreign key (adjective_2) references adjective(id_adjective),
-    foreign key (adjective_3) references adjective(id_adjective),
+    foreign key (adjective_3) references adjective(id_adjective)
 );
  
 create table student_match (
@@ -34,9 +36,11 @@ create table student_match (
     result boolean default false, 
     id_student_god_father integer not null,
     id_student_god_son integer not null,
-    liked_by_god_father boolean default false,
-    liked_by_god_son boolean default false, 
-    final default false,
+    liked_by_god_father integer default -1,
+    liked_by_god_son integer default -1, 
+    final boolean default false,
+    final_by_god_father boolean default false,
+    final_by_god_son boolean default false,
     foreign key (id_student_god_father) references Student(id_student),
     foreign key (id_student_god_son) references Student(id_student)
 );
@@ -48,13 +52,14 @@ create table conversation (
     foreign key (student_1) references Student(id_student),
     foreign key (student_2) references Student(id_student)
  
-)
+);
 create table message (
-    id_message SERIAL primary key,
-    id_conversation integer not null,
+    id_message integer,
+    id_conversation integer,
     date_message date,
     content text,
     id_sender integer not null,
+    PRIMARY KEY(id_message, id_conversation),
     foreign key (id_sender) references Student(id_student),
     foreign key (id_conversation) references conversation(id_conversation)
 );
