@@ -30,10 +30,16 @@ if(isset($_POST["image"]))
 //    file_put_contents($imageName, $data);
 //    echo '<img src="'.$imageName.'" class="img-thumbnail" />';
 
-      $imagePath="../images/images_student/";
-      $imageName = $imagePath.str_replace(".", "", $student->getEmail()).".png";
-      file_put_contents($imageName, $data);
-      echo '<img src="'.$imageName.'" class="img-thumbnail" />';
+      $db = db_connect();
+
+      if($db) {
+
+          $imagePath = "../images/images_student/";
+          $imageName = $imagePath . str_replace(".", "", $student->getEmail()) . ".png";
+          file_put_contents($imageName, $data);
+          echo '<img src="' . $imageName . '" class="img-thumbnail" />';
+
+      }
 
 }
 
