@@ -22,16 +22,14 @@ create table student (
     adjective_1 integer ,
     adjective_2 integer ,
     adjective_3 integer ,
-    id_match integer ,
     admin boolean default false,
     validate_account boolean default false,
     foreign key (adjective_1) references adjective(id_adjective) ,
     foreign key (adjective_2) references adjective(id_adjective),
     foreign key (adjective_3) references adjective(id_adjective),
-    foreign key (id_match) references matched(id_match)   
 );
  
-create table matched (
+create table student_match (
     id_match SERIAL primary key,
     result boolean default false, 
     id_student_god_father integer not null,
