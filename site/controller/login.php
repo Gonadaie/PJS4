@@ -30,7 +30,7 @@
 		else
 			delete_stay_connected($student_mail);
 		session_start();
-		$_SESSION['id'] = $id_student;
+		$_SESSION['id'] = $student_id;
 		$_SESSION['mail'] = $student_mail;
 		if(is_null($adj1))
 			echo "FIRST";
