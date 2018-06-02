@@ -18,13 +18,21 @@ if(isset($_POST["image"]))
 
     $data = base64_decode($image_array_2[1]);
 
-    //$target_file = $target_dir .str_replace(".", "", $student->getEmail()).".".$imageFileType;
 
-    $imageName = "../images/images_student/titi.png";
+
+    $imageName = "../images/images_student/blabla.jpg";
 
     file_put_contents($imageName, $data);
 
     echo '<img src="'.$imageName.'" class="img-thumbnail" />';
+
+
+
+
+//    $target_dir = "../images/images_student/";
+//    $file_type = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+//    $imageFileType = strtolower(pathinfo($file_type,PATHINFO_EXTENSION));
+//    $target_file = $target_dir .str_replace(".", "", $student->getEmail()).".".$imageFileType;
 
 }
 
