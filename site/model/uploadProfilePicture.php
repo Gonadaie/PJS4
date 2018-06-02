@@ -20,19 +20,17 @@ if(isset($_POST["image"]))
 
 
 
-    $imageName = "../images/images_student/blabla.jpg";
-
-    file_put_contents($imageName, $data);
-
-    echo '<img src="'.$imageName.'" class="img-thumbnail" />';
+//    $imageName = "../images/images_student/blabla.jpg";
+//    file_put_contents($imageName, $data);
+//    echo '<img src="'.$imageName.'" class="img-thumbnail" />';
 
 
 
 
-//    $target_dir = "../images/images_student/";
-//    $file_type = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-//    $imageFileType = strtolower(pathinfo($file_type,PATHINFO_EXTENSION));
-//    $target_file = $target_dir .str_replace(".", "", $student->getEmail()).".".$imageFileType;
+    $target_dir = "../images/images_student/";
+    $target_file = $target_dir .str_replace(".", "", $student->getEmail()).".png";
+    file_put_contents($target_file, $data);
+    echo '<img src="'.$target_file.'" class="img-thumbnail" />';
 
 }
 
