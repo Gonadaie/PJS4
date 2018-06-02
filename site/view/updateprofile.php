@@ -204,7 +204,7 @@ $student = $info_student->student;
 
             }).then(function(response){ <!--fonction qui envoie l'immage coupée finale !!!!-->
                 $.ajax({
-                    url:"../model/updateProfilePicture.php",  <!--	appel fichier php pour enregistrer immage-->
+                    url:"../model/uploadProfilePicture.php",  <!--	appel fichier php pour enregistrer immage-->
                     type: "POST",      <!--	envoie réponse au server!!!!-->
                     data:{"image": response}, <!--	ce qu'on veut envoyer au serveur, une immage qui est contenue dans la réponse pour le serveur!!!!-->
 
