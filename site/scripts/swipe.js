@@ -23,10 +23,11 @@ no.addEventListener("click", () => {
 		setNewProfile();
 	}, 1000);
 	swipe_profile.classList.add("bounceOutLeft");
+	if (!end_of_swipe)
+		ajax_disliked_someone();
 });
 
 function top_back() {
-
 	swipe_profile.classList.remove("bounceOutRight");
 	swipe_profile.classList.remove("bounceOutLeft");
 	swipe_profile.classList.add("bounceInDown");
@@ -45,16 +46,33 @@ function ajax_liked_someone() {
 			} else if (this.responseText == "LIKE") {
 				return true;
 			}
-
-
-
 		}
 
 	}
 	xhttp.open("POST", "../controller/like_student.php", true);
 	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	console.log(email);
-	console.log(pic);
+	xhttp.send("mail=" + email);
+
+	console.log("end");
+	return false;
+}
+
+function ajax_disliked_someone() {
+	console.log("we are in disliked function");
+	var xhttp = new XMLHttpRequest();
+
+	xhttp.onreadystatechange = function () {
+		if (this.readyState == 4 && this.status == 200) {
+			if (this.responseText == "DISLIKE") {
+				return true;
+			}
+		}
+	}
+	xhttp.open("POST", "../controller/dislike_student.php", true);
+	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	console.log(email);
+
 	xhttp.send("mail=" + email);
 
 	console.log("end");
