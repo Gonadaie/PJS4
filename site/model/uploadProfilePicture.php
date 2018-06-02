@@ -20,7 +20,7 @@ if(isset($_POST["image"]))
 
     //$target_file = $target_dir .str_replace(".", "", $student->getEmail()).".".$imageFileType;
 
-    $imageName = "../images/images_student/titi.jpg";
+    $imageName = "../images/images_student/titi.png";
 
     file_put_contents($imageName, $data);
 
