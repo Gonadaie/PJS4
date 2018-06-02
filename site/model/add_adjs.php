@@ -7,7 +7,7 @@ require('db_connect.php');
 if($db and session_start()) {
 	$query = "UPDATE STUDENT SET adjective_1 = (SELECT id_adjective FROM ADJECTIVE WHERE wording = :adj1),
 				adjective_2 = (SELECT id_adjective FROM ADJECTIVE WHERE wording = :adj2),
-				adjective_3 = (SELECT id_adjective FROM ADJECTIVE WHERE wording = :adj3) WHERE id_student = :id";
+				adjective_3 = (SELECT id_adjective FROM ADJECTIVE WHERE wording = :adj3) WHERE student_id = :id";
 	$statement = $db->prepare($query);
 	$statement->bindValue(':adj1', $_POST['adj1']);
 	$statement->bindValue(':adj2', $_POST['adj2']);
@@ -28,7 +28,7 @@ function add_adjs($idstudent, $adj1, $adj2, $adj3){
 	$db = db_connect();
 	$query = "UPDATE STUDENT SET adjective_1 = (SELECT id_adjective FROM ADJECTIVE WHERE wording = :adj1),
 				adjective_2 = (SELECT id_adjective FROM ADJECTIVE WHERE wording = :adj2),
-				adjective_3 = (SELECT id_adjective FROM ADJECTIVE WHERE wording = :adj3) WHERE id_student = :id";
+				adjective_3 = (SELECT id_adjective FROM ADJECTIVE WHERE wording = :adj3) WHERE student_id = :id";
 	$statement = $db->prepare($query);
 	$statement->bindValue(':adj1', $adj1);
 	$statement->bindValue(':adj2', $adj2);

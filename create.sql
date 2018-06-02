@@ -11,10 +11,10 @@ create table adjective (
 );
 
 create table student (
-	id_student SERIAL primary key,
+	student_id SERIAL primary key,
 	surname varchar(30) not null,
 	email varchar(50) not null UNIQUE,
-	password_student text not null,
+	student_password text not null,
 	year integer not null,
 	pic varchar(300), 
 	description text,
@@ -31,12 +31,12 @@ create table student (
 create table match (
 	id_match SERIAL primary key,
 	result boolean default false, 
-	id_student_god_father integer not null,
-	id_student_god_son integer not null,
+	student_id_god_father integer not null,
+	student_id_god_son integer not null,
 	liked_by_god_father boolean default false,
 	liked_by_god_son boolean default false,	
-	foreign key (id_student_god_father) references Student(id_student),
-	foreign key (id_student_god_son) references Student(id_student)
+	foreign key (student_id_god_father) references Student(student_id),
+	foreign key (student_id_god_son) references Student(student_id)
 );
 
 create table message (
@@ -45,30 +45,30 @@ create table message (
 	date_message date,
 	content text,
 	id_sender integer not null,
-	foreign key (id_sender) references Student(id_student)
+	foreign key (id_sender) references Student(student_id)
 );
 
 create table token (
 	birth date,
 	token varchar(32),
 	is_alive boolean default true,
-	id_student integer primary key,
-	foreign key (id_student) references student(id_student) on delete cascade
+	student_id integer primary key,
+	foreign key (student_id) references student(student_id) on delete cascade
 );
 
 create table token_keep_me_logged (
 	birth date,
 	token varchar(32),
 	is_alive boolean default true,
-	id_student integer primary key,
-	foreign key (id_student) references student(id_student) on delete cascade
+	student_id integer primary key,
+	foreign key (student_id) references student(student_id) on delete cascade
 );
 
 create table token_forgot_passwd (
 	birth date,
 	token varchar(32),
-	id_student integer primary key,
-	foreign key (id_student) references student(id_student) on delete cascade
+	student_id integer primary key,
+	foreign key (student_id) references student(student_id) on delete cascade
 );
 
 insert into adjective (wording) values ('Froid') ;

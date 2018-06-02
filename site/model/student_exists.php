@@ -5,13 +5,13 @@ require_once("db_connect.php");
 $db = db_connect();
 
 if($db) {
-	$query = "SELECT id_student FROM STUDENT WHERE email = :mail and validate_account = true";
+	$query = "SELECT student_id FROM STUDENT WHERE email = :mail and validate_account = true";
 	$statement = $db->prepare($query);
 	$statement->bindValue(':mail', $student_mail);
 	$statement->execute();
 
 
 	while($row = $statement->fetch(PDO::FETCH_ASSOC)){
-		$id_student = $row['id_student'];
+		$student_id = $row['student_id'];
 	}
 }

@@ -18,7 +18,7 @@ function create_forgot_passwd_token($token_hash, $student_mail) {
 		if(isset($student_id)) {
 
 			//if a previous token exists, then delete it
-			$delete_query = "DELETE FROM token_forgot_passwd WHERE id_student=:id";
+			$delete_query = "DELETE FROM token_forgot_passwd WHERE student_id=:id";
 			$delete_statement = $db->prepare($delete_query);
 			$delete_statement->bindValue(":id", $student_id);
 			$delete_statement->execute();

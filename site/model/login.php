@@ -9,7 +9,7 @@ if($db) {
 	$student = get_student_by_email_one_adj($student_mail);
 
 	$password_hash = $student->getPassword();
-	$id_student = $student->getId();
+	$student_id = $student->getId();
 	$validate_account = $student->getValidateAccount();
 	$adj1 = $student->getAdj1();
 

@@ -6,14 +6,14 @@ function getNbMatchs($student) {
 	if($db) {
 
 		if ($student->getYear() == 2){
-			$sql = "SELECT count(*) FROM match WHERE id_student_god_father =:id and result = true";
+			$sql = "SELECT count(*) FROM match WHERE student_id_god_father =:id and result = true";
 			$result = $db->prepare($sql);
 			$result -> bindvalue(':id',$student->getId());
 			$result->execute();
 			$match = $result->fetchColumn();
 		}
 		else if($student->getYear()==1){
-			$sql = "SELECT COUNT (*) from match WHERE id_student_god_son =:id and result = true";
+			$sql = "SELECT COUNT (*) from match WHERE student_id_god_son =:id and result = true";
 			$result = $db->prepare($sql);
 			$result -> bindvalue(':id',$student->getId());
 			$result->execute();
@@ -27,7 +27,7 @@ function updateDescription($student) {
 
 	if($db){
 		$newDescription = $_POST['description'];
-		$query = "UPDATE student SET description = :newDescription WHERE id_student = :id";
+		$query = "UPDATE student SET description = :newDescription WHERE student_id = :id";
 		$statement = $db->prepare($query);
 		$statement->bindvalue(':newDescription',$newDescription);
 		$statement->bindvalue(':id', $student->getId());
@@ -69,7 +69,7 @@ break;
 }
 //EnD
 header('Location:http://tinder.student.elwinar.com/view/updateprofile.php');
-$query = "UPDATE student SET pic = :image WHERE id_student = :id";
+$query = "UPDATE student SET pic = :image WHERE student_id = :id";
 $statement = $db->prepare($query);
 $statement->bindvalue(':image', $target_file);
 $statement->bindvalue(':id', $student->getId());
@@ -85,7 +85,7 @@ $statement -> execute();
 //	if(isset($_POST['updatedescribe'])){
 //
 //			$resume = $_POST['resumestudent'];
-//			$query = "UPDATE student SET description = :inputresume WHERE id_student = :id";
+//			$query = "UPDATE student SET description = :inputresume WHERE student_id = :id";
 //			$statement = $db->prepare($query);
 //			$statement->bindvalue(':inputresume',$resume);
 //			$statement->bindvalue(':id', $_SESSION['id']);
@@ -95,7 +95,7 @@ $statement -> execute();
 //			$destination = $filepath.$filename;
 //			$succesupload = upload('upload_pic', $destination);
 //		if ($succesupload){
-//			$query_getpic = "SELECT pic from student where id_student = :id";
+//			$query_getpic = "SELECT pic from student where student_id = :id";
 //			$statement_getpic = $db -> prepare($query_getpic);
 //			$statement_getpic -> bindvalue(':id', $_SESSION['id']);
 //			$statement_getpic -> execute();
@@ -105,7 +105,7 @@ $statement -> execute();
 //			if (strcmp($oldpicpath, "../images/images_student/basephoto.jpg")!=0){
 //				unlink($oldpicpath);
 //			}
-//			$query_updatepic = "UPDATE student SET pic = :picpath WHERE id_student = :id";
+//			$query_updatepic = "UPDATE student SET pic = :picpath WHERE student_id = :id";
 //			$statement_updatepic = $db-> prepare($query_updatepic);
 //			$statement_updatepic -> bindvalue('id:', $_SESSION['id']);
 //			$statement_updatepic -> execute();

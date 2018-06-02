@@ -45,9 +45,9 @@ if(!isset($_SESSION['id']))
 		
 
 			<div class="match_talk"><img src="../images/Talk.png" alt="talk"></div>
-			<!-- faire un truc en js qui permette d'aller sur le profil de la personne cf match -->
+			<!-- faire un truc en js qui permette d'aller sur le profile de la personne cf match -->
 			<div class="img_profile match_pic_bot">
-				<a href="profil_other_user.php?email=<?= $_POST['mail']?>"><img src="<?= $_POST['pic']?>" alt=""></a>
+				<a href="profile_other_user.php?email=<?= $_POST['mail']?>"><img src="<?= $_POST['pic']?>" alt=""></a>
 			</div>
 			<div class="match_slogan">Votre histoire commence ici.</div>
 		</div>

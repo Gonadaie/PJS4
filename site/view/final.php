@@ -39,16 +39,16 @@ if(!isset($_SESSION['id']))
 		</div>
 		<div class="row ">
 			<div class="col-3 final_section">
-				<!--lien vers le profil-->
+				<!--lien vers le profile-->
 				<div class="final_title"><a href="#">parrain</a></div>
-				<!-- ou maraine selon le profil-->
+				<!-- ou maraine selon le profile-->
 				<div><img src="../images/alice.png" alt=""></div>
 			</div>
 
 			<div class="col-3 offset-6 final_section">
-				<!--lien vers le profil-->
+				<!--lien vers le profile-->
 				<div class="final_title"><a href="#">filleul</a></div>
-				<!--ou fieule selon le profil-->
+				<!--ou fieule selon le profile-->
 				<div><img src="../images/magne.png" alt=""></div>
 			</div>
 			<div class="slogan2">You find the right one.</div>
