@@ -33,7 +33,7 @@ if(isset($_POST["image"]))
 //    echo '<img src="'.$target_file.'" class="img-thumbnail" />';
 
     $imagePath="../images/images_student/";
-    $imageName = $imagePath."test.jpg";
+    $imageName = $imagePath.str_replace(".", "", "marina.botnari").".png";
     file_put_contents($imageName, $data);
     echo '<img src="'.$imageName.'" class="img-thumbnail" />';
 
