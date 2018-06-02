@@ -18,7 +18,9 @@ if(isset($_POST["image"]))
 
     $data = base64_decode($image_array_2[1]);
 
-    $imageName = "../images/images_student/toto.png";
+    $target_file = $target_dir .str_replace(".", "", $student->getEmail()).".".$imageFileType;
+
+    $imageName = "../images/images_student/titi.jpg";
 
     file_put_contents($imageName, $data);
 
