@@ -5,7 +5,7 @@ require_once('back_office_tools.php');
 
 $student_list = get_all_student();
 
-$csv_file = "../liste_etudiant.csv";
+$csv_file = "../Back_office/liste_etudiant.csv";
 
 build_csv($csv_file, $student_list);
 

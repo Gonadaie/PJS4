@@ -75,24 +75,22 @@ function get_student_by_id($id){
 }
 
 function get_student_by_email_no_adj($email){
+  error_log(print_r($email, TRUE));
   $db = db_connect();
   if($db) {
     $query = "SELECT S.student_id, S.score, S.year, S.surname, S.email, S.pic, S.description
     FROM STUDENT S WHERE S.email = :student_email";
 
-
   	$statement = $db->prepare($query);
   	$statement->bindValue(':student_email', $email);
   	$statement->execute();
-
   	$row = $statement->fetch(PDO::FETCH_ASSOC);
   	$student = new Student($row['surname'], $row['description'],
 		$row['year'], $row['email'], $row['pic']);
-
+    error_log(print_r($row['surname'], TRUE));
     $student->setId($row['student_id']);
     $student->setScore($row['score']);
     return $student;
-
   }
 }
 
