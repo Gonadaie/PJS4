@@ -1,9 +1,9 @@
 <?php
 function db_connect(){
 	$host_db='localhost';
-	$name_db='tinder';
-	$user_db='tinder';
-	$pass_db='tinder123';
+	$name_db='skipti';
+	$user_db='skipti';
+	$pass_db='skipti123';
 
 	$db;
 	try{
