@@ -12,6 +12,7 @@ else{
 }
 
 require("../model/updateprofile.php");
+require("../model/uploadProfilePicture.php");
 
 $nb_matchs = getNbMatchs($student);
 
@@ -22,8 +23,12 @@ if(isset($_POST["description"])){
 	}
 }
 
+if(isset($_POST["image"]))
+{
+    uploadProfilePicture($student,$_POST["image"]);
+}
 
-if(isset($_FILES["fileToUpload"])){
+/*if(isset($_FILES["fileToUpload"])){
 	$target_dir = "../images/images_student/";
 	$file_type = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 	$imageFileType = strtolower(pathinfo($file_type,PATHINFO_EXTENSION));
@@ -82,7 +87,7 @@ if(isset($_FILES["fileToUpload"])){
 		$statement -> execute();
 	}
 
-}
+} */
 
 
 
