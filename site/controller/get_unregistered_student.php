@@ -20,6 +20,7 @@ function get_unregistered_student($student_list_file){
   foreach ($list as $fields) {
     error_log(print_r(gettype($fields), TRUE));
     error_log(print_r($fields, TRUE));
+    str_replace("\n", "", $fields);
     $student = get_student_by_email_no_adj($fields);
 
     if($student == null){
