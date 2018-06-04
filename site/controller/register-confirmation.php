@@ -28,7 +28,7 @@ $mailer = new Swift_Mailer($transport);
 
 $root = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/';
 
-$registration_link = 'http://tinder.student.elwinar.com/view/loginPerso.php?token='.$token_hash.'&name='.$student_name;
+$registration_link = 'http://skipti.fr/view/loginPerso.php?token='.$token_hash.'&name='.$student_name;
 
 $message = (new Swift_Message("Registration confirmation"))
 	->setFrom(["find.the.r8.one@gmail.com" => "Find the right one"])

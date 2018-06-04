@@ -20,7 +20,7 @@ $mailer = new Swift_Mailer($transport);
 
 $root = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/';
 
-$psw_link = 'http://tinder.student.elwinar.com/view/change_passwd.php?mail='.$student_mail.'&token='.$token_hash;
+$psw_link = 'http://skipti.fr/view/change_passwd.php?mail='.$student_mail.'&token='.$token_hash;
 
 $message = (new Swift_Message("Change your password"))
 	->setFrom(["find.the.r8.one@gmail.com" => "Find the right one"])
