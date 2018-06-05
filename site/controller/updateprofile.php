@@ -19,7 +19,8 @@ $nb_matchs = getNbMatchs($student);
 if(isset($_POST["description"])){
 	if(!empty($_POST["description"])){
 		updateDescription($student);
-		header('Location:http://tinder.student.elwinar.com/view/updateprofile.php');
+		if(!$mobile)
+			header('Location:http://tinder.student.elwinar.com/view/updateprofile.php');
 	}
 }
 
