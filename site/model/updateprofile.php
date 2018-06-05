@@ -22,11 +22,10 @@ function getNbMatchs($student) {
 	}
 }
 
-function updateDescription($student) {
+function updateDescription($student, $description) {
 	$db = db_connect();
 
 	if($db){
-		$newDescription = $_POST['description'];
 		$query = "UPDATE student SET description = :newDescription WHERE student_id = :id";
 		$statement = $db->prepare($query);
 		$statement->bindvalue(':newDescription',$newDescription);

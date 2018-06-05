@@ -18,15 +18,18 @@ $nb_matchs = getNbMatchs($student);
 
 if(isset($_POST["description"])){
 	if(!empty($_POST["description"])){
-		updateDescription($student);
+		$newDescription = $_POST['description'];
+		updateDescription($student, $newDescription);
+		$student->setDescription($newDescription);
 		if(!$mobile)
 			header('Location:http://tinder.student.elwinar.com/view/updateprofile.php');
 	}
 }
 
-if(isset($_POST["image"]))
-{
-    uploadProfilePicture($student,$_POST["image"]);
+if(isset($_POST["image"])) {
+	$newPic = $_POST["image"];
+    uploadProfilePicture($student, $newPic);
+	$student->setPic($newPic);
 }
 
 /*if(isset($_FILES["fileToUpload"])){

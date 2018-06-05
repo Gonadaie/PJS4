@@ -94,6 +94,14 @@ class Student {
 		$this->adj3 = $adj3;
 	}
 
+	public function setDescription($description) {
+		this->description = $description;
+	}
+
+	public function setPic($pic) {
+		this->pic = $pic;
+	}
+
 	public function to_array(){
 		$return = array(
 			'surname' => $this->surname,
