@@ -1,6 +1,7 @@
 <?php
 
 require("../model/get_student.php");
+require("../model/updateprofile.php");
 //modif tibo
 $mobile = false;
 if (isset($_GET['email'])){
@@ -24,17 +25,17 @@ if (isset($_GET['email'])){
 	header('Location: ../view/notfound.html');
 }
 */
-require("../model/profile_other_user.php");
+require("../model/profil_other_user.php");
 
 $array = array("name"=>$student->getPic(), "year"=>$student->getYear(),
-"email"=>$student->getEmail(), "match"=>$match, "name"=>$student->getSurname(),
+"email"=>$student->getEmail(), "match"=>getNbMatchs($student), "name"=>$student->getSurname(),
 "adj"=>$student->getStringAdjectives(), "description"=>$student->getDescription(),
 "pic"=>$student->getPic());
 
-$json_array = json_encode($array);
-
 //modif tibo
 if ($mobile == true){
+	$array = array('student' => $student->to_array(), 'match' => getNbMatchs($student));
+	$json_array = json_encode($array);
 	echo $json_array;
 }
  ?>
