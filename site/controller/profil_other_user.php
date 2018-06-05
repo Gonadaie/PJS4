@@ -24,7 +24,7 @@ if (isset($_GET['email'])){
 	header('Location: ../view/notfound.html');
 }
 */
-require("../model/profile_other_user.php");
+require("../model/profil_other_user.php");
 
 $array = array("name"=>$student->getPic(), "year"=>$student->getYear(),
 "email"=>$student->getEmail(), "match"=>$match, "name"=>$student->getSurname(),
