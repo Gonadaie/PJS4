@@ -95,11 +95,11 @@ class Student {
 	}
 
 	public function setDescription($description) {
-		this->description = $description;
+		$this->description = $description;
 	}
 
 	public function setPic($pic) {
-		this->pic = $pic;
+		$this->pic = $pic;
 	}
 
 	public function to_array(){
