@@ -32,10 +32,16 @@
 		session_start();
 		$_SESSION['id'] = $student_id;
 		$_SESSION['mail'] = $student_mail;
-		if(is_null($adj1))
+		error_log(print_r($admin, TRUE));
+		if($admin)
+			echo "ADMIN";
+
+		else if(is_null($adj1))
 			echo "FIRST";
 		else
 			echo "OK";
+
+
 	}
 	else
 		echo "FAIL";

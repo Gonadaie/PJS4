@@ -11,11 +11,16 @@ function login() {
 				highlight(document.getElementsByName("mail")[0], false);
 				highlight(document.getElementsByName("password")[0], false);
 				window.location.href="../view/swipe.php";
-
 			} else if(this.responseText == "FIRST"){
 				highlight(document.getElementsByName("mail")[0], false);
 				highlight(document.getElementsByName("password")[0], false);
 				window.location.href="../view/test.php";
+			}
+			else if(this.responseText == "ADMIN"){
+				console.log("admin");
+				highlight(document.getElementsByName("mail")[0], false);
+				highlight(document.getElementsByName("password")[0], false);
+				window.location.href="../view/back_office.html";
 			}
 			else {
 				highlight(document.getElementsByName("mail")[0], true);
@@ -26,6 +31,7 @@ function login() {
 				window.location.href = "../view/forgot_passwd.html";
 		}
 	};
+
 
 	xhttp.open("POST", "../controller/login.php", true);
 	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");

@@ -22,7 +22,7 @@ function get_unregistered_student($student_list_file){
     $student = get_student_by_email_no_adj($fields);
 
     if(student_is_null($student)){
-      error_log(print_r("student null", TRUE));
+      
       array_push($array_unregistered_student, array($fields));
     }
   }

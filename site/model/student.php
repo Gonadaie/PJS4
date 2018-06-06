@@ -13,6 +13,7 @@ class Student {
 	private $id;
 	private $password;
 	private $validate_account;
+	private $admin;
 
 	public function __construct($surname, $description=NULL, $year=NULL, $email=NULL, $pic=NULL) {
 		if(!$surname == NULL) $this->surname = $surname;
@@ -20,6 +21,11 @@ class Student {
 		if(!$year == NULL) 	$this->year = $year;
 		if(!$email == NULL) $this->email = $email;
 		if(!$pic == NULL) 	$this->pic = $pic;
+	}
+
+
+	public function getAdmin(){
+		return $this->admin;
 	}
 
 	public function getAdj1() {
@@ -100,6 +106,10 @@ class Student {
 
 	public function setPic($pic) {
 		$this->pic = $pic;
+	}
+
+	public function setAdmin($admin){
+		$this->admin = $admin;
 	}
 
 	public function to_array(){

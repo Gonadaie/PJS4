@@ -88,7 +88,7 @@ function get_student_by_email_no_adj($email){
 		$row['year'], $row['email'], $row['pic']);
     $student->setId($row['student_id']);
     $student->setScore($row['score']);
-    
+
     return $student;
   }
 }
@@ -121,7 +121,7 @@ function get_student_by_email($email){
   function get_student_by_email_one_adj($email){
     $db = db_connect();
     if($db) {
-      $query = "SELECT S.student_id, S.validate_account, S.student_password, S.score, S.year, S.surname, S.email, S.pic, S.description, S.adjective_1
+      $query = "SELECT S.student_id, S.validate_account, S.student_password, S.score, S.year, S.surname, S.email, S.pic, S.description, S.adjective_1, S.admin
       FROM STUDENT S WHERE S.email = :student_email";
 
     	$statement = $db->prepare($query);
@@ -137,6 +137,8 @@ function get_student_by_email($email){
       $student->setScore($row['score']);
       $student->setPassword($row['student_password']);
       $student->setValidateAccount($row['validate_account']);
+      $student->setAdmin($row['admin']);
+      error_log(print_r($row['admin'], TRUE));
       return $student;
 
     }
