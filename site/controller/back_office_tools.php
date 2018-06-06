@@ -23,4 +23,12 @@ function download_file($file){
 }
 }
 
+function student_is_null($student){
+  if($student->getSurname() == null)
+    return true;
+  else
+    return false;
+
+}
+
  ?>

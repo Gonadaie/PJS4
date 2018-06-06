@@ -18,14 +18,15 @@ function get_unregistered_student($student_list_file){
   $result = '../Back_office/etudiants_non_inscrit.csv';
 
   foreach ($list as $fields) {
-    str_replace("\n", "", $fields);
-    error_log(print_r($fields, TRUE));
+    $fields = trim(preg_replace('/\s+/', ' ', $fields));
     $student = get_student_by_email_no_adj($fields);
 
-    if($student == null){
-      array_push($array_unregistered_student, $fields);
+    if(student_is_null($student)){
+      error_log(print_r("student null", TRUE));
+      array_push($array_unregistered_student, array($fields));
     }
   }
+
   build_csv($result, $array_unregistered_student);
 }
 

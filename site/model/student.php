@@ -15,7 +15,7 @@ class Student {
 	private $validate_account;
 
 	public function __construct($surname, $description=NULL, $year=NULL, $email=NULL, $pic=NULL) {
-		$this->surname = $surname;
+		if(!$surname == NULL) $this->surname = $surname;
 		if(!$description == NULL) $this->description = $description;
 		if(!$year == NULL) 	$this->year = $year;
 		if(!$email == NULL) $this->email = $email;
