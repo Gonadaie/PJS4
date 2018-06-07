@@ -15,8 +15,8 @@ function get_student_by_id_no_adj($id){
         $statement->execute();
 
         $row = $statement->fetch(PDO::FETCH_ASSOC);
-        $student = new Student(decrypt($row['surname']), decrypt($row['description']),
-                $row['year'], decrypt($row['email']), $row['pic']);
+        $student = new Student(decrypt_data($row['surname']), $row['description'],
+                $row['year'], decrypt_data($row['email']), $row['pic']);
     $student->setScore($row['score']);
     $student->setId($id);
 
@@ -36,8 +36,8 @@ function get_student_by_id_one_adj($id){
         $statement->execute();
 
         $row = $statement->fetch(PDO::FETCH_ASSOC);
-        $student = new Student(decrypt($row['surname']), decrypt($row['description']),
-                $row['year'], decrypt($row['email']), $row['pic']);
+        $student = new Student(decrypt_data($row['surname']),$row['description'],
+                $row['year'], decrypt_data($row['email']), $row['pic']);
 
     $student->setAdjectiveOne($row['adjective_1']);
     $student->setScore($row['score']);
@@ -61,8 +61,8 @@ function get_student_by_id($id){
         $statement->execute();
 
         $row = $statement->fetch(PDO::FETCH_ASSOC);
-        $student = new Student(decrypt($row['surname']), decrypt($row['description']),
-                $row['year'], decrypt($row['email']), $row['pic']);
+        $student = new Student(decrypt_data($row['surname']), $row['description'],
+                $row['year'], decrypt_data($row['email']), $row['pic']);
 
     $student->setAdjectives($row['adj1'], $row['adj2'], $row['adj3']);
     $student->setScore($row['score']);
@@ -83,11 +83,11 @@ function get_student_by_email_no_adj($email){
     FROM STUDENT S WHERE S.email = :student_email";
 
         $statement = $db->prepare($query);
-        $statement->bindValue(':student_email', encrypt($email));
+        $statement->bindValue(':student_email', encrypt_data($email));
         $statement->execute();
         $row = $statement->fetch(PDO::FETCH_ASSOC);
-        $student = new Student(decrypt($row['surname']), decrypt($row['description']),
-                $row['year'], decrypt($row['email']), $row['pic']);
+        $student = new Student(decrypt_data($row['surname']), $row['description'],
+                $row['year'], decrypt_data($row['email']), $row['pic']);
     $student->setId($row['student_id']);
     $student->setScore($row['score']);
 
@@ -103,7 +103,7 @@ function get_student_by_email($email){
 
 
         $statement = $db->prepare($query);
-        $statement->bindValue(':student_email', encrypt($email));
+        $statement->bindValue(':student_email', encrypt_data($email));
         $statement->execute();
 
         $row = $statement->fetch(PDO::FETCH_ASSOC);
