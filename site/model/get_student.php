@@ -73,7 +73,7 @@ function get_student_by_id($id){
     return $student;
 
   }
-
+}
 
 
 function get_student_by_email_no_adj($email){
@@ -118,6 +118,7 @@ function get_student_by_email($email){
     return $student;
 
   }
+}
 
   function get_student_by_email_one_adj($email){
     $db = db_connect();
