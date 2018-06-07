@@ -27,7 +27,7 @@ $student = $info_student->student;
 
         <!--		<font>				-->
 		<link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 		<!--		<bootstrap>				-->
 
         <script src="../scripts/bootstrap.min.js"></script>
