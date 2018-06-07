@@ -1,7 +1,7 @@
 <?php
 require_once("../model/db_connect.php");
 require("../model/student.php");
-require("../model/data_crypter.php")
+require("../model/data_crypter.php");
 
 
 function get_student_by_id_no_adj($id){

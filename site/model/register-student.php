@@ -1,7 +1,7 @@
 <?php
 
 require_once("db_connect.php");
-require("../model/data_crypter.php")
+require("../model/data_crypter.php");
 
 function register_student($student_name, $student_mail, $password_hash, $student_year){
 
