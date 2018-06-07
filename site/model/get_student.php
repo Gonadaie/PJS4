@@ -1,7 +1,7 @@
 <?php
-require_once("../model/db_connect.php");
-require("../model/student.php");
-require("../model/data_crypter.php");
+require_once("db_connect.php");
+require_once("student.php");
+require_once("data_crypter.php");
 
 
 function get_student_by_id_no_adj($id){
@@ -107,8 +107,8 @@ function get_student_by_email($email){
         $statement->execute();
 
         $row = $statement->fetch(PDO::FETCH_ASSOC);
-        $student = new Student(decrypt($row['surname']), decrypt($row['description']),
-                $row['year'], decrypt($row['email']), $row['pic']);
+        $student = new Student(decrypt_data($row['surname']), $row['description'],
+                $row['year'], decrypt_data($row['email']), $row['pic']);
 
     $student->setAdjectives($row['adj1'], $row['adj2'], $row['adj3']);
     $student->setId($row['student_id']);
@@ -127,12 +127,12 @@ function get_student_by_email($email){
       FROM STUDENT S WHERE S.email = :student_email";
 
         $statement = $db->prepare($query);
-        $statement->bindValue(':student_email', encrypt($email));
+        $statement->bindValue(':student_email', encrypt_data($email));
         $statement->execute();
 
         $row = $statement->fetch(PDO::FETCH_ASSOC);
-        $student = new Student(decrypt($row['surname']), decrypt($row['description']),
-                $row['year'], decrypt($row['email']), $row['pic']);
+        $student = new Student(decrypt_data($row['surname']), $row['description'],
+                $row['year'], decrypt_data($row['email']), $row['pic']);
 
       $student->setAdjectiveOne($row['adjective_1']);
       $student->setId($row['student_id']);
