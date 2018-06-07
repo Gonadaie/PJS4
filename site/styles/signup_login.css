@@ -265,7 +265,7 @@ input[type="checkbox"]:checked+label::before {
 
 .menu_inactive {
 	text-decoration: none;
-	font-family: "Segoe UI";
+	font-family: 'Open Sans',sans-serif;
 	color: #254463;
 	font-size: 1vw;
 }
@@ -314,7 +314,7 @@ input[type="checkbox"]:checked+label::before {
 
 .swipe_description {
 	color: #707070;
-	font-family: "Segoe UI";
+	font-family: 'Open Sans', sans-serif;
 	font-size: 1.5vw;
 }
 
@@ -469,7 +469,7 @@ input[type="checkbox"]:checked+label::before {
 	position: absolute;
 	margin-top: 5%;
 	margin-left: 50%;
-	font-family: "Segoe UI";
+	font-family: 'Open Sans', sans-serif;
 	font-size: 1.5vw;
 	color: #707070;
 }
@@ -515,7 +515,7 @@ input[type="checkbox"]:checked+label::before {
 	position: absolute;
 	margin-top: 27%;
 	margin-left: 17%;
-	font-family: "Segoe UI";
+	font-family: 'Open Sans', sans-serif;
 	font-size: 1vw;
 	color: #707070;
 	z-index: 9;
