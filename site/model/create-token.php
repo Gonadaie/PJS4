@@ -2,6 +2,7 @@
 
 
 require_once("get_student.php");
+require_once("data_crypter.php");
 
 function create_token($token_hash, $student_mail) {
 
@@ -9,7 +10,7 @@ function create_token($token_hash, $student_mail) {
 
 	if($db){
 
-		$student = get_student_by_email_no_adj($student_mail);
+		$student = get_student_by_email_no_adj(encrypt_data($student_mail));
 		$id = $student->getId();
 
 		$insert_query = "INSERT INTO token_on_create (birth, hash_oncr, is_alive, student_id) values (:date, :hash, true, :id)";

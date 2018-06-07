@@ -13,7 +13,7 @@ function create_forgot_passwd_token($token_hash, $student_mail) {
 	$db = db_connect();
 
 	if($db){
-		$student_id = get_student_by_email($student_mail)->getId();
+		$student_id = get_student_by_email(encrypt_data($student_mail))->getId();
 		
 		if(isset($student_id)) {
 
