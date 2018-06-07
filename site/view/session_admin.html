@@ -12,25 +12,25 @@
 
 	<body>
 		<div class="menu">
-			<a href="../view/logout.php" class="menu">log out</a>
+			<a href="../view/logout.php" >log out</a>
 		</div>
 		<div id="export_part">
-			<div id="export"> Export CSV</div>
+			<div id="export">Export CSV</div>
 			<div id="button_export">
 				<input type="button" id="list_student" onclick="list_student.html" value="Liste de tous les étudiants inscrit"></input>
 				<input type="button" id="list_match" onclick="list_match.html"value="Liste des couples parrains filleuls"></input>
 				<input type="button" id="list_unsubscribe" onclick="list_unsubscribe.html"value="Liste des étudiants non inscrit"></input>
 			</div>
 		</div>
-		<div id="action_base_part">
-			<div id="action_base"> Action en base </div>
+		<div id="action_match_part">
+			<div id="action_match">Action de match</div>
 			<div id="button_actionb">
-				<input type="button" id="forced_subscribe" onclick="forced_subscribe.html" value="Forcer l'inscription des étudiants manquant"></input>
+				<input type="button" id="forced_matchunsub" onclick="forced_subscribe.html" value="Matcher les étudiants non-inscrits"></input>
 				<input type="button" id="match_unmatchstudent" onclick="match_student.html" value=" Matcher les étudiants non appareillés"></input>
 			</div>
 		</div>
 			<div id="envoi_mail_part">
-				<div id="envoi_mail"> Envoi d'emails </div>
+				<div id="envoi_mail">Envoi d'emails</div>
 				<div id="button_mail">
 					<input type="button" id="relance_unsubscribe" onclick="relance_unsubscribe.html"  value="Relancer par mail les étudiants non inscrit"></input>
 					<input type="button" id="recap_student"onclick="recap_student.html" value="Envoyer un mail récapitulatif aux étudiants"></input>
