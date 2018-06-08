@@ -29,6 +29,8 @@ else {
 	$student_connected = get_student_by_email($mail_student_connected);
 	$student_disliked = get_student_by_email($mail_student_disliked);
 	$id_student_connected = $student_connected->getId();
+	$id_student_disliked = $student_disliked->getId();
+
 }
 
 

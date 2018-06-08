@@ -20,7 +20,7 @@ function login() {
 				console.log("admin");
 				highlight(document.getElementsByName("mail")[0], false);
 				highlight(document.getElementsByName("password")[0], false);
-				window.location.href="../view/back_office.html";
+				window.location.href="../view/session_admin.html";
 			}
 			else {
 				highlight(document.getElementsByName("mail")[0], true);
