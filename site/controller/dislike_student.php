@@ -29,14 +29,11 @@ else {
 	$student_connected = get_student_by_email($mail_student_connected);
 	$student_disliked = get_student_by_email($mail_student_disliked);
 	$id_student_connected = $student_connected->getId();
-	$id_student_disliked = $student_disliked->getId();
-
 }
 
-
-
 	$id_student_disliked = $student_disliked->getId();
 
+	error_log(print_r($id_student_disliked, TRUE));
 	if($student_connected->getYear()==1){
 		$get_match_first = get_student_match($id_student_disliked, $id_student_connected);
 
