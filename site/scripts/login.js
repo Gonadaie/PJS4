@@ -7,16 +7,17 @@ function login() {
 
 	xhttp.onreadystatechange = function(){
 		if(this.readyState == 4 && this.status == 200){
-			if(this.responseText == "OK"){
+			var response = this.responseText.replace(/\n/g, "");
+			if(response == "OK"){
 				highlight(document.getElementsByName("mail")[0], false);
 				highlight(document.getElementsByName("password")[0], false);
 				window.location.href="../view/swipe.php";
-			} else if(this.responseText == "FIRST"){
+			} else if(response == "FIRST"){
 				highlight(document.getElementsByName("mail")[0], false);
 				highlight(document.getElementsByName("password")[0], false);
 				window.location.href="../view/test.php";
 			}
-			else if(this.responseText == "ADMIN"){
+			else if(response == "ADMIN"){
 				console.log("admin");
 				highlight(document.getElementsByName("mail")[0], false);
 				highlight(document.getElementsByName("password")[0], false);
