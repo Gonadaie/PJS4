@@ -50,7 +50,8 @@ function get_student_match($id1, $id2){
   function insert_match_first($id1, $id2){
     $db = db_connect();
     if($db) {
-      $query_set_match_first = "INSERT INTO student_match(student_id_god_son, student_id_god_father, liked_by_god_son) VALUES(:id1,:id2, 1)";
+      $query_set_match_first = "INSERT INTO student_match(student_id_god_son, student_id_god_father,
+        liked_by_god_son) VALUES(:id1,:id2, 1)";
       $statement_set_match_first = $db->prepare($query_set_match_first);
       $statement_set_match_first->bindValue(':id1', $id1);
       $statement_set_match_first->bindValue(':id2', $id2);
