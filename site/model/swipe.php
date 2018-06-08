@@ -33,7 +33,7 @@ function getArrayStudents($student) {
 		$count = 0;
 
 		while($row = $statement_student->fetch(PDO::FETCH_ASSOC)){
-			$student = new Student(decrypt_data($row['surname']), $row['description'],NULL, $row['email'], $row['pic'] );
+			$student = new Student(decrypt_data($row['surname']), $row['description'], NULL, decrypt_data($row['email']), $row['pic'] );
 			$student->setAdjectives($row['adj1'], $row['adj2'], $row['adj3']);
 			$tab_student[] = $student->to_array();
 			$count=$count+1;
