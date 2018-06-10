@@ -22,7 +22,7 @@ if(isset($_POST["description"])){
 		updateDescription($student, $newDescription);
 		$student->setDescription($newDescription);
 		if(!$mobile)
-			header('Location:http://tinder.student.elwinar.com/view/updateprofile.php');
+			header('Location:http://skipti.fr/view/updateprofile.php');
 	}
 }
 

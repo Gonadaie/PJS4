@@ -75,11 +75,13 @@ $student = $info_student->student;
 			<?= $student->year ?> -</span>
 
 			<?= $student->email ?>@etu.parisdescartes.fr</div>
+			<div class = "delete_user"><a href="#">Supprimer mon profil</a></div>
 		<div class="stats_profile">
 			<div>
 				<?= $info_student->match ?> matchs</div>
 			<div>0 parainage</div>
 		</div>
+	
 		<div class="name_profile">
 			<?= $student->surname ?>
 		</div>
@@ -91,7 +93,6 @@ $student = $info_student->student;
 		<div class="description_profile old_description">
 			<?= htmlspecialchars($student->description); ?>
 		</div>
-		<form method="post" id="changeDescription" action="#">
 			<textarea class="description_profile new_description" name="description" rows="4" cols="7" maxlength="280"><?= htmlspecialchars($student->description); ?></textarea>
 		</form>
 		<div class="edit_profile">
