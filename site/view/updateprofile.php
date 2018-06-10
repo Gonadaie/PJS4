@@ -80,6 +80,7 @@ $student = $info_student->student;
 				<?= $info_student->match ?> matchs</div>
 			<div>0 parainage</div>
 		</div>
+		<div class = "delete_user""><a href="#">Supprimer mon profil</a></div>
 		<div class="name_profile">
 			<?= $student->surname ?>
 		</div>
