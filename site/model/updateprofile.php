@@ -28,7 +28,7 @@ function updateDescription($student, $description) {
 	if($db){
 		$query = "UPDATE student SET description = :newDescription WHERE student_id = :id";
 		$statement = $db->prepare($query);
-		$statement->bindvalue(':newDescription',$newDescription);
+		$statement->bindvalue(':newDescription',$description);
 		$statement->bindvalue(':id', $student->getId());
 		$statement -> execute();
 	}
