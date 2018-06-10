@@ -41,16 +41,16 @@ create table student_match (
     final boolean default false,
     final_by_god_father boolean default false,
     final_by_god_son boolean default false,
-    foreign key (student_id_god_father) references Student(student_id),
-    foreign key (student_id_god_son) references Student(student_id)
+    foreign key (student_id_god_father) references Student(student_id) on delete cascade,
+    foreign key (student_id_god_son) references Student(student_id) on delete cascade
 );
 create table conversation (
     id_conversation SERIAL primary key,
     birth date,
     student_1 integer,
     student_2 integer,
-    foreign key (student_1) references Student(student_id),
-    foreign key (student_2) references Student(student_id)
+    foreign key (student_1) references Student(student_id) on delete cascade,
+    foreign key (student_2) references Student(student_id) on delete cascade
  
 );
 create table message (
@@ -61,7 +61,7 @@ create table message (
     id_sender integer not null,
     PRIMARY KEY(id_message, id_conversation),
     foreign key (id_sender) references Student(student_id),
-    foreign key (id_conversation) references conversation(id_conversation)
+    foreign key (id_conversation) references conversation(id_conversation) on delete cascade
 );
  
 create table token_on_create (
