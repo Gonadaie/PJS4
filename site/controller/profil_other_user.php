@@ -2,6 +2,9 @@
 
 require("../model/get_student.php");
 require("../model/updateprofile.php");
+
+session_start();
+
 //modif tibo
 $mobile = false;
 if (isset($_GET['email'])){
