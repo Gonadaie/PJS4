@@ -3,6 +3,8 @@
 require("../model/get_student.php");
 $mobile = false;
 
+session_start();
+
 if (isset($_POST['mail'])) {
   $student = get_student_by_email($_POST['mail']);
   $mobile = true;
