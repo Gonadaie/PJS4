@@ -75,7 +75,7 @@ $student = $info_student->student;
 			<?= $student->year ?> -</span>
 
 			<?= $student->email ?>@etu.parisdescartes.fr</div>
-			<div class = "delete_user><a href="#">Supprimer mon profil</a></div>
+			<div class = "delete_user"><a href="#">Supprimer mon profil</a></div>
 		<div class="stats_profile">
 			<div>
 				<?= $info_student->match ?> matchs</div>
