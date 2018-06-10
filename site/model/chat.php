@@ -32,4 +32,30 @@ class Conversation {
 	
 }
 
+class Message {
+	private $id_from;
+	private $id_dest;
+	private $content;
+	private $date;
+
+	public function __construct($id_from, $id_dest, $content, $date) {
+		$this->id_from = $id_from;
+		$this->id_dest = $id_dest;
+		$this->content = $content;
+		$this->date = date;
+	}
+
+	public function get_id_from() {
+		return $this->id_dest;
+	}
+
+	public function get_id_dest() {
+		return $this->id_from;
+	}
+
+	public function get_content() {
+		return $this->content;
+	}
+}
+
 ?>
