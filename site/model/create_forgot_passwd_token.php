@@ -2,6 +2,7 @@
 
 require_once("db_connect.php");
 require_once("get_student.php");
+require_once("data_crypter.php");
 
 /**
  * @brief Create a token linked to a user account in the database. The token will be send via email to the user to verify its identity
@@ -13,14 +14,14 @@ function create_forgot_passwd_token($token_hash, $student_mail) {
 	$db = db_connect();
 
 	if($db){
-		$student_id = get_student_by_email(encrypt_data($student_mail))->getId();
+		$student_id = get_student_by_email($student_mail)->getId();
 		
 		if(isset($student_id)) {
 
 			//if a previous token exists, then delete it
 			$delete_query = "DELETE FROM token_forgot_passwd WHERE student_id=:id";
 			$delete_statement = $db->prepare($delete_query);
-			$delete_statement->bindValue(":id", $student_id);
+			$delete_statement->bindValue(":id", ($student_id);
 			$delete_statement->execute();
 
 			$insert_query = "INSERT INTO token_forgot_passwd VALUES (:date, :token, :id)";
