@@ -20,6 +20,7 @@ function getNbMatchs($student) {
 			$match = $result->fetchColumn();
 		}
 	}
+	return $match;
 }
 
 function updateDescription($student, $description) {
@@ -60,13 +61,13 @@ function updateDescription($student, $description) {
 
   //Check file size
   if($_FILE["fileToUpload"]["size"]>2000000){
-	  array_push($array:$errorMessssages, var: "La taille maximale autorisée est de 2Mb");	  
+	  array_push($array:$errorMessssages, var: "La taille maximale autorisée est de 2Mb");
 	  $uploadOk=0;
   }
 
   //Allow certain file formats
   if($imageFileType!="jpg" && $imageFileType!="png" && $imageFileType!="jpeg") {
-	  array_push($array:$errorMessssages, var: "Seuls les fichiers JPG, JPEG et PNG sont autorisés");	  
+	  array_push($array:$errorMessssages, var: "Seuls les fichiers JPG, JPEG et PNG sont autorisés");
 	  $uploadOk=0;
   }
 
