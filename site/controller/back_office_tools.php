@@ -38,6 +38,33 @@ function array_unsubs($file){
 	}
 	return $array_unsubs;
 }
+
+function get_unmatch(){
+	$db = db_connect();
+	$tab_unmatch = array();
+	if($db){
+		$query_unmatch_1=
+		"SELECT email,year,surname FROM student 
+		WHERE student_id IN
+			(SELECT student_id_god_son FROM student_match
+			WHERE final<>true)";
+		$statement_student->execute();
+		while($row = $statement->fetch(PDO::FETCH_ASSOC)){
+			$student =  new Student(decrypt_data($row['surname']), $row['description'], NULL, decrypt_data($row['email']),NULL);
+			$tab_unmatch = $student->to_array();
+		}
+		$query_unmatch_2="SELECT email,year,surname FROM student 
+		WHERE student_id IN
+			(SELECT student_id_god_father FROM student_match
+			WHERE final<>true)";
+		$statement_student->execute();
+		while($row = $statement->fetch(PDO::FETCH_ASSOC)){
+			$student =  new Student(decrypt_data($row['surname']), $row['description'], NULL, decrypt_data($row['email']),NULL);
+			$tab_unmatch = $student->to_array();
+		}
+	}
+	return $tab_unmatch;
+}
 function send_mail_unsubs($student_mail){
 	$student_name =	explode('.', $student_mail)[0];
 	$student_name = strtoupper($student_name[0]) . substr($student_name, 1, strlen($student_name) -1 );
@@ -129,14 +156,14 @@ function send_mail_unmatch($student){
 		$sentence = "ton filleul ou ta filleule";
 	}
 	$student_name =	$student->getSurname();
-	$transport_unsubs = (new Swift_SmtpTransport("smtp.gmail.com", 465, "ssl"))
+	$transport_unmatch = (new Swift_SmtpTransport("smtp.gmail.com", 465, "ssl"))
 	->setUsername("find.the.r8.one@gmail.com")
 	->setPassword("tindertinder")
 	;
-	$mailer_unsubs = new Swift_Mailer($transport_unsubs);
-	$root_unsubs = (!empty($_SERVER['HTTPS']) ? 'https' : 'http'). '://' . $_SERVER['HTTP_HOST'] . '/';
+	$mailer_unmacth = new Swift_Mailer($transport_unmatch);
+	$root_unmatch = (!empty($_SERVER['HTTPS']) ? 'https' : 'http'). '://' . $_SERVER['HTTP_HOST'] . '/';
 	
-	$message_unsubs = (new Swift_Message("They missed you"))
+	$message_unmatch = (new Swift_Message("They missed you"))
 		->setFrom(["find.the.r8.one@gmail.com" => "Skipti"])
 		->setTo([$student->getEmail()."@etu.parisdescartes.fr" => $student_name])
 		-setBody('<!DOCTYPE html>'.
@@ -206,7 +233,7 @@ function send_mail_unmatch($student){
 '		</html>'
 	, "text/html");
 	
-	$result = $mailer_unsubs->send($message_unsubs);
+	$result = $mailer_unmacth->send($message_unmatch);
 	return $result;
 }
 ?>
