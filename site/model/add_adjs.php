@@ -36,3 +36,17 @@ function add_adjs($idstudent, $adj1, $adj2, $adj3){
 	$statement->bindValue('id', $idstudent); //Safe ??
 	$statement->execute();
 }
+
+
+function add_adjs_by_email($email, $adj1, $adj2, $adj3){
+	$db = db_connect();
+	$query = "UPDATE STUDENT SET adjective_1 = (SELECT id_adjective FROM ADJECTIVE WHERE wording = :adj1),
+				adjective_2 = (SELECT id_adjective FROM ADJECTIVE WHERE wording = :adj2),
+				adjective_3 = (SELECT id_adjective FROM ADJECTIVE WHERE wording = :adj3) WHERE email = :email";
+	$statement = $db->prepare($query);
+	$statement->bindValue(':adj1', $adj1);
+	$statement->bindValue(':adj2', $adj2);
+	$statement->bindValue(':adj3', $adj3);
+	$statement->bindValue('email', $email); //Safe ??
+	$statement->execute();
+}
