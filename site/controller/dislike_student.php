@@ -35,9 +35,10 @@ else {
 
 	error_log(print_r($id_student_disliked, TRUE));
 	if($student_connected->getYear()==1){
+		$get_match_first = array();
 		$get_match_first = get_student_match($id_student_disliked, $id_student_connected);
 
-		if($get_match_first>0){
+		if($get_match_first[0]>0){
 			update_match_first($id_student_disliked, $id_student_connected);
 			echo "DISLIKE";
 		}
@@ -48,9 +49,10 @@ else {
 	}
 
 	else{
+		$get_match_second = array();
 		$get_match_second = get_student_match($id_student_connected, $id_student_disliked);
 
-		if($get_match_second>0){
+		if($get_match_second[0]>0){
 			update_match_second($id_student_connected, $id_student_disliked);
 			echo "DISLIKE";
 		}
