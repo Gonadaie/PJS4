@@ -65,7 +65,8 @@ else {
 			if(get_match_result($id_student_liked, $id_student_connected)){
 				insert_conversation($id_student_liked, $id_student_connected);
 				echo "MATCH";
-			else 
+			}
+			else
 				echo "LIKE";
 
 		}
