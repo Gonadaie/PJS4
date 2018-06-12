@@ -35,9 +35,10 @@ else {
 	$id_student_liked = $student_liked->getId();
 
 	if($student_connected->getYear()==1){
+		$get_match_first = array();
 		$get_match_first = get_student_match($id_student_liked, $id_student_connected);
 
-		if($get_match_first>0){
+		if($get_match_first[0]>0){
 			update_student_match($id_student_liked, $id_student_connected);
 			insert_conversation($id_student_liked, $id_student_connected);
 			require("score.php");
@@ -51,9 +52,10 @@ else {
 	}
 
 	else{
+		$get_match_second = array();
 		$get_match_second = get_student_match($id_student_connected, $id_student_liked);
 
-		if($get_match_second>0){
+		if($get_match_second[0]>0){
 			update_student_match($id_student_connected, $id_student_liked);
 			insert_conversation($id_student_liked, $id_student_connected);
 			require("score.php");

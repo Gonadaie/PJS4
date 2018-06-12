@@ -10,7 +10,7 @@
 function get_student_match($id1, $id2){
   $db = db_connect();
   if($db) {
-    $query = "SELECT student_id_god_father, student_id_god_son FROM student_match WHERE student_id_god_father = :id1 AND student_id_god_son = :id2";
+    $query = "SELECT student_id_god_father, student_id_god_son, liked_by_god_father, liked_by_god_son FROM student_match WHERE student_id_god_father = :id1 AND student_id_god_son = :id2";
 
 
     $statement = $db->prepare($query);
@@ -18,8 +18,14 @@ function get_student_match($id1, $id2){
     $statement->bindValue(':id2', $id2);
 
     $statement->execute();
+    
+    $result = array();
 
-    return $statement->rowCount();
+    $row = $statement->fetch(PDO::FETCH_ASSOC);
+    $result[] = $statement->rowCount();
+    $result[] = $row['liked_by_god_son'];
+    $result[] = $row['liked_by_god_father'];
+    return $result;
   }
 }
 
