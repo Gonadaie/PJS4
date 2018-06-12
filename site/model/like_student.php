@@ -84,7 +84,7 @@ function get_student_match($id1, $id2){
    * @param integer $id id of the second student
    * @return void
    */
-function insert_conversation($id1, $id2){
+  function insert_conversation($id1, $id2){
     $db = db_connect();
     if($db) {
       $query_set_conversation = "INSERT INTO conversation(birth, student_1, student_2) VALUES(now(), :id1,:id2)";

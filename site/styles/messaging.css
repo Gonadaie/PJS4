@@ -1,0 +1,74 @@
+body {
+	overflow-x: hidden;
+}
+
+.right_align {
+	text-align: right;
+}
+
+.no_padding {
+	padding: 0;
+}
+
+
+/******************************************right welcome messaging***************************************/
+
+.messaging_welcome_pic {
+	padding: 0;
+	margin: 0;
+}
+
+.messaging_welcome_pic img {
+	width: 100%;
+	height: auto;
+}
+
+
+/******************************************Menu***************************************/
+
+.menu a:hover {
+	text-decoration: none;
+	color: #4152BC;
+	cursor: crosshair;
+}
+
+.menu a {
+	margin-left: 15px;
+	text-decoration: none;
+}
+
+.menu_inactive {
+	text-decoration: none;
+	font-family: 'Open Sans', sans-serif;
+	color: #254463;
+	font-size: 1vw;
+}
+
+.menu {
+	width: 100%;
+	text-align: center;
+}
+
+.my_account_messaging img {
+	width: 8vw;
+	height: auto;
+	filter: grayscale(100%);
+	-webkit-filter: grayscale(100%);
+	-moz-filter: grayscale(100%);
+	-ms-filter: grayscale(100%);
+	-o-filter: grayscale(100%);
+}
+
+.my_account_messaging {
+	text-align: center;
+}
+
+
+/*****************************************************************/
+
+.title {
+	font-family: Fjalla One;
+	color: #4152BC;
+	font-size: 2vw;
+	margin-right: 15px;
+}
