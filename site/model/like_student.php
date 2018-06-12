@@ -38,7 +38,7 @@ function get_student_match($id1, $id2){
   function update_student_match($id1, $id2){
     $db = db_connect();
     if($db) {
-      $query_update_match_first = "UPDATE student_match SET liked_by_god_son = 1, result = true, liked_by_god_father = 1 WHERE id_student_god_father = :id1 AND id_student_god_son = :id2";
+      $query_update_match_first = "UPDATE student_match SET liked_by_god_son = 1, result = true, liked_by_god_father = 1 WHERE student_id_god_father = :id1 AND student_id_god_son = :id2";
       $statement_update_match_first = $db->prepare($query_update_match_first);
       $statement_update_match_first->bindValue(':id1', $id1);
       $statement_update_match_first->bindValue(':id2', $id2);
