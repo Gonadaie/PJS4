@@ -39,7 +39,7 @@ else {
 		$get_match_first = get_student_match($id_student_liked, $id_student_connected);
 
 		if($get_match_first[0]>0){
-			update_student_match($id_student_liked, $id_student_connected);
+			update_student_match_first($id_student_liked, $id_student_connected);
 			insert_conversation($id_student_liked, $id_student_connected);
 			require("score.php");
 			echo "MATCH";
@@ -56,7 +56,7 @@ else {
 		$get_match_second = get_student_match($id_student_connected, $id_student_liked);
 
 		if($get_match_second[0]>0){
-			update_student_match($id_student_connected, $id_student_liked);
+			update_student_match_second($id_student_connected, $id_student_liked);
 			insert_conversation($id_student_liked, $id_student_connected);
 			require("score.php");
 			echo "MATCH";
