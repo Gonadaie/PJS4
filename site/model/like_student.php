@@ -18,7 +18,7 @@ function get_student_match($id1, $id2){
     $statement->bindValue(':id2', $id2);
 
     $statement->execute();
-    
+
     $result = array();
 
     $row = $statement->fetch(PDO::FETCH_ASSOC);
@@ -27,6 +27,24 @@ function get_student_match($id1, $id2){
     $result[] = $row['liked_by_god_father'];
     return $result;
   }
+}
+
+function get_match_result($id1,$id2){
+  $db = db_connect();
+  if($db) {
+    $query = "SELECT result FROM student_match WHERE student_id_god_father = :id1 AND student_id_god_son = :id2";
+
+    $statement = $db->prepare($query);
+    $statement->bindValue(':id1', $id1);
+    $statement->bindValue(':id2', $id2);
+
+    $statement->execute();
+
+    $row = $statement->fetch(PDO::FETCH_ASSOC);
+
+    $result = $row['result'];
+  }
+  return $result;
 }
 
 /**

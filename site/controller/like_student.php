@@ -40,9 +40,13 @@ else {
 
 		if($get_match_first[0]>0){
 			update_student_match_first($id_student_liked, $id_student_connected);
-			insert_conversation($id_student_liked, $id_student_connected);
 			require("score.php");
-			echo "MATCH";
+			if(get_match_result($id_student_liked, $id_student_connected)){
+				insert_conversation($id_student_liked, $id_student_connected);
+				echo "MATCH";
+			}
+			else
+				echo "LIKE";
 		}
 		else{
 			insert_match_first($id_student_connected, $id_student_liked);
@@ -57,9 +61,13 @@ else {
 
 		if($get_match_second[0]>0){
 			update_student_match_second($id_student_connected, $id_student_liked);
-			insert_conversation($id_student_liked, $id_student_connected);
 			require("score.php");
-			echo "MATCH";
+			if(get_match_result($id_student_liked, $id_student_connected)){
+				insert_conversation($id_student_liked, $id_student_connected);
+				echo "MATCH";
+			else 
+				echo "LIKE";
+
 		}
 		else{
 			insert_match_second($id_student_liked, $id_student_connected);
