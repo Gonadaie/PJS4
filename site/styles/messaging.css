@@ -52,6 +52,7 @@ body {
 .my_account_messaging img {
 	width: 8vw;
 	height: auto;
+	margin-top: 20px;
 	filter: grayscale(100%);
 	-webkit-filter: grayscale(100%);
 	-moz-filter: grayscale(100%);

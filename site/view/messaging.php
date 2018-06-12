@@ -27,12 +27,15 @@
 	<div class="row fullscreen_height">
 		<div class=" col-3 no_padding">
 			<div class="menu row ">
-				<div class="col-6 my_account_messaging ">
-					<a href="../view/updateprofile.php" class="menu_inactive"><img src="../images/images_student/alice.png" alt="">
+				<div class="offset-1 col-6 my_account_messaging ">
+					<a href="../view/updateprofile.php" class="menu_inactive">
+						<img src="../images/images_student/alice.png" alt="">
+					</a>
+					<a href="../view/updateprofile.php" class="menu_inactive">
 						<div>mon compte</div>
 					</a>
 				</div>
-				<div class="col-6 right_align no_padding">
+				<div class="col-5 right_align no_padding">
 					<a href="../view/swipe.php" class="menu_inactive">swipe</a>
 					<a href="../view/logout.php" class="menu_inactive">log out</a>
 				</div>
