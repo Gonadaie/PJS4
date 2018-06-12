@@ -31,7 +31,10 @@ if(isset($_POST["description"])){
 if(isset($_POST["image"])) {
 	//$newPic = $_POST["image"];
     uploadProfilePicture($student->getEmail(),$_POST["image"]);
-	//$student->setPic($newPic);
+    
+    $imagePath = "../images/images_student/";
+    $imageName = $imagePath . str_replace(".", "", $student->getEmail()) . ".png";
+	$student->setPic($imageName);
 }
 
 /*if(isset($_FILES["fileToUpload"])){
