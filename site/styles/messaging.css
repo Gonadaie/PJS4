@@ -1,5 +1,5 @@
 body {
-	overflow-x: hidden;
+	overflow: hidden;
 }
 
 .right_align {
@@ -8,6 +8,48 @@ body {
 
 .no_padding {
 	padding: 0;
+}
+
+::-webkit-scrollbar {
+	width: 2px;
+	height: 2px;
+}
+
+::-webkit-scrollbar-button {
+	width: 0px;
+	height: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #000000;
+	border: 0px none #ffffff;
+	border-radius: 50px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #000000;
+}
+
+::-webkit-scrollbar-thumb:active {
+	background: #000000;
+}
+
+::-webkit-scrollbar-track {
+	background: #ffffff;
+	border: 0px none #ffffff;
+	border-radius: 50px;
+}
+
+::-webkit-scrollbar-track:hover {
+	background: #ffffff;
+}
+
+::-webkit-scrollbar-track:active {
+	background: #ffffff;
+}
+
+::-webkit-scrollbar-corner {
+	background: transparent;
 }
 
 
@@ -72,4 +114,51 @@ body {
 	color: #4152BC;
 	font-size: 2vw;
 	margin-right: 15px;
+}
+
+.preview_message {
+	display: flex;
+	align-items: center;
+	margin-top: 10px;
+	padding-top: 10px;
+	margin-right: 10px;
+	border-top: 1.2px solid #254463;
+}
+
+.preview_message:hover {
+	cursor: crosshair;
+}
+
+.preview_group {
+	padding-left: 0;
+}
+
+.preview_message div img {
+	width: 6vw;
+	height: auto;
+	filter: grayscale(100%);
+	-webkit-filter: grayscale(100%);
+	-moz-filter: grayscale(100%);
+	-ms-filter: grayscale(100%);
+	-o-filter: grayscale(100%);
+}
+
+.preview_message .name {
+	font-family: Fjalla One;
+	color: #254463;
+	font-size: 1.7vw;
+}
+
+.preview_message .preview {
+	font-family: 'Open Sans', sans-serif;
+	color: #707070;
+	font-size: 1vw;
+}
+
+.scrollable {
+	overflow-y: hidden;
+}
+
+.scrollable:hover {
+	overflow-y: auto;
 }

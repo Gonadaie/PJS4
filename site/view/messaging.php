@@ -42,11 +42,195 @@
 
 			</div>
 			<div class="right_align title">Messages</div>
+			<div class="scrollable preview_list">
+				<div class="row preview_message">
+					<div class="offset-1 col-4">
+						<img src="../images/images_student/alice.png" alt="">
+					</div>
+					<div class="col-7 preview_group">
+						<div class="name">Julie</div>
+						<div class="preview"> salut t pas mal lol</div>
+					</div>
+				</div>
+
+				<div class="row preview_message">
+					<div class="offset-1 col-4">
+						<img src="../images/images_student/alice.png" alt="">
+					</div>
+					<div class="col-7 preview_group">
+						<div class="name">Julie</div>
+						<div class="preview"> salut t pas mal lol</div>
+					</div>
+				</div>
+
+				<div class="row preview_message">
+					<div class="offset-1 col-4">
+						<img src="../images/images_student/alice.png" alt="">
+					</div>
+					<div class="col-7 preview_group">
+						<div class="name">Julie</div>
+						<div class="preview"> salut t pas mal lol</div>
+					</div>
+				</div>
+
+				<div class="row preview_message">
+					<div class="offset-1 col-4">
+						<img src="../images/images_student/alice.png" alt="">
+					</div>
+					<div class="col-7 preview_group">
+						<div class="name">Julie</div>
+						<div class="preview"> salut t pas mal lol</div>
+					</div>
+				</div>
+
+				<div class="row preview_message">
+					<div class="offset-1 col-4">
+						<img src="../images/images_student/alice.png" alt="">
+					</div>
+					<div class="col-7 preview_group">
+						<div class="name">Julie</div>
+						<div class="preview"> salut t pas mal lol</div>
+					</div>
+				</div>
+
+				<div class="row preview_message">
+					<div class="offset-1 col-4">
+						<img src="../images/images_student/alice.png" alt="">
+					</div>
+					<div class="col-7 preview_group">
+						<div class="name">Julie</div>
+						<div class="preview"> salut t pas mal lol</div>
+					</div>
+				</div>
+
+				<div class="row preview_message">
+					<div class="offset-1 col-4">
+						<img src="../images/images_student/alice.png" alt="">
+					</div>
+					<div class="col-7 preview_group">
+						<div class="name">Julie</div>
+						<div class="preview"> salut t pas mal lol</div>
+					</div>
+				</div>
+
+				<div class="row preview_message">
+					<div class="offset-1 col-4">
+						<img src="../images/images_student/alice.png" alt="">
+					</div>
+					<div class="col-7 preview_group">
+						<div class="name">Julie</div>
+						<div class="preview"> salut t pas mal lol</div>
+					</div>
+				</div>
+
+				<div class="row preview_message">
+					<div class="offset-1 col-4">
+						<img src="../images/images_student/alice.png" alt="">
+					</div>
+					<div class="col-7 preview_group">
+						<div class="name">Julie</div>
+						<div class="preview"> salut t pas mal lol</div>
+					</div>
+				</div>
+
+				<div class="row preview_message">
+					<div class="offset-1 col-4">
+						<img src="../images/images_student/alice.png" alt="">
+					</div>
+					<div class="col-7 preview_group">
+						<div class="name">Julie</div>
+						<div class="preview"> salut t pas mal lol</div>
+					</div>
+				</div>
+
+				<div class="row preview_message">
+					<div class="offset-1 col-4">
+						<img src="../images/images_student/alice.png" alt="">
+					</div>
+					<div class="col-7 preview_group">
+						<div class="name">Julie</div>
+						<div class="preview"> salut t pas mal lol</div>
+					</div>
+				</div>
+
+				<div class="row preview_message">
+					<div class="offset-1 col-4">
+						<img src="../images/images_student/alice.png" alt="">
+					</div>
+					<div class="col-7 preview_group">
+						<div class="name">Julie</div>
+						<div class="preview"> salut t pas mal lol</div>
+					</div>
+				</div>
+
+				<div class="row preview_message">
+					<div class="offset-1 col-4">
+						<img src="../images/images_student/alice.png" alt="">
+					</div>
+					<div class="col-7 preview_group">
+						<div class="name">Julie</div>
+						<div class="preview"> salut t pas mal lol</div>
+					</div>
+				</div>
+
+				<div class="row preview_message">
+					<div class="offset-1 col-4">
+						<img src="../images/images_student/alice.png" alt="">
+					</div>
+					<div class="col-7 preview_group">
+						<div class="name">Julie</div>
+						<div class="preview"> salut t pas mal lol</div>
+					</div>
+				</div>
+
+				<div class="row preview_message">
+					<div class="offset-1 col-4">
+						<img src="../images/images_student/alice.png" alt="">
+					</div>
+					<div class="col-7 preview_group">
+						<div class="name">Julie</div>
+						<div class="preview"> salut t pas mal lol</div>
+					</div>
+				</div>
+
+				<div class="row preview_message">
+					<div class="offset-1 col-4">
+						<img src="../images/images_student/alice.png" alt="">
+					</div>
+					<div class="col-7 preview_group">
+						<div class="name">Julie</div>
+						<div class="preview"> salut t pas mal lol</div>
+					</div>
+				</div>
+
+				<div class="row preview_message">
+					<div class="offset-1 col-4">
+						<img src="../images/images_student/alice.png" alt="">
+					</div>
+					<div class="col-7 preview_group">
+						<div class="name">Julie</div>
+						<div class="preview"> salut t pas mal lol</div>
+					</div>
+				</div>
+
+				<div class="row preview_message">
+					<div class="offset-1 col-4">
+						<img src="../images/images_student/alice.png" alt="">
+					</div>
+					<div class="col-7 preview_group">
+						<div class="name">Julie</div>
+						<div class="preview"> salut t pas mal lol</div>
+					</div>
+				</div>
+
+			</div>
+
 		</div>
 		<div class="col-9 messaging_welcome_pic no_padding">
 			<img src="../images/messaging.png" alt="">
 		</div>
 	</div>
+	<script src="../scripts/messaging.js"></script>
 </body>
 
 </html>
