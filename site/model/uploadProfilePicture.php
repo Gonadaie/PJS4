@@ -2,10 +2,7 @@
 
 //uploadProfilePicture.php
 
-function uploadProfilePicture($student,$image) {
-    $db = db_connect();
-
-    if($db){
+function uploadProfilePicture($email,$image) {
 
 
     $data = $_POST[$image];
@@ -37,13 +34,13 @@ function uploadProfilePicture($student,$image) {
 
 
           $imagePath = "../images/images_student/";
-          $imageName = $imagePath . str_replace(".", "", $student->getEmail()) . ".png";
+          $imageName = $imagePath . str_replace(".", "", $email) . ".png";
           file_put_contents($imageName, $data);
           echo '<img src="' . $imageName . '" class="img-thumbnail" />';
 
 
 
-}
+
 }
 
 

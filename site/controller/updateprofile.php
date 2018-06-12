@@ -29,9 +29,9 @@ if(isset($_POST["description"])){
 }
 
 if(isset($_POST["image"])) {
-	$newPic = $_POST["image"];
-    uploadProfilePicture($student, $newPic);
-	$student->setPic($newPic);
+	//$newPic = $_POST["image"];
+    uploadProfilePicture($student->getEmail(),$_POST["image"]);
+	//$student->setPic($newPic);
 }
 
 /*if(isset($_FILES["fileToUpload"])){
