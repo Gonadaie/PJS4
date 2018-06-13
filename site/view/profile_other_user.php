@@ -51,7 +51,7 @@ $info_student = json_decode($json_array);?>
 		<div class="stats_profile">
 			<div>
 				<?php echo($info_student->match);  ?> matchs</div>
-			<div>0 parrainage</div>
+			<div><?php echo($info_student->couple);  ?> parrainage</div>
 		</div>
 		<div class="name_profile">
 			<?php echo($info_student->name);  ?>

@@ -79,9 +79,9 @@ $student = $info_student->student;
 		<div class="stats_profile">
 			<div>
 				<?= $info_student->match ?> matchs</div>
-			<div>0 parainage</div>
+			<div><?= $info_student->couple ?> parainage</div>
 		</div>
-	
+
 		<div class="name_profile">
 			<?= $student->surname ?>
 		</div>
@@ -214,7 +214,7 @@ $student = $info_student->student;
                     success:function(data) <!--	fonction qui reçoit des données du serveur!!!!-->
                     {
                         $('#uploadimageModal').modal('hide'); <!--	cacher la fenetre de coupage !!!!-->
-                        
+
                     }
                 });
             })

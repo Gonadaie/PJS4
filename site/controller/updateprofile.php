@@ -17,6 +17,7 @@ require("../model/updateprofile.php");
 require("../model/uploadProfilePicture.php");
 
 $nb_matchs = getNbMatchs($student);
+$nb_couple = getNbCouple($student);
 
 if(isset($_POST["description"])){
 	if(!empty($_POST["description"])){
@@ -108,7 +109,7 @@ if(isset($_POST["image"])) {
 
 
 
-$array = array('student' => $student->to_array(), 'match' => $nb_matchs);
+$array = array('student' => $student->to_array(), 'match' => $nb_matchs, 'couple' => $nb_couple);
 
 $json_array = json_encode($array);
 if ($mobile == true) {

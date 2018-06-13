@@ -39,7 +39,7 @@ $json_array = json_encode($array);
 
 //modif tibo
 if ($mobile == true){
-	$array = array('student' => $student->to_array(), 'match' => getNbMatchs($student));
+	$array = array('student' => $student->to_array(), 'match' => getNbMatchs($student), 'couple' => getNbCouple($student));
 	$json_array = json_encode($array);
 	echo $json_array;
 }

@@ -18,6 +18,7 @@ function get_all_student(){
   return $list;
 }
 
+
 function get_couples(){
   $db = db_connect();
   if($db) {
