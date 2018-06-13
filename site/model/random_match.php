@@ -42,7 +42,7 @@ function random_match(){
 
   $nbFirstStudent = count($unmatched_student_first);
   $nbSecondStudent = count($unmatched_student_second);
-  die(var_dump($nbFirstStudent));
+
 
 
   if($nbFirstStudent == $nbSecondStudent){
@@ -54,6 +54,7 @@ function random_match(){
   else if($nbFirstStudent>$nbSecondStudent){
     while(!empty($unmatched_student_first)){
       for($i=0; $i<$nbSecondStudent; $i++){
+        die(var_dump($unmatched_student_second[0][$i]));
         insert_random_couple($unmatched_student_second[0][$i],$unmatched_student_first[0][0]);
         array_shift($unmatched_student_first[0]);
         if(empty($unmatched_student_first[0]))
