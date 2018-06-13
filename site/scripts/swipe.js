@@ -113,7 +113,7 @@ setNewProfile();
 
 //go to profil other user
 profil_link.addEventListener("click", () => {
-	document.location.href = "../view/profil_other_user.php?email=" + email;
+	document.location.href = "../view/profile_other_user.php?email=" + email;
 })
 
 //redirection with POST data

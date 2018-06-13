@@ -4,7 +4,7 @@ if(!isset($_SESSION['id']))
 {
     header('Location: ../view/logout.php');
 }
-require("../controller/profile_other_user.php");
+require("../controller/profil_other_user.php");
 $info_student = json_decode($json_array);?>
 
 	<!DOCTYPE html>

@@ -1,13 +1,14 @@
 <?php
 
 require_once("db_connect.php");
+require_once("data_crypter.php");
 
 $db = db_connect();
 
 if($db) {
 	$query = "SELECT student_id FROM STUDENT WHERE email = :mail and validate_account = true";
 	$statement = $db->prepare($query);
-	$statement->bindValue(':mail', $student_mail);
+	$statement->bindValue(':mail', encrypt_data($student_mail));
 	$statement->execute();
 
 
