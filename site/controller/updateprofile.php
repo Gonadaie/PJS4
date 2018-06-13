@@ -40,6 +40,7 @@ if(isset($_POST["image"])) {
 
 	updatePicture($student,"..\images\images_student\marinabotnari.png");
     $student->setPic("..\images\images_student\marinabotnari.png");
+
 }
 
 /*if(isset($_FILES["fileToUpload"])){
