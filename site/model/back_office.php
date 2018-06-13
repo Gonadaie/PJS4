@@ -1,6 +1,7 @@
 <?php
 
 require('db_connect.php');
+require_once("data_crypter.php");
 
 function get_all_student(){
   $db = db_connect();
