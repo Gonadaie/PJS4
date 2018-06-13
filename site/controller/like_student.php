@@ -49,6 +49,8 @@ else {
 				insert_conversation($id_student_liked, $id_student_connected);
 				echo "MATCH";
 			}
+			else
+				echo("LIKE");
 			/*if($match_result){
 				insert_conversation($id_student_liked, $id_student_connected);
 				echo "MATCH";
@@ -77,6 +79,9 @@ else {
 				update_match_result($id_student_liked, $id_student_connected);
 				insert_conversation($id_student_liked, $id_student_connected);
 				echo "MATCH";
+			}
+			else {
+				echo "LIKE";
 			}
 			/*if($match_result){
 				insert_conversation($id_student_liked, $id_student_connected);

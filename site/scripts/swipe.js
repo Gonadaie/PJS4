@@ -40,8 +40,11 @@ function ajax_liked_someone() {
 
 	xhttp.onreadystatechange = function () {
 		if (this.readyState == 4 && this.status == 200) {
+			console.log(this.responseText);
+
 			if (this.responseText == "MATCH") {
 				CreateAFormInsideMyDivAndSubmitIt();
+				console.log("crete form match");
 
 			} else if (this.responseText == "LIKE") {
 				return true;
@@ -118,6 +121,8 @@ profil_link.addEventListener("click", () => {
 
 //redirection with POST data
 function CreateAFormInsideMyDivAndSubmitIt() {
+	console.log("pute");
+
 	var mydiv = document.getElementById('myformcontainer').innerHTML = '<form id="post_data" method="post" action="../view/match.php"><input name="mail" type="hidden" value="' + email + ' "/><input name="pic" type="hidden" value="' + pic + '" /></form>';
 	f = document.getElementById('post_data');
 	if (f) {
