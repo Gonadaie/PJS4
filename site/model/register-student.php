@@ -7,10 +7,7 @@ function register_student($student_name, $student_mail, $password_hash, $student
 
         $db = db_connect();
         if($db){
-                $query = "INSERT INTO STUDENT (surname, email, student_password, year, pic, description, score) VALUES (:firstname, :mail, :pass, :year,  '..\images\images_student\alice.png', 'To see a W$
-And a Heaven in a Wild Flower 
-Hold Infinity in the palm of your hand 
-And Eternity in an hour - William Blake',500)";
+                $query = "INSERT INTO STUDENT (surname, email, student_password, year, pic, description, score) VALUES (:firstname, :mail, :pass, :year,  '..\images\images_student\alice.png', 'To see a World in a grain of sand And a Heaven in a Wild Flower Hold Infinity in the palm of your hand And Eternity in an hour - William Blake',500)";
                 $statement = $db->prepare($query);
                 $statement->bindValue(':firstname', encrypt_data($student_name));
                 $statement->bindValue(':mail', encrypt_data($student_mail));

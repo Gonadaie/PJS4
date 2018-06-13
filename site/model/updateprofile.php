@@ -35,6 +35,18 @@ function updateDescription($student, $description) {
 	}
 }
 
+function updatePicture($student, $picture) {
+    $db = db_connect();
+
+    if($db){
+        $query = "UPDATE student SET pic = :image WHERE student_id = :id";
+        $statement = $db->prepare($query);
+        $statement->bindvalue(':image',$picture);
+        $statement->bindvalue(':id', $student->getId());
+        $statement -> execute();
+    }
+}
+
 
 
 

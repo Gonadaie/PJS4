@@ -43,6 +43,7 @@ else {
 			require("score.php");
 			$match_result = get_match_result($id_student_liked, $id_student_connected);
 			error_log(print_r($match_result, TRUE));
+			error_log(print_r($get_match_first[2], TRUE));
 			if($get_match_first[2]==1){
 				update_match_result($id_student_liked, $id_student_connected);
 				insert_conversation($id_student_liked, $id_student_connected);
@@ -71,6 +72,7 @@ else {
 			require("score.php");
 			$match_result =get_match_result($id_student_liked, $id_student_connected);
 			error_log(print_r($match_result, TRUE));
+			error_log(print_r($get_match_second[1], TRUE));
 			if($get_match_second[1]==1){
 				update_match_result($id_student_liked, $id_student_connected);
 				insert_conversation($id_student_liked, $id_student_connected);
