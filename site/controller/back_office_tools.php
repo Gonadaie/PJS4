@@ -32,7 +32,7 @@ function student_is_null($student){
 }
 function array_unsubs($file){
 	$fileHandle = fopen($file, "r");
-	array_unsubs = array();
+	$array_unsubs = array();
 	while(($row = fgetcsv($fileHandle, 0, ",")) !==FALSE){
 		$array_unsubs[] = row[0].row[1];
 	}
@@ -44,7 +44,7 @@ function get_unmatch(){
 	$tab_unmatch = array();
 	if($db){
 		$query_unmatch_1=
-		"SELECT email,year,surname FROM student 
+		"SELECT email,year,surname FROM student
 		WHERE student_id IN
 			(SELECT student_id_god_son FROM student_match
 			WHERE final<>true)";
@@ -53,7 +53,7 @@ function get_unmatch(){
 			$student =  new Student(decrypt_data($row['surname']), $row['description'], NULL, decrypt_data($row['email']),NULL);
 			$tab_unmatch = $student->to_array();
 		}
-		$query_unmatch_2="SELECT email,year,surname FROM student 
+		$query_unmatch_2="SELECT email,year,surname FROM student
 		WHERE student_id IN
 			(SELECT student_id_god_father FROM student_match
 			WHERE final<>true)";
@@ -74,7 +74,7 @@ function send_mail_unsubs($student_mail){
 	;
 	$mailer_unsubs = new Swift_Mailer($transport_unsubs);
 	$root_unsubs = (!empty($_SERVER['HTTPS']) ? 'https' : 'http'). '://' . $_SERVER['HTTP_HOST'] . '/';
-	
+
 	$message_unsubs = (new Swift_Message("They missed you"))
 		->setFrom(["find.the.r8.one@gmail.com" => "Skipti"])
 		->setTo([$student_mail."@etu.parisdescartes.fr" => $student_name])
@@ -144,7 +144,7 @@ function send_mail_unsubs($student_mail){
 '		</table>'.
 '		</html>'
 	, "text/html");
-	
+
 	$result = $mailer_unsubs->send($message_unsubs);
 	return $result;
 }
@@ -162,7 +162,7 @@ function send_mail_unmatch($student){
 	;
 	$mailer_unmacth = new Swift_Mailer($transport_unmatch);
 	$root_unmatch = (!empty($_SERVER['HTTPS']) ? 'https' : 'http'). '://' . $_SERVER['HTTP_HOST'] . '/';
-	
+
 	$message_unmatch = (new Swift_Message("They missed you"))
 		->setFrom(["find.the.r8.one@gmail.com" => "Skipti"])
 		->setTo([$student->getEmail()."@etu.parisdescartes.fr" => $student_name])
@@ -232,7 +232,7 @@ function send_mail_unmatch($student){
 '		</table>'.
 '		</html>'
 	, "text/html");
-	
+
 	$result = $mailer_unmacth->send($message_unmatch);
 	return $result;
 }
