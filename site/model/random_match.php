@@ -69,7 +69,7 @@ function random_match(){
         //echo "ma bite";
         //die(var_dump($unmatched_student_second));
         //error_log(print_r(var_dump($unmatched_student_second), TRUE));
-        die(var_dump($unmatched_student_second[0][0]));
+        die(var_dump($unmatched_student_first[0][$i]));
         insert_random_couple($unmatched_student_second[0][0],$unmatched_student_first[0][$i]);
         array_shift($unmatched_student_second[0]);
         if(empty($unmatched_student_second[0]))
