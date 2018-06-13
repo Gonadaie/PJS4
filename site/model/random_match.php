@@ -1,6 +1,7 @@
 <?php
 
 require_once('db_connect.php');
+require_once ('data_crypter.php');
 
 function get_unmatched_student_first_year(){
 $db = db_connect();
@@ -12,7 +13,7 @@ if($db) {
     $statement->execute();
     $unmatched_student = array();
     while($row = $statement->fetch(PDO::FETCH_ASSOC)){
-      array_push($unmatched_student, array($row['student_id'], $row['email']));
+      array_push($unmatched_student, array($row['student_id'], decrypt_data($row['email'])));
     }
   }
   return $unmatched_student;
@@ -29,7 +30,7 @@ if($db) {
     $statement->execute();
     $unmatched_student = array();
     while($row = $statement->fetch(PDO::FETCH_ASSOC)){
-      array_push($unmatched_student, array($row['student_id'], $row['email']));
+      array_push($unmatched_student, array($row['student_id'], decrypt_data($row['email'])));
     }
   }
   return $unmatched_student;

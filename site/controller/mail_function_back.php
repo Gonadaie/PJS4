@@ -10,13 +10,13 @@ function send_unmatch_mail(){
 	$array_unmatch_2 = array();
 	$array_unmatch_1 = get_unmatched_student_first_year();
 	$array_unmatch_2 = get_unmatched_student_second_year();
-	error_log(print_r($array_unmatch_1[0], TRUE));
+	error_log(print_r($array_unmatch_1[0][1], TRUE));
 	$student1 = $array_unmatch_1[0];
 	$student2 = $array_unmatch_2[0];
-	error_log(print_r($array_unmatch_1, TRUE));
+	/*error_log(print_r($array_unmatch_1, TRUE));
 	error_log(print_r($array_unmatch_2,TRUE));
 	error_log(print_r($student1, TRUE));
-	error_log(print_r($student2,TRUE));
+	error_log(print_r($student2,TRUE));*/
 	foreach ($array_unmatch_1 as $student){
 		$result_mail = send_mail_unmatch($student, 1);
 		if ($result_mail ==0){
