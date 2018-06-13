@@ -8,14 +8,19 @@ function send_unmatch_mail(){
 	$array_unmatch = $array_unmatch_1 = $array_unmatch_2 = array();
 	$array_unmatch_1 = get_unmatched_student_first_year();
 	$array_unmatch_2 = get_unmatched_student_second_year();
-	$array_unmatch = array_merge($array_unmatch_1, $array_unmatch_2);
-	foreach ($array_unmatch as $student){
-		$result_mail = send_mail_unmatch($student);
+	foreach ($array_unmatch_1 as $student){
+		$result_mail = send_mail_unmatch($student, 1);
 		if ($result_mail ==0){
 			$fail= $fail+1;
 		}
-		echo "SUCCESS";
 	}
+	foreach ($array_unmatch_2 as $student){
+		$result_mail =  send_mail_unmatch($student,2);
+		if ($result_mail ==0){
+			$fail = $fail + 1;
+		}
+	}
+	echo "SUCCESS";
 }
 send_unmatch_mail();
 	
