@@ -4,7 +4,8 @@ function sign_up(e) {
 	if(verifForm(e)){
 		xhttp.onreadystatechange = function(){
 			if(this.readyState == 4 && this.status == 200){
-				if(this.responseText == "NOK"){
+				var response = this.responseText.replace(/\n/g, "");
+				if(response == "NOK"){
 					console.log("mail already exist");
 					highlight(document.getElementsByName("mail")[0], true);
 					document.getElementById("mail_not_valid").style.display = "none";
