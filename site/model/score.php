@@ -7,7 +7,6 @@
  * @return void
  */
 function update_score($id, $score){
-	error_log(print_r("update_score", TRUE));
 	$db = db_connect();
 	if($db) {
 		$query_update_score= "UPDATE student SET score = :score
