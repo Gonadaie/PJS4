@@ -30,6 +30,9 @@ if(isset($_POST["description"])){
 
 if(isset($_POST["image"])) {
 	//$newPic = $_POST["image"];
+	
+    $student->setPic('..\images\images_student\marinabotnari.png');
+
     uploadProfilePicture($student->getEmail(),$_POST["image"]);
 
     //'..\images\images_student\alice.png'
