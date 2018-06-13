@@ -12,6 +12,6 @@ else{
 }
 
 
-header('Location: http://skipti.fr/view/swipe.php');
+header('Location: ../view/updateprofile.php');
 
 ?>
