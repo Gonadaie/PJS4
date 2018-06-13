@@ -42,6 +42,7 @@ if(isset($_POST["image"])) {
 	//header('Location:http://skipti.fr/view/updateprofile.php');
     header('Refresh: 0');
 
+
 }
 
 /*if(isset($_FILES["fileToUpload"])){
