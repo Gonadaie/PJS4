@@ -59,6 +59,7 @@ function update_match_result($id1,$id2){
     $statement->execute();
 
 }
+}
 
 /**
  * Update student_match between two student in database
