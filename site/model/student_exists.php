@@ -10,9 +10,6 @@ if($db) {
 	$statement = $db->prepare($query);
 	$statement->bindValue(':mail', encrypt_data($student_mail));
 	$statement->execute();
-
-
-	while($row = $statement->fetch(PDO::FETCH_ASSOC)){
-		$student_id = $row['student_id'];
-	}
+	$row = $statement->fetch(PDO::FETCH_ASSOC);
+	error_log(print_r($statement->rowCount()>0,true));
 }
