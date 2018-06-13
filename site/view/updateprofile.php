@@ -167,7 +167,7 @@ $student = $info_student->student;
             viewport: {
                 width:200,  <!--dimensions caré pour couper-->
                 height:200,
-                type:'square' //circle
+                type:'circle' //square
             },
             boundary:{ <!--	conteneur zone de coupage-->
                 width:300,
