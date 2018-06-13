@@ -5,6 +5,7 @@ function sign_up(e) {
 		xhttp.onreadystatechange = function(){
 			if(this.readyState == 4 && this.status == 200){
 				var response = this.responseText.replace(/\n/g, "");
+				console.log(response);
 				if(response == "NOK"){
 					console.log("mail already exist");
 					highlight(document.getElementsByName("mail")[0], true);
