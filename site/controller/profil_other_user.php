@@ -35,6 +35,8 @@ $array = array("name"=>$student->getPic(), "year"=>$student->getYear(),
 "adj"=>$student->getStringAdjectives(), "description"=>$student->getDescription(),
 "pic"=>$student->getPic());
 
+$json_array = json_encode($array);
+
 //modif tibo
 if ($mobile == true){
 	$array = array('student' => $student->to_array(), 'match' => getNbMatchs($student));
