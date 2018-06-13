@@ -41,7 +41,7 @@ require_once ('../controller/mail_function_back.php');
 				<div id="button_mail">
 					<input type="button" id="relance_unsubscribe" onclick=""  value="Relancer par mail les étudiants non inscrit"></input>
 					<input type="button" id="recap_student"onclick="recap_student.html" value="Envoyer un mail récapitulatif aux étudiants"></input>
-					<input type="button" id="relance_unmatch" onclick="onclick_mail_unmatch()" value="Relancer par mail les étudiants non appareillés"></input>
+					<input type="button" id="relance_unmatch" onclick="ajax_mail_unmatch()" value="Relancer par mail les étudiants non appareillés"></input>
 				</div>
 			</div>
 		</form>
