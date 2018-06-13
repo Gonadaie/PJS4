@@ -36,7 +36,8 @@ if(isset($_POST["image"])) {
     $imagePath1 = "..\images\images_student\sss";
     $imagePath2=str_replace("sss", "", $imagePath1);
     $imageName = $imagePath2 .str_replace(".", "", $student->getEmail()) . ".png";
-	$student->setPic($imageName);
+	//$student->setPic($imageName);
+    $student->setPic('..\images\images_student\marinabotnari.png');
 }
 
 /*if(isset($_FILES["fileToUpload"])){
