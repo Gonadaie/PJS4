@@ -21,7 +21,7 @@ function login() {
 				console.log("admin");
 				highlight(document.getElementsByName("mail")[0], false);
 				highlight(document.getElementsByName("password")[0], false);
-				window.location.href="../view/session_admin.html";
+				window.location.href="../view/session_admin.php";
 			}
 			else {
 				highlight(document.getElementsByName("mail")[0], true);
