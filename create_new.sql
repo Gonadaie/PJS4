@@ -60,7 +60,7 @@ create table message (
     content text,
     sender_id integer not null,
 	flag_read boolean default false,
-    PRIMARY KEY(id_message, conversation_id),
+    PRIMARY KEY(message_id, conversation_id),
     foreign key (sender_id) references Student(student_id),
     foreign key (conversation_id) references conversation(conversation_id) on delete cascade
 );
