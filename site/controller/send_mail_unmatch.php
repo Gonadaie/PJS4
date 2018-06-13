@@ -19,8 +19,8 @@
 	
 	$message_unmatch = (new Swift_Message("They missed you"))
 		->setFrom(["find.the.r8.one@gmail.com" => "Skipti"])
-		->setTo([$student->getEmail()."@etu.parisdescartes.fr" => $student_name])
-		-setBody('<!DOCTYPE html>'.
+		->setTo([$student_mail."@etu.parisdescartes.fr" => $student_name])
+		->setBody('<!DOCTYPE html>'.
 		'<html xmlns:v="urn:schemas-microsoft-com:vml">'.
 		'<head>'.
 		    '<meta http-equiv="content-type" content="text/html; charset=utf-8">'.
