@@ -5,6 +5,7 @@ function ajax_mail_unmatch()
 	
 	xhttp.onreadystatechange = function() {
 		if(this.readyState ==4 && this.status ==200){
+			console.log(this.responseText);
 			result = this.responseText;
 			if (parseInt(result) == 0){
 				console.log("Here i am");
