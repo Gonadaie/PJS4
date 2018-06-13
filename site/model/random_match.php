@@ -41,6 +41,7 @@ function random_match(){
 
   $nbFirstStudent = count($unmatched_student_first);
   $nbSecondStudent = count($unmatched_student_second);
+  die($nbFirstStudent);
 
 
   if($nbFirstStudent == $nbSecondStudent){
