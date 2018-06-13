@@ -1,4 +1,5 @@
 <?php
+	require_once("../vendor/autoload.php");
 	function send_mail_unmatch($student, $year){
 	if($year==1){
 		$sentence = "parrain ou ta marraine";
