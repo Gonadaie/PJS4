@@ -63,7 +63,8 @@ function random_match(){
   else if($nbFirstStudent<$nbSecondStudent){
     while(!empty($unmatched_student_second)){
       for($i=0; $i<$nbFirstStudent; $i++){
-        error_log(print_r(var_dump($unmatched_student_second), TRUE));
+        echo var_dump($unmatched_student_second);
+        //error_log(print_r(var_dump($unmatched_student_second), TRUE));
         insert_random_couple($unmatched_student_second[0][0],$unmatched_student_first[0][$i]);
         array_shift($unmatched_student_second[0]);
         if(empty($unmatched_student_second[0]))
