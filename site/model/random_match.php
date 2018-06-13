@@ -55,8 +55,8 @@ function random_match(){
     while(!empty($unmatched_student_first)){
       for($i=0; $i<$nbSecondStudent; $i++){
 
-        insert_random_couple($unmatched_student_second[0][$i],$unmatched_student_first[0][0]);
-        array_shift($unmatched_student_first[0]);
+        insert_random_couple($unmatched_student_second[$i][0],$unmatched_student_first[0][0]);
+        array_shift($unmatched_student_first);
         if(empty($unmatched_student_first[0]))
           break;
       }
@@ -69,7 +69,8 @@ function random_match(){
         //echo "ma bite";
         //die(var_dump($unmatched_student_second));
         //error_log(print_r(var_dump($unmatched_student_second), TRUE));
-        insert_random_couple($unmatched_student_second[0][0],$unmatched_student_first[0][$i]);
+        die(var_dump($unmatched_student_first[$i][0]));
+        insert_random_couple($unmatched_student_second[0][0],$unmatched_student_first[$i][0]);
         //die(var_dump($unmatched_student_second));
         array_shift($unmatched_student_second);
         if(empty($unmatched_student_second[0]))
