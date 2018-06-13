@@ -29,7 +29,6 @@ if(isset($_POST["description"])){
 }
 
 if(isset($_POST["image"])) {
-	//$newPic = $_POST["image"];
 
     uploadProfilePicture($student->getEmail(),$_POST["image"]);
 
@@ -40,10 +39,9 @@ if(isset($_POST["image"])) {
     updatePicture($student,$imageName);
 	$student->setPic($imageName);
 
-	//updatePicture($student,"..\images\images_student\marinabotnari.png");
-    //$student->setPic("..\images\images_student\marinabotnari.png");
+	//header('Location:http://skipti.fr/view/updateprofile.php');
+    header('Refresh: 0');
 
-	header('Location:http://skipti.fr/view/updateprofile.php');
 
 }
 

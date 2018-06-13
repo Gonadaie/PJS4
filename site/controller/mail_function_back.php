@@ -12,8 +12,9 @@ function send_unmatch_mail(){
 		if ($result_mail ==0){
 			$fail= $fail+1;
 		}
-		echo $fail;
+		echo "SUCCESS";
 	}
 }
+send_unmatch_mail();
 	
 ?>

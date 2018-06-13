@@ -1,5 +1,8 @@
 <?php 
-require('../controller/mail_function_back.php');
+
+require_once ('../controller/mail_function_back.php');
+
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -36,9 +39,9 @@ require('../controller/mail_function_back.php');
 			<div id="envoi_mail_part">
 			<div id="envoi_mail">Envoi d'emails</div>
 				<div id="button_mail">
-					<input type="button" id="relance_unsubscribe" onclick="on_mail_unmatch()"  value="Relancer par mail les étudiants non inscrit"></input>
+					<input type="button" id="relance_unsubscribe" onclick=""  value="Relancer par mail les étudiants non inscrit"></input>
 					<input type="button" id="recap_student"onclick="recap_student.html" value="Envoyer un mail récapitulatif aux étudiants"></input>
-					<input type="button" id="relance_unmatch" onclick="relance_unmatch.html" value="Relancer par mail les étudiants non appareillés"></input>
+					<input type="button" id="relance_unmatch" onclick="ajax_mail_unmatch()" value="Relancer par mail les étudiants non appareillés"></input>
 				</div>
 			</div>
 		</form>

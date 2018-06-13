@@ -214,6 +214,7 @@ $student = $info_student->student;
                     success:function(data) <!--	fonction qui reçoit des données du serveur!!!!-->
                     {
                         $('#uploadimageModal').modal('hide'); <!--	cacher la fenetre de coupage !!!!-->
+                        
                     }
                 });
             })

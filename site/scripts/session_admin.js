@@ -1,8 +1,22 @@
 var result;
-function on_mail_unmatch()
+function ajax_mail_unmatch()
 {
-	result = "<?php send_unmatch_mail();?>";
-	alert(result);
+	var xhttp =  new XMLHttpRequest();
+	
+	xhttp.onreadystatechange = function() {
+		if(this.readyState ==4 && this.status ==200){
+			if (this.responseText== "SUCCESS"){
+				result = this.responseText;
+				alert(result);
+			}else{
+				alert("FAIL");
+			}
+		}
+	}
+	xhttp.open("GET", "../controller/mail_function_back.php");
+	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	xhttp.send();
+	
 	return false;
 }
 
