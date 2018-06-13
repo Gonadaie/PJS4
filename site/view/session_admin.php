@@ -42,6 +42,6 @@ require('../controller/mail_function_back.php');
 				</div>
 			</div>
 		</form>
-		<script src="../scritps/session_admin.js"></script> 
+		<script src="../scripts/session_admin.js"></script> 
 	</body>
 </html>

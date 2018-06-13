@@ -33,13 +33,17 @@ if(isset($_POST["image"])) {
 
     uploadProfilePicture($student->getEmail(),$_POST["image"]);
 
-    //$imagePath1 = "..\images\images_student\sss";
-    //$imagePath2=str_replace("sss", "", $imagePath1);
-    //$imageName = $imagePath2 .str_replace(".", "", $student->getEmail()) . ".png";
-	//$student->setPic($imageName);
+    $imagePath1 = "..\images\images_student\sss";
+    $imagePath2=str_replace("sss", "", $imagePath1);
+    $imageName = $imagePath2 .str_replace(".", "", $student->getEmail()) . ".png";
 
-	updatePicture($student,"..\images\images_student\marinabotnari.png");
-    $student->setPic("..\images\images_student\marinabotnari.png");
+    updatePicture($student,$imageName);
+	$student->setPic($imageName);
+
+	//updatePicture($student,"..\images\images_student\marinabotnari.png");
+    //$student->setPic("..\images\images_student\marinabotnari.png");
+
+	header('Location:http://skipti.fr/view/updateprofile.php');
 
 }
 
