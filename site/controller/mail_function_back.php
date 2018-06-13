@@ -13,10 +13,6 @@ function send_unmatch_mail(){
 	error_log(print_r($array_unmatch_1[0][1], TRUE));
 	$student1 = $array_unmatch_1[0];
 	$student2 = $array_unmatch_2[0];
-	/*error_log(print_r($array_unmatch_1, TRUE));
-	error_log(print_r($array_unmatch_2,TRUE));
-	error_log(print_r($student1, TRUE));
-	error_log(print_r($student2,TRUE));*/
 	foreach ($array_unmatch_1 as $student){
 		$result_mail = send_mail_unmatch($student, 1);
 		if ($result_mail ==0){
@@ -29,7 +25,7 @@ function send_unmatch_mail(){
 			$fail = $fail + 1;
 		}
 	}
-	echo "SUCCESS";
+	echo strval($fail);
 }
 send_unmatch_mail();
 	

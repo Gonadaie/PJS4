@@ -5,11 +5,11 @@ function ajax_mail_unmatch()
 	
 	xhttp.onreadystatechange = function() {
 		if(this.readyState ==4 && this.status ==200){
-			if (this.responseText== "SUCCESS"){
-				result = this.responseText;
-				alert(result);
+			result = this.responseText;
+			if (parseInt(result) == 0){
+				alert("SUCCESS");
 			}else{
-				alert("FAIL");
+				alert(result);
 			}
 		}
 	}
