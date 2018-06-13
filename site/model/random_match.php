@@ -5,7 +5,7 @@ require_once('db_connect.php');
 function get_unmatched_student_first_year(){
 $db = db_connect();
 if($db) {
-  $query = "SELECT student_id, score,email from student where year = 1 and admin=false AND NOT EXISTS (SELECT
+  $query = "SELECT student_id, score,email from student where year = 1 and admin = false AND NOT EXISTS (SELECT
     student_id_god_son, student_id_god_father from student_match where final = true
     and (student_id_god_son = student_id OR student_id_god_father = student_id)) ORDER BY score";
     $statement = $db->prepare($query);
@@ -22,7 +22,7 @@ if($db) {
 function get_unmatched_student_second_year(){
 $db = db_connect();
 if($db) {
-  $query = "SELECT student_id, score, email from student where year = 2 and admin=false AND NOT EXISTS (SELECT
+  $query = "SELECT student_id, score, email from student where year = 2 and admin = false AND NOT EXISTS (SELECT
     student_id_god_son, student_id_god_father from student_match where final = true
     and (student_id_god_son = student_id OR student_id_god_father = student_id)) ORDER BY score";
     $statement = $db->prepare($query);
@@ -39,8 +39,10 @@ function random_match(){
   $unmatched_student_first = get_unmatched_student_first_year();
   $unmatched_student_second = get_unmatched_student_second_year();
 
-  $nbFirstStudent = count($unmatched_student_first[0]);
-  $nbSecondStudent = count($unmatched_student_second[0]);
+  $nbFirstStudent = count($unmatched_student_first);
+  $nbSecondStudent = count($unmatched_student_second);
+  error_log(print_r($nbFirstStudent, TRUE));
+  error_log(print_r($nbSecondStudent, TRUE));
 
   if($nbFirstStudent == $nbSecondStudent){
     for($i = 0; $i<$nbSecondStudent; $i++){
@@ -52,6 +54,8 @@ function random_match(){
     while(!empty($unmatched_student_first)){
       for($i=0; $i<$nbSecondStudent; $i++){
         insert_random_couple($unmatched_student_second[0][$i],$unmatched_student_first[0][0]);
+        error_log(print_r($unmatched_student_second[0][$i], TRUE));
+        error_log(print_r($unmatched_student_first[0][0], TRUE));
         array_shift($unmatched_student_first[0]);
         if(empty($unmatched_student_first[0]))
           break;
@@ -63,6 +67,8 @@ function random_match(){
     while(!empty($unmatched_student_second)){
       for($i=0; $i<$nbFirstStudent; $i++){
         insert_random_couple($unmatched_student_second[0][0],$unmatched_student_first[0][$i]);
+        error_log(print_r($unmatched_student_second[0][0], TRUE));
+        error_log(print_r($unmatched_student_first[0][$i], TRUE));
         array_shift($unmatched_student_second[0]);
         if(empty($unmatched_student_second[0]))
           break;
