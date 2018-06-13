@@ -47,6 +47,19 @@ function get_match_result($id1,$id2){
   return $result;
 }
 
+function update_match_result($id1,$id2){
+  $db = db_connect();
+  if($db) {
+    $query = "UPDATE student_match set result=true WHERE student_id_god_father = :id1 AND student_id_god_son = :id2";
+
+    $statement = $db->prepare($query);
+    $statement->bindValue(':id1', $id1);
+    $statement->bindValue(':id2', $id2);
+
+    $statement->execute();
+
+}
+
 /**
  * Update student_match between two student in database
  * @param integer $id id of the first student
@@ -123,6 +136,8 @@ function get_match_result($id1,$id2){
       $statement_set_match_first->execute();
     }
   }
+
+
 
   /**
    * Insert a new conversation between two student in database.
