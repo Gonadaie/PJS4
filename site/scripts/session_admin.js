@@ -21,5 +21,23 @@ function ajax_mail_unmatch()
 	return false;
 }
 
-
-		
+function setfilename(){
+	var thefile = document.getElementById('file');
+	var label = document.getElementById('label_input');
+	var name;
+	for(var i = thefile.value.length; i >= 0; i--){
+		if (thefile.value[i]=="\\"){
+			break;
+		}
+		name = name + thefile.value[i];
+	}
+	name = name.reverse();
+	label.value = name.toString();
+}
+String.prototype.reverse=function ()
+{
+        var n   =  '';
+        for( var i=this.length-1; i >= 0; i--)
+                n       +=     this.charAt(i);
+        return n;
+}

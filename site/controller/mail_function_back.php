@@ -15,14 +15,12 @@ function send_unmatch_mail(){
 	$student2 = $array_unmatch_2[0];
 	foreach ($array_unmatch_1 as $student){
 		$result_mail = send_mail_unmatch($student, 1);
-		error_log(print_r($result_mail, TRUE));
 		if ($result_mail ==0){
 			$fail= $fail+1;
 		}
 	}
 	foreach ($array_unmatch_2 as $student){
 		$result_mail =  send_mail_unmatch($student,2);
-		error_log(print_r($result_mail, TRUE));
 		if ($result_mail ==0){
 			$fail = $fail + 1;
 		}
