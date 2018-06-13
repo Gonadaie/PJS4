@@ -10,6 +10,7 @@ function send_unmatch_mail(){
 	$array_unmatch_2 = array();
 	$array_unmatch_1 = get_unmatched_student_first_year();
 	$array_unmatch_2 = get_unmatched_student_second_year();
+	$fail = null;
 	error_log(print_r($array_unmatch_1[0][1], TRUE));
 	$student1 = $array_unmatch_1[0];
 	$student2 = $array_unmatch_2[0];

@@ -7,8 +7,10 @@ function ajax_mail_unmatch()
 		if(this.readyState ==4 && this.status ==200){
 			result = this.responseText;
 			if (parseInt(result) == 0){
+				console.log("Here i am");
 				alert("SUCCESS");
 			}else{
+				console.log("Not supposed to be here")
 				alert(result);
 			}
 		}
