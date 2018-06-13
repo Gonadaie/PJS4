@@ -5,14 +5,14 @@ require_once('db_connect.php');
 function get_unmatched_student_first_year(){
 $db = db_connect();
 if($db) {
-  $query = "SELECT student_id, score from student where year = 1 AND NOT EXISTS (SELECT
+  $query = "SELECT student_id, score,email from student where year = 1 AND NOT EXISTS (SELECT
     student_id_god_son, student_id_god_father from student_match where final = true
     and (student_id_god_son = student_id OR student_id_god_father = student_id)) ORDER BY score";
     $statement = $db->prepare($query);
     $statement->execute();
     $unmatched_student = array();
     while($row = $statement->fetch(PDO::FETCH_ASSOC)){
-      array_push($unmatched_student, $row['student_id']);
+      array_push($unmatched_student, $row['student_id'], $row['email']);
     }
   }
   return $unmatched_student;
@@ -22,14 +22,14 @@ if($db) {
 function get_unmatched_student_second_year(){
 $db = db_connect();
 if($db) {
-  $query = "SELECT student_id, score from student where year = 2 AND NOT EXISTS (SELECT
+  $query = "SELECT student_id, score, email from student where year = 2 AND NOT EXISTS (SELECT
     student_id_god_son, student_id_god_father from student_match where final = true
     and (student_id_god_son = student_id OR student_id_god_father = student_id)) ORDER BY score";
     $statement = $db->prepare($query);
     $statement->execute();
     $unmatched_student = array();
     while($row = $statement->fetch(PDO::FETCH_ASSOC)){
-      array_push($unmatched_student, $row['student_id']);
+      array_push($unmatched_student, $row['student_id'], $row['email']);
     }
   }
   return $unmatched_student;
