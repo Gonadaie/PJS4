@@ -2,6 +2,7 @@
 require_once('back_office_tools.php');
 require_once('../model/get_student.php');
 require_once ('../model/random_match.php');
+require_once ('send_mail_unmatch.php');
 //ajout du code en method post sur session_admin ou back_office
 function send_unmatch_mail(){
 	$array_unmatch = $array_unmatch_1 = $array_unmatch_2 = array();
