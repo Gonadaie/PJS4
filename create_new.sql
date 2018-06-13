@@ -45,7 +45,7 @@ create table student_match (
     foreign key (student_id_god_son) references Student(student_id) on delete cascade
 );
 create table conversation (
-    id_conversation SERIAL primary key,
+    conversation_id SERIAL primary key,
     birth date,
     student_1 integer,
     student_2 integer,
@@ -54,14 +54,15 @@ create table conversation (
  
 );
 create table message (
-    id_message integer,
-    id_conversation integer,
-    date_message date,
+    message_id SERIAL,
+    conversation_id integer,
+    message_date date,
     content text,
-    id_sender integer not null,
-    PRIMARY KEY(id_message, id_conversation),
-    foreign key (id_sender) references Student(student_id),
-    foreign key (id_conversation) references conversation(id_conversation) on delete cascade
+    sender_id integer not null,
+	flag_read boolean default false,
+    PRIMARY KEY(id_message, conversation_id),
+    foreign key (sender_id) references Student(student_id),
+    foreign key (conversation_id) references conversation(conversation_id) on delete cascade
 );
  
 create table token_on_create (
