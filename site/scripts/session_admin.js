@@ -7,12 +7,10 @@ function ajax_mail_unmatch()
 		if(this.readyState ==4 && this.status ==200){
 			console.log(this.responseText);
 			result = this.responseText;
-			if (parseInt(result) == 0){
-				console.log("Here i am");
-				alert("SUCCESS");
+			if (result != "FAIL"){
+				alert("Un e-mail a été envoyé à tous les étudiants sans match");
 			}else{
-				console.log("Not supposed to be here")
-				alert(result);
+				alert("Un problème est survenue, veuillez réessayer plus tard ou contacter le support");
 			}
 		}
 	}
