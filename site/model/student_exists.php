@@ -1,6 +1,7 @@
 <?php
 
 require_once("db_connect.php");
+require_once("data_crypter.php");
 
 $db = db_connect();
 
