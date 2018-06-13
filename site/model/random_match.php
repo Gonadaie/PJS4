@@ -70,8 +70,8 @@ function random_match(){
         //die(var_dump($unmatched_student_second));
         //error_log(print_r(var_dump($unmatched_student_second), TRUE));
         insert_random_couple($unmatched_student_second[0][0],$unmatched_student_first[0][$i]);
-        die(var_dump($unmatched_student_second));
-        array_shift($unmatched_student_second[0]);
+        //die(var_dump($unmatched_student_second));
+        array_shift($unmatched_student_second);
         if(empty($unmatched_student_second[0]))
           break;
       }
