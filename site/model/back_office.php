@@ -28,7 +28,7 @@ function get_couples(){
     $statement->execute();
     $couples = array();
     while($row = $statement->fetch(PDO::FETCH_ASSOC)){
-      array_push($couples, array(decrypt_data($row['email1']), decrypt_data($row['email2']));
+      array_push($couples, array(decrypt_data($row['email1']), decrypt_data($row['email2'])));
     }
   }
   return $couples;
