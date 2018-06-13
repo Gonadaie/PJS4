@@ -11,5 +11,5 @@ if($db) {
 	$statement->bindValue(':mail', encrypt_data($student_mail));
 	$statement->execute();
 	$row = $statement->fetch(PDO::FETCH_ASSOC);
-	error_log(print_r($statement->rowCount()>0,true));
+	error_log(print_r($statement->rowCount(),true));
 }
