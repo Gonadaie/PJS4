@@ -30,17 +30,15 @@ if(isset($_POST["description"])){
 
 if(isset($_POST["image"])) {
 	//$newPic = $_POST["image"];
-	
-    $student->setPic('..\images\images_student\marinabotnari.png');
 
     uploadProfilePicture($student->getEmail(),$_POST["image"]);
 
-    //'..\images\images_student\alice.png'
-    $imagePath1 = "..\images\images_student\sss";
-    $imagePath2=str_replace("sss", "", $imagePath1);
-    $imageName = $imagePath2 .str_replace(".", "", $student->getEmail()) . ".png";
+    //$imagePath1 = "..\images\images_student\sss";
+    //$imagePath2=str_replace("sss", "", $imagePath1);
+    //$imageName = $imagePath2 .str_replace(".", "", $student->getEmail()) . ".png";
 	//$student->setPic($imageName);
-    $student->setPic('..\images\images_student\marinabotnari.png');
+
+    $student->setPic("..\images\images_student\marinabotnari.png");
 }
 
 /*if(isset($_FILES["fileToUpload"])){
