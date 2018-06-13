@@ -12,7 +12,7 @@ if($db) {
     $statement->execute();
     $unmatched_student = array();
     while($row = $statement->fetch(PDO::FETCH_ASSOC)){
-      array_push($unmatched_student, $row['student_id'], $row['email']);
+      array_push($unmatched_student, array($row['student_id'], $row['email']));
     }
   }
   return $unmatched_student;
@@ -29,12 +29,12 @@ if($db) {
     $statement->execute();
     $unmatched_student = array();
     while($row = $statement->fetch(PDO::FETCH_ASSOC)){
-      array_push($unmatched_student, $row['student_id'], $row['email']);
+      array_push($unmatched_student, array($row['student_id'], $row['email']));
     }
   }
   return $unmatched_student;
 }
-
+/* Changer random match en fonction de la nouvelle valeur de retour des fonction ci-dessus */
 function random_match(){
   $unmatched_student_first = get_unmatched_student_first_year();
   $unmatched_student_second = get_unmatched_student_second_year();

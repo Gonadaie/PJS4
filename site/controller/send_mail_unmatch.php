@@ -1,12 +1,14 @@
 <?php
-	function send_mail_unmatch($student){
-	if($student -> getYear()==1){
+	function send_mail_unmatch($student, $year){
+	if($year==1){
 		$sentence = "parrain ou ta marraine";
 	}
 	else{
 		$sentence = "ton filleul ou ta filleule";
 	}
-	$student_name =	$student->getSurname();
+	$student_mail = $student[0];
+	$student_name =	explode('.', $student_mail)[0];
+	$student_name = strtoupper($student_name[0]) . substr($student_name, 1, strlen($student_name) -1 );;
 	$transport_unmatch = (new Swift_SmtpTransport("smtp.gmail.com", 465, "ssl"))
 	->setUsername("find.the.r8.one@gmail.com")
 	->setPassword("tindertinder")
