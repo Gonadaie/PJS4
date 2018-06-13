@@ -11,7 +11,7 @@ function get_all_student(){
     $statement = $db->prepare($query);
     $statement->execute();
     while($row = $statement->fetch(PDO::FETCH_ASSOC))
-      array_push($list, array($row["email"], $row["year"]));
+      array_push($list, array(decrypt_data($row["email"]), $row["year"]));
     }
 
   error_log(print_r("Requete fini", TRUE));
@@ -28,8 +28,7 @@ function get_couples(){
     $statement->execute();
     $couples = array();
     while($row = $statement->fetch(PDO::FETCH_ASSOC)){
-      array_push($couples, decrypt_data($row['email1']));
-      array_push($couples, decrypt_data($row['email2']));
+      array_push($couples, array(decrypt_data($row['email1']), decrypt_data($row['email2']));
     }
   }
   return $couples;
