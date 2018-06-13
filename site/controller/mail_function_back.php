@@ -13,6 +13,7 @@ function send_unmatch_mail(){
 			$fail= $fail+1;
 		}
 		echo $fail;
-	}	
+	}
+}
 	
 ?>
