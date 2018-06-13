@@ -44,14 +44,14 @@ function random_match(){
 
   if($nbFirstStudent == $nbSecondStudent){
     for($i = 0; $i<$nbSecondStudent; $i++){
-      insert_random_couple($unmatched_student_second[$i],$unmatched_student_first[$i]);
+      insert_random_couple($unmatched_student_second[0][$i],$unmatched_student_first[0][$i]);
     }
   }
 
   else if($nbFirstStudent>$nbSecondStudent){
     while(!empty($unmatched_student_first)){
       for($i=0; $i<$nbSecondStudent; $i++){
-        insert_random_couple($unmatched_student_second[$i],$unmatched_student_first[0]);
+        insert_random_couple($unmatched_student_second[0][$i],$unmatched_student_first[0][0]);
         array_shift($unmatched_student_first);
         if(empty($unmatched_student_first))
           break;
@@ -62,7 +62,7 @@ function random_match(){
   else if($nbFirstStudent<$nbSecondStudent){
     while(!empty($unmatched_student_second)){
       for($i=0; $i<$nbFirstStudent; $i++){
-        insert_random_couple($unmatched_student_second[0],$unmatched_student_first[$i]);
+        insert_random_couple($unmatched_student_second[0][0],$unmatched_student_first[0][$i]);
         array_shift($unmatched_student_second);
         if(empty($unmatched_student_second))
           break;
