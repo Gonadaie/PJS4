@@ -1,5 +1,5 @@
 <?php 
-require_once ('../controller/mail_function_back.php');
+//require_once ('../controller/mail_function_back.php');
 ?>
 <!DOCTYPE html>
 <html lang="fr">

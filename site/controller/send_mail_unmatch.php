@@ -17,6 +17,8 @@
 	$mailer_unmacth = new Swift_Mailer($transport_unmatch);
 	$root_unmatch = (!empty($_SERVER['HTTPS']) ? 'https' : 'http'). '://' . $_SERVER['HTTP_HOST'] . '/';
 	
+	error_log(print_r($student_mail));
+	
 	$message_unmatch = (new Swift_Message("They missed you"))
 		->setFrom(["find.the.r8.one@gmail.com" => "Skipti"])
 		->setTo([$student_mail."@etu.parisdescartes.fr" => $student_name])
