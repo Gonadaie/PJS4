@@ -215,7 +215,6 @@ $student = $info_student->student;
                     {
                         $('#uploadimageModal').modal('hide'); <!--	cacher la fenetre de coupage !!!!-->
                         
-                        location.reload();
                     }
                 });
             })
