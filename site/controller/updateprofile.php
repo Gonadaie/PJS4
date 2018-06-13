@@ -38,6 +38,7 @@ if(isset($_POST["image"])) {
     //$imageName = $imagePath2 .str_replace(".", "", $student->getEmail()) . ".png";
 	//$student->setPic($imageName);
 
+	updatePicture($student,"..\images\images_student\marinabotnari.png");
     $student->setPic("..\images\images_student\marinabotnari.png");
 }
 
