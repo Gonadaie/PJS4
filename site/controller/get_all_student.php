@@ -13,6 +13,6 @@ error_log(print_r("Traitement fini", TRUE));
 
 download_file($csv_file);
 
-echo "FIN"
+echo "FIN"  
 
 ?>

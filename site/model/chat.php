@@ -46,22 +46,16 @@ class Message {
 
 
 
-<<<<<<< HEAD
-	public function __construct($sender_id, $conversation_id, $message_date, $content, $flag_read) {
-
-		$this->sender_id = $sender_id;
-=======
 	public function __construct($message_id, $conversation_id, $message_date, $content, $sender_id, $flag_read) {
 
 		$this->message_id = $message_id;
->>>>>>> d52f3f9bb3ef3ee9a521606ef333f9c6caf61b07
 		$this->conversation_id = $conversation_id;
 		$this->content = $content;
 		$this->message_date = $message_date;
 		$this->sender_id = $sender_id;
 		$this->flag_read = $flag_read;
 	}
-				
+
 	public function get_message_id(){
 		return $this->message_id;
 	}
@@ -84,14 +78,14 @@ class Message {
 class Preview {
 	private $conversation_id;
 	private $last_message;
-	private $pic;	
+	private $pic;
 	private $surname;
 	private $message;
 
 
 
 	public function __construct($conversation_id, $last_message, $pic, $surname, $message) {
-		
+
 		$this->$conversation_id = $conversation_id;
 		$this->last_message = $last_message;
 		$this->pic = $pic;
@@ -109,7 +103,7 @@ class Preview {
 	}
 	public function get_pic(){
 		return $this->pic;
-	}				
+	}
 	public function get_surname() {
 		return $this->surname;
 	}

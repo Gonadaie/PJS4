@@ -1,6 +1,5 @@
 <?php
 
-
 /**
  * Get student_match between to student in database
  * @param integer $id id of the first student
@@ -150,8 +149,8 @@ function update_match_result($id1,$id2){
   function insert_conversation($id1, $id2){
     $db = db_connect();
     if($db) {
-      $query_set_conversation = "INSERT INTO conversation(birth, last_message, student_1, student_2)
-      VALUES(now(), now(), :id1,:id2)";
+      $query_set_conversation = "INSERT INTO conversation(student_1, student_2)
+      VALUES(:id1,:id2)";
       $statement_set_conversation = $db->prepare($query_set_conversation);
       $statement_set_conversation->bindValue(':id1', $id1);
       $statement_set_conversation->bindValue(':id2', $id2);

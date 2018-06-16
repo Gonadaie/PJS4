@@ -6,7 +6,7 @@ function highlight(field, error) {
 }
 
 function checkMail(field) {
-	var regex = /^[a-z| _ | -]+\.[a-z | _ | -]+[0-9]*$/;
+	var regex = /^[a-z| _ | ]+\.[a-z | _ | -]+[0-9]*$/;
 	if (!regex.test(field.value)) {
 		highlight(field, true);
 		document.getElementById("mail_not_valid").style.display = "block";
