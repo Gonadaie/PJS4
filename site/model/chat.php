@@ -33,26 +33,37 @@ class Conversation {
 }
 
 class Message {
-	private $id_from;
-	private $id_dest;
+	private $sender_id;
+	private $conversation_id;
+	private $message_date;	
 	private $content;
-	private $date;
+	private $sender_id;
+	private $flag_read;
 
-	public function __construct($id_from, $id_dest, $content, $date) {
-		$this->id_from = $id_from;
-		$this->id_dest = $id_dest;
+
+
+	public function __construct($sender_id, $conversation_id, $message_date, $content, $flag_read) {
+		
+		$this->sender_id = $sender_id;
+		$this->conversation_id = $conversation_id;
 		$this->content = $content;
-		$this->date = date;
+		$this->message_date = $message_date;
+		$this->flag_read = $flag_read;
 	}
 
-	public function get_id_from() {
-		return $this->id_dest;
+	public function get_sender_id() {
+		return $this->sender_id;
 	}
 
-	public function get_id_dest() {
-		return $this->id_from;
+	public function get_conversation_id{
+		return $this->conversation_id;
 	}
-
+	public function get_message_date{
+		return $this->message_date;
+	}
+	public function get_flag_read{
+		return $this->flag_read;
+	}				
 	public function get_content() {
 		return $this->content;
 	}
