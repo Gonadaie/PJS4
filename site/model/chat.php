@@ -26,8 +26,10 @@ class Conversation {
 			$statement->bindValue(":id2", $this->student2_id);
 			$statement->execute();
 			$ret = NULL;
-			while($result = $statement->fetch(PDO::FETCH_ASSOC)
+			while($result = $statement->fetch(PDO::FETCH_ASSOC)){
 				$ret = $result['id'];
+			}
+
 			return $ret;
 		}
 	}
