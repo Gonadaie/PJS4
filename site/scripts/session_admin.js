@@ -1,8 +1,16 @@
+var list_student = document.getElementById("list_student");
 var result;
+
+
+list_student.addEventListener("click", () => {
+	ajax_get_all_student();
+});
+
+
 function ajax_mail_unmatch()
 {
 	var xhttp =  new XMLHttpRequest();
-	
+
 	xhttp.onreadystatechange = function() {
 		if(this.readyState ==4 && this.status ==200){
 			console.log(this.responseText);
@@ -17,8 +25,26 @@ function ajax_mail_unmatch()
 	xhttp.open("GET", "../controller/mail_function_back.php");
 	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	xhttp.send();
-	
+
 	return false;
+}
+
+function ajax_get_all_student(){
+	console.log("bite");
+	var xhttp =  new XMLHttpRequest();
+
+	xhttp.onreadystatechange = function() {
+		if(this.readyState ==4 && this.status ==200){
+			console.log(this.responseText);
+			return;
+		}
+	}
+
+	xhttp.open("GET", "../controller/get_all_student.php");
+	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	xhttp.send();
+	console.log("bite2");
+	return true;
 }
 
 function setfilename(){
