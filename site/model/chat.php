@@ -87,7 +87,7 @@ class Preview {
 
 	public function __construct($conversation_id, $last_message, $pic, $surname, $message) {
 
-		$this->$conversation_id = $conversation_id;
+		$this->conversation_id = $conversation_id;
 		$this->last_message = $last_message;
 		$this->pic = $pic;
 		$this->surname = $surname;
@@ -110,5 +110,18 @@ class Preview {
 	}
 	public function get_message() {
 		return $this->message;
+	}
+		
+	public function to_array(){
+		$return = array(
+		
+		'conversation_id' => $this->$conversation_id,
+		'last_message' => $this->last_message,
+		'pic' => $this->pic,
+		'surname' => $this->surname,
+		'message' => $this->message
+			
+		);
+		return $return;
 	}
 }
