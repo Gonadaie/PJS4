@@ -43,7 +43,6 @@ class Message {
 	private $conversation_id;
 	private $message_date;
 	private $content;
-	private $sender_id;
 	private $flag_read;
 
 
