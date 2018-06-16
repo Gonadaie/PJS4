@@ -4,15 +4,18 @@ require_once("../model/db_connect.php");
 
 class Conversation {
 
-	private $id;	
+	private $id;
 	private $student1_id;
 	private $student2_id;
 
 	public function __construct($student1_id, $student2_id) {
 		$this->student1_id = $student1_id;
 		$this->student2_id = $student2_id;
-		$this->id = get_id_from_database();	
+		$this->id = get_id_from_database();
 	}
+
+
+
 
 	private function get_id_from_database() {
 		$db = db_connect();
@@ -22,20 +25,20 @@ class Conversation {
 			$statement->bindValue(":id1", $this->student1_id);
 			$statement->bindValue(":id2", $this->student2_id);
 			$statement->execute();
-			$ret = NULL;	
+			$ret = NULL;
 			while($result = $statement->fetch(PDO::FETCH_ASSOC)
 				$ret = $result['id'];
 			return $ret;
-		}	
+		}
 	}
 
-	
+
 }
 
 class Message {
 	private $sender_id;
 	private $conversation_id;
-	private $message_date;	
+	private $message_date;
 	private $content;
 	private $sender_id;
 	private $flag_read;
@@ -43,7 +46,7 @@ class Message {
 
 
 	public function __construct($sender_id, $conversation_id, $message_date, $content, $flag_read) {
-		
+
 		$this->sender_id = $sender_id;
 		$this->conversation_id = $conversation_id;
 		$this->content = $content;
@@ -63,7 +66,7 @@ class Message {
 	}
 	public function get_flag_read{
 		return $this->flag_read;
-	}				
+	}
 	public function get_content() {
 		return $this->content;
 	}
