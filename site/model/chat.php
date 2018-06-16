@@ -75,6 +75,20 @@ class Message {
 	public function get_content() {
 		return $this->content;
 	}
+	
+	public function to_array(){
+		$return = array(
+		
+		'message_id' => $this->message_id,
+		'conversation_id' => $this->conversation_id,
+		'content' => $this->content,
+		'message_date' => $this->message_date,
+		'sender_id' => $this->sender_id,
+		'flag_read' => $this->flag_read
+			
+		);
+		return $return;
+	}
 }
 class Preview {
 	private $conversation_id;
@@ -119,7 +133,7 @@ class Preview {
 		'last_message' => $this->last_message,
 		'pic' => $this->pic,
 		'surname' => $this->surname,
-		'message' => $this->message
+		'message' => $this->message.to_array()
 			
 		);
 		return $return;
