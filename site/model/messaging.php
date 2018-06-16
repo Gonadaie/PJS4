@@ -4,7 +4,7 @@ function get_20_message($id_conv, $id_last_msg){
   $db = db_connect();
   if($db) {
     $query = "SELECT * FROM message WHERE conversation_id = :id_conv and
-    message_id > :id_las_msg ORDER BY message_id DESC LIMIT 20"
+    message_id > :id_las_msg ORDER BY message_id DESC LIMIT 20";
     $statement = db->prepare($query);
     $statement->execute();
 
@@ -27,9 +27,9 @@ function getPreviewConversation($student_id) {
 	if($db) {
 
 		if(get_year_student($student_id)==1){
-			$query_get_preview_conversation ="SELECT C.conversation_id, C.last_message, S.pic, S.surname, M1.* FROM message M1, conversation C INNER JOIN student S ON C.student_2=S.student_id  WHERE C.student_1=:student_id AND M1.message_id =(SELECT COALESCE(MAX(message_id),'1') FROM message M where M.conversation_id=C.conversation_id ORDER BY C.last_message::DATE desc);"
+			$query_get_preview_conversation ="SELECT C.conversation_id, C.last_message, S.pic, S.surname, M1.* FROM message M1, conversation C INNER JOIN student S ON C.student_2=S.student_id  WHERE C.student_1=:student_id AND M1.message_id =(SELECT COALESCE(MAX(message_id),'1') FROM message M where M.conversation_id=C.conversation_id ORDER BY C.last_message::DATE desc)"
 		}else {
-			$query_get_preview_conversation ="SELECT C.conversation_id, C.last_message, S.pic, S.surname, M1.* FROM message M1, conversation C INNER JOIN student S ON C.student_1=S.student_id  WHERE C.student_2=:student_id AND M1.message_id =(SELECT COALESCE(MAX(message_id),'1') FROM message M where M.conversation_id=C.conversation_id ORDER BY C.last_message::DATE desc);"
+			$query_get_preview_conversation ="SELECT C.conversation_id, C.last_message, S.pic, S.surname, M1.* FROM message M1, conversation C INNER JOIN student S ON C.student_1=S.student_id  WHERE C.student_2=:student_id AND M1.message_id =(SELECT COALESCE(MAX(message_id),'1') FROM message M where M.conversation_id=C.conversation_id ORDER BY C.last_message::DATE desc)"
 		}
 
 		$statement_preview = $db->prepare($query_get_preview_conversation);
