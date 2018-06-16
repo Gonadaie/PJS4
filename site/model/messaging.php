@@ -48,7 +48,7 @@ function getPreviewConversation($student_id) {
 		$count = 0;
 
 		while($row = $statement_preview->fetch(PDO::FETCH_ASSOC)){
-			$preview = new Preview($row['conversation_id'], $row['last_message'], $row['pic'], decrypt_data($row['surname'], new Message($row['message_id'], $row['conversation_id'], $row['message_date'], $row['content'], $row['sender_id'], $row['flag_read'])));
+			$preview = new Preview($row['conversation_id'], $row['last_message'], $row['pic'], decrypt_data($row['surname']), new Message($row['message_id'], $row['conversation_id'], $row['message_date'], $row['content'], $row['sender_id'], $row['flag_read']));
 			$tab_previews[] = $preview->to_array();
 			$count=$count+1;
 		}
