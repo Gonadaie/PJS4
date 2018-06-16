@@ -1,5 +1,10 @@
-<?php 
+<?php
 //require_once ('../controller/mail_function_back.php');
+session_start();
+if(!isset($_SESSION['id']))
+{
+    header('Location: ../view/logout.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -21,7 +26,7 @@
 			<div id="export_part">
 				<div id="export">Export CSV</div>
 				<div id="button_export">
-					<input type="button" id="list_student" onclick="list_student.html" value="Liste de tous les étudiants inscrit"></input>
+					<input type="button" id="list_student" onclick="" value="Liste de tous les étudiants inscrit"></input>
 					<input type="button" id="list_match" onclick="list_match.html"value="Liste des couples parrains filleuls"></input>
 					<input type="button" id="list_unsubscribe" onclick="list_unsubscribe.html"value="Liste des étudiants non inscrit"></input>
 				</div>
@@ -30,7 +35,7 @@
 				<div id="action_match">Action de match</div>
 				<div id="button_actionb">
 					<input type="button" id="forced_matchunsub" onclick="forced_subscribe.html" value="Matcher les étudiants non-inscrits"></input>
-					<input type="button" id="match_unmatchstudent" onclick="match_student.html" value=" Matcher les étudiants non appareillés"></input>
+					<input type="button" id="match_unmatchstudent" onclick="ajax_random_match()" value=" Matcher les étudiants non appareillés"></input>
 				</div>
 			</div>
 			<div id="envoi_mail_part">
@@ -42,6 +47,6 @@
 				</div>
 			</div>
 		</form>
-		<script src="../scripts/session_admin.js"></script> 
+		<script src="../scripts/session_admin.js"></script>
 	</body>
 </html>
