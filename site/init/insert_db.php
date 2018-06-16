@@ -18,5 +18,27 @@ function add_admin(){
 }
 }
 
+function add_first_conv(){
+  $db = db_connect();
+	if($db) {
+  $query = "INSERT INTO conversation(student_1, student_2)
+  VALUES(1,1)";
+  $statement = $db->prepare($query);
+  $statement->execute();
+}
+}
+
+function add_first_msg(){
+  $db = db_connect();
+	if($db) {
+  $query = "INSERT INTO message (conversation_id, message_date,content,sender_id) values (1,now(),:msg,1)";
+  $statement = $db->prepare($query);
+  $statement->bindValue(':msg', "Pas encore de message");
+  $statement->execute();
+}
+}
+
 add_admin();
+add_first_conv();
+add_first_msg();
 ?>
