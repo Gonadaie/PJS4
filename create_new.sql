@@ -46,8 +46,8 @@ create table student_match (
 );
 create table conversation (
     conversation_id SERIAL primary key,
-    birth date default now(),
-	last_message date default now(),
+    birth timestamptz default now(),
+	last_message timestamptz default now(),
     student_1 integer,
     student_2 integer,
     foreign key (student_1) references Student(student_id) on delete cascade,
@@ -57,7 +57,7 @@ create table conversation (
 create table message (
     message_id SERIAL primary key,
     conversation_id integer,
-    message_date date default now(),
+    message_date timestamptz default now(),
     content text,
     sender_id integer,
 	flag_read boolean default false,
