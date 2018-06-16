@@ -1,5 +1,9 @@
-<?php 
+<?php
 //require_once ('../controller/mail_function_back.php');
+if(!isset($_SESSION['id']))
+{
+    header('Location: ../view/logout.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -42,6 +46,6 @@
 				</div>
 			</div>
 		</form>
-		<script src="../scripts/session_admin.js"></script> 
+		<script src="../scripts/session_admin.js"></script>
 	</body>
 </html>
