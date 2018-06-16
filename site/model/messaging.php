@@ -1,5 +1,7 @@
 <?php
 
+require("../model/db_connect.php");
+
 function get_20_message($id_conv, $id_last_msg){
   $db = db_connect();
   if($db) {
