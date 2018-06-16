@@ -115,7 +115,7 @@ class Preview {
 	public function to_array(){
 		$return = array(
 		
-		'conversation_id' => $this->$conversation_id,
+		'conversation_id' => $this->conversation_id,
 		'last_message' => $this->last_message,
 		'pic' => $this->pic,
 		'surname' => $this->surname,
