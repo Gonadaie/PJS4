@@ -133,7 +133,7 @@ class Preview {
 		'last_message' => $this->last_message,
 		'pic' => $this->pic,
 		'surname' => $this->surname,
-		'message' => $this->message.to_array()
+		'message' => $this->message->to_array()
 			
 		);
 		return $return;
