@@ -58,7 +58,7 @@ create table message (
     conversation_id integer,
     message_date date,
     content text,
-    sender_id integer not null,
+    sender_id integer,
 	flag_read boolean default false,
     PRIMARY KEY(message_id, conversation_id),
     foreign key (sender_id) references Student(student_id),
