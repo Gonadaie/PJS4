@@ -112,5 +112,3 @@ class Preview {
 	public function get_message() {
 		return $this->message;
 	}
-
-?>
