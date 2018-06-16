@@ -33,6 +33,7 @@ class Conversation {
 }
 
 class Message {
+	private $message_id;
 	private $sender_id;
 	private $conversation_id;
 	private $message_date;	
@@ -42,31 +43,69 @@ class Message {
 
 
 
-	public function __construct($sender_id, $conversation_id, $message_date, $content, $flag_read) {
-		
-		$this->sender_id = $sender_id;
+	public function __construct($message_id, $conversation_id, $message_date, $content, $sender_id, $flag_read) {
+
+		$this->message_id = $message_id;
 		$this->conversation_id = $conversation_id;
 		$this->content = $content;
 		$this->message_date = $message_date;
+		$this->sender_id = $sender_id;
 		$this->flag_read = $flag_read;
 	}
-
+				
+	public function get_message_id(){
+		return $this->message_id;
+	}
 	public function get_sender_id() {
 		return $this->sender_id;
 	}
-
-	public function get_conversation_id{
+	public function get_conversation_id(){
 		return $this->conversation_id;
 	}
-	public function get_message_date{
+	public function get_message_date(){
 		return $this->message_date;
 	}
-	public function get_flag_read{
+	public function get_flag_read(){
 		return $this->flag_read;
 	}				
 	public function get_content() {
 		return $this->content;
 	}
 }
+class Preview {
+	private $conversation_id;
+	private $last_message;
+	private $pic;	
+	private $surname;
+	private $message;
+
+
+
+	public function __construct($conversation_id, $last_message, $pic, $surname, $message) {
+		
+		$this->$conversation_id = $conversation_id;
+		$this->last_message = $last_message;
+		$this->pic = $pic;
+		$this->surname = $surname;
+		$this->message = $message;
+	}
+
+
+
+	public function get_conversation_id(){
+		return $this->conversation_id;
+	}
+	public function get_date_last_message(){
+		return $this->last_message;
+	}
+	public function get_pic(){
+		return $this->pic;
+	}				
+	public function get_surname() {
+		return $this->surname;
+	}
+	public function get_message() {
+		return $this->message;
+	}
 
 ?>
