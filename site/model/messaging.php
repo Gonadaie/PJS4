@@ -49,6 +49,7 @@ function getPreviewConversation($student_id) {
 		}
 		return json_encode($tab_student);
 	}
+}
 //new message avec tout dedans
 
 
