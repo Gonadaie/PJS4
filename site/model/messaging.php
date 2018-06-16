@@ -4,8 +4,10 @@ function get_20_message($id_conv, $id_last_msg){
   $db = db_connect();
   if($db) {
     $query = "SELECT * FROM message WHERE conversation_id = :id_conv and
-    message_id > :id_las_msg ORDER BY message_id DESC LIMIT 20";
-    $statement = db->prepare($query);
+    message_id > :id_last_msg ORDER BY message_id DESC LIMIT 20";
+    $statement = $db->prepare($query);
+    $statement->bindValue(':id_conv',$id_conv);
+    $statement->bindValue(':id_last_msg',$id_last_msg);
     $statement->execute();
 
 		$array_message = array();

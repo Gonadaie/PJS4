@@ -21,7 +21,7 @@ class Conversation {
 		$db = db_connect();
 		if($db) {
 			$query = "SELECT id_conversation FROM conversation where (student_1 = :id1 or student_1 = :id2) or (student_2 = :id2 or student_2 = :id1)";
-			$statement = db->prepare($query);
+			$statement = $db->prepare($query);
 			$statement->bindValue(":id1", $this->student1_id);
 			$statement->bindValue(":id2", $this->student2_id);
 			$statement->execute();
