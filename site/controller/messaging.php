@@ -1,7 +1,7 @@
 <?php
 
 require_once('../model/messaging.php');
-session.start();
+session_start();
 
 $previews = array();
 $previews = getPreviewConversation($_SESSION['id']);
