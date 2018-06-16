@@ -2,7 +2,7 @@
 
 require("../model/db_connect.php");
 require("../model/get_student.php");
-require("../chat.php");
+require("..model//chat.php");
 
 
 function get_20_message($id_conv, $id_last_msg){
