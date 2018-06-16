@@ -29,6 +29,17 @@ function ajax_mail_unmatch()
 	return false;
 }
 
+function ajax_random_match(){
+	console.log("bite");
+	var xhttp =  new XMLHttpRequest();
+
+	xhttp.open("GET", "../controller/random_match.php");
+	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	xhttp.send();
+	console.log("bite2");
+	return true;
+}
+
 function ajax_get_all_student(){
 	console.log("bite");
 	var xhttp =  new XMLHttpRequest();
