@@ -44,12 +44,13 @@
 			<div class="right_align title">Messages</div>
 			<div class="scrollable preview_list">
 				<div class="row preview_message">
-					<div class="offset-1 col-4">
+					<div class="offset-1 col-4 left_preview">
+						<div class='notify_circle'></div>
 						<img src="../images/images_student/alice.png" alt="">
 					</div>
-					<div class="col-7 preview_group">
+					<div class="col-7 preview_group ">
 						<div class="name">Julie</div>
-						<div class="preview"> salut t pas mal lol</div>
+						<div class="preview not_read"> salut t pas mal lol</div>
 					</div>
 				</div>
 

@@ -162,3 +162,23 @@ body {
 .scrollable:hover {
 	overflow-y: auto;
 }
+
+.preview.not_read {
+	font-weight: bold;
+	color: black;
+}
+
+.left_preview {
+	position: relative;
+}
+
+.notify_circle {
+	background-color: #61B8D0;
+	width: 2vw;
+	height: 2vw;
+	border-radius: 50%;
+	position: absolute;
+	right: 1.8vw;
+	top: 0;
+	z-index: 100;
+}
