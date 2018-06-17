@@ -164,8 +164,13 @@ body {
 }
 
 .preview.not_read {
-	font-weight: bold;
-	color: black;
+	font-weight: bolder;
+	color: #464545;
+}
+
+.preview.no_message_yet {
+	color: #F05228;
+	font-family: Fjalla One;
 }
 
 .left_preview {

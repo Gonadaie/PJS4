@@ -33,7 +33,7 @@ function add_first_msg(){
 	if($db) {
   $query = "INSERT INTO message (conversation_id, message_date,content,sender_id) values (1,now(),:msg,1)";
   $statement = $db->prepare($query);
-  $statement->bindValue(':msg', "Pas encore de message");
+  $statement->bindValue(':msg', "PAS ENCORE DE MESSAGE.");
   $statement->execute();
 }
 }
