@@ -64,7 +64,7 @@ require("../controller/messaging.php");
 						$surname = $preview["surname"];
 						$content = $preview["message"]["content"];
 						if ($preview["message"]["flag_read"]==false){
-							echo <<<'EOT'
+							$my_preview_div = <<<EOD
 							<div class="row preview_message">
 							<div class="offset-1 col-4 left_preview">
 							<div class='notify_circle'></div><img src="$pic" alt=""></div>
@@ -73,7 +73,8 @@ require("../controller/messaging.php");
 							<div class="preview not_read">$content</div>
 							</div>
 							</div>
-							EOT;
+						EOD;
+							echo($my_preview_div)
 						}
 					}					
 					?>
