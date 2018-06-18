@@ -4,10 +4,7 @@ if(!isset($_SESSION['id']))
 {
     header('Location: ../view/logout.php');
 }
-/*if(!isset($_SESSION['id'])) {
-	require('../model/stay_connected.php');
-	if(is_stay_connected($_COOKIE['fr81_stay_connected']))
-		header('Location: ../view/logout.php');*/
+
 
 require("../controller/messaging.php");
 ?>
@@ -58,7 +55,7 @@ require("../controller/messaging.php");
 				<div class="right_align title">Messages</div>
 				<div class="scrollable preview_list">
 
-					<?php 
+					<?php
 					foreach ($previews as &$preview) {
 						$pic = $preview["pic"];
 						$surname = $preview["surname"];
@@ -73,10 +70,10 @@ require("../controller/messaging.php");
 							<div class="preview not_read">$content</div>
 							</div>
 							</div>
-						EOD;
+EOD;
 							echo($my_preview_div)
 						}
-					}					
+					}
 					?>
 				</div>
 			</div>
