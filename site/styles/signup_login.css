@@ -555,7 +555,7 @@ input[type="checkbox"]:checked+label::before {
 	cursor: crosshair;
 }
 
-.match_talk:hover {
+.match_talk a:hover {
 	cursor: crosshair;
 }
 
