@@ -52,7 +52,7 @@ function getPreviewConversation($student_id) {
 			$tab_previews[] = $preview->to_array();
 			$count=$count+1;
 		}
-		return json_encode($tab_previews);
+		return $tab_previews;
 	}
 }
 //new message avec tout dedans

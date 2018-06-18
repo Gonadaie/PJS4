@@ -4,16 +4,17 @@ require_once('../model/get_student.php');
 require_once ('../model/random_match.php');
 require_once ('send_mail_unmatch.php');
 require_once('../model/back_office.php');
+require_once('mail_summary_couples.php');
 
 //ajout du code en method post sur session_admin ou back_office
 
 function send_summary(){
 	$student_list = get_couples();
-	for($i=0; i<count($student_list); i++){
-		send_mail_recap($student_list[i][0],$student_list[i][1], 2, $student_list[i][2] );
+	for($i=0; $i<count($student_list); $i++){
+		send_mail_recap($student_list[$i][0],$student_list[$i][1], 2, $student_list[$i][2] );
 	}
-	for($i=0; i<count($student_list); i++){
-		send_mail_recap($student_list[i][2],$student_list[i][3], 1, $student_list[i][1] );
+	for($i=0; $i<count($student_list); $i++){
+		send_mail_recap($student_list[$i][2],$student_list[$i][3], 1, $student_list[$i][1] );
 	}
 }
 

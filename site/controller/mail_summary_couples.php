@@ -45,7 +45,7 @@
 		    	'</tr>'.
 		'	<tr style="color : #707070; font-size:20px; font-family: Fjalla One">'.
 		'		<td align="center">'.
-		'			Merci d avoir utilisé skipti, voici '.$sentence.' : ' .$student_name_text '!'.
+		'			Merci d avoir utilisé skipti, voici '.$sentence.' : ' .$student_name_text. '!'.
 		'		</td>'.
 		'	</tr>'.
 				'<td>'.

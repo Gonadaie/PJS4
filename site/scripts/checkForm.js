@@ -71,7 +71,7 @@ function checkPassword(field) {
 }
 
 function verifForm(e) {
-
+//
 	//var mailOk = checkMail(document.getElementById("mail"));
 	var passwordOK = checkPassword(document.getElementById("password"));
 	console.log(mailOk + passwordOK);
