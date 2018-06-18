@@ -567,6 +567,7 @@ input[type="checkbox"]:checked+label::before {
 	margin-right: auto;
 	background-color: #E6F0F5;
 	position: relative;
+	animation: wavy_back 2s infinite alternate cubic-bezier(0.05, 0.49, 0.47, 0.93);
 }
 
 .circle_front {
@@ -579,6 +580,7 @@ input[type="checkbox"]:checked+label::before {
 	height: 15vw;
 	background-color: #61B8D0;
 	opacity: 50%;
+	animation: wavy 2s 0.5s infinite alternate cubic-bezier(0.05, 0.49, 0.47, 0.93);
 }
 
 .circle_img {
@@ -609,6 +611,24 @@ input[type="checkbox"]:checked+label::before {
 	/* These two lines are counted as one :-)       */
 	display: flex;
 	align-items: center;
+}
+
+@keyframes wavy {
+	0% {
+		transform: translateY(-50%) translateX(-50%) scale(1);
+	}
+	100% {
+		transform: translateY(-50%) translateX(-50%) scale(1.2);
+	}
+}
+
+@keyframes wavy_back {
+	0% {
+		transform: scale(1);
+	}
+	100% {
+		transform: scale(1.2);
+	}
 }
 
 
