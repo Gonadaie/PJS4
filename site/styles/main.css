@@ -24,7 +24,7 @@ body {
 	height: auto;
 }
 
-.black_and_white img {
+.black_and_white a img {
 	filter: grayscale(100%);
 	-webkit-filter: grayscale(100%);
 	-moz-filter: grayscale(100%);
