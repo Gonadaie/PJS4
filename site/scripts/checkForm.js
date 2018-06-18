@@ -22,9 +22,11 @@ function mailexist(){
 	console.log("we are in mailexist");
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function(){
-		if(this.readyState == 4 && this.status == 200){
+		if(this.readyState == 4 && this.status == 200){console.log
+			(this.responseText);
 			if(this.responseText == "NOK"){
 				console.log("exist");
+
 				var request = new XMLHttpRequest();
 				request.open("POST", "../controller/forgot_passwd.php", true);
 				request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
