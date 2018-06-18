@@ -73,7 +73,7 @@ require("../controller/messaging.php");
 							<div class="preview not_read">$content</div>
 							</div>
 							</div>
-						EOD;
+							EOD;
 							echo($my_preview_div)
 						}
 					}					
