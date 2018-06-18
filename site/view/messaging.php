@@ -74,7 +74,7 @@ require("../controller/messaging.php");
 							</div>
 							</div>
 							EOD;
-							echo($my_preview_div)
+							echo($my_preview_div);
 						}
 					}					
 					?>
