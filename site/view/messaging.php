@@ -63,17 +63,17 @@ require("../controller/messaging.php");
 					foreach ($previews as &$preview) {
 						if ($preview["message"]["flag_read"]==false){
 							echo("<!--			NOT READ-->
-								<div class=\"row preview_message\">
-									<div class=\"offset-1 col-4 left_preview\">
+								<div class="row preview_message">
+									<div class="offset-1 col-4 left_preview">
 										<div class='notify_circle'></div>
-										<img src=\"<?php echo($preview[\"pic\"]); ?>\" alt="">
+										<img src="<?php echo($preview["pic"]); ?>" alt="">
 				</div>
-				<div class=\ "col-7 preview_group \">
+				<div class="col-7 preview_group">
 					<div class="name">
-						<?php echo($preview[\"surname\"]); ?>
+						<?php echo($preview["surname"]); ?>
 					</div>
 					<div class="preview not_read">
-						<?php echo($preview[\"message\"][\"content\"]); ?>
+						<?php echo($preview["message"]["content"]); ?>
 					</div>
 				</div>
 			</div> "); } elsif ($preview["message"]["message_id"]==1){ echo("
