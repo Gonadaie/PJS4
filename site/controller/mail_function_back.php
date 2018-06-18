@@ -9,11 +9,11 @@ require_once('../model/back_office.php');
 
 function send_summary(){
 	$student_list = get_couples();
-	for($i=0; i<count($student_list); i++){
-		send_mail_recap($student_list[i][0],$student_list[i][1], 2, $student_list[i][2] );
+	for($i=0; $i<count($student_list); $i++){
+		send_mail_recap($student_list[$i][0],$student_list[$i][1], 2, $student_list[$i][2] );
 	}
-	for($i=0; i<count($student_list); i++){
-		send_mail_recap($student_list[i][2],$student_list[i][3], 1, $student_list[i][1] );
+	for($i=0; $i<count($student_list); $i++){
+		send_mail_recap($student_list[$i][2],$student_list[$i][3], 1, $student_list[$i][1] );
 	}
 }
 
