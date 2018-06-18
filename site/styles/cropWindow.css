@@ -12,3 +12,8 @@
 	color: #4152BC;
 	border-color: #4152BC;
 }
+
+.modal-dialog {
+	max-width: 550px;
+	margin: 1.75rem auto;
+}
