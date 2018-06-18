@@ -126,12 +126,9 @@ $student = $info_student->student;
     <div class="modal-dialog">
         <div class="modal-content">
 
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>  <!boutton exit-->
-                <h4 class="modal-title">Title</h4>
-            </div>
 
             <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>  <!boutton exit-->
                 <div class="row">
 
 
@@ -141,15 +138,21 @@ $student = $info_student->student;
                     </div>
 
                     <div class="col-md-4" style="padding-top:30px;">  <!à effacer????!!-->
-                        <br />
-                        <br />
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
                         <br/>
 
-
                         <!--	bouton final -->
-
-                        <button class="btn btn-success crop_image">Crop & Upload Image</button>
-
+                        <button class="btn btn-default pull-left crop_image">Sauvegarder</button>
                     </div>
                 </div>
             </div>
