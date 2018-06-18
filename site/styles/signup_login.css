@@ -542,6 +542,11 @@ input[type="checkbox"]:checked+label::before {
 	height: auto;
 }
 
+.match_continue {
+	position: absolute;
+	right: 0;
+}
+
 .match_continue a:hover {
 	cursor: crosshair;
 }
@@ -584,8 +589,17 @@ input[type="checkbox"]:checked+label::before {
 	border-radius: 50%;
 	width: 10vw;
 	height: 10vw;
-	background-color: #61B8D0;
-	opacity: 50%;
+}
+
+.circle_img.black_and_white a img {
+	width: 100%;
+	filter: grayscale(100%);
+	-webkit-filter: grayscale(100%);
+	-moz-filter: grayscale(100%);
+	-ms-filter: grayscale(100%);
+	-o-filter: grayscale(100%);
+	width: 100%;
+	height: auto;
 }
 
 .vertical_center {
