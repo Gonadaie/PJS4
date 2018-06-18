@@ -31,11 +31,12 @@ if(isset($_POST["description"])){
 
 if(isset($_POST["image"])) {
 
-    uploadProfilePicture($student->getEmail(),$_POST["image"]);
+    $hachName=md5(str_replace(".", "", $student->getEmail()));
+    uploadProfilePicture($hachName,$_POST["image"]);
 
     $imagePath1 = "..\images\images_student\sss";
     $imagePath2=str_replace("sss", "", $imagePath1);
-    $imageName = $imagePath2 .str_replace(".", "", $student->getEmail()) . ".png";
+    $imageName = $imagePath2 .$hachName . ".png";
 
     updatePicture($student,$imageName);
 	$student->setPic($imageName);

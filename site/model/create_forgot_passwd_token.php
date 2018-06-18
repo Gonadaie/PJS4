@@ -24,7 +24,7 @@ function create_forgot_passwd_token($token_hash, $student_mail) {
 			$delete_statement->bindValue(":id", ($student_id));
 			$delete_statement->execute();
 
-			$insert_query = "INSERT INTO token_forgot_passwd VALUES (:date, :token, :id)";
+			$insert_query = "INSERT INTO token_forgot_passwd (birth, hash_fp, is_alive, student_id) VALUES (:date, :token, true,:id)";
 			$insert_statement = $db->prepare($insert_query);
 			$insert_statement->bindValue(":date", date("Y-m-d"));
 			$insert_statement->bindValue(":token", $token_hash);

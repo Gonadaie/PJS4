@@ -14,6 +14,5 @@
 }
 
 .modal-dialog {
-	max-width: 550px;
-	margin: 1.75rem auto;
+	max-width: 550px !important;
 }

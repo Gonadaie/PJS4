@@ -60,13 +60,14 @@ require("../controller/messaging.php");
 						$pic = $preview["pic"];
 						$surname = $preview["surname"];
 						$content = $preview["message"]["content"];
+						$last_message = $preview["last_message"];
 						if ($preview["message"]["flag_read"]==false){
 							$my_preview_div = <<<EOD
 							<div class="row preview_message">
 							<div class="offset-1 col-4 left_preview">
 							<div class='notify_circle'></div><img src="$pic" alt=""></div>
 							<div class="col-7 preview_group">
-							<div class="name">$surname</div>
+							<div class="name">$surname : $last_message</div>
 							<div class="preview not_read">$content</div>
 							</div>
 							</div>
@@ -78,7 +79,7 @@ EOD;
 							<div class="offset-1 col-4">
 							<img src="$pic" alt=""></div>
 							<div class="col-7 preview_group">
-							<div class="name">$surname</div>
+							<div class="name">$surname : $last_message</div>
 							<div class="preview no_message_yet">$content</div>
 							</div>
 							</div>
@@ -90,7 +91,7 @@ EOD;
 							<div class="offset-1 col-4">
 							<img src="$pic" alt=""></div>
 							<div class="col-7 preview_group">
-							<div class="name">$surname</div>
+							<div class="name">$surname : $last_message</div>
 							<div class="preview ">$content</div>
 							</div>
 							</div>

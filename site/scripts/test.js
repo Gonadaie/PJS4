@@ -186,7 +186,7 @@ module.exports = camelizeStyleName;
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  *
- *
+ * 
  */
 
 var isTextNode = require('./isTextNode');
@@ -224,7 +224,7 @@ module.exports = containsNode;
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  *
- *
+ * 
  */
 
 function makeEmptyFunction(arg) {
@@ -512,7 +512,7 @@ module.exports = isTextNode;
  * LICENSE file in the root directory of this source tree.
  *
  * @typechecks
- *
+ * 
  */
 
 /*eslint-disable no-self-compare */
@@ -6570,7 +6570,7 @@ var AsyncUpdates = 1;
   try {
     var nonExtensibleObject = Object.preventExtensions({});
     /* eslint-disable no-new */
-
+    
     /* eslint-enable no-new */
   } catch (e) {
     // TODO: Consider warning about bad polyfills
@@ -12700,7 +12700,7 @@ function setValueForProperty(node, name, value) {
   }
 
   {
-
+    
   }
 }
 
@@ -12715,7 +12715,7 @@ function setValueForAttribute(node, name, value) {
   }
 
   {
-
+    
   }
 }
 
@@ -18116,7 +18116,7 @@ var Adjective = function (_React$Component2) {
 		_this2.x = Math.random() * 0.5;
 		//this.y = Math.random()*1;
 
-		//Act like a static variable
+		//Act like a static variable	
 		if (Adjective.yPos === undefined) Adjective.yPos = 0;
 
 		_this2.y = Adjective.yPos;
@@ -18131,22 +18131,33 @@ var Adjective = function (_React$Component2) {
 	_createClass(Adjective, [{
 		key: "clickHandler",
 		value: function clickHandler() {
+			var _this3 = this;
+
 			var adj_inputs = document.getElementsByClassName("adj-input");
+			var cross_inputs = document.getElementsByClassName("close-cross");
 
-			for (var i = 0; i < adj_inputs.length; ++i) {
+			var _loop = function _loop(i) {
 				if (adj_inputs[i].value === '') {
-					adj_inputs[i].value = this.props.wording;
-					adj_inputs[i].style.color = this.color;
-					this.setState({ display: 'none' });
+					adj_inputs[i].value = _this3.props.wording;
+					adj_inputs[i].style.color = _this3.color;
+					cross_inputs[i].style.visibility = "visible";
+					_this3.setState({ display: 'none' });
 
-					var adj_comp = this;
+					var adj_comp = _this3;
 					var adj_obj = { adj: adj_comp, input: adj_inputs[i] };
 					adj_inputs[i].onclick = function () {
 						this.adj.setState({ display: "block" });
+						cross_inputs[i].style.visibility = "hidden";
 						this.input.value = '';
 					}.bind(adj_obj);
-					break;
+					return "break";
 				}
+			};
+
+			for (var i = 0; i < adj_inputs.length; ++i) {
+				var _ret = _loop(i);
+
+				if (_ret === "break") break;
 			}
 		}
 	}, {
@@ -18176,6 +18187,7 @@ function get_adj() {
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function () {
 		if (this.readyState == 4 && this.status == 200) {
+			console.log(this.responseText);
 			if (this.responseText != false) {
 				var json = JSON.parse(this.responseText);
 				display_adj(json);
@@ -18207,6 +18219,18 @@ var adj_inputs = document.getElementsByClassName("adj-input");
 Array.from(adj_inputs).forEach(function (item) {
 	item.value = "";
 });
+
+var cross_inputs = document.getElementsByClassName("close-cross");
+
+var _loop2 = function _loop2(i) {
+	cross_inputs[i].onclick = function () {
+		adj_inputs[i].click();
+	};
+};
+
+for (var i = 0; i < cross_inputs.length; ++i) {
+	_loop2(i);
+}
 
 get_adj();
 },{"react":26,"react-dom":23}]},{},[27]);
