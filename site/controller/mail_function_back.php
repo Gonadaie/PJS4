@@ -4,6 +4,7 @@ require_once('../model/get_student.php');
 require_once ('../model/random_match.php');
 require_once ('send_mail_unmatch.php');
 require_once('../model/back_office.php');
+require_once('mail_summary_couples.php');
 
 //ajout du code en method post sur session_admin ou back_office
 
