@@ -24,7 +24,7 @@ body{
 	height: 33.3333vh;
 }
 #export_part,#envoi_mail_part{
-	background-color : #F5F7FA; 
+	background-color : #F5F7FA;
 }
 
 #export,#action_match,#envoi_mail{
@@ -49,6 +49,8 @@ input[type="button"]{
 	color:white;
 	padding : 1%;
 }
+
+
 #list_unsubscribe, #forced_matchunsub, #relance_unsubscribe{
 	opacity : 0.5;
 }
@@ -81,7 +83,7 @@ input[type="button"]{
 	position : absolute;
 	float :right;
 	width:80%;
-	background-color : #F5F7FA; 
+	background-color : #F5F7FA;
 	height : 100%;
 	margin-left : 20%;
 }
@@ -119,7 +121,7 @@ input[type="submit"]{
 	opacity : 0;
 	overflow : hidden;
 	position : absolute;
-	z-index : -1;	
+	z-index : -1;
 }
 .list_input + label {
 	margin-top:3vh;
