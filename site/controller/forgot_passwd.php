@@ -1,10 +1,11 @@
 <?php
 
 require("../model/create_forgot_passwd_token.php");
+require_once("../model/data_crypter.php");
 
 $student_name =	explode('.', $_POST['mail'])[0];
 $student_name = strtoupper($student_name[0]) . substr($student_name, 1, strlen($student_name) -1 );
-$student_mail = $_POST['mail'];
+$student_mail = encrypt_data($_POST['mail']);
 $token_hash = md5($student_mail.date('Y-m-d H:i:s').rand());
 
 //Send mail to user
