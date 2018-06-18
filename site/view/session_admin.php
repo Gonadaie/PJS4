@@ -1,5 +1,4 @@
 <?php
-//require_once ('../controller/mail_function_back.php');
 session_start();
 if(!isset($_SESSION['id']))
 {
