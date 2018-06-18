@@ -48,7 +48,9 @@ if(!isset($_SESSION['id']))
 					<div class="col-4">
 						<div class="circle_back">
 							<div class="circle_front">
-								<div class="circle_img black_and_white"><a href="profile_other_user.php?email=<?= $_POST['mail']?>"><img  src="<?= $_POST['pic']?>" alt=""></a></div>
+								<div class="circle_img black_and_white">
+									<a href="profile_other_user.php?email=<?= $_POST['mail']?>"><img  src="<?= $_POST['pic']?>" alt=""></a>
+								</div>
 							</div>
 						</div>
 
