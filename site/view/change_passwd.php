@@ -1,3 +1,4 @@
+<?php require_once("../model/data_crypter.php"); ?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -32,7 +33,7 @@
 						</div>
 						<p class="psw_size2">Ecris ton nouveau mot de passe pour
 						</p>
-						<span class="purple psw_size"><?= $_GET['mail'] ?></span>
+						<span class="purple psw_size"><?= decrypt_data($_GET['mail']); ?></span>
 						<span class="register_conf_psw_mail psw_size">@etu.parisdescartes.fr</span>
 						<div>
 							<form id="form_changepasswd" method="POST" onsubmit="return verifFormForgot(this)">
