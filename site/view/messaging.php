@@ -60,6 +60,7 @@ require("../controller/messaging.php");
 						$pic = $preview["pic"];
 						$surname = $preview["surname"];
 						$content = $preview["message"]["content"];
+						$last_message = $preview["last_message"];
 						if ($preview["message"]["flag_read"]==false){
 							$my_preview_div = <<<EOD
 							<div class="row preview_message">
