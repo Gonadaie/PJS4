@@ -13,4 +13,4 @@ polices
 
 Fjalla One Regular 
 Fjalla One Bold
-Segoe UI Regular
+Open Sans
