@@ -1,9 +1,9 @@
 <?php
-session_start();
+/*session_start();
 if(!isset($_SESSION['id']))
 {
     header('Location: ../view/logout.php');
-}
+}*/
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -21,13 +21,16 @@ if(!isset($_SESSION['id']))
 		<div class="menu">
 			<a href="../view/logout.php" >log out</a>
 		</div>
+    <form id="formgetallstudent" action="../controller/get_all_student.php" method="get"></form>
+    <form id="formgetallcouples" action="../controller/get_couples.php" method="get"></form>
+    <form id="formgetallunsub" action="../view/unsub_student.html" method="get"></form>
 		<form action="" method="POST">
 			<div id="export_part">
 				<div id="export">Export CSV</div>
 				<div id="button_export">
-					<input type="button" id="list_student" onclick="" value="Liste de tous les étudiants inscrit"></input>
-					<input type="button" id="list_match" onclick="list_match.html"value="Liste des couples parrains filleuls"></input>
-					<input type="button" id="list_unsubscribe" onclick="list_unsubscribe.html"value="Liste des étudiants non inscrit"></input>
+				    <input type="submit" id="list_student" value="Liste de tous les étudiants inscrit" form="formgetallstudent"></input>
+				    <input type="submit" id="list_match" value="Liste des parrainages" form="formgetallcouples"></input>
+					<input type="submit" id="list_unsubscribe" value="Liste des étudiants non inscrit" form="formgetallunsub"></input>
 				</div>
 			</div>
 			<div id="action_match_part">
