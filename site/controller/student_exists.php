@@ -1,8 +1,9 @@
 <?php
 
 	require("better_crypt.php");
+	require_once("../model/data_crypter.php");
 
-	$student_mail =	$_POST['mail'];
+	$student_mail =	encrypt_data($_POST['mail']);
 
 	require("../model/student_exists.php");
 
