@@ -104,6 +104,7 @@ EOD;
 			</div>
 
 			<div class="col-9 messaging_welcome_pic no_padding">
+				<?php 	echo mb_strimwidth("Hello World", 0, 10, "..."); ?>
 				<img src="../images/messaging.png" alt="">
 			</div>
 		</div>
