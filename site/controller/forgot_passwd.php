@@ -5,7 +5,8 @@ require_once("../model/data_crypter.php");
 
 $student_name =	explode('.', $_POST['mail'])[0];
 $student_name = strtoupper($student_name[0]) . substr($student_name, 1, strlen($student_name) -1 );
-$student_mail = encrypt_data($_POST['mail']);
+$student_mail = $_POST['mail'];
+$student_mail_encrypted = encrypt_data($_POST['mail']);
 $token_hash = md5($student_mail.date('Y-m-d H:i:s').rand());
 
 //Send mail to user
@@ -21,7 +22,7 @@ $mailer = new Swift_Mailer($transport);
 
 $root = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/';
 
-$psw_link = 'http://skipti.fr/view/change_passwd.php?mail='.$student_mail.'&token='.$token_hash;
+$psw_link = 'http://skipti.fr/view/change_passwd.php?mail='.$student_mail_encrypted.'&token='.$token_hash;
 
 $message = (new Swift_Message("Change your password"))
 	->setFrom(["find.the.r8.one@gmail.com" => "Find the right one"])

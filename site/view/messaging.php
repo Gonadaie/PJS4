@@ -4,10 +4,7 @@ if(!isset($_SESSION['id']))
 {
     header('Location: ../view/logout.php');
 }
-/*if(!isset($_SESSION['id'])) {
-	require('../model/stay_connected.php');
-	if(is_stay_connected($_COOKIE['fr81_stay_connected']))
-		header('Location: ../view/logout.php');*/
+
 
 require("../controller/messaging.php");
 ?>
@@ -56,9 +53,55 @@ require("../controller/messaging.php");
 
 				</div>
 				<div class="right_align title">Messages</div>
+				<div class="scrollable preview_list">
 
-
+					<?php
+					foreach ($previews as &$preview) {
+						$pic = $preview["pic"];
+						$surname = $preview["surname"];
+						$content = $preview["message"]["content"];
+						if ($preview["message"]["flag_read"]==false){
+							$my_preview_div = <<<EOD
+							<div class="row preview_message">
+							<div class="offset-1 col-4 left_preview">
+							<div class='notify_circle'></div><img src="$pic" alt=""></div>
+							<div class="col-7 preview_group">
+							<div class="name">$surname</div>
+							<div class="preview not_read">$content</div>
+							</div>
+							</div>
+EOD;
+							echo($my_preview_div);
+						} elseif ($preview["message"]["message_id"]==1){
+							$my_preview_div = <<<EOD
+							<div class="row preview_message">
+							<div class="offset-1 col-4">
+							<img src="$pic" alt=""></div>
+							<div class="col-7 preview_group">
+							<div class="name">$surname</div>
+							<div class="preview no_message_yet">$content</div>
+							</div>
+							</div>
+EOD;
+							echo($my_preview_div);
+						} else 	{
+							$my_preview_div = <<<EOD
+							<div class="row preview_message">
+							<div class="offset-1 col-4">
+							<img src="$pic" alt=""></div>
+							<div class="col-7 preview_group">
+							<div class="name">$surname</div>
+							<div class="preview ">$content</div>
+							</div>
+							</div>
+EOD;
+							echo($my_preview_div);
+						}
+					} 
+					?>
+				</div>
 			</div>
+
 			<div class="col-9 messaging_welcome_pic no_padding">
 				<img src="../images/messaging.png" alt="">
 			</div>

@@ -6,7 +6,7 @@ require_once ('data_crypter.php');
 function get_unmatched_student_first_year(){
 $db = db_connect();
 if($db) {
-  $query = "SELECT student_id, score,email from student where year = 1 and admin = false AND NOT EXISTS (SELECT
+  $query = "SELECT student_id, score,email from student where year = 1 and admin = false and validate_account = true AND NOT EXISTS (SELECT
     student_id_god_son, student_id_god_father from student_match where final = true
     and (student_id_god_son = student_id OR student_id_god_father = student_id)) ORDER BY score";
     $statement = $db->prepare($query);
@@ -23,7 +23,7 @@ if($db) {
 function get_unmatched_student_second_year(){
 $db = db_connect();
 if($db) {
-  $query = "SELECT student_id, score, email from student where year = 2 and admin = false AND NOT EXISTS (SELECT
+  $query = "SELECT student_id, score, email from student where year = 2 and admin = false and validate_account = true AND NOT EXISTS (SELECT
     student_id_god_son, student_id_god_father from student_match where final = true
     and (student_id_god_son = student_id OR student_id_god_father = student_id)) ORDER BY score";
     $statement = $db->prepare($query);

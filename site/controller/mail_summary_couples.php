@@ -17,10 +17,11 @@
 	$mailer = new Swift_Mailer($transport);
 	$root = (!empty($_SERVER['HTTPS']) ? 'https' : 'http'). '://' . $_SERVER['HTTP_HOST'] . '/';
 
-  error_log(print_r("we are sending a mail"), true);
-	error_log(print_r($student_mail_recipient), true);
-  error_log(print_r($student_name_recipient), true);
-  error_log(print_r($student_name_text), true);
+  error_log(print_r("we are sending a mail\n"), true);
+	error_log(print_r($student_mail_recipient."\n"), true);
+  error_log(print_r($student_name_recipient."\n"), true);
+  error_log(print_r($student_name_text."\n"), true);
+  error_log(print_r("\n"), true);
 
 	$message= (new Swift_Message("Voici les resultats !"))
 		->setFrom(["find.the.r8.one@gmail.com" => "Skipti"])

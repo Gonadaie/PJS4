@@ -7,4 +7,4 @@ $pic_menu = get_picture_student($_SESSION['id']);
 
 $previews = array();
 $previews = getPreviewConversation($_SESSION['id']);
-die(var_dump($previews));
+//die(var_dump($previews));
