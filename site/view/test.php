@@ -21,12 +21,27 @@
 
 	<style>
 		.adj-input {
-			display: block;
+			display: inline-block;
+			margin-bottom:5%;
 			text-align: center;
+			cursor: crosshair;	
 		}
 
 		.title_logo {
 			margin-top: 25%;
+		}
+
+		.close-cross {
+			display:inline-block;
+			text-align:center;
+			position:absolute;
+			width:2em;
+			height:2em;
+			right:1em;
+			line-height:2em;
+			color:white;
+			background-color:#4152BC;
+			visibility:hidden;
 		}
 
 	</style>
@@ -44,10 +59,13 @@
 			</div>
 			<form method="POST" action="../controller/add_adjs.php">
 				<input class="adj-input" type="text" name="adj1" onkeypress="return false"></input>
+				<div class="close-cross" name="cross1">X</div>
 				</br>
 				<input class="adj-input" type="text" name="adj2" onkeypress="return false"></input>
+				<div class="close-cross" name="cross2">X</div>
 				</br>
 				<input class="adj-input" type="text" name="adj3" onkeypress="return false"></input>
+				<div class="close-cross" name="cross3">X</div>
 				</br>
 				<input type="submit" value="Valider"></input>
 			</form>
