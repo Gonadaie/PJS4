@@ -22,12 +22,31 @@ function ajax_mail_unmatch()
 			}
 		}
 	}
-	xhttp.open("GET", "../controller/mail_function_back.php");
+	xhttp.open("GET", "../controller/unmatch_mail.php");
 	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	xhttp.send();
 
 	return false;
 }
+
+
+function ajax_mail_summary_couples()
+{
+	var xhttp =  new XMLHttpRequest();
+
+	xhttp.onreadystatechange = function() {
+		if(this.readyState ==4 && this.status ==200){
+			console.log(this.responseText);
+			result = this.responseText;
+		}
+	}
+	xhttp.open("GET", "../controller/couples_mail.php");
+	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	xhttp.send();
+
+	return false;
+}
+
 
 function ajax_random_match(){
 	console.log("bite");
