@@ -162,5 +162,20 @@ function get_year_student($id){
 
     }
 }
+function get_picture_student($id){
+	$db = db_connect();
+    if($db) {
+      $query = "SELECT S.pic FROM STUDENT S WHERE S.student_id = :student_id";
 
+        $statement = $db->prepare($query);
+        $statement->bindValue(':student_id', $id);
+        $statement->execute();
+
+        $row = $statement->fetch(PDO::FETCH_ASSOC);
+        $pic = $row['pic'];
+
+        return $pic;
+
+    }
+}
 ?>
