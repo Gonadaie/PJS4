@@ -79,7 +79,7 @@ EOD;
 							<div class="offset-1 col-4">
 							<img src="$pic" alt=""></div>
 							<div class="col-7 preview_group">
-							<div class="name">$surname</div>
+							<div class="name">$surname : $last_message</div>
 							<div class="preview no_message_yet">$content</div>
 							</div>
 							</div>
