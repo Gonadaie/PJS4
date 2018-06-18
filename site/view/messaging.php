@@ -60,9 +60,9 @@ require("../controller/messaging.php");
 						$pic = $preview["pic"];
 						$surname = $preview["surname"];
 						
-						$last_message =  $preview["message"]["content"];
-						if (mb_strwidth( $preview["message"]["content"])>10){
-							$content =  mb_strimwidth( $preview["message"]["content"], 0, 10, "...");
+						$last_message =  $preview["last_message"];
+						if (mb_strwidth( $preview["message"]["content"])>50){
+							$content =  mb_strimwidth( $preview["message"]["content"], 0, 50, "...");
 						}else $content = $preview["message"]["content"];
 						
 						if ($preview["message"]["flag_read"]==false){
