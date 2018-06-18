@@ -78,7 +78,7 @@ require("../controller/messaging.php");
 									</div>
 								</div> 
 							EOT; } 
-
+					}
 						?>
 
 
