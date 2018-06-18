@@ -681,17 +681,3 @@ input[type="checkbox"]:checked+label::before {
 .modify-image:hover .hover_modify {
 	display: block;
 }
-
-.btn-default {
-	background-color: #4152BC	;
-	color: #FFF;
-	border-color: #4152BC;
-	font-family: "Fjalla One";
-
-}
-.btn-default:hover
-{
-	background-color: #FFF;
-	color: #4152BC;
-	border-color: #4152BC;
-}
