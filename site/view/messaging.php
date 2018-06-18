@@ -59,7 +59,6 @@ require("../controller/messaging.php");
 					foreach ($previews as &$preview) {
 						$pic = $preview["pic"];
 						$surname = $preview["surname"];
-						
 						$last_message =  $preview["last_message"];
 						if (mb_strwidth( $preview["message"]["content"])>55){
 							$content =  mb_strimwidth( $preview["message"]["content"], 0, 55, "...");

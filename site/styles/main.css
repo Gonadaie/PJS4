@@ -24,6 +24,16 @@ body {
 	height: auto;
 }
 
+.black_and_wite {
+	filter: grayscale(100%);
+	-webkit-filter: grayscale(100%);
+	-moz-filter: grayscale(100%);
+	-ms-filter: grayscale(100%);
+	-o-filter: grayscale(100%);
+	width: 100%;
+	height: auto;
+}
+
 .img_profile {
 	border-radius: 50%;
 	overflow: hidden;
