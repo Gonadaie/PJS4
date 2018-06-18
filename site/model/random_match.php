@@ -46,7 +46,7 @@ function random_match(){
 
 
   if($nbFirstStudent == $nbSecondStudent){
-    for($i = 0; $i<$nbSecondStudent; $i++){
+    for($i = 0; $i<=$nbSecondStudent; $i++){
       insert_random_couple($unmatched_student_second[0][$i],$unmatched_student_first[0][$i]);
     }
   }
