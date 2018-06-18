@@ -5,7 +5,7 @@ function highlight(field, error) {
 		field.style.backgroundColor = "";
 }
 
-function checkMail(field) {
+/*function checkMail(field) {
 	var regex = /^[a-z| _ | ]+\.[a-z | _ | -]+[0-9]*$/;
 	if (!regex.test(field.value)) {
 		highlight(field, true);
@@ -16,7 +16,7 @@ function checkMail(field) {
 		document.getElementById("mail_not_valid").style.display = "none";
 		return true;
 	}
-}
+}*/
 
 function mailexist(){
 	console.log("we are in mailexist");
@@ -72,7 +72,7 @@ function checkPassword(field) {
 
 function verifForm(e) {
 
-	var mailOk = checkMail(document.getElementById("mail"));
+	//var mailOk = checkMail(document.getElementById("mail"));
 	var passwordOK = checkPassword(document.getElementById("password"));
 	console.log(mailOk + passwordOK);
 	if (passwordOK && mailOk){
