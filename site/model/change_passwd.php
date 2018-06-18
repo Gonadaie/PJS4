@@ -13,9 +13,9 @@ function change_passwd_for($token, $passwd_hash) {
 
 	if($db) {
 
-		$id_query = "SELECT student_id FROM token_forgot_passwd WHERE token=:token";
+		$id_query = "SELECT student_id FROM token_forgot_passwd WHERE hash_fp=:hash";
 		$id_statement = $db->prepare($id_query);
-		$id_statement->bindValue(':token', $token);
+		$id_statement->bindValue(':hash', $token);
 		$id_statement->execute();
 
 		$id_result;
