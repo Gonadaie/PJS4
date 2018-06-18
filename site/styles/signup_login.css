@@ -542,23 +542,15 @@ input[type="checkbox"]:checked+label::before {
 	height: auto;
 }
 
-.match_continue {}
-
-.match_talk {}
-
 .match_continue a:hover {
 	cursor: crosshair;
 }
 
-.match_pic_top a:hover {
+.circle_img a:hover {
 	cursor: crosshair;
 }
 
 .match_talk:hover {
-	cursor: crosshair;
-}
-
-.match_pic_bot:hover {
 	cursor: crosshair;
 }
 
