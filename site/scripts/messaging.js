@@ -9,26 +9,27 @@ window.addEventListener('resize', () => {
 
 for (let i = 0; i < message_previews.length; i++) {
 	message_previews[i].addEventListener('click', () => {
-		console.log(message_previews[i].dataset.student)
+		fetch_messages(message_previews[i].dataset.student, student_id)
 	})
 }
 
-/*const fetch_messages = (other_student_id, ) => {
-	if (str == "") {
-		document.getElementById("txtHint").innerHTML = "";
-		return;
-	}
-	if (window.XMLHttpRequest) {
-		// code for IE7+, Firefox, Chrome, Opera, Safari
-		xmlhttp = new XMLHttpRequest();
-	} else { // code for IE6, IE5
-		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-	}
-	xmlhttp.onreadystatechange = function () {
+const fetch_messages = (other_student_id, student_id) => {
+	console.log("we are in get message fct");
+	var xhttp = new XMLHttpRequest();
+
+
+	xhttp.onreadystatechange = function () {
 		if (this.readyState == 4 && this.status == 200) {
-			document.getElementById("txtHint").innerHTML = this.responseText;
+			var response = this.responseText.replace(/\n/g, "");
+			console.log(this.responseText);
 		}
+
 	}
-	xmlhttp.open("GET", "getuser.php?q=" + str, true);
-	xmlhttp.send();
-}*/
+	xhttp.open("POST", "../controller/get_old_messages.php", true);
+	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	console.log(email);
+	xhttp.send("student_id=" + student_id + "&other_student_id=" + other_student_id);
+
+	console.log("end");
+	return false;
+}
