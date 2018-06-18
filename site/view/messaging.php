@@ -60,7 +60,10 @@ require("../controller/messaging.php");
 						$pic = $preview["pic"];
 						$surname = $preview["surname"];
 						$content = $preview["message"]["content"];
-						$last_message = mb_strimwidth($preview["last_message"], 0, 10, "...");
+						if (mb_strwidth($preview["last_message"])>10){
+							$last_message = mb_strimwidth($preview["last_message"], 0, 10, "...");
+						}else $last_message = $preview["last_message"];
+						
 						if ($preview["message"]["flag_read"]==false){
 							$my_preview_div = <<<EOD
 							<div class="row preview_message">
@@ -104,7 +107,6 @@ EOD;
 			</div>
 
 			<div class="col-9 messaging_welcome_pic no_padding">
-				<?php 	echo mb_strimwidth("Hello World", 0, 10, "..."); ?>
 				<img src="../images/messaging.png" alt="">
 			</div>
 		</div>
