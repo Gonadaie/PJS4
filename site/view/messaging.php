@@ -59,8 +59,6 @@ require("../controller/messaging.php");
 				<div class="scrollable preview_list">
 
 					<?php 
-					
-					
 					foreach ($previews as &$preview) {
 						$pic = $preview["pic"];
 						$surname = $preview["surname"];
@@ -77,41 +75,11 @@ require("../controller/messaging.php");
 							</div>
 							EOT;
 						}
-					}
-					
+					}					
 					?>
-
-
 				</div>
-
-					<?php 
-					
-					
-					foreach ($previews as &$preview) {
-						$pic = $preview["pic"];
-						$surname = $preview["surname"];
-						$content = $preview["message"]["content"];
-						if ($preview["message"]["flag_read"]==false){
-							echo <<<EOT
-												<div class="row preview_message">
-						<div class="offset-1 col-4 left_preview">
-							<div class='notify_circle'></div><img src="$pic" alt=""></div>
-						<div class="col-7 preview_group">
-							<div class="name">$surname</div>
-							<div class="preview not_read">$content</div>
-						</div>
-					</div>
-							EOT;
-						}
-					}
-					
-					?>
-
-
-				</div>
-
-
 			</div>
+
 			<div class="col-9 messaging_welcome_pic no_padding">
 				<img src="../images/messaging.png" alt="">
 			</div>
