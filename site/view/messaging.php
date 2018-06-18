@@ -59,8 +59,12 @@ require("../controller/messaging.php");
 					foreach ($previews as &$preview) {
 						$pic = $preview["pic"];
 						$surname = $preview["surname"];
-						$content = $preview["message"]["content"];
-						$last_message = mb_strimwidth($preview["last_message"], 0, 10, "...");
+						
+						$last_message =  $preview["last_message"];
+						if (mb_strwidth( $preview["message"]["content"])>55){
+							$content =  mb_strimwidth( $preview["message"]["content"], 0, 55, "...");
+						}else $content = $preview["message"]["content"];
+						
 						if ($preview["message"]["flag_read"]==false){
 							$my_preview_div = <<<EOD
 							<div class="row preview_message">
