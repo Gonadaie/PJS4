@@ -34,9 +34,9 @@ function getPreviewConversation($student_id) {
 	if($db) {
 
 		if(get_year_student($student_id)==1){
-			$query_get_preview_conversation ="SELECT C.conversation_id, C.last_message, S.pic, S.surname, M1.* FROM message M1, conversation C INNER JOIN student S ON C.student_2=S.student_id  WHERE C.student_1=:student_id AND M1.message_id =(SELECT COALESCE(MAX(message_id),'1') FROM message M where M.conversation_id=C.conversation_id) ORDER BY C.last_message desc";
+			$query_get_preview_conversation ="SELECT S.student_id, C.conversation_id, C.last_message, S.pic, S.surname, M1.* FROM message M1, conversation C INNER JOIN student S ON C.student_2=S.student_id  WHERE C.student_1=:student_id AND M1.message_id =(SELECT COALESCE(MAX(message_id),'1') FROM message M where M.conversation_id=C.conversation_id) ORDER BY C.last_message desc";
 		}else {
-			$query_get_preview_conversation ="SELECT C.conversation_id, C.last_message, S.pic, S.surname, M1.* FROM message M1, conversation C INNER JOIN student S ON C.student_1=S.student_id  WHERE C.student_2=:student_id AND M1.message_id =(SELECT COALESCE(MAX(message_id),'1') FROM message M where M.conversation_id=C.conversation_id) ORDER BY C.last_message desc";
+			$query_get_preview_conversation ="SELECT S.student_id, C.conversation_id, C.last_message, S.pic, S.surname, M1.* FROM message M1, conversation C INNER JOIN student S ON C.student_1=S.student_id  WHERE C.student_2=:student_id AND M1.message_id =(SELECT COALESCE(MAX(message_id),'1') FROM message M where M.conversation_id=C.conversation_id) ORDER BY C.last_message desc";
 		}
 
 		$statement_preview = $db->prepare($query_get_preview_conversation);
@@ -48,7 +48,7 @@ function getPreviewConversation($student_id) {
 		$count = 0;
 
 		while($row = $statement_preview->fetch(PDO::FETCH_ASSOC)){
-			$preview = new Preview($row['conversation_id'], $row['last_message'], $row['pic'], decrypt_data($row['surname']), new Message($row['message_id'], $row['conversation_id'], $row['message_date'], $row['content'], $row['sender_id'], $row['flag_read']));
+			$preview = new Preview($row['student_id'], $row['conversation_id'], $row['last_message'], $row['pic'], decrypt_data($row['surname']), new Message($row['message_id'], $row['conversation_id'], $row['message_date'], $row['content'], $row['sender_id'], $row['flag_read']));
 			$tab_previews[] = $preview->to_array();
 			$count=$count+1;
 		}
