@@ -567,7 +567,7 @@ input[type="checkbox"]:checked+label::before {
 	margin-right: auto;
 	background-color: #E6F0F5;
 	position: relative;
-	animation: wavy_back 2s infinite alternate cubic-bezier(0.05, 0.49, 0.47, 0.93);
+	animation: wavy_back 4s infinite alternate cubic-bezier(0.05, 0.49, 0.47, 0.93);
 }
 
 .circle_front {
@@ -580,7 +580,7 @@ input[type="checkbox"]:checked+label::before {
 	height: 15vw;
 	background-color: #61B8D0;
 	opacity: 50%;
-	animation: wavy 2s 0.5s infinite alternate cubic-bezier(0.05, 0.49, 0.47, 0.93);
+	animation: wavy 4s infinite alternate cubic-bezier(0.05, 0.49, 0.47, 0.93);
 }
 
 .circle_img {
@@ -591,7 +591,6 @@ input[type="checkbox"]:checked+label::before {
 	border-radius: 50%;
 	width: 10vw;
 	height: 10vw;
-	animation: not_wavy 2s 0.5s infinite alternate cubic-bezier(0.05, 0.49, 0.47, 0.93);
 }
 
 .circle_img.black_and_white a img {
@@ -629,15 +628,6 @@ input[type="checkbox"]:checked+label::before {
 	}
 	100% {
 		transform: scale(1.2);
-	}
-}
-
-@keyframes not_wavy {
-	0% {
-		transform: translateY(-50%) translateX(-50%) scale(1);
-	}
-	100% {
-		transform: translateY(-50%) translateX(-50%) scale(0.8);
 	}
 }
 
