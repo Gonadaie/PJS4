@@ -23,8 +23,10 @@ function mailexist(){
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function(){
 		if(this.readyState == 4 && this.status == 200){
-			console.log(this.responseText);
-			if(this.responseText == "NOK"){
+			var response = this.responseText.replace(/\n/g, "");
+			console.log(response);
+			
+			if(response == "NOK"){
 				console.log("exist");
 
 				var request = new XMLHttpRequest();
