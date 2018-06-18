@@ -11,7 +11,6 @@ require_once('mail_summary_couples.php');
 function send_summary(){
 	$student_list = get_couples();
 
-die(var_dump($student_list));
 	for($i=0; $i<=count($student_list); $i++){
 		send_mail_recap($student_list[$i][0],$student_list[$i][1], 2, $student_list[$i][2] );
 	}
