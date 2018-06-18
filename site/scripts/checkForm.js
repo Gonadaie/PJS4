@@ -5,7 +5,7 @@ function highlight(field, error) {
 		field.style.backgroundColor = "";
 }
 
-/*function checkMail(field) {
+function checkMail(field) {
 	var regex = /^[a-z| _ | ]+\.[a-z | _ | -]+[0-9]*$/;
 	if (!regex.test(field.value)) {
 		highlight(field, true);
@@ -16,14 +16,14 @@ function highlight(field, error) {
 		document.getElementById("mail_not_valid").style.display = "none";
 		return true;
 	}
-}*/
+}
 
 function mailexist(){
 	console.log("we are in mailexist");
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function(){
 		if(this.readyState == 4 && this.status == 200){
-			if(this.responseText == "OK"){
+			if(this.responseText == "NOK"){
 				console.log("exist");
 				var request = new XMLHttpRequest();
 				request.open("POST", "../controller/forgot_passwd.php", true);
