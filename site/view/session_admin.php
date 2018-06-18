@@ -24,6 +24,7 @@ if(!isset($_SESSION['id']))
     <form id="formgetallstudent" action="../controller/get_all_student.php" method="get"></form>
     <form id="formgetallcouples" action="../controller/get_couples.php" method="get"></form>
     <form id="formgetallunsub" action="../view/unsub_student.html" method="get"></form>
+    <form id="formgmailunsub" action="../view/mail_unsub_student.html" method="get"></form>
 		<form action="" method="POST">
 			<div id="export_part">
 				<div id="export">Export CSV</div>
@@ -43,7 +44,7 @@ if(!isset($_SESSION['id']))
 			<div id="envoi_mail_part">
 			<div id="envoi_mail">Envoi d'emails</div>
 				<div id="button_mail">
-					<input type="button" id="relance_unsubscribe" onclick=""  value="Relancer par mail les étudiants non inscrit"></input>
+					<input type="submit" id="relance_unsubscribe" value="Relancer par mail les étudiants non inscrit" form="formgmailunsub"></input>
 					<input type="button" id="recap_student"onclick="ajax_mail_summary_couples()" value="Envoyer un mail récapitulatif aux étudiants"></input>
 					<input type="button" id="relance_unmatch" onclick="ajax_mail_unmatch()" value="Relancer par mail les étudiants non appareillés"></input>
 				</div>
