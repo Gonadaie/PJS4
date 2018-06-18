@@ -46,13 +46,13 @@ function ajax_mail_summary_couples()
 
 
 function ajax_random_match(){
-	console.log("bite");
+
 	var xhttp =  new XMLHttpRequest();
 
 	xhttp.open("GET", "../controller/random_match.php");
 	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	xhttp.send();
-	console.log("bite2");
+	
 	return true;
 }
 

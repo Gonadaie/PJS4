@@ -28,7 +28,7 @@ if(!isset($_SESSION['id']))
 				<div id="export">Export CSV</div>
 				<div id="button_export">
 				    <input type="submit" id="list_student" value="Liste de tous les étudiants inscrit" form="formgetallstudent"></input>
-				    <input type="submit" id="list_match" value="Liste des couples parrains filleuls" form="formgetallcouples"></input>
+				    <input type="submit" id="list_match" value="Liste des parrainages" form="formgetallcouples"></input>
 					<input type="button" id="list_unsubscribe" onclick="list_unsubscribe.html"value="Liste des étudiants non inscrit"></input>
 				</div>
 			</div>
