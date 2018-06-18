@@ -2,10 +2,10 @@
 	require_once("../vendor/autoload.php");
 	function send_mail_recap($email1, $name1, $yearmail, $name2){
 	if($yearmail==1){
-		$sentence = "ton parrain/marraine";
+		$sentence = "ton/ta parrain/marraine";
 	}
 	else{
-		$sentence = "ton filleul(e)";
+		$sentence = "ton/ta filleul(e)";
 	}
 	$student_mail_recipient = $email1;
   $student_name_recipient = $name1;
@@ -22,7 +22,7 @@
   error_log(print_r($student_name_recipient), true);
   error_log(print_r($student_name_text), true);
 
-	$message= (new Swift_Message("They missed you"))
+	$message= (new Swift_Message("Voici les resultats !"))
 		->setFrom(["find.the.r8.one@gmail.com" => "Skipti"])
 		->setTo([$student_mail_recipient."@etu.parisdescartes.fr" => $student_name_recipient])
 		->setBody('<!DOCTYPE html>'.
@@ -45,7 +45,7 @@
 		    	'</tr>'.
 		'	<tr style="color : #707070; font-size:20px; font-family: Fjalla One">'.
 		'		<td align="center">'.
-		'			Merci d avoir utilisé skipti, voici '.$sentence.' : ' .$student_name_text '!'.
+		'			Merci d avoir utilisé skipti, voici '.$sentence.' : ' .$student_name_text. '!'.
 		'		</td>'.
 		'	</tr>'.
 				'<td>'.
