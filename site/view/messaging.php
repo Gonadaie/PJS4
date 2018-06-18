@@ -60,54 +60,33 @@ require("../controller/messaging.php");
 
 					<?php 
 					
+					
 					foreach ($previews as &$preview) {
+						$pic = $preview["pic"];
+						$surname = $preview["surname"];
+						$content = $preview["message"]["content"];
 						if ($preview["message"]["flag_read"]==false){
-							echo("<!--			NOT READ-->
+							echo <<<EOT <!--NOT READ-->
 								<div class="row preview_message">
 									<div class="offset-1 col-4 left_preview">
 										<div class='notify_circle'></div>
-										<img src="<?php echo($preview["pic"]); ?>" alt="">
+										<img src="$pic" alt="">
+									</div>
+									<div class="col-7 preview_group">
+										<div class="name">$surname</div>
+										<div class="preview not_read">$content</div>
+									</div>
+								</div> EOT; } 
+
+
+
+
 				</div>
-				<div class="col-7 preview_group">
-					<div class="name">
-						<?php echo($preview["surname"]); ?>
-					</div>
-					<div class="preview not_read">
-						<?php echo($preview["message"]["content"]); ?>
-					</div>
-				</div>
-			</div> "); } elsif ($preview["message"]["message_id"]==1){ echo("
-			<!--			NO MESSAGE-->
-			<div class="row preview_message">
-				<div class="offset-1 col-4">
-					<img src="../images/images_student/alice.png" alt="">
-				</div>
-				<div class="col-7 preview_group">
-					<div class="name">Julie</div>
-					<div class="preview no_message_yet"> salut t pas mal lol</div>
-				</div>
+
 			</div>
-			"); } else echo("
-			<!--			NORMAL-->
-			<div class="row preview_message">
-				<div class="offset-1 col-4">
-					<img src="../images/images_student/alice.png" alt="">
-				</div>
-				<div class="col-7 preview_group">
-					<div class="name">Julie</div>
-					<div class="preview"> salut t pas mal lol</div>
-				</div>
-			</div>"); } // $arr vaut maintenant array(2, 4, 6, 8) unset($preview); ?>
-
-
-
-
-		</div>
-
-		</div>
-		<div class="col-9 messaging_welcome_pic no_padding">
-			<img src="../images/messaging.png" alt="">
-		</div>
+			<div class="col-9 messaging_welcome_pic no_padding">
+				<img src="../images/messaging.png" alt="">
+			</div>
 		</div>
 		<script src="../scripts/messaging.js"></script>
 	</body>
