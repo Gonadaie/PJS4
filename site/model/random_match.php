@@ -35,7 +35,7 @@ if($db) {
   }
   return $unmatched_student;
 }
-/* Changer random match en fonction de la nouvelle valeur de retour des fonction ci-dessus */
+
 function random_match(){
   $unmatched_student_first = get_unmatched_student_first_year();
   $unmatched_student_second = get_unmatched_student_second_year();
@@ -47,7 +47,7 @@ function random_match(){
 
   if($nbFirstStudent == $nbSecondStudent){
     for($i = 0; $i<=$nbSecondStudent; $i++){
-      insert_random_couple($unmatched_student_second[0][$i],$unmatched_student_first[0][$i]);
+      insert_random_couple($unmatched_student_second[$i][0],$unmatched_student_first[$i][0]);
     }
   }
 
