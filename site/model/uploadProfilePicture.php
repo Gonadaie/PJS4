@@ -35,7 +35,7 @@ function uploadProfilePicture($email,$image) {
 
 
           $imagePath = "../images/images_student/";
-          $imageName = $imagePath . str_replace(".", "", $email) . ".png";
+          $imageName = $imagePath .  $email . ".png";
           file_put_contents($imageName, $data);
           echo '<img src="' . $imageName . '" class="img-thumbnail" />';
 
