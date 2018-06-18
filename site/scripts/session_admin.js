@@ -38,6 +38,7 @@ function ajax_mail_summary_couples()
 		if(this.readyState ==4 && this.status ==200){
 			console.log(this.responseText);
 			result = this.responseText;
+			alert("Un e-mail a été envoyé à tous les étudiants");
 		}
 	}
 	xhttp.open("GET", "../controller/couples_mail.php");
