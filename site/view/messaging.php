@@ -56,7 +56,7 @@ require("../controller/messaging.php");
 
 				</div>
 				<div class="right_align title">Messages</div>
-				<div class="scrollable preview_list">
+
 
 					<?php 
 					
@@ -83,6 +83,7 @@ require("../controller/messaging.php");
 
 
 				</div>
+
 
 			</div>
 			<div class="col-9 messaging_welcome_pic no_padding">
