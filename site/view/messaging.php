@@ -67,7 +67,7 @@ require("../controller/messaging.php");
 							<div class="offset-1 col-4 left_preview">
 							<div class='notify_circle'></div><img src="$pic" alt=""></div>
 							<div class="col-7 preview_group">
-							<div class="name">$surname</div>
+							<div class="name">$surname : $last_message</div>
 							<div class="preview not_read">$content</div>
 							</div>
 							</div>
