@@ -76,9 +76,10 @@ require("../controller/messaging.php");
 										<div class="name">$surname</div>
 										<div class="preview not_read">$content</div>
 									</div>
-								</div> EOT; } 
+								</div> 
+							EOT; } 
 
-?>
+						?>
 
 
 				</div>
