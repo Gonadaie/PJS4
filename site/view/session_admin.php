@@ -22,12 +22,13 @@ if(!isset($_SESSION['id']))
 			<a href="../view/logout.php" >log out</a>
 		</div>
     <form id="formgetallstudent" action="../controller/get_all_student.php" method="get"></form>
+    <form id="formgetallcouples" action="../controller/get_couples.php" method="get"></form>
 		<form action="" method="POST">
 			<div id="export_part">
 				<div id="export">Export CSV</div>
 				<div id="button_export">
 				    <input type="submit" id="list_student" value="Liste de tous les étudiants inscrit" form="formgetallstudent"></input>
-				    <input type="button" id="list_match" onclick="list_match.html"value="Liste des couples parrains filleuls"></input>
+				    <input type="submit" id="list_match" value="Liste des couples parrains filleuls" form="formgetallcouples"></input>
 					<input type="button" id="list_unsubscribe" onclick="list_unsubscribe.html"value="Liste des étudiants non inscrit"></input>
 				</div>
 			</div>
