@@ -72,8 +72,32 @@ require("../controller/messaging.php");
 							</div>
 EOD;
 							echo($my_preview_div);
+						} elseif ($preview["message"]["message_id"]==1){
+							$my_preview_div = <<<EOD
+							<div class="row preview_message">
+							<div class="offset-1 col-4">
+							<img src="$pic" alt=""></div>
+							<div class="col-7 preview_group">
+							<div class="name">$surname</div>
+							<div class="preview no_message_yet">$content</div>
+							</div>
+							</div>
+EOD;
+							echo($my_preview_div);
+						} else 	{
+							$my_preview_div = <<<EOD
+							<div class="row preview_message">
+							<div class="offset-1 col-4">
+							<img src="$pic" alt=""></div>
+							<div class="col-7 preview_group">
+							<div class="name">$surname</div>
+							<div class="preview ">$content</div>
+							</div>
+							</div>
+EOD;
+							echo($my_preview_div);
 						}
-					}
+					} 
 					?>
 				</div>
 			</div>
