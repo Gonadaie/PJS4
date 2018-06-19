@@ -9,7 +9,7 @@ function get_old_messages($id_conv){
   $db = db_connect();
   if($db) {
     $query = "SELECT * FROM message WHERE conversation_id = :id_conv and
-    message_id >= (Select MAX(message_id) from message where conversation_id = :id_conv) ORDER BY message_id DESC LIMIT 20";
+    message_id <= (Select MAX(message_id) from message where conversation_id = :id_conv) ORDER BY message_id DESC LIMIT 20";
     $statement = $db->prepare($query);
     $statement->bindValue(':id_conv',$id_conv);
     $statement->execute();
@@ -84,4 +84,4 @@ function getPreviewConversation($student_id) {
 //SELECT C.conversation_id, S.pic, S.surname, M1.* FROM message M1, conversation C INNER JOIN student S ON C.student_2=S.student_id  WHERE C.student_1=6 AND M1.message_id =(SELECT COALESCE(MAX(message_id),'1') FROM message M where M.conversation_id=C.conversation_id );
 
 
-//SELECT * FROM message WHERE conversation_id = 2 and message_id >= (Select MAX(message_id) from message where conversation_id = 2) ORDER BY message_id DESC LIMIT 20;
+//SELECT * FROM message WHERE conversation_id = 12 and message_id >= (Select MAX(message_id) from message where conversation_id = 12) ORDER BY message_id DESC LIMIT 20;
