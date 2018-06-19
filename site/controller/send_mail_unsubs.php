@@ -10,7 +10,7 @@ function send_mail_unsubs($student_mail){
 	$mailer_unsubs = new Swift_Mailer($transport_unsubs);
 	$root_unsubs = (!empty($_SERVER['HTTPS']) ? 'https' : 'http'). '://' . $_SERVER['HTTP_HOST'] . '/';
 
-	$message_unsubs = (new Swift_Message("They missed you"))
+	$message_unsubs = (new Swift_Message("Inscrit toi sur skipti ! "))
 		->setFrom(["find.the.r8.one@gmail.com" => "Skipti"])
 		->setTo([$student_mail."@etu.parisdescartes.fr" => $student_name])
 		->setBody('<!DOCTYPE html>'.
@@ -33,7 +33,7 @@ function send_mail_unsubs($student_mail){
 		    	'</tr>'.
 		'	<tr style="color : #707070; font-size:20px; font-family: Fjalla One">'.
 		'		<td align="center">'.
-		'			La fin des phases de matching approche, dépêche-toi de créer ton compte sur :'.
+		'			Dépêche-toi de créer ton compte sur :'.
 		'		</td>'.
 		'	</tr>'.
 				'<td>'.
