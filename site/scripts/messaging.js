@@ -1,7 +1,8 @@
 const my_list = document.querySelector('.preview_list')
 const message_previews = document.querySelectorAll('.preview_message')
 const messaging_welcome_pic = document.querySelector('.messaging_welcome_pic')
-
+const finalBtnOff = document.querySelector('.conversation_final_btn_off')
+const finalBtnOn = document.querySelector('.conversation_final_btn_on')
 
 my_list.style.height = window.innerHeight - my_list.offsetTop + "px";
 
@@ -39,3 +40,15 @@ const fetch_messages = (other_student_id) => {
 	console.log("end");
 	return false;
 }
+
+
+finalBtnOff.addEventListener('click', () => {
+	finalBtnOff.style.display = 'none'
+	var finalBtnOn = document.querySelector('.conversation_final_btn_on')
+	finalBtnOn.style.display = 'block'
+})
+finalBtnOn.addEventListener('click', () => {
+	finalBtnOn.style.display = 'none'
+	var finalBtnOn = document.querySelector('.conversation_final_btn_on')
+	finalBtnOff.style.display = 'block'
+})
