@@ -1,19 +1,9 @@
 <?php
-session_start();
-if(!isset($_SESSION['id']))
-{
-    header('Location: ../view/logout.php');
-}
-/*if(!isset($_SESSION['id'])) {
-	require('../model/stay_connected.php');
-	if(is_stay_connected($_COOKIE['fr81_stay_connected']))
-		header('Location: ../view/logout.php');*/
 
 require("../controller/swipe.php");
 ?>
 	<!DOCTYPE html>
 	<html lang="fr">
-
 
 	<head>
 		<meta charset="utf-8" />
