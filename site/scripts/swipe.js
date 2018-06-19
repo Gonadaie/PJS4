@@ -6,7 +6,7 @@ var hearted = document.querySelector(".bounceOutRight");
 const profil_link = document.querySelector("#swipe_picture");
 const no_more_profile = document.querySelector(".no_more_profile");
 const available_profiles = document.querySelector(".available_profile");
-const reset_dislike = document.querySelector(".swipe_more_btn");
+const reset_dislike = document.querySelector(".reset_like");
 var end_of_swipe = false;
 
 reset_dislike.addEventListener("click", () => {
