@@ -51,11 +51,21 @@ function ajax_random_match(){
 
 	var xhttp =  new XMLHttpRequest();
 
+	xhttp.onreadystatechange = function() {
+		if(this.readyState ==4 && this.status ==200){
+			console.log(this.responseText);
+			result = this.responseText;
+			if (result == "FIN"){
+			alert("Les etudiants ont été mis ensemble de façon aléatoire !");
+		}
+		}
+	}
+
 	xhttp.open("GET", "../controller/random_match.php");
 	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	xhttp.send();
 
-	return true;
+	return false;
 }
 
 function setfilename(){
@@ -104,7 +114,7 @@ function checkFile(){
 	if ((document.getElementById("file").files.length === 0) || (document.getElementById("file2").files.length === 0))
 		document.getElementById("list_submit1").style.display = 'none';
 	else
-		document.getElementById("list_submit1").style.display = 'block';   
+		document.getElementById("list_submit1").style.display = 'block';
 }
 /*function count_file(){
 	var x = document.getElementById("file").files.length;
