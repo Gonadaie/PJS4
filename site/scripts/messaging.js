@@ -1,7 +1,7 @@
 const my_list = document.querySelector('.preview_list')
 const message_previews = document.querySelectorAll('.preview_message')
 const messaging_welcome_pic = document.querySelectorAll('.messaging_welcome_pic')
-const messaging_conversation = document.querySelectorAll('.messaging_conversation')
+
 
 my_list.style.height = window.innerHeight - my_list.offsetTop + "px";
 
@@ -13,6 +13,7 @@ for (let i = 0; i < message_previews.length; i++) {
 	message_previews[i].addEventListener('click', () => {
 		fetch_messages(message_previews[i].dataset.student)
 		messaging_welcome_pic.style.display = 'none'
+		var messaging_conversation = document.querySelectorAll('.messaging_conversation')
 		messaging_conversation.style.display = 'block'
 
 	})
