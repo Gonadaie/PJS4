@@ -3,6 +3,10 @@ const message_previews = document.querySelectorAll('.preview_message')
 const messaging_welcome_pic = document.querySelector('.messaging_welcome_pic')
 const finalBtnOff = document.querySelector('.conversation_final_btn_off')
 const finalBtnOn = document.querySelector('.conversation_final_btn_on')
+const conversation_surname = document.querySelector('.conversation_surname')
+
+
+
 
 my_list.style.height = window.innerHeight - my_list.offsetTop + "px";
 
@@ -16,6 +20,8 @@ for (let i = 0; i < message_previews.length; i++) {
 		messaging_welcome_pic.style.display = 'none'
 		var messaging_conversation = document.querySelector('.messaging_conversation')
 		messaging_conversation.style.display = 'block'
+
+		conversation_surname.update(message_previews[i].dataset.surname);
 
 	})
 }
