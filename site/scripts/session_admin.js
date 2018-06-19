@@ -1,5 +1,6 @@
 
 var result;
+var count;
 
 
 
@@ -97,7 +98,15 @@ String.prototype.reverse=function ()
         return n;
 }
 
-function count_file(){
+document.getElementById('file').addEventListener('change', checkFile);
+document.getElementById('file2').addEventListener('change', checkFile);
+function checkFile(){
+	if ((document.getElementById("file").files.length === 0) || (document.getElementById("file2").files.length === 0))
+		document.getElementById("list_submit1").style.display = 'none';
+	else
+		document.getElementById("list_submit1").style.display = 'block';   
+}
+/*function count_file(){
 	var x = document.getElementById("file").files.length;
 	var y = document.getElementById("file2").files.length;
 	if ((document.getElementById("file").files.length === 0) || (document.getElementById("file2").files.length === 0)){
@@ -108,4 +117,4 @@ function count_file(){
 	else
 		alert("fucking work");
 		return true;
-}
+}*/
