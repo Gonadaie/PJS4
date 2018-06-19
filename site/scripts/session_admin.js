@@ -60,15 +60,34 @@ function ajax_random_match(){
 function setfilename(){
 	var thefile = document.getElementById('file');
 	var label = document.getElementById('label_input');
-	var name;
+	var name='';
+	console.log(name);
 	for(var i = thefile.value.length; i >= 0; i--){
 		if (thefile.value[i]=="\\"){
 			break;
 		}
-		name = name + thefile.value[i];
+		if(name === "undefined") name = thefile.value[i];
+		else name = name + thefile.value[i];
 	}
+	console.log(name);
 	name = name.reverse();
-	label.value = name.toString();
+	label.innerHTML = name;
+}
+function setfilename2(){
+	var thefile = document.getElementById('file2');
+	var label1 = document.getElementById('label_input2');
+	var name='';
+	console.log(name);
+	for(var i = thefile.value.length; i >= 0; i--){
+		if (thefile.value[i]=="\\"){
+			break;
+		}
+		if(name === "undefined") name = thefile.value[i];
+		else name = name + thefile.value[i];
+	}
+	console.log(name);
+	name = name.reverse();
+	label1.innerHTML = name;
 }
 String.prototype.reverse=function ()
 {
@@ -76,4 +95,11 @@ String.prototype.reverse=function ()
         for( var i=this.length-1; i >= 0; i--)
                 n       +=     this.charAt(i);
         return n;
+}
+
+function count_file(){
+	if ((document.getElementById("file").files.length == 0) && 
+	(document.getElementById("file2").files.length === 0)){
+		alert("Vous n'avez pas rentré suffisament de fichier");
+	}
 }

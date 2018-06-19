@@ -3,7 +3,7 @@
 
 	<head>
 		<meta charset="utf-8" />
-		<title>Admin-Listes des étudiants</title>
+		<title>Admin-Liste des non-inscrit</title>
 		<link rel="stylesheet" href="../styles/add_list.css">
 		<link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
@@ -14,7 +14,7 @@
 			<a href="session_admin.php" class="backmenu"> < Retour </a>
 		</div>
 		<div id="submit_form">
-			<div id="title_list">Liste compléte des étudiants de DUT1 et de DUT2</div>
+			<div id="title_list">Obtenir la liste des étudiants non-inscrits</div>
 			<div id ="import_instruction">
 				Il faut importer un fichier ".CSV" contenant la liste des parties<br>
 				des emails étudiants<br>
@@ -24,7 +24,7 @@
 			<div id="form_div">
 				<form action="../controller/get_unregistered_student.php" method = "POST" enctype="mutlipart/form-data">
 					<input type="file" name="file" id="file" class="list_input" onchange="setfilename()"></input>
-					<label id="label_input" for="file">Choose a file</label>
+					<label id="label_input2" for="file">Choose a file</label>
 					<input type="submit" name="submit" id="list_submit"></input>
 				</form>
 			</div>
