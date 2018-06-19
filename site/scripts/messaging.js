@@ -49,6 +49,6 @@ finalBtnOff.addEventListener('click', () => {
 })
 finalBtnOn.addEventListener('click', () => {
 	finalBtnOn.style.display = 'none'
-	var finalBtnOn = document.querySelector('.conversation_final_btn_on')
+	var finalBtnOff = document.querySelector('.conversation_final_btn_on')
 	finalBtnOff.style.display = 'block'
 })
