@@ -119,7 +119,25 @@ EOD;
 
 
 
-				<div class="conversation_messages">
+				<div class="conversation_messages scrollable">
+					<div class="message_conversation_other_student">salut!</div>
+					<div class="message_conversation_student">julie coustenoble viens de nice et aime danser sous la pluie meme si elle aime paqs la pluie et elle prefaire le soleil qui chauffe la peau c'est mieux quele soleil qui pique les yers amais qui laisse le corps froid!</div>
+					<div class="message_conversation_other_student">salut!</div>
+					<div class="message_conversation_student">julie coustenoble viens de nice et aime danser sous la pluie meme si elle aime paqs la pluie et elle prefaire le soleil qui chauffe la peau c'est mieux quele soleil qui pique les yers amais qui laisse le corps froid!</div>
+					<div class="message_conversation_other_student">salut!</div>
+					<div class="message_conversation_student">julie coustenoble viens de nice et aime danser sous la pluie meme si elle aime paqs la pluie et elle prefaire le soleil qui chauffe la peau c'est mieux quele soleil qui pique les yers amais qui laisse le corps froid!</div>
+					<div class="message_conversation_other_student">salut!</div>
+					<div class="message_conversation_student">julie coustenoble viens de nice et aime danser sous la pluie meme si elle aime paqs la pluie et elle prefaire le soleil qui chauffe la peau c'est mieux quele soleil qui pique les yers amais qui laisse le corps froid!</div>
+					<div class="message_conversation_other_student">salut!</div>
+					<div class="message_conversation_student">julie coustenoble viens de nice et aime danser sous la pluie meme si elle aime paqs la pluie et elle prefaire le soleil qui chauffe la peau c'est mieux quele soleil qui pique les yers amais qui laisse le corps froid!</div>
+					<div class="message_conversation_other_student">salut!</div>
+					<div class="message_conversation_student">julie coustenoble viens de nice et aime danser sous la pluie meme si elle aime paqs la pluie et elle prefaire le soleil qui chauffe la peau c'est mieux quele soleil qui pique les yers amais qui laisse le corps froid!</div>
+					<div class="message_conversation_other_student">salut!</div>
+					<div class="message_conversation_student">julie coustenoble viens de nice et aime danser sous la pluie meme si elle aime paqs la pluie et elle prefaire le soleil qui chauffe la peau c'est mieux quele soleil qui pique les yers amais qui laisse le corps froid!</div>
+					<div class="message_conversation_other_student">salut!</div>
+					<div class="message_conversation_student">julie coustenoble viens de nice et aime danser sous la pluie meme si elle aime paqs la pluie et elle prefaire le soleil qui chauffe la peau c'est mieux quele soleil qui pique les yers amais qui laisse le corps froid!</div>
+					<div class="message_conversation_other_student">salut!</div>
+					<div class="message_conversation_student">julie coustenoble viens de nice et aime danser sous la pluie meme si elle aime paqs la pluie et elle prefaire le soleil qui chauffe la peau c'est mieux quele soleil qui pique les yers amais qui laisse le corps froid!</div>
 					<div class="message_conversation_other_student">salut!</div>
 					<div class="message_conversation_student">julie coustenoble viens de nice et aime danser sous la pluie meme si elle aime paqs la pluie et elle prefaire le soleil qui chauffe la peau c'est mieux quele soleil qui pique les yers amais qui laisse le corps froid!</div>
 				</div>
