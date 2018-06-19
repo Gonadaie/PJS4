@@ -64,6 +64,8 @@ const add_messages = (messages, other_student_id) => {
 	const conversation_messages = document.querySelector('.conversation_messages')
 	for (let i = 0; i < messages.length; i++) {
 		let div_message = document.createElement("div")
+		console.log(messages[i].sender_id)
+		console.log(messages[i])
 		if (messages[i].sender_id == other_student_id) {
 			div_message.setAttribute('class', 'message_conversation_other_student')
 		} else {
