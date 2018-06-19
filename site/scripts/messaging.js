@@ -35,7 +35,8 @@ const fetch_messages = (other_student_id) => {
 
 	xhttp.onreadystatechange = function () {
 		if (this.readyState == 4 && this.status == 200) {
-			var response = JSON.parse(this.responseText);
+			var response = = new Array();
+			response = JSON.parse(this.responseText);
 			add_messages(response, other_student_id)
 		}
 
