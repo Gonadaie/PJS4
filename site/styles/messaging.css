@@ -249,6 +249,7 @@ body {
 	height: 80%;
 	color: #254463;
 	border-radius: 10px;
+	font-family: 'Open Sans', sans-serif;
 }
 
 .conversation_send_messages .conversation_send_btn {
@@ -263,4 +264,31 @@ body {
 .conversation_final_btn_on:hover,
 .conversation_final_btn_off:hover {
 	cursor: crosshair;
+}
+
+
+/*******************************************************/
+
+.message_conversation_other_student {
+	background-color: #61B8D0;
+	border-radius: 10px 10px 10px 0;
+	width: 40%;
+	margin-top: 3vh;
+	margin-left: 3%;
+	margin-right: auto;
+	padding: 15px;
+	color: white;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.message_conversation_student {
+	background-color: #4152BC;
+	border-radius: 10px 10px 0 10px;
+	width: 40%;
+	margin-top: 3vh;
+	margin-right: 3%;
+	margin-left: auto;
+	padding: 15px;
+	color: white;
+	font-family: 'Open Sans', sans-serif;
 }
