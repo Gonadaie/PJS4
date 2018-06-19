@@ -11,7 +11,7 @@ class Conversation {
 	public function __construct($student1_id, $student2_id) {
 		$this->student1_id = $student1_id;
 		$this->student2_id = $student2_id;
-		$this->id = get_id_from_database();
+		$this->id = get_id_conversation();
 	}
 
 
@@ -33,7 +33,10 @@ class Conversation {
 			return $ret;
 		}
 	}
-
+	
+public function get_id(){
+		return $this->id;
+	}
 
 }
 
