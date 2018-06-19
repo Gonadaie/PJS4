@@ -6,7 +6,12 @@ var hearted = document.querySelector(".bounceOutRight");
 const profil_link = document.querySelector("#swipe_picture");
 const no_more_profile = document.querySelector(".no_more_profile");
 const available_profiles = document.querySelector(".available_profile");
+const reset_dislike = document.querySelector(".swipe_more_btn");
 var end_of_swipe = false;
+
+reset_dislike.addEventListener("click", () => {
+	ajax_reset_dislike();
+});
 
 
 yes.addEventListener("click", () => {
@@ -32,6 +37,20 @@ function top_back() {
 	swipe_profile.classList.remove("bounceOutLeft");
 	swipe_profile.classList.add("bounceInDown");
 }
+
+
+function ajax_reset_dislike(){
+
+	console.log("we are in reset dislike function");
+	var xhttp = new XMLHttpRequest();
+
+	xhttp.open("GET", "../controller/reset_dislike.php", true);
+	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	xhttp.send();
+
+
+}
+
 
 function ajax_liked_someone() {
 	console.log("we are in liked function");
@@ -123,8 +142,6 @@ profil_link.addEventListener("click", () => {
 
 //redirection with POST data
 function CreateAFormInsideMyDivAndSubmitIt() {
-	console.log("pute");
-
 	var mydiv = document.getElementById('myformcontainer').innerHTML = '<form id="post_data" method="post" action="../view/match.php"><input name="mail" type="hidden" value="' + email + ' "/><input name="pic" type="hidden" value="' + pic + '" /></form>';
 	f = document.getElementById('post_data');
 	if (f) {

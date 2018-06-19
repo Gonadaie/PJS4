@@ -1,5 +1,25 @@
 <?php
 
+function reset_dislike($student){
+	$db = db_connect();
+
+	if($db) {
+	if($student->getYear() == 1){
+		$query = "UPDATE student_match SET student_id_god_son = -1 WHERE result = false AND student_id_god_son = :id";
+		$statement = $db->prepare($query);
+		$statement->bindValue(':id', $student->getId());
+		$statement->execute();
+	}
+	else{
+		$query = "UPDATE student_match SET student_id_god_father = -1 WHERE result = false AND student_id_god_father = :id";
+		$statement = $db->prepare($query);
+		$statement->bindValue(':id', $student->getId());
+		$statement->execute();
+	}
+}
+}
+
+
 function getArrayStudents($student) {
 
 	$db = db_connect();
