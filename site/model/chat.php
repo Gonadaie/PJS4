@@ -29,8 +29,8 @@ function get_id_conversation($student1_id, $student2_id) {
 		if($db) {
 			$query = "SELECT id_conversation FROM conversation where (student_1 = :id1 or student_1 = :id2) or (student_2 = :id2 or student_2 = :id1)";
 			$statement = $db->prepare($query);
-			$statement->bindValue(":id1", $this->student1_id);
-			$statement->bindValue(":id2", $this->student2_id);
+			$statement->bindValue(":id1", $student1_id);
+			$statement->bindValue(":id2", $student2_id);
 			$statement->execute();
 			$ret = NULL;
 			while($result = $statement->fetch(PDO::FETCH_ASSOC)){
