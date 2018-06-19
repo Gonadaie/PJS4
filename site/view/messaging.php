@@ -111,6 +111,7 @@ EOD;
 				<img src="../images/messaging.png" alt="">
 			</div>
 			<div class="col-9 messaging_conversation no_padding">
+				<div class="top_marge_conversation"></div>
 				<div class="conversation_surname"></div>
 				<div class="conversation_final_btn_off">is it the right one?</div>
 				<div class="conversation_final_btn_on">it's the right one!</div>
