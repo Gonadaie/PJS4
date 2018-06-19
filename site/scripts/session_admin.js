@@ -98,8 +98,14 @@ String.prototype.reverse=function ()
 }
 
 function count_file(){
-	if ((document.getElementById("file").files.length == 0) && 
-	(document.getElementById("file2").files.length === 0)){
+	var x = document.getElementById("file").files.length;
+	var y = document.getElementById("file2").files.length;
+	if ((document.getElementById("file").files.length === 0) || (document.getElementById("file2").files.length === 0)){
 		alert("Vous n'avez pas rentré suffisament de fichier");
+		exit(0);
+		return false;
 	}
+	else
+		alert("fucking work");
+		return true;
 }
