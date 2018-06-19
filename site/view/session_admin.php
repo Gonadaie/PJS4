@@ -38,7 +38,7 @@ if(!isset($_SESSION['id']))
 			<div id="action_match_part">
 				<div id="action_match">Action de match</div>
 				<div id="button_actionb">
-					<input type="button" id="forced_matchunsub" value="Matcher les étudiants non-inscrits" form="formrandomunsub"></input>
+					<input type="submit" id="forced_matchunsub" value="Matcher les étudiants non-inscrits" form="formrandomunsub"></input>
 					<input type="button" id="match_unmatchstudent" onclick="ajax_random_match()" value=" Matcher les étudiants non appareillés"></input>
 				</div>
 			</div>
