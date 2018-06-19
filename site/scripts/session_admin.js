@@ -12,7 +12,6 @@ function ajax_mail_unmatch()
 		if(this.readyState ==4 && this.status ==200){
 			console.log(this.responseText);
 			var result = this.responseText.replace(/\n/g, "");
-			result = this.responseText;
 			if (result != "FAIL"){
 				alert("Un e-mail a été envoyé à tous les étudiants sans match");
 			}else{
@@ -35,7 +34,7 @@ function ajax_mail_summary_couples()
 	xhttp.onreadystatechange = function() {
 		if(this.readyState ==4 && this.status ==200){
 			console.log(this.responseText);
-			result = this.responseText;
+			var result = this.responseText.replace(/\n/g, "");
 			alert("Un e-mail a été envoyé à tous les étudiants");
 		}
 	}
