@@ -53,7 +53,7 @@ $student = $info_student->student;
 		<div class="menu">
 			<a href="../view/swipe.php" class="menu_inactive">swipe</a>
 			<a href="../view/updateprofile.php" class="menu_active">mon compte</a>
-			<a href="#" class="menu_inactive">messages</a>
+			<a href="messaging.php" class="menu_inactive">messages</a>
 			<a href="../view/logout.php" class="menu_inactive">log out</a>
 		</div>
 		<div class="back"></div>

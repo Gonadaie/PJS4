@@ -51,7 +51,7 @@ require("../controller/swipe.php");
 		<div class="menu">
 			<a href="#" class="menu_active">swipe</a>
 			<a href="../view/updateprofile.php" class="menu_inactive">mon compte</a>
-			<a href="#" class="menu_inactive">messages</a>
+			<a href="messaging.php" class="menu_inactive">messages</a>
 			<a href="../view/logout.php" class="menu_inactive">log out</a>
 		</div>
 		<div class="row fullscreen_height">
