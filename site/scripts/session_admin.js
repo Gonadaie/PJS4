@@ -53,7 +53,7 @@ function ajax_random_match(){
 	xhttp.onreadystatechange = function() {
 		if(this.readyState ==4 && this.status ==200){
 			console.log(this.responseText);
-			result = this.responseText;
+			var result = this.responseText.replace(/\n/g, "");
 			if (result == "FIN"){
 			alert("Les etudiants ont été mis ensemble de façon aléatoire !");
 		}
