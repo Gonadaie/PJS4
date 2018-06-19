@@ -10,6 +10,7 @@ require_once('../model/get_student.php');
    move_uploaded_file($_FILES["file"]["tmp_name"], "../Back_office/" . $storagename);
    $array_student = get_unregistered_student('../Back_office/liste_etudiant.csv');
    for($i=0; $i<count($array_student); $i++){
+     error_log(print_r($array_student[$i], TRUE));
      error_log(print_r($array_student[$i][0], TRUE));
      send_mail_unsubs($array_student[$i][0]);
      error_log(print_r("mail", TRUE));
