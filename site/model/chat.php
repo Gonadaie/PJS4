@@ -24,7 +24,7 @@ class Conversation {
 
 }
 
-private function get_id_conversation($student1_id, $student2_id) {
+function get_id_conversation($student1_id, $student2_id) {
 		$db = db_connect();
 		if($db) {
 			$query = "SELECT id_conversation FROM conversation where (student_1 = :id1 or student_1 = :id2) or (student_2 = :id2 or student_2 = :id1)";
