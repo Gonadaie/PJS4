@@ -30,8 +30,8 @@ $root = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_
 
 $registration_link = 'http://skipti.fr/view/loginPerso.php?token='.$token_hash.'&name='.$student_name;
 
-$message = (new Swift_Message("Registration confirmation"))
-	->setFrom(["find.the.r8.one@gmail.com" => "Find the right one"])
+$message = (new Swift_Message("Confirmation de l'inscription"))
+	->setFrom(["find.the.r8.one@gmail.com" => "Skipti"])
 	->setTo([$student_mail."@etu.parisdescartes.fr" => $student_name])
 
 	->setBody('<!DOCTYPE html>'.

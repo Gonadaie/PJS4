@@ -10,6 +10,7 @@ function ajax_mail_unmatch()
 	xhttp.onreadystatechange = function() {
 		if(this.readyState ==4 && this.status ==200){
 			console.log(this.responseText);
+			var result = this.responseText.replace(/\n/g, "");
 			result = this.responseText;
 			if (result != "FAIL"){
 				alert("Un e-mail a été envoyé à tous les étudiants sans match");
@@ -52,7 +53,7 @@ function ajax_random_match(){
 	xhttp.open("GET", "../controller/random_match.php");
 	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	xhttp.send();
-	
+
 	return true;
 }
 
