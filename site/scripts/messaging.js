@@ -70,6 +70,6 @@ const add_messages = (messages, other_student_id) => {
 		} else {
 			div_message.setAttribute('class', 'message_conversation_student')
 		}
-		div_message.insertBefore(conversation_messages.childNodes[0])
+		conversation_messages.insertBefore(div_message, conversation_messages.childNodes[0])
 	}
 }
