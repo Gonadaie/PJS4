@@ -36,10 +36,7 @@ if($db) {
   return $unmatched_student;
 }
 
-function random_match(){
-  $unmatched_student_first = get_unmatched_student_first_year();
-  $unmatched_student_second = get_unmatched_student_second_year();
-
+function random_match($unmatched_student_first, $unmatched_student_second){
   $nbFirstStudent = count($unmatched_student_first);
   $nbSecondStudent = count($unmatched_student_second);
 

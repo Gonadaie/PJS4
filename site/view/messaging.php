@@ -111,10 +111,6 @@ EOD;
 				<img src="../images/messaging.png" alt="">
 			</div>
 		</div>
-		<script>
-			student_id = <?= $_SESSION['id'] ?>
-
-		</script>
 		<script src="../scripts/messaging.js"></script>
 	</body>
 

@@ -8,6 +8,7 @@ function login() {
 	xhttp.onreadystatechange = function(){
 		if(this.readyState == 4 && this.status == 200){
 			var response = this.responseText.replace(/\n/g, "");
+			console.log(response);
 			if(response == "OK"){
 				highlight(document.getElementsByName("mail")[0], false);
 				highlight(document.getElementsByName("password")[0], false);
@@ -39,8 +40,8 @@ function login() {
 
 	var mail = document.getElementsByName("mail")[0].value;
 	var password = document.getElementsByName("password")[0].value;
-	var stayConnected = document.getElementById('keeplog').value;
+	var keeplog = document.getElementById('keeplog').value;
 
-	xhttp.send("mail=" + mail + "&password=" + password + "&stayConnected=" + stayConnected);
+	xhttp.send("mail=" + mail + "&password=" + password + "&keeplog=" + keeplog);
 	return false;
 }

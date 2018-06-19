@@ -4,8 +4,29 @@ require("../model/db_connect.php");
 require("../model/get_student.php");
 require("../model/chat.php");
 
+/*retourne les 20 derniers messages d'une conversation*/
+function get_old_messages($id_conv){
+  $db = db_connect();
+  if($db) {
+    $query = "SELECT * FROM message WHERE conversation_id = :id_conv and
+    message_id <= (Select MAX(message_id) from message where conversation_id = :id_conv) ORDER BY message_id DESC LIMIT 20";
+    $statement = $db->prepare($query);
+    $statement->bindValue(':id_conv',$id_conv);
+    $statement->execute();
 
-function get_20_message($id_conv, $id_last_msg){
+		$array_messages = array();
+		while($row = $statement->fetch(PDO::FETCH_ASSOC)){
+			$message = new Message($row['message_id'], $row['conversation_id'],
+			$row['message_date'], $row['content'], $row['sender_id'], $row['flag_read']);
+			array_push($array_messages, $message);
+	}
+
+  }
+	return $array_messages;
+}
+
+/*retourne les 20 messages précédents le message donné en paramètre*/
+function get_older_messages($id_conv, $id_last_msg){
   $db = db_connect();
   if($db) {
     $query = "SELECT * FROM message WHERE conversation_id = :id_conv and
@@ -15,18 +36,18 @@ function get_20_message($id_conv, $id_last_msg){
     $statement->bindValue(':id_last_msg',$id_last_msg);
     $statement->execute();
 
-		$array_message = array();
-		while($row = $statement_preview->fetch(PDO::FETCH_ASSOC)){
+		$array_messages = array();
+		while($row = $statement->fetch(PDO::FETCH_ASSOC)){
 			$message = new Message($row['message_id'], $row['conversation_id'],
 			$row['message_date'], $row['content'], $row['sender_id'], $row['flag_read']);
-			array_push($array_message, $message);
+			array_push($array_messages, $message->to_array());
 	}
 
   }
-	return $array_message;
+	return $array_messages;
 }
 
-
+/*retourne une array de preview d'un student*/
 function getPreviewConversation($student_id) {
 
 	$db = db_connect();
@@ -61,3 +82,6 @@ function getPreviewConversation($student_id) {
 // add a message in db  : insert into message (conversation_id, message_date,content,sender_id) values (1,now(),'bite inchallah ',14);
 
 //SELECT C.conversation_id, S.pic, S.surname, M1.* FROM message M1, conversation C INNER JOIN student S ON C.student_2=S.student_id  WHERE C.student_1=6 AND M1.message_id =(SELECT COALESCE(MAX(message_id),'1') FROM message M where M.conversation_id=C.conversation_id );
+
+
+//SELECT * FROM message WHERE conversation_id = 12 and message_id >= (Select MAX(message_id) from message where conversation_id = 12) ORDER BY message_id DESC LIMIT 20;

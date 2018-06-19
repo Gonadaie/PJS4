@@ -1,19 +1,9 @@
 <?php
-session_start();
-if(!isset($_SESSION['id']))
-{
-    header('Location: ../view/logout.php');
-}
-/*if(!isset($_SESSION['id'])) {
-	require('../model/stay_connected.php');
-	if(is_stay_connected($_COOKIE['fr81_stay_connected']))
-		header('Location: ../view/logout.php');*/
 
 require("../controller/swipe.php");
 ?>
 	<!DOCTYPE html>
 	<html lang="fr">
-
 
 	<head>
 		<meta charset="utf-8" />
@@ -51,7 +41,7 @@ require("../controller/swipe.php");
 		<div class="menu">
 			<a href="#" class="menu_active">swipe</a>
 			<a href="../view/updateprofile.php" class="menu_inactive">mon compte</a>
-			<a href="#" class="menu_inactive">messages</a>
+			<a href="messaging.php" class="menu_inactive">messages</a>
 			<a href="../view/logout.php" class="menu_inactive">log out</a>
 		</div>
 		<div class="row fullscreen_height">
@@ -81,7 +71,7 @@ require("../controller/swipe.php");
 					Vous avez déjà vu tous les profiles que vous pouviez voir.
 				</div>
 				<div class="swipe_more_btn">
-					<div><a href="swipe.php">Voir encore</a></div>
+					<div class="reset_like"><a>Voir encore</a></div>
 				</div>
 			</div>
 			<div class="col-3 swipe_icon yes">
