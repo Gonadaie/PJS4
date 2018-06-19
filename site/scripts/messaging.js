@@ -36,8 +36,7 @@ const fetch_messages = (other_student_id) => {
 	xhttp.onreadystatechange = function () {
 		if (this.readyState == 4 && this.status == 200) {
 			var response = this.responseText.replace(/\n/g, "");
-			console.log(this.responseText);
-
+			add_messages(response, other_student_id)
 		}
 
 	}
@@ -60,3 +59,16 @@ finalBtnOn.addEventListener('click', () => {
 	var finalBtnOff = document.querySelector('.conversation_final_btn_off')
 	finalBtnOff.style.display = 'block'
 })
+
+const add_messages = (messages, other_student_id) => {
+	for (let i = 0; i < messages.length; i++) {
+		console.log('hello')
+		let div_message = conversation_messages.createElement("div")
+		if (messages[i].sender_id == other_student_id) {
+			div_message.setAttribute('class', 'message_conversation_other_student')
+		} else {
+			div_message.setAttribute('class', 'message_conversation_student')
+		}
+		div_message.insertBefore(conversation_messages.childNodes[0])
+	}
+}
