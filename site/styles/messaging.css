@@ -10,7 +10,7 @@ body {
 .no_padding {
 	padding: 0;
 }
-/*
+
 .preview_list::-webkit-scrollbar {
 	width: 2px;
 	height: 2px;
@@ -52,7 +52,6 @@ body {
 .preview_list::-webkit-scrollbar-corner {
 	background: transparent;
 }
-*/
 
 
 /******************************************right welcome messaging***************************************/
@@ -305,6 +304,7 @@ body {
 
 .conversation_messages {
 	height: 80%;
+	width: 98%;
 	z-index: -1;
 }
 
