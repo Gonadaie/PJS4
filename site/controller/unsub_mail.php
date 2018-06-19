@@ -16,6 +16,7 @@ require_once('../model/get_student.php');
      error_log(print_r("mail", TRUE));
      error_log(print_r($array_student[$i][0], TRUE));
    }
+   header('Location: ../view/relance_mail_unsubs.html');
 }
 
 function get_unregistered_student($student_list_file){
