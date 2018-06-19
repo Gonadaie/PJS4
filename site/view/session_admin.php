@@ -24,7 +24,7 @@ if(!isset($_SESSION['id']))
     <form id="formgetallstudent" action="../controller/get_all_student.php" method="get"></form>
     <form id="formgetallcouples" action="../controller/get_couples.php" method="get"></form>
     <form id="formgetallunsub" action="../view/list_unsubs.html" method="get"></form>
-    <form id="formgmailunsub" action="../view/mail_unsub_student.html" method="get"></form>
+    <form id="formgmailunsub" action="../view/relance_mail_unsubs.html" method="get"></form>
 		<form action="" method="POST">
 			<div id="export_part">
 				<div id="export">Export CSV</div>
