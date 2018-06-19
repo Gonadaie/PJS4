@@ -3,7 +3,7 @@
 
 	<head>
 		<meta charset="utf-8" />
-		<title>Admin-Listes des étudiants</title>
+		<title>Admin-Matcher les non-inscrits</title>
 		<link rel="stylesheet" href="../styles/add_list.css">
 		<link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
@@ -14,18 +14,20 @@
 			<a href="session_admin.php" class="backmenu"> < Retour </a>
 		</div>
 		<div id="submit_form">
-			<div id="title_list">Liste compléte des étudiants de DUT1 et de DUT2</div>
+			<div id="title_list">Matcher les étudiants non-inscrits</div>
 			<div id ="import_instruction">
-				Il faut importer un fichier ".CSV" contenant la liste des parties<br>
-				des emails étudiants<br>
+				Il faut importer deux fichier ".CSV" contenant la liste des parties<br>
+				des emails étudiants de première et deuxiéme année<br>
 				Exemple : "alice.capelle" <br>
 				<span>Aucunes vérifications sur le format ne sera effectué</span>
 			</div>
-			<div id="form_div">
-				<form action="../controller/get_unregistered_student.php" method = "POST" enctype="mutlipart/form-data">
+			<div id="form_div"style="margin-left : 15%;">
+				<form action="../controller/random_match_unregistered.php" method = "POST" enctype="mutlipart/form-data">
 					<input type="file" name="file" id="file" class="list_input" onchange="setfilename()"></input>
-					<label id="label_input" for="file">Choose a file</label>
-					<input type="submit" name="submit" id="list_submit"></input>
+					<label id="label_input" for="file">DUT 1</label><br>
+					<input type="file" name="file" id="file2" class="list_input" onchange="setfilename2()"></input>
+					<label id="label_input2" for="file2">DUT2</label><br>
+					<input type="submit" name="submit" id="list_submit1" style="margin-left :5%;display:none;"></input>
 				</form>
 			</div>
 		</div>

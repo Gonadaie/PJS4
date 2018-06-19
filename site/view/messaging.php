@@ -59,15 +59,15 @@ require("../controller/messaging.php");
 					foreach ($previews as &$preview) {
 						$pic = $preview["pic"];
 						$surname = $preview["surname"];
-						
 						$last_message =  $preview["last_message"];
+						$other_student_id = $preview["other_student_id"];
 						if (mb_strwidth( $preview["message"]["content"])>55){
 							$content =  mb_strimwidth( $preview["message"]["content"], 0, 55, "...");
 						}else $content = $preview["message"]["content"];
 						
 						if ($preview["message"]["flag_read"]==false){
 							$my_preview_div = <<<EOD
-							<div class="row preview_message">
+							<div class="row preview_message" data-student="$other_student_id">
 							<div class="offset-1 col-4 left_preview">
 							<div class='notify_circle'></div><img src="$pic" alt=""></div>
 							<div class="col-7 preview_group">
@@ -79,7 +79,7 @@ EOD;
 							echo($my_preview_div);
 						} elseif ($preview["message"]["message_id"]==1){
 							$my_preview_div = <<<EOD
-							<div class="row preview_message">
+							<div class="row preview_message" data-student="$other_student_id">
 							<div class="offset-1 col-4">
 							<img src="$pic" alt=""></div>
 							<div class="col-7 preview_group">
@@ -91,7 +91,7 @@ EOD;
 							echo($my_preview_div);
 						} else 	{
 							$my_preview_div = <<<EOD
-							<div class="row preview_message">
+							<div class="row preview_message" data-student="$other_student_id">
 							<div class="offset-1 col-4">
 							<img src="$pic" alt=""></div>
 							<div class="col-7 preview_group">

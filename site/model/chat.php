@@ -11,31 +11,35 @@ class Conversation {
 	public function __construct($student1_id, $student2_id) {
 		$this->student1_id = $student1_id;
 		$this->student2_id = $student2_id;
-		$this->id = get_id_from_database();
+		$this->id = get_id_conversation($student1_id, $student2_id);
 	}
 
 
 
+	
+	
+	public function get_id(){
+			return $this->id;
+	}
 
-	private function get_id_from_database() {
+}
+
+function get_id_conversation($student1_id, $student2_id) {
 		$db = db_connect();
 		if($db) {
-			$query = "SELECT id_conversation FROM conversation where (student_1 = :id1 or student_1 = :id2) or (student_2 = :id2 or student_2 = :id1)";
+			$query = "SELECT conversation_id FROM conversation where (student_1 = :id1 or student_1 = :id2) or (student_2 = :id2 or student_2 = :id1)";
 			$statement = $db->prepare($query);
-			$statement->bindValue(":id1", $this->student1_id);
-			$statement->bindValue(":id2", $this->student2_id);
+			$statement->bindValue(":id1", $student1_id);
+			$statement->bindValue(":id2", $student2_id);
 			$statement->execute();
 			$ret = NULL;
 			while($result = $statement->fetch(PDO::FETCH_ASSOC)){
-				$ret = $result['id'];
+				$ret = $result['conversation_id'];
 			}
 
 			return $ret;
 		}
 	}
-
-
-}
 
 class Message {
 	private $message_id;
@@ -96,16 +100,19 @@ class Preview {
 	private $pic;
 	private $surname;
 	private $message;
+	private $other_student_id;
 
 
 
-	public function __construct($conversation_id, $last_message, $pic, $surname, $message) {
+	public function __construct($other_student_id, $conversation_id, $last_message, $pic, $surname, $message) {
 
 		$this->conversation_id = $conversation_id;
 		$this->last_message = $last_message;
 		$this->pic = $pic;
 		$this->surname = $surname;
 		$this->message = $message;
+		$this->other_student_id = $other_student_id;
+		
 	}
 
 
@@ -125,11 +132,15 @@ class Preview {
 	public function get_message() {
 		return $this->message;
 	}
+	public function get_other_student_id() {
+		return $this->other_student_id;
+	}
 		
 	public function to_array(){
 		$return = array(
 		
 		'conversation_id' => $this->conversation_id,
+		'other_student_id' => $this->other_student_id,
 		'last_message' => $this->last_message,
 		'pic' => $this->pic,
 		'surname' => $this->surname,

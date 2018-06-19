@@ -1,19 +1,20 @@
 <?php
-
 require_once('back_office_tools.php');
+
+require_once('../controller/send_mail_unsubs.php');
 require_once('../model/get_student.php');
 
 
  if (isset($_FILES["file"])) {
    $storagename = "liste_etudiant.csv";
    move_uploaded_file($_FILES["file"]["tmp_name"], "../Back_office/" . $storagename);
-   $array_unregistered_student = get_unregistered_student('../Back_office/liste_etudiant.csv');
-   $result = '../Back_office/etudiants_non_inscrit.csv';
-   build_csv($result, $array_unregistered_student);
-   download_file('../Back_office/etudiants_non_inscrit.csv');
-
- }
-
+   $array_student = get_unregistered_student('../Back_office/liste_etudiant.csv');
+   for($i=0; $i<count($array_student); $i++){
+     send_mail_unsubs($array_student[$i][0]);
+     error_log(print_r("mail", TRUE));
+     error_log(print_r($array_student[$i][0], TRUE));
+   }
+}
 
 function get_unregistered_student($student_list_file){
   $list = file($student_list_file);
@@ -32,4 +33,4 @@ function get_unregistered_student($student_list_file){
  return $array_unregistered_student;
 }
 
-?>
+   ?>

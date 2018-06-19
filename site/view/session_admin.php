@@ -23,26 +23,28 @@ if(!isset($_SESSION['id']))
 		</div>
     <form id="formgetallstudent" action="../controller/get_all_student.php" method="get"></form>
     <form id="formgetallcouples" action="../controller/get_couples.php" method="get"></form>
+    <form id="formgetallunsub" action="../view/list_unsubs.html" method="get"></form>
+    <form id="formgmailunsub" action="../view/mail_unsub_student.html" method="get"></form>
 		<form action="" method="POST">
 			<div id="export_part">
 				<div id="export">Export CSV</div>
 				<div id="button_export">
 				    <input type="submit" id="list_student" value="Liste de tous les étudiants inscrit" form="formgetallstudent"></input>
-				    <input type="submit" id="list_match" value="Liste des couples parrains filleuls" form="formgetallcouples"></input>
-					<input type="button" id="list_unsubscribe" onclick="list_unsubscribe.html"value="Liste des étudiants non inscrit"></input>
+				    <input type="submit" id="list_match" value="Liste des parrainages" form="formgetallcouples"></input>
+					<input type="submit" id="list_unsubscribe" value="Liste des étudiants non inscrit" form="formgetallunsub"></input>
 				</div>
 			</div>
 			<div id="action_match_part">
 				<div id="action_match">Action de match</div>
 				<div id="button_actionb">
-					<input type="button" id="forced_matchunsub" onclick="forced_subscribe.html" value="Matcher les étudiants non-inscrits"></input>
+					<input type="button" id="forced_matchunsub" onclick="match_unsubs.html" value="Matcher les étudiants non-inscrits"></input>
 					<input type="button" id="match_unmatchstudent" onclick="ajax_random_match()" value=" Matcher les étudiants non appareillés"></input>
 				</div>
 			</div>
 			<div id="envoi_mail_part">
 			<div id="envoi_mail">Envoi d'emails</div>
 				<div id="button_mail">
-					<input type="button" id="relance_unsubscribe" onclick=""  value="Relancer par mail les étudiants non inscrit"></input>
+					<input type="submit" id="relance_unsubscribe" value="Relancer par mail les étudiants non inscrit" form="formgmailunsub"></input>
 					<input type="button" id="recap_student"onclick="ajax_mail_summary_couples()" value="Envoyer un mail récapitulatif aux étudiants"></input>
 					<input type="button" id="relance_unmatch" onclick="ajax_mail_unmatch()" value="Relancer par mail les étudiants non appareillés"></input>
 				</div>
