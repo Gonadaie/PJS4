@@ -1,5 +1,6 @@
 body {
 	overflow: hidden;
+	height: 100%;
 }
 
 .right_align {
@@ -58,6 +59,7 @@ body {
 .messaging_welcome_pic {
 	padding: 0;
 	margin: 0;
+	display: block;
 }
 
 .messaging_welcome_pic img {
@@ -186,4 +188,79 @@ body {
 	right: 1.8vw;
 	top: 0;
 	z-index: 100;
+}
+
+
+/*******************************messaging part*******************************/
+
+.messaging_conversation {
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	background-color: #F5F7FA;
+	display: none;
+}
+
+.messaging_conversation .conversation_surname {
+	font-family: Fjalla One;
+	color: #254463;
+	font-size: 4vw;
+	position: absolute;
+	top: 10px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.conversation_final_btn_off {
+	position: absolute;
+	right: 2vw;
+	color: #F05228;
+	font-family: Fjalla One;
+	font-size: 3vw;
+	opacity: 0.5;
+	display: block;
+}
+
+.conversation_final_btn_on {
+	position: absolute;
+	right: 2vw;
+	color: #F05228;
+	font-family: Fjalla One;
+	font-size: 3vw;
+	display: none;
+}
+
+.conversation_send_messages {
+	width: 100%;
+	height: 6vh;
+	position: absolute;
+	bottom: 0;
+	margin: 0;
+}
+
+.conversation_send_messages .text_zone {
+	height: 100%;
+}
+
+.conversation_send_messages .text_zone input {
+	width: 100%;
+	background-color: #E6F0F5;
+	border: none;
+	height: 80%;
+	color: #254463;
+	border-radius: 10px;
+}
+
+.conversation_send_messages .conversation_send_btn {
+	color: #4152BC;
+	font-family: Fjalla One;
+	font-size: 2vw;
+	padding-top: 0;
+	height: 100%;
+}
+
+.conversation_send_btn:hover,
+.conversation_final_btn_on:hover,
+.conversation_final_btn_off:hover {
+	cursor: crosshair;
 }
