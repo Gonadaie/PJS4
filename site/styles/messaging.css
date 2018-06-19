@@ -214,6 +214,7 @@ body {
 .conversation_final_btn_off {
 	position: absolute;
 	right: 2vw;
+	top: 0;
 	color: #F05228;
 	font-family: Fjalla One;
 	font-size: 3vw;
@@ -224,6 +225,7 @@ body {
 .conversation_final_btn_on {
 	position: absolute;
 	right: 2vw;
+	top: 0;
 	color: #F05228;
 	font-family: Fjalla One;
 	font-size: 3vw;
