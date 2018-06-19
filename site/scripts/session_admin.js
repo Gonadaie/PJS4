@@ -1,5 +1,6 @@
 
 var result;
+var count;
 
 
 
@@ -11,7 +12,6 @@ function ajax_mail_unmatch()
 		if(this.readyState ==4 && this.status ==200){
 			console.log(this.responseText);
 			var result = this.responseText.replace(/\n/g, "");
-			result = this.responseText;
 			if (result != "FAIL"){
 				alert("Un e-mail a été envoyé à tous les étudiants sans match");
 			}else{
@@ -34,7 +34,7 @@ function ajax_mail_summary_couples()
 	xhttp.onreadystatechange = function() {
 		if(this.readyState ==4 && this.status ==200){
 			console.log(this.responseText);
-			result = this.responseText;
+			var result = this.responseText.replace(/\n/g, "");
 			alert("Un e-mail a été envoyé à tous les étudiants");
 		}
 	}
@@ -50,11 +50,21 @@ function ajax_random_match(){
 
 	var xhttp =  new XMLHttpRequest();
 
+	xhttp.onreadystatechange = function() {
+		if(this.readyState ==4 && this.status ==200){
+			console.log(this.responseText);
+			var result = this.responseText.replace(/\n/g, "");
+			if (result == "FIN"){
+			alert("Les etudiants ont été mis ensemble de façon aléatoire !");
+		}
+		}
+	}
+
 	xhttp.open("GET", "../controller/random_match.php");
 	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	xhttp.send();
 
-	return true;
+	return false;
 }
 
 function setfilename(){
@@ -97,7 +107,15 @@ String.prototype.reverse=function ()
         return n;
 }
 
-function count_file(){
+document.getElementById('file').addEventListener('change', checkFile);
+document.getElementById('file2').addEventListener('change', checkFile);
+function checkFile(){
+	if ((document.getElementById("file").files.length === 0) || (document.getElementById("file2").files.length === 0))
+		document.getElementById("list_submit1").style.display = 'none';
+	else
+		document.getElementById("list_submit1").style.display = 'block';
+}
+/*function count_file(){
 	var x = document.getElementById("file").files.length;
 	var y = document.getElementById("file2").files.length;
 	if ((document.getElementById("file").files.length === 0) || (document.getElementById("file2").files.length === 0)){
@@ -108,4 +126,4 @@ function count_file(){
 	else
 		alert("fucking work");
 		return true;
-}
+}*/
