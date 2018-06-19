@@ -23,7 +23,7 @@ if(!isset($_SESSION['id']))
 		</div>
     <form id="formgetallstudent" action="../controller/get_all_student.php" method="get"></form>
     <form id="formgetallcouples" action="../controller/get_couples.php" method="get"></form>
-    <form id="formgetallunsub" action="../view/unsub_student.html" method="get"></form>
+    <form id="formgetallunsub" action="../view/list_unsubs.html" method="get"></form>
     <form id="formgmailunsub" action="../view/mail_unsub_student.html" method="get"></form>
 		<form action="" method="POST">
 			<div id="export_part">
@@ -37,7 +37,7 @@ if(!isset($_SESSION['id']))
 			<div id="action_match_part">
 				<div id="action_match">Action de match</div>
 				<div id="button_actionb">
-					<input type="button" id="forced_matchunsub" onclick="forced_subscribe.html" value="Matcher les étudiants non-inscrits"></input>
+					<input type="button" id="forced_matchunsub" onclick="match_unsubs.html" value="Matcher les étudiants non-inscrits"></input>
 					<input type="button" id="match_unmatchstudent" onclick="ajax_random_match()" value=" Matcher les étudiants non appareillés"></input>
 				</div>
 			</div>
