@@ -34,7 +34,7 @@ function get_id_conversation($student1_id, $student2_id) {
 			$statement->execute();
 			$ret = NULL;
 			while($result = $statement->fetch(PDO::FETCH_ASSOC)){
-				$ret = $result['id'];
+				$ret = $result['conversation_id'];
 			}
 
 			return $ret;
