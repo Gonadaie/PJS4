@@ -11,12 +11,20 @@ class Conversation {
 	public function __construct($student1_id, $student2_id) {
 		$this->student1_id = $student1_id;
 		$this->student2_id = $student2_id;
-		$this->id = this->get_id_conversation();
+		$this->id = get_id_conversation($student1_id, $student2_id);
 	}
 
 
 
-	private function get_id_conversation() {
+	
+	
+	public function get_id(){
+			return $this->id;
+	}
+
+}
+
+private function get_id_conversation($student1_id, $student2_id) {
 		$db = db_connect();
 		if($db) {
 			$query = "SELECT id_conversation FROM conversation where (student_1 = :id1 or student_1 = :id2) or (student_2 = :id2 or student_2 = :id1)";
@@ -32,12 +40,6 @@ class Conversation {
 			return $ret;
 		}
 	}
-	
-	public function get_id(){
-			return $this->id;
-	}
-
-}
 
 class Message {
 	private $message_id;
