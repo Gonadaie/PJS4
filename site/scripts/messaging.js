@@ -67,11 +67,11 @@ const add_messages = (messages, other_student_id) => {
 		let div_message = document.createElement("div")
 		console.log(messages.get(i).sender_id)
 		console.log(messages.get(i))
-		if (messages.get(i).sender_id) == other_student_id) {
-		div_message.setAttribute('class', 'message_conversation_other_student')
-	} else {
-		div_message.setAttribute('class', 'message_conversation_student')
+		if (messages.get(i).sender_id == other_student_id) {
+			div_message.setAttribute('class', 'message_conversation_other_student')
+		} else {
+			div_message.setAttribute('class', 'message_conversation_student')
+		}
+		conversation_messages.insertBefore(div_message, conversation_messages.childNodes[0])
 	}
-	conversation_messages.insertBefore(div_message, conversation_messages.childNodes[0])
-}
 }
