@@ -24,8 +24,8 @@ $root = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_
 
 $psw_link = 'http://skipti.fr/view/change_passwd.php?mail='.$student_mail_encrypted.'&token='.$token_hash;
 
-$message = (new Swift_Message("Change your password"))
-	->setFrom(["find.the.r8.one@gmail.com" => "Find the right one"])
+$message = (new Swift_Message("Mot de passe oublié"))
+	->setFrom(["find.the.r8.one@gmail.com" => "Skipti"])
 	->setTo([$student_mail."@etu.parisdescartes.fr" => $student_name])
 	->setBody(
 		'<!DOCTYPE html>'.

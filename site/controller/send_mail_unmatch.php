@@ -3,9 +3,11 @@
 	function send_mail_unmatch($student, $year){
 	if($year==1){
 		$sentence = "parrain ou ta marraine";
+		$title = "Il est temps de te choisir un(e) parrain/marraine"
 	}
 	else{
 		$sentence = "ton filleul ou ta filleule";
+		$title = "Il est temps de te choisir un(e) filleul(e)"
 	}
 	$student_mail = $student[1];
 	$student_name =	explode('.', $student_mail)[0];
@@ -16,10 +18,10 @@
 	;
 	$mailer_unmacth = new Swift_Mailer($transport_unmatch);
 	$root_unmatch = (!empty($_SERVER['HTTPS']) ? 'https' : 'http'). '://' . $_SERVER['HTTP_HOST'] . '/';
-	
+
 	error_log(print_r($student_mail), true);
-	
-	$message_unmatch = (new Swift_Message("They missed you"))
+
+	$message_unmatch = (new Swift_Message($title))
 		->setFrom(["find.the.r8.one@gmail.com" => "Skipti"])
 		->setTo([$student_mail."@etu.parisdescartes.fr" => $student_name])
 		->setBody('<!DOCTYPE html>'.
@@ -88,7 +90,7 @@
 '		</table>'.
 '		</html>'
 	, "text/html");
-	
+
 	$result = $mailer_unmacth->send($message_unmatch);
 	return $result;
 }
