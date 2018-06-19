@@ -1,6 +1,6 @@
 <?php 
 require("../model/messaging.php");
-require("../model/chat.php");
+require_once("../model/chat.php");
 
 session_start();
 
