@@ -21,7 +21,7 @@ for (let i = 0; i < message_previews.length; i++) {
 		messaging_conversation.style.display = 'block'
 		var conversation_surname = document.querySelector('.conversation_surname')
 
-		conversation_surname.update(message_previews[i].dataset.surname);
+		conversation_surname.innerHTML(message_previews[i].dataset.surname);
 
 	})
 }
