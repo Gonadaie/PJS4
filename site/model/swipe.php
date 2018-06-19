@@ -7,13 +7,13 @@ function reset_dislike($student){
 	if($student->getYear() == 1){
 		$query = "UPDATE match_student SET student_id_god_son = -1 WHERE result = false AND student_id_god_son = :id";
 		$statement = $db->prepare($query);
-		$statement_student->bindValue(':id', $student->getId());
+		$statement->bindValue(':id', $student->getId());
 		$statement->execute();
 	}
 	else{
 		$query = "UPDATE match_student SET student_id_god_father = -1 WHERE result = false AND student_id_god_father = :id";
 		$statement = $db->prepare($query);
-		$statement_student->bindValue(':id', $student->getId());
+		$statement->bindValue(':id', $student->getId());
 		$statement->execute();
 	}
 }

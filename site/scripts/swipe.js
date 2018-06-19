@@ -41,7 +41,7 @@ function top_back() {
 
 function ajax_reset_dislike(){
 
-	console.log("we are in reset like function");
+	console.log("we are in reset dislike function");
 	var xhttp = new XMLHttpRequest();
 
 	xhttp.open("GET", "../controller/reset_dislike.php", true);
