@@ -5,18 +5,19 @@ function reset_dislike($student){
 
 	if($db) {
 	if($student->getYear() == 1){
-		$query = "UPDATE student_match SET student_id_god_son = -1 WHERE result = false AND student_id_god_son = :id";
+		$query = "UPDATE student_match SET liked_by_god_son = -1 WHERE result = false AND student_id_god_son = :id and liked_by_god_son<>1";
 		$statement = $db->prepare($query);
 		$statement->bindValue(':id', $student->getId());
 		$statement->execute();
 	}
 	else{
-		$query = "UPDATE student_match SET student_id_god_father = -1 WHERE result = false AND student_id_god_father = :id";
+		$query = "UPDATE student_match SET liked_by_god_father = -1 WHERE result = false AND student_id_god_father = :id and liked_by_god_father<>1";
 		$statement = $db->prepare($query);
 		$statement->bindValue(':id', $student->getId());
 		$statement->execute();
 	}
 }
+error_log(print_r("reset dislike fin", TRUE));
 }
 
 

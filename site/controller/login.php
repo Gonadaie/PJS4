@@ -22,26 +22,30 @@
 	if(crypt($password_entered, $password_hash) == $password_hash and $validate_account) {
 
 		require_once('../model/stay_connected.php');
-		if(isset($_POST['keeplog'])){
+
+		if(isset($_POST['keeplog']) and $_POST['keeplog'] == 'on'){
 			$cookie = md5($student_mail . date("Y-m-d-h-i-s"));
+
+			// Delete ancient token
+			if(isset($_COOKIE['skipti_keeplog'])) 
+				delete_stay_connected($student_mail);
+
 			create_stay_connected_token($cookie, $student_mail);
-			setcookie('fr81_stay_connected', $cookie);
+			setcookie('skipti_keeplog', $cookie);
 		}
 		else
 			delete_stay_connected($student_mail);
+
 		session_start();
 		$_SESSION['id'] = $student_id;
 		$_SESSION['mail'] = $student_mail;
-		error_log(print_r($admin, TRUE));
+
 		if($admin)
 			echo "ADMIN";
-
 		else if(is_null($adj1))
 			echo "FIRST";
 		else
 			echo "OK";
-
-
 	}
 	else
 		echo "FAIL";
