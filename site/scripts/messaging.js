@@ -12,8 +12,8 @@ window.addEventListener('resize', () => {
 for (let i = 0; i < message_previews.length; i++) {
 	message_previews[i].addEventListener('click', () => {
 		fetch_messages(message_previews[i].dataset.student)
-		messaging_welcome_pic.setAttribute("display", "none")
-		messaging_conversation.setAttribute("display", "block")
+		messaging_welcome_pic.style.display = 'none'
+		messaging_conversation.style.display = 'block'
 
 	})
 }
