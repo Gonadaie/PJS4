@@ -9,6 +9,7 @@ require_once('../model/get_student.php');
    $storagename = "liste_etudiant.csv";
    move_uploaded_file($_FILES["file"]["tmp_name"], "../Back_office/" . $storagename);
    $array_student = get_unregistered_student('../Back_office/liste_etudiant.csv');
+   die(var_dump($array_student));
    for($i=0; $i<count($array_student); $i++){
      error_log(print_r($array_student[$i], TRUE));
      error_log(print_r($array_student[$i][0], TRUE));
