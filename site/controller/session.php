@@ -1,6 +1,6 @@
 <?php
 
-$SERVER_ADR = "http://localhost";
+$SERVER_ADR = "https://skipti.fr";
 
 error_log(print_r("Am I even called ??", TRUE));
 
