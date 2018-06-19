@@ -40,15 +40,19 @@ function top_back() {
 
 
 function ajax_reset_dislike(){
-
 	console.log("we are in reset dislike function");
 	var xhttp = new XMLHttpRequest();
+
+	xhttp.onreadystatechange = function () {
+		if (this.readyState == 4 && this.status == 200) {
+			var response = this.responseText.replace(/\n/g, "");
+			window.location = "../view/swipe.php";
+		}
+	}
 
 	xhttp.open("GET", "../controller/reset_dislike.php", true);
 	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	xhttp.send();
-
-
 }
 
 

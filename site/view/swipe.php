@@ -81,7 +81,7 @@ require("../controller/swipe.php");
 					Vous avez déjà vu tous les profiles que vous pouviez voir.
 				</div>
 				<div class="swipe_more_btn">
-					<div class="reset_like"><a href="swipe.php">Voir encore</a></div>
+					<div class="reset_like"></div>
 				</div>
 			</div>
 			<div class="col-3 swipe_icon yes">
