@@ -95,6 +95,28 @@ function get_student_by_email_no_adj($email){
   }
 }
 
+function get_student_by_email_no_adj_year($email, $year){
+  $db = db_connect();
+  if($db) {
+    $query = "SELECT S.student_id, S.score, S.year, S.surname, S.email, S.pic, S.description
+    FROM STUDENT S WHERE S.email = :student_email and S.year = :year";
+
+        $statement = $db->prepare($query);
+        $statement->bindValue(':student_email', encrypt_data($email));
+				$statement->bindValue(':year', $year);
+        $statement->execute();
+        $row = $statement->fetch(PDO::FETCH_ASSOC);
+        $student = new Student(decrypt_data($row['surname']), $row['description'],
+                $row['year'], decrypt_data($row['email']), $row['pic']);
+    $student->setId($row['student_id']);
+    $student->setScore($row['score']);
+
+    return $student;
+  }
+}
+
+
+
 function get_student_by_email($email){
   $db = db_connect();
   if($db) {
