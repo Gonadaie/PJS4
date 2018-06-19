@@ -9,11 +9,11 @@ window.addEventListener('resize', () => {
 
 for (let i = 0; i < message_previews.length; i++) {
 	message_previews[i].addEventListener('click', () => {
-		fetch_messages(message_previews[i].dataset.student, student_id)
+		fetch_messages(message_previews[i].dataset.student)
 	})
 }
 
-const fetch_messages = (other_student_id, student_id) => {
+const fetch_messages = (other_student_id) => {
 	console.log("we are in get message fct");
 	var xhttp = new XMLHttpRequest();
 
@@ -27,7 +27,7 @@ const fetch_messages = (other_student_id, student_id) => {
 	}
 	xhttp.open("POST", "../controller/get_old_messages.php", true);
 	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	xhttp.send("student_id=" + student_id + "&other_student_id=" + other_student_id);
+	xhttp.send("other_student_id=" + other_student_id);
 
 	console.log("end");
 	return false;
