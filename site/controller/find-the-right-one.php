@@ -1,5 +1,6 @@
 <?php
 require('../model/find-the-right-one.php');
+require ('../model/get_student.php');
 
 $student_id = $_SESSION['id'];
 $other_student_id = $_POST['other_student_id'];
