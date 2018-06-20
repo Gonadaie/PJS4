@@ -1,3 +1,4 @@
+var d = new Date();
 function sign_up(e) {
 	var xhttp = new XMLHttpRequest();
 	if(verifForm(e)){
@@ -27,9 +28,20 @@ function sign_up(e) {
 					if(document.getElementById('second').checked) {
 						year = 2;
 					}
-
-					request.send("&mail=" + mail + "&password=" + password + "&year=" + year);
-
+					var f = new Date();
+					console.log(f.getTime());
+					console.log(d.getTime());
+					var time = f.getTime() - d.getTime();
+					console.log(time);
+					if(time >= 5000){ 
+						request.send("&mail=" + mail + "&password=" + password + "&year=" + year);
+						d = new Date();
+					}
+					else{
+						console.log("goes here");
+						alert("Vous avez tenté d'envoyer le formulaire trop souvent, attendez puis réessayer");
+						return false;
+					}
 					request.onreadystatechange = function(){
 						if(request.readyState == 4){
 							window.location.href="../view/register-confirmation.php?mail="+mail;

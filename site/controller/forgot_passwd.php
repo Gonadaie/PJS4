@@ -68,7 +68,7 @@ $message = (new Swift_Message("Mot de passe oublié"))
 		  '	</tr>'.
 		  '	<tr>'.
 		  '		<td align="center">'.
-		  '			<img src="https://zupimages.net/up/18/17/m23z.png" alt="Logo" width="500px" height="344px"/>'.
+		  '			<img src="https://skipti.fr/images/five.png" alt="Logo" width="500px" height="auto"/>'.
 		  '		</td>'.
 		  '	</tr>'.
 		  '	<tr>'.

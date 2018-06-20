@@ -1,6 +1,6 @@
 const MAX_TRIES = 5;
 var tries = 0;
-
+var d = new Date();
 function login() {
 	var xhttp = new XMLHttpRequest();
 	console.log("we are in login.js");
@@ -41,7 +41,17 @@ function login() {
 	var mail = document.getElementsByName("mail")[0].value;
 	var password = document.getElementsByName("password")[0].value;
 	var keeplog = document.getElementById('keeplog').value;
-
-	xhttp.send("mail=" + mail + "&password=" + password + "&keeplog=" + keeplog);
+	var f = new Date();
+	var time = f.getTime() - d.getTime();
+	console.log(time);
+	if(time >= 5000){ 
+		xhttp.send("mail=" + mail + "&password=" + password + "&keeplog=" + keeplog);
+		d = new Date();
+	}
+	else{
+		console.log("goes here");
+		alert("Vous avez tenté d'envoyer le formulaire trop souvent, attendez puis réessayer");
+		return false;
+	}
 	return false;
 }

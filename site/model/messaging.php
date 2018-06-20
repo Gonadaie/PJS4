@@ -1,8 +1,8 @@
 <?php
 
-require("../model/db_connect.php");
-require("../model/get_student.php");
-require("../model/chat.php");
+require_once("../model/db_connect.php");
+require_once("../model/get_student.php");
+require_once("../model/chat.php");
 
 /*retourne les 20 derniers messages d'une conversation*/
 function get_old_messages($id_conv){
@@ -18,7 +18,7 @@ function get_old_messages($id_conv){
 		while($row = $statement->fetch(PDO::FETCH_ASSOC)){
 			$message = new Message($row['message_id'], $row['conversation_id'],
 			$row['message_date'], $row['content'], $row['sender_id'], $row['flag_read']);
-			array_push($array_messages, $message);
+			array_push($array_messages, $message->to_array());
 	}
 
   }
@@ -76,6 +76,21 @@ function getPreviewConversation($student_id) {
 		return $tab_previews;
 	}
 }
+
+function updateFlagLecture($conversation_id) {
+
+	$db = db_connect();
+	if($db) {
+
+		$query_update_flag_read ="Update message set flag_read=true where conversation_id=:conversation_id";
+
+		$statement_update_flag  = $db->prepare($query_update_flag_read);
+		$statement_update_flag ->bindValue(':conversation_id',$conversation_id);
+		$statement_update_flag ->execute();
+
+		}
+	}
+
 //new message avec tout dedans
 
 
