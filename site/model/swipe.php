@@ -17,6 +17,8 @@ function reset_dislike($student){
 		$statement->execute();
 	}
 }
+error_log(print_r($statement, TRUE));
+return pg_affected_rows($statement);
 error_log(print_r("reset dislike fin", TRUE));
 }
 

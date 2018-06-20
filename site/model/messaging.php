@@ -1,8 +1,8 @@
 <?php
 
-require("../model/db_connect.php");
-require("../model/get_student.php");
-require("../model/chat.php");
+require_once("../model/db_connect.php");
+require_once("../model/get_student.php");
+require_once("../model/chat.php");
 
 /*retourne les 20 derniers messages d'une conversation*/
 function get_old_messages($id_conv){
