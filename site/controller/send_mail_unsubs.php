@@ -53,7 +53,7 @@ function send_mail_unsubs($student_mail){
 		'	</tr>'.
 		'	<tr>'.
 		'		<td align="center">'.
-		'			<img src="https://skipti.fr/images/five.png" alt="Logo" width="500px" height="344px"/>'.
+		'			<img src="https://skipti.fr/images/five.png" alt="Logo" width="500px" height="auto"/>'.
 		'		</td>'.
 		'	</tr>'.
 		'	<tr>'.
