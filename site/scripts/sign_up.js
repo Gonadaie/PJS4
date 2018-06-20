@@ -1,5 +1,4 @@
 var d = new Date();
-d.setTime(30000
 function sign_up(e) {
 	var xhttp = new XMLHttpRequest();
 	if(verifForm(e)){
