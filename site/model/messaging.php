@@ -18,7 +18,7 @@ function get_old_messages($id_conv){
 		while($row = $statement->fetch(PDO::FETCH_ASSOC)){
 			$message = new Message($row['message_id'], $row['conversation_id'],
 			$row['message_date'], $row['content'], $row['sender_id'], $row['flag_read']);
-			array_push($array_messages, $message);
+			array_push($array_messages, $message->to_array());
 	}
 
   }
