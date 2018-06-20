@@ -32,7 +32,9 @@ require("../controller/messaging.php");
 		<meta name="msapplication-TileColor" content="#2b5797">
 		<meta name="theme-color" content="#e6f0f5">
 	</head>
-
+  <script type="text/javascript">
+      var id_sender='<?php echo $_SESSION['id'];?>';
+      </script>
 	<body>
 
 		<div class="row ">
