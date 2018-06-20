@@ -19,7 +19,7 @@ function reset_dislike($student){
 }
 $res = $statement->rowCount();
 error_log(print_r($res, TRUE));
-return pg_affected_rows($res);
+return $res;
 }
 
 
