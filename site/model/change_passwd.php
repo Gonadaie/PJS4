@@ -1,6 +1,6 @@
 <?php
 
-require('db_connect.php');
+require_once('db_connect.php');
 
 /**
  * @brief Change the password of the account linked to the a given token

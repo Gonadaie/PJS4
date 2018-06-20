@@ -46,6 +46,7 @@ function ajax_reset_dislike(){
 	xhttp.onreadystatechange = function () {
 		if (this.readyState == 4 && this.status == 200) {
 			var response = this.responseText.replace(/\n/g, "");
+			console.log(response);
 			window.location = "../view/swipe.php";
 		}
 	}

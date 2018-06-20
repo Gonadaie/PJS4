@@ -1,7 +1,7 @@
 <?php
 
 require_once('db_connect.php');
-require_once ('data_crypter.php');
+require_once('data_crypter.php');
 
 function get_unmatched_student_first_year(){
 $db = db_connect();
