@@ -29,6 +29,8 @@ function sign_up(e) {
 						year = 2;
 					}
 					var f = new Date();
+					console.log(f.getTime());
+					console.log(d.getTime());
 					var time = f.getTime() - d.getTime();
 					console.log(time);
 					if(time >= 10000){ 
