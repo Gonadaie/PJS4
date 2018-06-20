@@ -35,7 +35,7 @@ require("../controller/messaging.php");
 
 	<body>
 
-		<div class="row fullscreen_height">
+		<div class="row ">
 			<div class=" col-3 no_padding">
 				<div class="menu row ">
 					<div class="offset-1 col-6 my_account_messaging ">
@@ -54,7 +54,6 @@ require("../controller/messaging.php");
 				</div>
 				<div class="right_align title">Messages</div>
 				<div class="scrollable preview_list">
-
 					<?php
 					foreach ($previews as &$preview) {
 						$pic = $preview["pic"];
@@ -67,7 +66,7 @@ require("../controller/messaging.php");
 						
 						if ($preview["message"]["flag_read"]==false){
 							$my_preview_div = <<<EOD
-							<div class="row preview_message" data-student="$other_student_id">
+							<div class="row preview_message" data-student="$other_student_id" data-surname="$surname">
 							<div class="offset-1 col-4 left_preview">
 							<div class='notify_circle'></div><img src="$pic" alt=""></div>
 							<div class="col-7 preview_group">
@@ -79,7 +78,7 @@ EOD;
 							echo($my_preview_div);
 						} elseif ($preview["message"]["message_id"]==1){
 							$my_preview_div = <<<EOD
-							<div class="row preview_message" data-student="$other_student_id">
+							<div class="row preview_message" data-student="$other_student_id" data-surname="$surname">
 							<div class="offset-1 col-4">
 							<img src="$pic" alt=""></div>
 							<div class="col-7 preview_group">
@@ -91,7 +90,7 @@ EOD;
 							echo($my_preview_div);
 						} else 	{
 							$my_preview_div = <<<EOD
-							<div class="row preview_message" data-student="$other_student_id">
+							<div class="row preview_message" data-student="$other_student_id" data-surname="$surname">
 							<div class="offset-1 col-4">
 							<img src="$pic" alt=""></div>
 							<div class="col-7 preview_group">
@@ -104,11 +103,29 @@ EOD;
 						}
 					} 
 					?>
+
 				</div>
 			</div>
 
 			<div class="col-9 messaging_welcome_pic no_padding">
 				<img src="../images/messaging.png" alt="">
+			</div>
+			<div class="col-9 messaging_conversation no_padding">
+				<div class="top_marge_conversation"></div>
+				<div class="conversation_surname"></div>
+				<div class="conversation_final_btn_off">is it the right one?</div>
+				<div class="conversation_final_btn_on">it's the right one!</div>
+
+
+
+
+				<div class="conversation_messages scrollable">
+
+				</div>
+				<div class="conversation_send_messages row">
+					<div class="col-10 text_zone"><input type="text" name="" id=""></div>
+					<div class="col-1 conversation_send_btn">Envoyer</div>
+				</div>
 			</div>
 		</div>
 		<script src="../scripts/messaging.js"></script>

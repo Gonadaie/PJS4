@@ -359,8 +359,19 @@ input[type="checkbox"]:checked+label::before {
 	display: block;
 }
 
+.really_no_more_profile{
+	display:block;
+}
+
 .available_profile {
 	display: none;
+}
+
+.really_no_more_profile_sorry {
+	margin-top: 5%;
+	font-family: "Fjalla One";
+	color: #707070;
+	font-size: 2vw;
 }
 
 .no_more_profile_sorry {

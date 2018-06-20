@@ -1,5 +1,6 @@
 body {
 	overflow: hidden;
+	height: 100%;
 }
 
 .right_align {
@@ -10,45 +11,45 @@ body {
 	padding: 0;
 }
 
-::-webkit-scrollbar {
+.preview_list::-webkit-scrollbar {
 	width: 2px;
 	height: 2px;
 }
 
-::-webkit-scrollbar-button {
+.preview_list::-webkit-scrollbar-button {
 	width: 0px;
 	height: 0px;
 }
 
-::-webkit-scrollbar-thumb {
+.preview_list::-webkit-scrollbar-thumb {
 	background: #000000;
 	border: 0px none #ffffff;
 	border-radius: 50px;
 }
 
-::-webkit-scrollbar-thumb:hover {
+.preview_list::-webkit-scrollbar-thumb:hover {
 	background: #000000;
 }
 
-::-webkit-scrollbar-thumb:active {
+.preview_list::-webkit-scrollbar-thumb:active {
 	background: #000000;
 }
 
-::-webkit-scrollbar-track {
+.preview_list::-webkit-scrollbar-track {
 	background: #ffffff;
 	border: 0px none #ffffff;
 	border-radius: 50px;
 }
 
-::-webkit-scrollbar-track:hover {
+.preview_list::-webkit-scrollbar-track:hover {
 	background: #ffffff;
 }
 
-::-webkit-scrollbar-track:active {
+.preview_list::-webkit-scrollbar-track:active {
 	background: #ffffff;
 }
 
-::-webkit-scrollbar-corner {
+.preview_list::-webkit-scrollbar-corner {
 	background: transparent;
 }
 
@@ -58,6 +59,7 @@ body {
 .messaging_welcome_pic {
 	padding: 0;
 	margin: 0;
+	display: block;
 }
 
 .messaging_welcome_pic img {
@@ -186,4 +188,164 @@ body {
 	right: 1.8vw;
 	top: 0;
 	z-index: 100;
+}
+
+
+/*******************************messaging part*******************************/
+
+.messaging_conversation {
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	background-color: #F5F7FA;
+	display: none;
+}
+
+.messaging_conversation .conversation_surname {
+	font-family: Fjalla One;
+	color: #254463;
+	font-size: 4vw;
+	position: absolute;
+	top: 10px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.conversation_final_btn_off {
+	position: absolute;
+	right: 2vw;
+	top: 0;
+	color: #F05228;
+	font-family: Fjalla One;
+	font-size: 3vw;
+	opacity: 0.5;
+	display: block;
+}
+
+.conversation_final_btn_on {
+	position: absolute;
+	right: 2vw;
+	top: 0;
+	color: #F05228;
+	font-family: Fjalla One;
+	font-size: 3vw;
+	display: none;
+}
+
+.conversation_send_messages {
+	width: 100%;
+	height: 6vh;
+	position: absolute;
+	bottom: 0;
+	margin: 0;
+	background-color: #F5F7FA;
+}
+
+.conversation_send_messages .text_zone {
+	height: 100%;
+}
+
+.conversation_send_messages .text_zone input {
+	width: 100%;
+	background-color: #E6F0F5;
+	border: none;
+	height: 80%;
+	color: #254463;
+	border-radius: 10px;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.conversation_send_messages .conversation_send_btn {
+	color: #4152BC;
+	font-family: Fjalla One;
+	font-size: 2vw;
+	padding-top: 0;
+	height: 100%;
+}
+
+.conversation_send_btn:hover,
+.conversation_final_btn_on:hover,
+.conversation_final_btn_off:hover {
+	cursor: crosshair;
+}
+
+
+/*******************************************************/
+
+.message_conversation_other_student {
+	background-color: #61B8D0;
+	border-radius: 10px 10px 10px 0;
+	width: 40%;
+	margin-top: 3vh;
+	margin-left: 3%;
+	margin-right: auto;
+	padding: 15px;
+	color: white;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.message_conversation_student {
+	background-color: #4152BC;
+	border-radius: 10px 10px 0 10px;
+	width: 40%;
+	margin-top: 3vh;
+	margin-right: 3%;
+	margin-left: auto;
+	padding: 15px;
+	color: white;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.top_marge_conversation {
+	width: 100%;
+	height: 10vh;
+	background-color: #F5F7FA;
+}
+
+.conversation_messages {
+	height: 80%;
+	width: 98%;
+	z-index: -1;
+}
+
+.conversation_messages::-webkit-scrollbar {
+	width: 2px;
+	height: 2px;
+}
+
+.conversation_messages::-webkit-scrollbar-button {
+	width: 0px;
+	height: 0px;
+}
+
+.conversation_messages::-webkit-scrollbar-thumb {
+	background: #000000;
+	border: 0px none #F5F7FA;
+	border-radius: 50px;
+}
+
+.conversation_messages::-webkit-scrollbar-thumb:hover {
+	background: #000000;
+}
+
+.conversation_messages::-webkit-scrollbar-thumb:active {
+	background: #000000;
+}
+
+.conversation_messages::-webkit-scrollbar-track {
+	background: #F5F7FA;
+	border: 0px none #F5F7FA;
+	border-radius: 50px;
+}
+
+.conversation_messages::-webkit-scrollbar-track:hover {
+	background: #F5F7FA;
+}
+
+.conversation_messages::-webkit-scrollbar-track:active {
+	background: #F5F7FA;
+}
+
+.conversation_messages::-webkit-scrollbar-corner {
+	background: transparent;
 }
