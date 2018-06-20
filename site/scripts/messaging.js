@@ -91,7 +91,9 @@ const fetch_messages = (other_student_id) => {
 	id_receiver = other_student_id;
 	console.log(id_receiver);
   console.log(id_sender);
-  console.log(JSON.stringify(id_sender, id_receiver));
+  var msg_data = [id_sender, id_receiver];
+  console.log(JSON.stringify(msg_data));
+
 	xhttp.onreadystatechange = function () {
 		if (this.readyState == 4 && this.status == 200) {
 			var response = new Array();
