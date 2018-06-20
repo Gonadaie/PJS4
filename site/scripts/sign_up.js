@@ -29,10 +29,13 @@ function sign_up(e) {
 						year = 2;
 					}
 					var f = new Date();
+					console.log(f.getTime());
+					console.log(d.getTime());
 					var time = f.getTime() - d.getTime();
 					console.log(time);
-					if(time >= 2000){ 
+					if(time >= 10000){ 
 						request.send("&mail=" + mail + "&password=" + password + "&year=" + year);
+						d = new Date();
 					}
 					else{
 						console.log("goes here");
