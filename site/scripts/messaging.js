@@ -7,12 +7,14 @@ const conversation_messages = document.querySelector('.conversation_messages')
 var send_messages_textbox = document.getElementById("send_messages_textbox");
 
 send_messages_textbox.addEventListener("keydown", function (e) {
-    if (e.keyCode === 13) {  //checks whether the pressed key is "Enter"
+		console.log("keydownnnnnnnnn")
+    if (e.keyCode === 13) {
         checkMessage(e);
     }
 });
 
 function checkMessage(e){
+	console.log("we are checking your awesome message")
 	if(send_messages_textbox.value==null || send_messages_textbox.value=="" || send_messages_textbox.value==" "){
 		alert("That's bad");
 	}
