@@ -30,7 +30,8 @@ function sign_up(e) {
 						year = 2;
 					}
 					var time = d.getTime() - n;
-					if(time <= 3600){ 
+					console.log(time);
+					if(time >= 10000){ 
 						request.send("&mail=" + mail + "&password=" + password + "&year=" + year);
 					}
 					else{
