@@ -44,7 +44,7 @@ function login() {
 	var f = new Date();
 	var time = f.getTime() - d.getTime();
 	console.log(time);
-	if(time >= 40000){ 
+	if(time >= 2000){ 
 		xhttp.send("mail=" + mail + "&password=" + password + "&keeplog=" + keeplog);
 	}
 	else{
