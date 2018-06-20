@@ -7,7 +7,7 @@
 	}
 	else{
 		$sentence = "ton filleul ou ta filleule";
-		$title = "Il est temps de te choisir un(e) filleul(e)"
+		$title = "Il est temps de te choisir un(e) filleul(e)";
 	}
 	$student_mail = $student[1];
 	$student_name =	explode('.', $student_mail)[0];
