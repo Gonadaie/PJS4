@@ -5,6 +5,8 @@ const finalBtnOff = document.querySelector('.conversation_final_btn_off')
 const finalBtnOn = document.querySelector('.conversation_final_btn_on')
 const conversation_messages = document.querySelector('.conversation_messages')
 var send_messages_textbox = document.getElementById("send_messages_textbox");
+var id_receiver = document.querySelector('.data-student');
+console.log(id_receiver);
 
 send_messages_textbox.addEventListener("keydown", function (e) {
 		console.log("keydownnnnnnnnn")
@@ -19,11 +21,26 @@ function checkMessage(e){
 		alert("That's bad");
 	}
 	else{
+
 		alert("Good boy");
 	}
+}
+/***************************Socket stuff for message*********************/
 
+function createSocket(){
+	socket = new WebSocket(url);
+	socket.onerrorSocket = function(error) {
+	console.error(error);
+  };
 }
 
+
+function sendMessage(msg){
+	socket.send(msg);
+}
+
+
+/**************************End of socket stuff**************************/
 my_list.style.height = window.innerHeight - my_list.offsetTop + "px";
 
 window.addEventListener('resize', () => {
@@ -38,7 +55,7 @@ for (let i = 0; i < message_previews.length; i++) {
 		messaging_conversation.style.display = 'block'
 		var conversation_surname = document.querySelector('.conversation_surname')
 		conversation_surname.innerHTML = message_previews[i].dataset.surname;
-        conversation_surname.dataset.other_student_id=message_previews[i].dataset.student
+        //conversation_surname.dataset.
         //document.getElementById('item1').dataset.icon = "base.gif";
 		conversation_messages.scrollTo(0, 1000000)
 
@@ -69,10 +86,8 @@ const fetch_messages = (other_student_id) => {
 
 
 finalBtnOff.addEventListener('click', () => {
-
     if (confirm("Êtes-vous sûr de vouloir choisir cette personne comme parrain/filleul?")){
-        var surname_other_user = document.querySelector('.conversation_surname')
-		var  id_other_user =surname_other_user.dataset.other_student_id
+
         finalBtnOff.style.display = 'none'
         var finalBtnOn = document.querySelector('.conversation_final_btn_on')
         finalBtnOn.style.display = 'block'
@@ -88,7 +103,7 @@ finalBtnOff.addEventListener('click', () => {
         }
         xhttp.open("POST", "../controller/find-the-right-one.php", true);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xhttp.send("other_student_id=" + id_other_user);
+        xhttp.send("other_student_id=" + other_student_id);
 
     }
 })
