@@ -9,7 +9,6 @@ var send_messages_textbox = document.getElementById("send_messages_textbox");
 
 
 send_messages_textbox.addEventListener("keydown", function (e) {
-		console.log("keydownnnnnnnnn")
     if (e.keyCode === 13) {
         checkMessage(e);
     }
@@ -27,7 +26,7 @@ function checkMessage(e){
 }
 /***************************Socket stuff for message*********************/
 var socket;
-console.log(other_student_id);
+console.log(dataset.student);
 function onMessage(msg){
 	console.log(msg);
 }
