@@ -17,14 +17,12 @@ send_messages_textbox.addEventListener("keydown", function (e) {
 function checkMessage(e){
 	console.log("we are checking your awesome message")
 	if(send_messages_textbox.value==null || send_messages_textbox.value=="" || send_messages_textbox.value==" " || !send_messages_textbox.value.replace(/\s/g, '').length){
-		alert("That's bad");
 	}
 	else{
-    var msg_data = [send_messages_textbox.value, id_receiver];
+    var msg_data = [id_sender, id_receiver, send_messages_textbox.value];
     console.log(msg_data);
     sendMessage(JSON.stringify(msg_data));
 		//recuperer msg et id reveiver, mettre dans une string, envoyer à travers la socket
-		alert("Good boy");
 	}
 }
 /***************************Socket stuff for message*********************/
@@ -42,7 +40,7 @@ function sendMessage(msg){
 }
 
 function createSocket(){
-	url='lien.fr';
+	url='skipti.fr:8080';
 	socket = new WebSocket(url);
   var msg_data = [id_sender, id_receiver];
   sendMessage(JSON.stringify(msg_data));
@@ -89,17 +87,16 @@ const fetch_messages = (other_student_id) => {
 	console.log("we are in get message fct");
 	var xhttp = new XMLHttpRequest();
 	id_receiver = other_student_id;
-	console.log(id_receiver);
-  console.log(id_sender);
-  var msg_data = [id_sender, id_receiver];
-  console.log(JSON.stringify(msg_data));
+
+
 
 	xhttp.onreadystatechange = function () {
 		if (this.readyState == 4 && this.status == 200) {
 			var response = new Array();
 			var response = JSON.parse(this.responseText);
-			console.log(response)
-			add_messages(response, other_student_id)
+			console.log(response);
+			add_messages(response, other_student_id);
+      createSocket();
 		}
 
 	}
