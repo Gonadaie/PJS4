@@ -83,20 +83,7 @@ if(isset($_POST["image"])) {
 		}
 		move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file);
 		//Delete EXIF DATA (tibo maj)
-		$path = $target_file;
-		switch ($imageFileType){
-			case "jpg":
-			case "jpeg":
-				$img = imagecreatefromjpeg($path);
-				$imagejpeg($img, $path, 100);
-				$imagedestroy ($img);
-				break;
-			case  "png":
-				$img = imagecreatefrompng($path);
-				$imagepng($img, $path, 100);
-				$imagedestroy ($img);
-				break;
-		}
+		
 		//EnD
 		header('Location:http://tinder.student.elwinar.com/view/updateprofile.php');
 		$query = "UPDATE student SET pic = :image WHERE id_student = :id";
