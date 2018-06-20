@@ -20,6 +20,9 @@ function checkMessage(e){
 		alert("That's bad");
 	}
 	else{
+    var msg_data = [send_messages_textbox.value, id_receiver];
+    console.log(msg_data);
+    sendMessage(JSON.stringify(msg_data));
 		//recuperer msg et id reveiver, mettre dans une string, envoyer à travers la socket
 		alert("Good boy");
 	}
@@ -33,7 +36,7 @@ function onMessage(msg){
 
 function sendMessage(msg){
 	console.log(msg);
-	socket.send(msg);
+	//socket.send(msg);
 }
 
 function createSocket(){
