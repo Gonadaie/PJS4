@@ -5,7 +5,7 @@ const finalBtnOff = document.querySelector('.conversation_final_btn_off')
 const finalBtnOn = document.querySelector('.conversation_final_btn_on')
 const conversation_messages = document.querySelector('.conversation_messages')
 var send_messages_textbox = document.getElementById("send_messages_textbox");
-var id_receiver = document.querySelector('.data-student');
+var id_receiver = document.querySelector('.data-other_student_id');
 console.log(id_receiver);
 
 send_messages_textbox.addEventListener("keydown", function (e) {
@@ -21,26 +21,43 @@ function checkMessage(e){
 		alert("That's bad");
 	}
 	else{
-
+		//recuperer msg et id reveiver, mettre dans une string, envoyer à travers la socket
 		alert("Good boy");
 	}
 }
 /***************************Socket stuff for message*********************/
+var socket;
 
-function createSocket(){
-	socket = new WebSocket(url);
-	socket.onerrorSocket = function(error) {
-	console.error(error);
-  };
+function onMessage(msg){
+	console.log(msg);
 }
 
-
 function sendMessage(msg){
+	console.log(msg);
 	socket.send(msg);
 }
 
+function createSocket(){
+	url='lien.fr';
+	socket = new WebSocket(url);
+	socket.onerror = function(error){
+		console.error(error);
+	}
+	socket.onopen = function(event) {
+					console.log('Connexion established to Raphael');
+					this.onclose = function(event) {
+            console.log('Connexion closed.');
+					};
+					this.onmessage = onMessage;
+					if (onopen !== undefined){
+	    			onopen();
+					}
+  };
+}
 
 /**************************End of socket stuff**************************/
+
+
 my_list.style.height = window.innerHeight - my_list.offsetTop + "px";
 
 window.addEventListener('resize', () => {
