@@ -105,6 +105,17 @@ function verifFormForgot(e) {
 	return false;
 }
 
+var  count = 0;
+const element = document.querySelector('form');
+element.addEventListener('submit', event => {
+	count = count+1;
+	console.log(count);
+	if (count >1){
+		event.preventDefault();
+		alert("Vous avez tenté d'envoyer le formulaire trop souvent, rechargez la page et réessayer");
+	}
+});
+	
 
 
 
