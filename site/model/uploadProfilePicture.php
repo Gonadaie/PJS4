@@ -38,7 +38,7 @@ function uploadProfilePicture($email,$image) {
           $imageName = $imagePath .  $email . ".png";
 		  $path = $imageName;
 		  $img = imagecreatefrompng($path);
-		  $imagepng($img, $path, 100);
+		  imagepng($img, $path, 100);
 		  $imagedestroy ($img);
 		  
           file_put_contents($imageName, $data);
