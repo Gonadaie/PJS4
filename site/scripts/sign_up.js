@@ -31,8 +31,7 @@ function sign_up(e) {
 					var f = new Date();
 					var time = f.getTime() - d.getTime();
 					console.log(time);
-					console.log("here i'm")
-					if(time >= 10000){ 
+					if(time >= 40000){ 
 						request.send("&mail=" + mail + "&password=" + password + "&year=" + year);
 					}
 					else{
