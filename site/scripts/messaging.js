@@ -4,9 +4,23 @@ const messaging_welcome_pic = document.querySelector('.messaging_welcome_pic')
 const finalBtnOff = document.querySelector('.conversation_final_btn_off')
 const finalBtnOn = document.querySelector('.conversation_final_btn_on')
 const conversation_messages = document.querySelector('.conversation_messages')
+var send_messages_textbox = document.getElementById("send_messages_textbox");
 
+send_messages_textbox.addEventListener("keydown", function (e) {
+    if (e.keyCode === 13) {  //checks whether the pressed key is "Enter"
+        checkMessage(e);
+    }
+});
 
+function checkMessage(e){
+	if(send_messages_textbox.value==null || send_messages_textbox.value=="" || send_messages_textbox.value==" "){
+		alert("That's bad");
+	}
+	else{
+		alert("Good boy");
+	}
 
+}
 
 my_list.style.height = window.innerHeight - my_list.offsetTop + "px";
 

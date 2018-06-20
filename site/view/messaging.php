@@ -123,7 +123,7 @@ EOD;
 
 				</div>
 				<div class="conversation_send_messages row">
-					<div class="col-10 text_zone"><input type="text" name="" id="" maxlength="1000"></div>
+					<div class="col-10 text_zone"><input type="text" name="" id="send_messages_textbox" maxlength="1000"></div>
 					<div class="col-1 conversation_send_btn">Envoyer</div>
 				</div>
 			</div>
