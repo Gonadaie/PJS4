@@ -22,9 +22,11 @@ function create_cookie_info() {
 		background.style.display = 'none';
 		info.style.display = 'none';
 		accept_btn.style.display = 'none';
-
+		document.cookie = "skiptiAcceptCookies=true";
 	}
 }
 
 $('head').append('<link rel="stylesheet" type="text/css" href="../styles/cookies_info.css">');
-create_cookie_info();
+
+if(!document.cookie.includes("skiptiAcceptCookies=true"))
+	create_cookie_info();
