@@ -17,9 +17,12 @@ function reset_dislike($student){
 		$statement->execute();
 	}
 }
-error_log(print_r($statement, TRUE));
-return pg_affected_rows($statement);
+$row = $statement_student->fetch(PDO::FETCH_ASSOC)
+error_log(print_r($row, TRUE));
+error_log(print_r(pg_affected_rows($statement), TRUE));
 error_log(print_r("reset dislike fin", TRUE));
+
+return pg_affected_rows($statement);
 }
 
 
