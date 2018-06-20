@@ -3,7 +3,7 @@
 	function send_mail_unmatch($student, $year){
 	if($year==1){
 		$sentence = "parrain ou ta marraine";
-		$title = "Il est temps de te choisir un(e) parrain/marraine"
+		$title = "Il est temps de te choisir un(e) parrain/marraine";
 	}
 	else{
 		$sentence = "ton filleul ou ta filleule";
