@@ -36,10 +36,8 @@ const fetch_messages = (other_student_id) => {
 	xhttp.onreadystatechange = function () {
 		if (this.readyState == 4 && this.status == 200) {
 			var response = new Array();
-			response = this.responseText;
-
+			var response = JSON.parse(this.responseText);
 			console.log(response)
-			console.log(JSON.parse(response))
 			add_messages(response, other_student_id)
 		}
 
@@ -68,13 +66,14 @@ const add_messages = (messages, other_student_id) => {
 	const conversation_messages = document.querySelector('.conversation_messages')
 	for (let i = 0; i < messages.length; i++) {
 		let div_message = document.createElement("div")
-		console.log(messages.get(i).sender_id)
-		console.log(messages.get(i))
-		if (messages.get(i).sender_id == other_student_id) {
+		console.log(messages[i].sender_id)
+		console.log(messages[i])
+		if (messages[i].sender_id == other_student_id) {
 			div_message.setAttribute('class', 'message_conversation_other_student')
 		} else {
 			div_message.setAttribute('class', 'message_conversation_student')
 		}
 		conversation_messages.insertBefore(div_message, conversation_messages.childNodes[0])
+		div_message.innerHTML = messages[i].content
 	}
 }

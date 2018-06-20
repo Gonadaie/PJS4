@@ -10,4 +10,5 @@ $id_conv = get_id_conversation($student_id,$other_student_id);
 
 $messages = array();
 $messages = get_old_messages($id_conv);
-echo $messages;
+
+echo json_encode($messages);
