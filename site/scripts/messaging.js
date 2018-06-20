@@ -44,8 +44,8 @@ function sendMessage(msg){
 function createSocket(){
 	url='lien.fr';
 	socket = new WebSocket(url);
-  var connnect_socket = JSON.stringify(id_sender, id_receiver);
-  sendMessage(connnect_socket);
+  var msg_data = [id_sender, id_receiver];
+  sendMessage(JSON.stringify(msg_data));
 	socket.onerror = function(error){
 		console.error(error);
 	}
