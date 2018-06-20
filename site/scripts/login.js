@@ -46,6 +46,7 @@ function login() {
 	console.log(time);
 	if(time >= 40000){ 
 		xhttp.send("mail=" + mail + "&password=" + password + "&keeplog=" + keeplog);
+	}
 	else{
 		console.log("goes here");
 		alert("Vous avez tenté d'envoyer le formulaire trop souvent, attendez puis réessayer");
