@@ -42,3 +42,11 @@ add_admin();
 add_first_conv();
 add_first_msg();
 ?>
+
+
+
+
+	<!-- insert into message JDT
+	INSERT INTO message (conversation_id, message_date,content,sender_id) values (39,now(),'On a assez travaillé pendant l esclavage',3); INSERT INTO message (conversation_id, message_date,content,sender_id) values (39,now(),'ouais grave',2); 
+	INSERT INTO message (conversation_id, message_date,content,sender_id) values (39,now(),'J aimerais toucher le ciel mais j peux pas m envoler Mieux seul, pas d Lune de Miel, femme j ai l cœur gelé Laisse-moi sans nouvelles, et avec je ferai J prends l soleil sur la corniche, dans mon cabriolet J ai des potes qu ont grandi derrière les barbelés La rue leur joue des tours, elle les a ensorcelés J vois qu tu te prends la tête, suffisait de m appeler Au pire on s serait engueulés',3);
+-->

@@ -17,7 +17,9 @@ function reset_dislike($student){
 		$statement->execute();
 	}
 }
-error_log(print_r("reset dislike fin", TRUE));
+$res = $statement->rowCount();
+error_log(print_r($res, TRUE));
+return $res;
 }
 
 

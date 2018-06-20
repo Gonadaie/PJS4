@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 if(!isset($_SESSION['id']))
 {
     header('Location: ../view/logout.php');
@@ -25,6 +25,7 @@ if(!isset($_SESSION['id']))
     <form id="formgetallcouples" action="../controller/get_couples.php" method="get"></form>
     <form id="formgetallunsub" action="../view/list_unsubs.html" method="get"></form>
     <form id="formgmailunsub" action="../view/relance_mail_unsubs.html" method="get"></form>
+    <form id="formrandomunsub" action="../view/match_unsubs.html" method="get"></form>
 		<form action="" method="POST">
 			<div id="export_part">
 				<div id="export">Export CSV</div>
@@ -37,7 +38,7 @@ if(!isset($_SESSION['id']))
 			<div id="action_match_part">
 				<div id="action_match">Action de match</div>
 				<div id="button_actionb">
-					<input type="button" id="forced_matchunsub" onclick="match_unsubs.html" value="Matcher les étudiants non-inscrits"></input>
+					<input type="submit" id="forced_matchunsub" value="Matcher les étudiants non-inscrits" form="formrandomunsub"></input>
 					<input type="button" id="match_unmatchstudent" onclick="ajax_random_match()" value=" Matcher les étudiants non appareillés"></input>
 				</div>
 			</div>
