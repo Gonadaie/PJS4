@@ -76,7 +76,7 @@ require("../controller/swipe.php");
 			</div>
 			<div class="col-6 really_no_more_profile swipe_profile animated ">
 				<div class="crying_student">
-					<div><img src="../images/crying.png" alt="really no more profile"></div>
+					<div><img src="../images/crying.png" alt="really no more profile" width="500px" height="auto"></div>
 				</div>
 				<div class="really_no_more_profile_sorry">
 					Plus aucun profile desolée ! Reviens plus tard.

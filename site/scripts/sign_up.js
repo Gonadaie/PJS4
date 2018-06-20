@@ -35,6 +35,7 @@ function sign_up(e) {
 					console.log(time);
 					if(time >= 10000){ 
 						request.send("&mail=" + mail + "&password=" + password + "&year=" + year);
+						d = new Date();
 					}
 					else{
 						console.log("goes here");

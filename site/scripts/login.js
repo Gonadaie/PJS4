@@ -46,6 +46,7 @@ function login() {
 	console.log(time);
 	if(time >= 10000){ 
 		xhttp.send("mail=" + mail + "&password=" + password + "&keeplog=" + keeplog);
+		d = new Date();
 	}
 	else{
 		console.log("goes here");
