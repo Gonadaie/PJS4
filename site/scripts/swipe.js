@@ -40,7 +40,7 @@ function top_back() {
 }
 
 
-function ajax_reset_dislike(){
+function ajax_reset_dislike() {
 	console.log("we are in reset dislike function");
 	var xhttp = new XMLHttpRequest();
 
@@ -48,10 +48,9 @@ function ajax_reset_dislike(){
 		if (this.readyState == 4 && this.status == 200) {
 			var response = this.responseText.replace(/\n/g, "");
 			console.log(response);
-			if(response>0){
+			if (response > 0) {
 				window.location = "../view/swipe.php";
-			}
-			else{
+			} else {
 				really_no_more_profile.style.display = "block";
 				available_profiles.style.display = "none";
 				no_more_profile.style.display = "none";

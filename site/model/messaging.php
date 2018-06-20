@@ -76,6 +76,21 @@ function getPreviewConversation($student_id) {
 		return $tab_previews;
 	}
 }
+
+function updateFlagLecture($conversation_id) {
+
+	$db = db_connect();
+	if($db) {
+
+		$query_update_flag_read ="Update message set flag_read=true where conversation_id=:conversation_id";
+
+		$statement_update_flag  = $db->prepare($query_update_flag_read);
+		$statement_update_flag ->bindValue(':conversation_id',$conversation_id);
+		$statement_update_flag ->execute();
+
+		}
+	}
+}
 //new message avec tout dedans
 
 
