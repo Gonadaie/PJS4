@@ -38,7 +38,7 @@ for (let i = 0; i < message_previews.length; i++) {
 		messaging_conversation.style.display = 'block'
 		var conversation_surname = document.querySelector('.conversation_surname')
 		conversation_surname.innerHTML = message_previews[i].dataset.surname;
-        //conversation_surname.dataset.
+        conversation_surname.dataset.other_student_id=message_previews[i].dataset.student
         //document.getElementById('item1').dataset.icon = "base.gif";
 		conversation_messages.scrollTo(0, 1000000)
 
@@ -69,8 +69,10 @@ const fetch_messages = (other_student_id) => {
 
 
 finalBtnOff.addEventListener('click', () => {
-    if (confirm("Êtes-vous sûr de vouloir choisir cette personne comme parrain/filleul?")){
 
+    if (confirm("Êtes-vous sûr de vouloir choisir cette personne comme parrain/filleul?")){
+        var surname_other_user = document.querySelector('.conversation_surname')
+		var  id_other_user =surname_other_user.dataset.other_student_id
         finalBtnOff.style.display = 'none'
         var finalBtnOn = document.querySelector('.conversation_final_btn_on')
         finalBtnOn.style.display = 'block'
@@ -86,7 +88,7 @@ finalBtnOff.addEventListener('click', () => {
         }
         xhttp.open("POST", "../controller/find-the-right-one.php", true);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xhttp.send("other_student_id=" + other_student_id);
+        xhttp.send("other_student_id=" + id_other_user);
 
     }
 })

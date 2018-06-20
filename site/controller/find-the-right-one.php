@@ -12,10 +12,12 @@ if(get_year_student($student_id)==1){  //student premiere annee
             bloquerFilleul($student_id);
 
             //+ affichage page finale
+            header("../view/final.php");
 
         }
         else{
             //affichage massage d'attendre que le parrain click aussi
+            error_log(print_r("Attendez que l'autre personne vous like",true));
         }
 
     }
@@ -32,9 +34,11 @@ else{ //student en deuxieme annee
             }
 
             //+ affichage page finale
+            header("../view/final.php");
         }
         else{
             //affichage massage d'attendre que le filleul click aussi
+            error_log(print_r("Attendez que l'autre personne vous like",true));
         }
 
     }
