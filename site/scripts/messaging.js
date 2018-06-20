@@ -32,6 +32,8 @@ var socket;
 
 function onMessage(msg){
 	console.log(msg);
+  var jsonMsg = JSON.parse(msg);
+  console.log(jsonMsg);
 }
 
 function sendMessage(msg){
