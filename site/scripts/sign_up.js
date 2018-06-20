@@ -31,12 +31,12 @@ function sign_up(e) {
 					}
 					var time = d.getTime() - n;
 					console.log(time);
+					console.log("here i'm")
 					if(time >= 10000){ 
 						request.send("&mail=" + mail + "&password=" + password + "&year=" + year);
 					}
 					else{
 						alert("Vous avez tenté d'envoyer le formulaire trop souvent, attendez puis réessayer");
-						e.preventDefault();
 						return false;
 					}
 					request.onreadystatechange = function(){
