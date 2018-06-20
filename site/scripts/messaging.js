@@ -5,7 +5,7 @@ const finalBtnOff = document.querySelector('.conversation_final_btn_off')
 const finalBtnOn = document.querySelector('.conversation_final_btn_on')
 const conversation_messages = document.querySelector('.conversation_messages')
 var send_messages_textbox = document.getElementById("send_messages_textbox");
-const id_receiver;
+var id_receiver;
 
 
 send_messages_textbox.addEventListener("keydown", function (e) {
