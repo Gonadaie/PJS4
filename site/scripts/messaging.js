@@ -15,7 +15,7 @@ send_messages_textbox.addEventListener("keydown", function (e) {
 
 function checkMessage(e){
 	console.log("we are checking your awesome message")
-	if(send_messages_textbox.value==null || send_messages_textbox.value=="" || send_messages_textbox.value==" " || !str.replace(/\s/g, '').length){
+	if(send_messages_textbox.value==null || send_messages_textbox.value=="" || send_messages_textbox.value==" " || !send_messages_textbox.replace(/\s/g, '').length){
 		alert("That's bad");
 	}
 	else{
