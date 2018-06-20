@@ -360,7 +360,7 @@ input[type="checkbox"]:checked+label::before {
 }
 
 .really_no_more_profile{
-	display:none;
+	display: none;
 }
 
 .available_profile {
