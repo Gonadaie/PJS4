@@ -74,8 +74,10 @@
 			</div>
 		</div>
 	</div>
+	<script src="../scripts/jquery.min.js"></script>
 	<script src="../scripts/checkForm.js"></script>
 	<script src="../scripts/login.js"></script>
+	<script src="../scripts/cookies_info.js"></script>
 </body>
 
 </html>
