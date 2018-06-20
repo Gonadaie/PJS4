@@ -38,7 +38,8 @@ for (let i = 0; i < message_previews.length; i++) {
 		messaging_conversation.style.display = 'block'
 		var conversation_surname = document.querySelector('.conversation_surname')
 		conversation_surname.innerHTML = message_previews[i].dataset.surname;
-
+        //conversation_surname.dataset.
+        //document.getElementById('item1').dataset.icon = "base.gif";
 		conversation_messages.scrollTo(0, 1000000)
 
 	})
@@ -68,15 +69,28 @@ const fetch_messages = (other_student_id) => {
 
 
 finalBtnOff.addEventListener('click', () => {
-	finalBtnOff.style.display = 'none'
-	var finalBtnOn = document.querySelector('.conversation_final_btn_on')
-	finalBtnOn.style.display = 'block'
+    if (confirm("Êtes-vous sûr de vouloir choisir cette personne comme parrain/filleul?")){
+
+        finalBtnOff.style.display = 'none'
+        var finalBtnOn = document.querySelector('.conversation_final_btn_on')
+        finalBtnOn.style.display = 'block'
+
+        var xhttp = new XMLHttpRequest();
+
+
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+
+            }
+
+        }
+        xhttp.open("POST", "../controller/find-the-right-one.php", true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("other_student_id=" + other_student_id);
+
+    }
 })
-finalBtnOn.addEventListener('click', () => {
-	finalBtnOn.style.display = 'none'
-	var finalBtnOff = document.querySelector('.conversation_final_btn_off')
-	finalBtnOff.style.display = 'block'
-})
+
 
 const add_messages = (messages, other_student_id) => {
 	const conversation_messages = document.querySelector('.conversation_messages')
