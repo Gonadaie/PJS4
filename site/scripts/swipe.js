@@ -52,7 +52,7 @@ function ajax_reset_dislike(){
 				window.location = "../view/swipe.php";
 			}
 			else{
-				//really_no_more_profile.style.display = "block";
+				really_no_more_profile.style.display = "block";
 				available_profiles.style.display = "none";
 				no_more_profile.style.display = "none";
 			}
