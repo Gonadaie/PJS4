@@ -3,6 +3,22 @@
 require_once("../model/db_connect.php");
 require_once("../model/get_student.php");
 require_once("../model/chat.php");
+require_once("data_crypter.php");
+
+function insert_message($message, $sender_id, $receiver_id){
+  $conv_id = get_id_conversation($sender_id, $receiver_id);
+  $db = db_connect();
+  if($db) {
+    $query = "INSERT INTO conversation (conversation_id,message_date, content, sender_id)
+    VALUES(:conversation, now(), :message, :id)";
+    $statement = $db->prepare($query);
+    $statement->bindValue(':conversation',$conv_id);
+    $statement->bindValue(':message',encrypt_data($message));
+    $statement->bindValue(':id',$sender_id);
+    $statement->execute();
+  }
+}
+
 
 /*retourne les 20 derniers messages d'une conversation*/
 function get_old_messages($id_conv){
@@ -20,7 +36,6 @@ function get_old_messages($id_conv){
 			$row['message_date'], $row['content'], $row['sender_id'], $row['flag_read']);
 			array_push($array_messages, $message->to_array());
 	}
-
   }
 	return $array_messages;
 }
