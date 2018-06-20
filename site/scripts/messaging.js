@@ -74,5 +74,6 @@ const add_messages = (messages, other_student_id) => {
 			div_message.setAttribute('class', 'message_conversation_student')
 		}
 		conversation_messages.insertBefore(div_message, conversation_messages.childNodes[0])
+		div_message.innerHTML = messages[i].content
 	}
 }

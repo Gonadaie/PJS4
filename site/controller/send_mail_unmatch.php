@@ -11,7 +11,7 @@
 	}
 	$student_mail = $student[1];
 	$student_name =	explode('.', $student_mail)[0];
-	$student_name = strtoupper($student_name[0]) . substr($student_name, 1, strlen($student_name) -1 );;
+	$student_name = strtoupper($student_name[0]) . substr($student_name, 1, strlen($student_name) -1 );
 	$transport_unmatch = (new Swift_SmtpTransport("smtp.gmail.com", 465, "ssl"))
 	->setUsername("find.the.r8.one@gmail.com")
 	->setPassword("tindertinder")
