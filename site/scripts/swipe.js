@@ -5,6 +5,7 @@ var recycled = document.querySelector(".bounceOutLeft");
 var hearted = document.querySelector(".bounceOutRight");
 const profil_link = document.querySelector("#swipe_picture");
 const no_more_profile = document.querySelector(".no_more_profile");
+const really_no_more_profile = document.querySelector(".really_no_more_profile");
 const available_profiles = document.querySelector(".available_profile");
 const reset_dislike = document.querySelector(".reset_like");
 var end_of_swipe = false;
@@ -47,7 +48,12 @@ function ajax_reset_dislike(){
 		if (this.readyState == 4 && this.status == 200) {
 			var response = this.responseText.replace(/\n/g, "");
 			console.log(response);
-			window.location = "../view/swipe.php";
+			if(response>0){
+				window.location = "../view/swipe.php";
+			}
+			else{
+				really_no_more_profile.style.display = "block";
+			}
 		}
 	}
 
@@ -130,7 +136,6 @@ function setNewProfile() {
 		available_profiles.style.display = "none";
 		no_more_profile.style.display = "block";
 		end_of_swipe = true;
-
 	}
 
 	top_back();

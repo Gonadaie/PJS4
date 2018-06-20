@@ -36,6 +36,7 @@ function sign_up(e) {
 					}
 					else{
 						alert("Vous avez tenté d'envoyer le formulaire trop souvent, attendez puis réessayer");
+						e.preventDefault();
 						return false;
 					}
 					request.onreadystatechange = function(){
