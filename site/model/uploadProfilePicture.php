@@ -40,7 +40,7 @@ function uploadProfilePicture($email,$image) {
 		  //Maj tibo Delete EXIF DATA
 		  $path = $imageName;
 		  $img = imagecreatefrompng($path);
-		  imagepng($img, $path, 100);
+		  imagepng($img, $path, 9);
 		  imagedestroy ($img);
 		  //END
           echo '<img src="' . $imageName . '" class="img-thumbnail" />';
