@@ -1,4 +1,5 @@
 var d = new Date();
+d.setTime(30000
 function sign_up(e) {
 	var xhttp = new XMLHttpRequest();
 	if(verifForm(e)){
@@ -39,6 +40,7 @@ function sign_up(e) {
 					else{
 						console.log("goes here");
 						alert("Vous avez tenté d'envoyer le formulaire trop souvent, attendez puis réessayer");
+						d = new Date();
 						return false;
 					}
 					request.onreadystatechange = function(){

@@ -50,6 +50,7 @@ function login() {
 	else{
 		console.log("goes here");
 		alert("Vous avez tenté d'envoyer le formulaire trop souvent, attendez puis réessayer");
+		d = new Date();
 		return false;
 	}
 	return false;
