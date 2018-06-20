@@ -53,6 +53,8 @@ function ajax_reset_dislike(){
 			}
 			else{
 				really_no_more_profile.style.display = "block";
+				available_profiles.style.display = "none";
+				no_more_profile.style.display = "none";
 			}
 		}
 	}
