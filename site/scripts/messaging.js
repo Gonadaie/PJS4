@@ -5,8 +5,8 @@ const finalBtnOff = document.querySelector('.conversation_final_btn_off')
 const finalBtnOn = document.querySelector('.conversation_final_btn_on')
 const conversation_messages = document.querySelector('.conversation_messages')
 var send_messages_textbox = document.getElementById("send_messages_textbox");
-var id_receiver = document.querySelector('.data-other_student_id');
-console.log(id_receiver);
+
+
 
 send_messages_textbox.addEventListener("keydown", function (e) {
 		console.log("keydownnnnnnnnn")
@@ -27,7 +27,7 @@ function checkMessage(e){
 }
 /***************************Socket stuff for message*********************/
 var socket;
-
+console.log(other_student_id);
 function onMessage(msg){
 	console.log(msg);
 }
