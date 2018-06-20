@@ -63,7 +63,7 @@ require("../controller/messaging.php");
 						if (mb_strwidth( $preview["message"]["content"])>55){
 							$content =  mb_strimwidth( $preview["message"]["content"], 0, 55, "...");
 						}else $content = $preview["message"]["content"];
-						
+
 						if ($preview["message"]["flag_read"]==false){
 							$my_preview_div = <<<EOD
 							<div class="row preview_message" data-student="$other_student_id" data-surname="$surname">
@@ -101,7 +101,7 @@ EOD;
 EOD;
 							echo($my_preview_div);
 						}
-					} 
+					}
 					?>
 
 				</div>
@@ -123,7 +123,7 @@ EOD;
 
 				</div>
 				<div class="conversation_send_messages row">
-					<div class="col-10 text_zone"><input type="text" name="" id=""></div>
+					<div class="col-10 text_zone"><input type="text" name="" id="" maxlength="1000"></div>
 					<div class="col-1 conversation_send_btn">Envoyer</div>
 				</div>
 			</div>
