@@ -9,7 +9,9 @@
 	border: 1px solid #707070;
 	border-radius: 10px;
 	overflow: hidden;
-	padding: 10%;
+	padding-top: 3%;
+	padding-left: 3%;
+	padding-right: 3%;
 }
 
 #cookie_background {
@@ -37,4 +39,9 @@
 	font-size: 1.7vw;
 	vertical-align: middle;
 	font-family: 'Fjalla One';
+	margin-top: 3%;
+}
+
+#cookie_accept:hover {
+	cursor: crosshair;
 }
