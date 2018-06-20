@@ -39,7 +39,6 @@ const fetch_messages = (other_student_id) => {
 			response = this.responseText;
 
 			console.log(response)
-			console.log(JSON.parse(response))
 			add_messages(response, other_student_id)
 		}
 
