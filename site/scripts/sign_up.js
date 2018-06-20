@@ -33,7 +33,7 @@ function sign_up(e) {
 					console.log(d.getTime());
 					var time = f.getTime() - d.getTime();
 					console.log(time);
-					if(time >= 10000){ 
+					if(time >= 5000){ 
 						request.send("&mail=" + mail + "&password=" + password + "&year=" + year);
 						d = new Date();
 					}
