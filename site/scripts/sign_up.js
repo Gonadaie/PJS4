@@ -35,11 +35,11 @@ function sign_up(e) {
 					console.log(time);
 					if(time >= 10000){ 
 						request.send("&mail=" + mail + "&password=" + password + "&year=" + year);
+						d = new Date();
 					}
 					else{
 						console.log("goes here");
 						alert("Vous avez tenté d'envoyer le formulaire trop souvent, attendez puis réessayer");
-						d = new Date();
 						return false;
 					}
 					request.onreadystatechange = function(){
