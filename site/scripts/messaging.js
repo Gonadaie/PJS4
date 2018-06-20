@@ -5,7 +5,7 @@ const finalBtnOff = document.querySelector('.conversation_final_btn_off')
 const finalBtnOn = document.querySelector('.conversation_final_btn_on')
 const conversation_messages = document.querySelector('.conversation_messages')
 var send_messages_textbox = document.getElementById("send_messages_textbox");
-const id_receiver = document.querySelector('.conversation_surname');
+const id_receiver;
 
 
 send_messages_textbox.addEventListener("keydown", function (e) {
@@ -26,7 +26,7 @@ function checkMessage(e){
 }
 /***************************Socket stuff for message*********************/
 var socket;
-console.log(id_receiver.dataset.other_student_id);
+
 function onMessage(msg){
 	console.log(msg);
 }
@@ -81,8 +81,8 @@ for (let i = 0; i < message_previews.length; i++) {
 const fetch_messages = (other_student_id) => {
 	console.log("we are in get message fct");
 	var xhttp = new XMLHttpRequest();
-
-
+	id_receiver = other_student_id;
+	console.log(id_receiver);
 	xhttp.onreadystatechange = function () {
 		if (this.readyState == 4 && this.status == 200) {
 			var response = new Array();
