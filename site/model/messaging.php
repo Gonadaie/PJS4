@@ -90,7 +90,7 @@ function updateFlagLecture($conversation_id) {
 
 		}
 	}
-}
+
 //new message avec tout dedans
 
 
