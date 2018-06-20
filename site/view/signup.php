@@ -58,7 +58,7 @@
 									</div>
 								</div>
 								<div>
-									<input type="submit" value="Sign up"></input>
+									<input type="submit" value="Sign up" id="submit_signup"></input>
 
 								</div>
 							</form>
