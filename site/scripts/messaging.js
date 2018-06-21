@@ -169,6 +169,7 @@ const display_send_message = (messages) => {
 		conversation_messages.insertBefore(div_message, conversation_messages.childNodes[nb_msg].nextSibling)
 		div_message.innerHTML = messages
     nb_msg++;
+    send_messages_textbox.value = ""
 	}
 
 
