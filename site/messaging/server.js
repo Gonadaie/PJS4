@@ -52,6 +52,8 @@ io.sockets.on('connection', function (socket) {
 		socket.on('message', function (message) {
 			//Expect the socket to identify itself
 			var msg = JSON.parse(message);
+			console.log("un message !!!");
+			console.log(msg);
 			if(socket.isUnknown){
 				//Check if theres a match between the two ids
 				socket.id = msg[0];	
