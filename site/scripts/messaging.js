@@ -21,8 +21,10 @@ function checkMessage(e){
 	if(send_messages_textbox.value==null || send_messages_textbox.value=="" || send_messages_textbox.value==" " || !send_messages_textbox.value.replace(/\s/g, '').length){
 	}
 	else{
-		var msg_data = [id_sender, id_receiver, send_messages_textbox.value];
-		sendMessage(JSON.stringify(msg_data));
+    var msg_data = [id_sender, id_receiver, send_messages_textbox.value];
+    console.log(msg_data);
+    display_send_message(msg_data[2]);
+    sendMessage(JSON.stringify(msg_data));
 		//recuperer msg et id reveiver, mettre dans une string, envoyer à travers la socket
 	}
 }
@@ -36,7 +38,6 @@ function onMessage(msg){
 }
 
 function sendMessage(msg){
-	console.log("sending message");
 	console.log(msg);
 	//socket.send(msg);
 	socket.emit('message', msg);
@@ -66,7 +67,7 @@ function createSocket(){
 	socket.on('message', function(message) {
 		var jsonMSG = JSON.parse(message);
 		console.log(jsonMSG);
-	});
+	})
 }
 
 /**************************End of socket stuff**************************/
@@ -141,6 +142,25 @@ finalBtnOff.addEventListener('click', () => {
 
     }
 })
+
+const display_received_message = (messages) => {
+	const conversation_messages = document.querySelector('.conversation_messages')
+		let div_message = document.createElement("div")
+		div_message.setAttribute('class', 'message_conversation_other_student')
+		conversation_messages.insertBefore(div_message, conversation_messages.nextSibling)
+		div_message.innerHTML = messages.content
+	}
+}
+
+const display_send_message = (messages) => {
+	const conversation_messages = document.querySelector('.conversation_messages')
+		let div_message = document.createElement("div")
+		div_message.setAttribute('class', 'message_conversation_student')
+		conversation_messages.insertBefore(div_message, conversation_messages.nextSibling)
+		div_message.innerHTML = messages.content
+	}
+}
+
 
 
 const add_messages = (messages, other_student_id) => {
