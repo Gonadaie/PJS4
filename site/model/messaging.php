@@ -9,7 +9,7 @@ function insert_message($message, $sender_id, $receiver_id){
   $conv_id = get_id_conversation($sender_id, $receiver_id);
   $db = db_connect();
   if($db) {
-    $query = "INSERT INTO conversation (conversation_id,message_date, content, sender_id)
+    $query = "INSERT INTO message (conversation_id,message_date, content, sender_id)
     VALUES(:conversation, now(), :message, :id)";
     $statement = $db->prepare($query);
     $statement->bindValue(':conversation',$conv_id);
