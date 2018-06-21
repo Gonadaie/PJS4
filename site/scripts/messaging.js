@@ -7,6 +7,8 @@ const conversation_messages = document.querySelector('.conversation_messages')
 var send_messages_textbox = document.getElementById("send_messages_textbox");
 var id_receiver;
 var socket;
+var nb_msg = 0;
+
 
 createSocket();
 
@@ -161,7 +163,7 @@ const display_send_message = (messages) => {
 	const conversation_messages = document.querySelector('.conversation_messages')
 		let div_message = document.createElement("div")
 		div_message.setAttribute('class', 'message_conversation_student')
-		conversation_messages.insertBefore(div_message, conversation_messages.nextSibling)
+		conversation_messages.insertBefore(div_message, conversation_messages.childNodes[nb_msg].nextSibling)
 		div_message.innerHTML = messages.content
 	}
 
@@ -170,6 +172,7 @@ const display_send_message = (messages) => {
 
 const add_messages = (messages, other_student_id) => {
 	const conversation_messages = document.querySelector('.conversation_messages')
+  nb_msg = messages.length
 	for (let i = 0; i < messages.length; i++) {
 		let div_message = document.createElement("div")
 		console.log(messages[i].sender_id)
