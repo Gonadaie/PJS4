@@ -67,8 +67,3 @@ function getArrayStudents($student) {
 
 	return json_encode($tab_student);
 }
-
-
-SELECT S.surname, S.description, S.pic, S.email
-FROM STUDENT S
-WHERE S.student_id <> :student_id AND admin=false AND year = 1 AND S.score BETWEEN :score_min AND :score_max and S.student_id NOT IN (SELECT student_id_god_son FROM student_match WHERE student_id_god_father = :student_id and liked_by_god_father = 0 OR liked_by_god_father = 1)
