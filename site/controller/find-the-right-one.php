@@ -18,7 +18,9 @@ if(get_year_student($student_id)==1){  //student premiere annee
         }
         else{
             //affichage massage d'attendre que le parrain click aussi
-            error_log(print_r("Attendez que l'autre personne vous like",true));
+            error_log(print_r("Attendez que le parrain vous like",true));
+            error_log(print_r("id current student:" + $student_id,true));
+            error_log(print_r("id other student:" + $other_student_id,true));
         }
 
     }
@@ -39,7 +41,9 @@ else{ //student en deuxieme annee
         }
         else{
             //affichage massage d'attendre que le filleul click aussi
-            error_log(print_r("Attendez que l'autre personne vous like",true));
+            error_log(print_r("Attendez que le filleul vous like",true));
+            error_log(print_r("id current student:" + $student_id,true));
+            error_log(print_r("id other student:" + $other_student_id,true));
         }
 
     }
