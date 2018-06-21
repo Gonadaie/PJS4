@@ -32,6 +32,7 @@ function searchSocketWithId(id) {
 function addMessageToDB(message){
 	const querystring = require('querystring');                                                                                                                                                                                                
 	const https = require('https');
+	var jsonMSG = JSON.decode(message);
 	'sender=' + jsonMSG[0] + '&receiver=' + jsonMSG[1] + '&content=' + jsonMSG[2] 
 	var postData = querystring.stringify({
 			'sender' : jsonMSG[0],
