@@ -111,7 +111,7 @@ finalBtnOff.addEventListener('click', () => {
 	}
 	xhttp.open("POST", "../controller/find-the-right-one.php", true);
 	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	xhttp.send("other_student_id=" + other_student_id);
+	xhttp.send("other_student_id=" + id_receiver);
 
 	}
 })
