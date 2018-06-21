@@ -154,8 +154,8 @@ const display_received_message = (messages) => {
 	const conversation_messages = document.querySelector('.conversation_messages')
 		let div_message = document.createElement("div")
 		div_message.setAttribute('class', 'message_conversation_other_student')
-		conversation_messages.insertBefore(div_message, conversation_messages.nextSibling)
-		div_message.innerHTML = messages.content
+		conversation_messages.insertBefore(div_message, conversation_messages.childNodes[nb_msg].nextSibling)
+		div_message.innerHTML = messages
 	}
 
 
@@ -164,7 +164,7 @@ const display_send_message = (messages) => {
 		let div_message = document.createElement("div")
 		div_message.setAttribute('class', 'message_conversation_student')
 		conversation_messages.insertBefore(div_message, conversation_messages.childNodes[nb_msg].nextSibling)
-		div_message.innerHTML = messages.content
+		div_message.innerHTML = messages
 	}
 
 
