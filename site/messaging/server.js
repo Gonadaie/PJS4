@@ -2,19 +2,19 @@ var https = require('https');
 var fs = require('fs');
 
 var server = https.createServer({
-    key: fs.readFileSync('/etc/letsencrypt/live/skipti.fr/privkey.pem'),
-    cert: fs.readFileSync('/etc/letsencrypt/live/skipti.fr/fullchain.pem'),
-    ca: fs.readFileSync('/etc/letsencrypt/live/skipti.fr/fullchain.pem'),
-    requestCert: false,
-    rejectUnauthorized: false
+key: fs.readFileSync('/etc/letsencrypt/live/skipti.fr/privkey.pem'),
+cert: fs.readFileSync('/etc/letsencrypt/live/skipti.fr/fullchain.pem'),
+ca: fs.readFileSync('/etc/letsencrypt/live/skipti.fr/fullchain.pem'),
+requestCert: false,
+rejectUnauthorized: false
 }, function (){
-	console.log("merde");
-	fs.readFile('./index.html', 'utf-8', function(error, content) {
+console.log("merde");
+fs.readFile('./index.html', 'utf-8', function(error, content) {
 
-	res.writeHead(200, {"Content-Type": "text/html"});
+		res.writeHead(200, {"Content-Type": "text/html"});
 
-	res.end(content);
-	});
+		res.end(content);
+		});
 });
 
 var io = require('socket.io').listen(server);
@@ -26,37 +26,45 @@ function searchSocketWithId(id) {
 		console.log("ID DE LA SOCKET : " + sockets[i].id);
 		if(sockets[i].id === id) return sockets[i];
 	}
-	throw "Invalid id"
+//	throw "Invalid id"
 }
 
 function addMessageToDB(message){
-
-	var jsonMSG = JSON.decode(message);
+	const querystring = require('querystring');                                                                                                                                                                                                
+	const https = require('https');
+	var jsonMSG = JSON.parse(message);
+	'sender=' + jsonMSG[0] + '&receiver=' + jsonMSG[1] + '&content=' + jsonMSG[2] 
+	var postData = querystring.stringify({
+			'sender' : jsonMSG[0],
+			'receiver' : jsonMSG[1],
+			'content' : jsonMSG[2]
+			});
 
 	var options = {
-		hostname: 'localhost',
-		port: 80,
+		hostname: 'skipti.fr',
+		port: 443,
 		path: '/controller/insert_message.php',
 		method: 'POST',
 		headers: {
-		    'Content-Type': 'application/x-www-form-urlencoded',
+			'Content-Type': 'application/x-www-form-urlencoded',
+			'Content-Length': postData.length
 		}
-		key: fs.readFileSync('/etc/letsencrypt/live/skipti.fr/privkey.pem'),
-		cert: fs.readFileSync('/etc/letsencrypt/live/skipti.fr/fullchain.pem'),
-		ca: fs.readFileSync('/etc/letsencrypt/live/skipti.fr/fullchain.pem'),
-		requestCert: false,
-		rejectUnauthorized: false
 	};
-	var req = https.request(options, function(res) {
-			res.setEncoding('utf8');
-			res.on('data', function (body) {
-		});
-	});
 
-	req.on('error', function(e) {
-	});
-	// write data to request body
-	req.write('sender=' + jsonMSG[0] + '&receiver=' + jsonMSG[1] + '&content=' + jsonMSG[2]);
+	var req = https.request(options, (res) => {
+			console.log('statusCode:', res.statusCode);
+			console.log('headers:', res.headers);
+
+			res.on('data', (d) => {
+					process.stdout.write(d);
+					});
+			});
+
+	req.on('error', (e) => {
+			console.error(e);
+			});
+
+	req.write(postData);
 	req.end();
 }
 
@@ -80,10 +88,11 @@ io.sockets.on('connection', function (socket) {
 			}
 
 			var id_dest = msg[1];
+			console.log("Adding message to DB");
+			addMessageToDB(message);
+			console.log("Message added succesfully");
+
 			try {
-				console.log("Adding message to DB");
-				addMessageToDB(message);
-				console.log("Message added succesfully");
 				var dest = searchSocketWithId(id_dest);
 				console.log('jenvoie a la socket id ' + dest.id);
 				dest.emit('message' , message);
