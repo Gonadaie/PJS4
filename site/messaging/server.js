@@ -26,7 +26,7 @@ function searchSocketWithId(id) {
 		console.log("ID DE LA SOCKET : " + sockets[i].id);
 		if(sockets[i].id === id) return sockets[i];
 	}
-	throw "Invalid id"
+//	throw "Invalid id"
 }
 
 function addMessageToDB(message){
@@ -41,7 +41,7 @@ function addMessageToDB(message){
 			});
 
 	var options = {
-		hostname: 'localhost',
+		hostname: 'skipti.fr',
 		port: 443,
 		path: '/controller/insert_message.php',
 		method: 'POST',
