@@ -87,10 +87,11 @@ io.sockets.on('connection', function (socket) {
 			}
 
 			var id_dest = msg[1];
+			console.log("Adding message to DB");
+			addMessageToDB(message);
+			console.log("Message added succesfully");
+
 			try {
-				console.log("Adding message to DB");
-				addMessageToDB(message);
-				console.log("Message added succesfully");
 				var dest = searchSocketWithId(id_dest);
 				console.log('jenvoie a la socket id ' + dest.id);
 				dest.emit('message' , message);
