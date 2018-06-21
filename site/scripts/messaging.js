@@ -151,6 +151,7 @@ finalBtnOff.addEventListener('click', () => {
 })
 
 const display_received_message = (messages) => {
+  nb_msg++;
 	const conversation_messages = document.querySelector('.conversation_messages')
 		let div_message = document.createElement("div")
 		div_message.setAttribute('class', 'message_conversation_other_student')
@@ -160,6 +161,7 @@ const display_received_message = (messages) => {
 
 
 const display_send_message = (messages) => {
+  nb_msg++;
 	const conversation_messages = document.querySelector('.conversation_messages')
 		let div_message = document.createElement("div")
 		div_message.setAttribute('class', 'message_conversation_student')
