@@ -56,7 +56,6 @@ function addMessageToDB(message){
 
 io.sockets.on('connection', function (socket) {
 		console.log('Client connected to the messaging server !');
-		socket.emit('message', 'You are connected');
 		socket.isUnknown = true;
 		sockets.push(socket);
 
@@ -69,16 +68,15 @@ io.sockets.on('connection', function (socket) {
 			console.log("un message !!!");
 			console.log(msg);
 			if(socket.isUnknown){
-				//Check if theres a match between the two ids
+				//TODO : Check if theres a match between the two ids
 				socket.id = msg[0];	
 			}
-			else {
-				var id_dest = msg[1];
-				try {
-					addMessageToDB(message);
-					searchSocketWithId(id_dest).emit('message' , message);
-				} catch(e) {}
-			}	
+
+			var id_dest = msg[1];
+			try {
+				addMessageToDB(message);
+				searchSocketWithId(id_dest).emit('message' , message);
+			} catch(e) {}
 		});
 
 		socket.on('disconnect', function(data) {
