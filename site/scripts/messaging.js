@@ -109,7 +109,7 @@ finalBtnOff.addEventListener('click', () => {
 			let resp = this.responseText.replace(/\n/g, "");
 			console.log(resp);
 			if(resp === 'FINAL')
-				window.location("https://skipti.fr/view/final.php");
+				window.location = "https://skipti.fr/view/final.php";
 		}
 
 	}
