@@ -22,7 +22,8 @@ if(get_year_student($student_id)==1){  //student premiere annee
             }
 
             //+ affichage page finale
-            header("Location: https://skipti.fr/view/final.php");
+            //header("Location: https://skipti.fr/view/final.php");
+            echo "FINAL";
 
         }
         else{
@@ -46,7 +47,8 @@ else{ //student en deuxieme annee
             }
 
             //+ affichage page finale
-            header("../view/final.php");
+            //header("../view/final.php");
+            echo "FINAL";
         }
         else{
             //affichage massage d'attendre que le filleul click aussi

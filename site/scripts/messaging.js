@@ -106,6 +106,9 @@ finalBtnOff.addEventListener('click', () => {
 
 	xhttp.onreadystatechange = function () {
 		if (this.readyState == 4 && this.status == 200) {
+			let resp = this.responseText;
+			if(resp === 'FINAL')
+				window.location("../view/final.php");
 		}
 
 	}
