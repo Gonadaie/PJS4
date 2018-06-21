@@ -66,11 +66,6 @@ $student = $info_student->student;
 			<input type="file" accept="image/x-png, image/gif, image/jpeg" name="fileToUpload" id="fileToUpload">
 		</form>
 
-
-
-
-
-
 		<div class="cloud_profile"><img src="../images/cloud.svg" alt=""></div>
 		<div class="year_email_profile">
 			<span class="DUT">DUT
@@ -80,9 +75,9 @@ $student = $info_student->student;
 		<div class="delete_user"><a href="http://skipti.fr/site/controller/delete_student.php">Supprimer mon profil</a></div>
 		<div class="stats_profile">
 			<div>
-				<?= $info_student->match ?> matchs</div>
+				<?= $info_student->match ?> match(s)</div>
 			<div>
-				<?= $info_student->couple ?> parainage</div>
+				<?= $info_student->couple ?> parrainage(s)</div>
 		</div>
 
 		<div class="name_profile">

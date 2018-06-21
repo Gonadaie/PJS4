@@ -68,7 +68,7 @@ require("../controller/swipe.php");
 					<div><img src="../images/sad_student.svg" alt="no more profile"></div>
 				</div>
 				<div class="no_more_profile_sorry">
-					Vous avez déjà vu tous les profiles que vous pouviez voir.
+					Vous avez déjà vu tous les profils que vous pouviez voir.
 				</div>
 				<div class="swipe_more_btn">
 					<div class="reset_like"><a>Voir encore</a></div>
