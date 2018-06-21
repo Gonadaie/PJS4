@@ -6,7 +6,9 @@ const finalBtnOn = document.querySelector('.conversation_final_btn_on')
 const conversation_messages = document.querySelector('.conversation_messages')
 var send_messages_textbox = document.getElementById("send_messages_textbox");
 var id_receiver;
+var socket;
 
+createSocket();
 
 send_messages_textbox.addEventListener("keydown", function (e) {
     if (e.keyCode === 13) {
@@ -26,7 +28,7 @@ function checkMessage(e){
 	}
 }
 /***************************Socket stuff for message*********************/
-var socket;
+
 
 function onMessage(msg){
 	console.log(msg);
@@ -40,7 +42,7 @@ function sendMessage(msg){
 }
 
 function createSocket(){
-	url='skipti.fr:8080';
+	var url='ws://skipti.fr:8080';
 	socket = new WebSocket(url);
   var msg_data = [id_sender, id_receiver];
   sendMessage(JSON.stringify(msg_data));
@@ -96,7 +98,7 @@ const fetch_messages = (other_student_id) => {
 			var response = JSON.parse(this.responseText);
 			console.log(response);
 			add_messages(response, other_student_id);
-      createSocket();
+
 		}
 
 	}
