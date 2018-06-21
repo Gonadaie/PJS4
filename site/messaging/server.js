@@ -1,8 +1,6 @@
 var https = require('https');
 var fs = require('fs');
 
-var server = https.createServer(function(req, res) {
-
 var server = https.createServer({
     key: fs.readFileSync('/etc/letsencrypt/live/skipti.fr/privkey.pem'),
     cert: fs.readFileSync('/etc/letsencrypt/live/skipti.fr/fullchain.pem'),
