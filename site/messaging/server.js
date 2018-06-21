@@ -33,7 +33,6 @@ function addMessageToDB(message){
 
 	var jsonMSG = JSON.decode(message);
 
-	var https = require("https");
 	var options = {
 		hostname: 'localhost',
 		port: 80,
@@ -42,6 +41,11 @@ function addMessageToDB(message){
 		headers: {
 		    'Content-Type': 'application/x-www-form-urlencoded',
 		}
+		key: fs.readFileSync('/etc/letsencrypt/live/skipti.fr/privkey.pem'),
+		cert: fs.readFileSync('/etc/letsencrypt/live/skipti.fr/fullchain.pem'),
+		ca: fs.readFileSync('/etc/letsencrypt/live/skipti.fr/fullchain.pem'),
+		requestCert: false,
+		rejectUnauthorized: false
 	};
 	var req = https.request(options, function(res) {
 			res.setEncoding('utf8');
