@@ -700,6 +700,7 @@ input[type="checkbox"]:checked+label::before {
 
 .first_foreground {
 	z-index: 1000;
+	margin-top: 10vw;
 }
 
 
