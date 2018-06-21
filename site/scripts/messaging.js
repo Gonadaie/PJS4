@@ -23,7 +23,6 @@ function checkMessage(e){
 	}
 	else{
 		var msg_data = [id_sender, id_receiver, send_messages_textbox.value];
-		console.log(msg_data);
 		try{
 			display_send_message(msg_data[2]);
 		}catch(error){
@@ -36,15 +35,7 @@ function checkMessage(e){
 /***************************Socket stuff for message*********************/
 
 
-function onMessage(msg){
-	console.log(msg);
-	var jsonMsg = JSON.parse(msg);
-	console.log(jsonMsg);
-}
-
 function sendMessage(msg){
-	console.log(msg);
-	//socket.send(msg);
 	socket.emit('message', msg);
 }
 
@@ -52,8 +43,9 @@ function createSocket(){
 	socket = io.connect('https://skipti.fr:8080');
 	socket.on('message', function(message) {
 		var jsonMSG = JSON.parse(message);
-		console.log(jsonMSG);
-    display_received_message(jsonMSG[2]);
+		if(jsonMSG[0] == id_receiver){
+    	display_received_message(jsonMSG[2]);
+	}
 	})
 }
 
