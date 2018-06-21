@@ -1,9 +1,25 @@
-var http = require('http');
+var https = require('https');
 var fs = require('fs');
 
-var server = http.createServer(function(req, res) {});
-var io = require('socket.io').listen(server);
+var server = https.createServer(function(req, res) {
 
+var server = https.createServer({
+    key: fs.readFileSync('/etc/letsencrypt/live/skipti.fr/privkey.pem'),
+    cert: fs.readFileSync('/etc/letsencrypt/live/skipti.fr/fullchain.pem'),
+    ca: fs.readFileSync('/etc/letsencrypt/live/skipti.fr/fullchain.pem'),
+    requestCert: false,
+    rejectUnauthorized: false
+}, function (){
+	console.log("merde");
+	fs.readFile('./index.html', 'utf-8', function(error, content) {
+
+	res.writeHead(200, {"Content-Type": "text/html"});
+
+	res.end(content);
+	});
+});
+
+var io = require('socket.io').listen(server);
 var sockets = [];
 
 function searchSocketWithId(id) {
@@ -17,7 +33,7 @@ function addMessageToDB(message){
 
 	var jsonMSG = JSON.decode(message);
 
-	var http = require("http");
+	var https = require("https");
 	var options = {
 		hostname: 'localhost',
 		port: 80,
@@ -27,7 +43,7 @@ function addMessageToDB(message){
 		    'Content-Type': 'application/x-www-form-urlencoded',
 		}
 	};
-	var req = http.request(options, function(res) {
+	var req = https.request(options, function(res) {
 			res.setEncoding('utf8');
 			res.on('data', function (body) {
 		});
