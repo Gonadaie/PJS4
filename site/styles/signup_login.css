@@ -359,7 +359,7 @@ input[type="checkbox"]:checked+label::before {
 	display: none;
 }
 
-.really_no_more_profile{
+.really_no_more_profile {
 	display: none;
 }
 
@@ -373,7 +373,6 @@ input[type="checkbox"]:checked+label::before {
 	color: #707070;
 	font-size: 2vw;
 }
-
 
 .no_more_profile_sorry {
 	margin-top: 5%;
@@ -533,6 +532,10 @@ input[type="checkbox"]:checked+label::before {
 	z-index: 9;
 }
 
+.description_profile.new_description {
+	z-index: 0;
+}
+
 
 /***************************************Match**********************************************/
 
@@ -678,7 +681,7 @@ input[type="checkbox"]:checked+label::before {
 
 .edit_profile {
 	position: absolute;
-	top: 35vw;
+	top: 40vw;
 	left: 40vw;
 }
 
@@ -697,6 +700,10 @@ input[type="checkbox"]:checked+label::before {
 
 .modify-image img {
 	transition: all linear 0.2s;
+}
+
+.first_foreground {
+	z-index: 1000;
 }
 
 

@@ -21,9 +21,8 @@ function checkMessage(e){
 	if(send_messages_textbox.value==null || send_messages_textbox.value=="" || send_messages_textbox.value==" " || !send_messages_textbox.value.replace(/\s/g, '').length){
 	}
 	else{
-    var msg_data = [id_sender, id_receiver, send_messages_textbox.value];
-    console.log(msg_data);
-    sendMessage(JSON.stringify(msg_data));
+		var msg_data = [id_sender, id_receiver, send_messages_textbox.value];
+		sendMessage(JSON.stringify(msg_data));
 		//recuperer msg et id reveiver, mettre dans une string, envoyer à travers la socket
 	}
 }
@@ -37,11 +36,14 @@ function onMessage(msg){
 }
 
 function sendMessage(msg){
+	console.log("sending message");
 	console.log(msg);
 	//socket.send(msg);
+	socket.emit('message', msg);
 }
 
 function createSocket(){
+/*	url='skipti.fr:8080';
 	var url='ws://skipti.fr:8080';
 	socket = new WebSocket(url);
   var msg_data = [id_sender, id_receiver];
@@ -58,7 +60,13 @@ function createSocket(){
 					if (onopen !== undefined){
 	    			onopen();
 					}
-  };
+  };*/
+
+	socket = io.connect('https://skipti.fr:8080');
+	socket.on('message', function(message) {
+		var jsonMSG = JSON.parse(message);
+		console.log(jsonMSG);
+	});
 }
 
 /**************************End of socket stuff**************************/
