@@ -105,17 +105,17 @@ finalBtnOff.addEventListener('click', () => {
 
 
 	xhttp.onreadystatechange = function () {
-		if (this.readyState == 4 && this.status == 200) {
+		if (this.readyState === 4 && this.status === 200) {
 			let resp = this.responseText;
+			console.log(resp);
 			if(resp === 'FINAL')
-				window.location("../view/final.php");
+				window.location("https://skipti.fr/view/final.php");
 		}
 
 	}
 	xhttp.open("POST", "../controller/find-the-right-one.php", true);
 	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	xhttp.send("other_student_id=" + id_receiver);
-
 	}
 })
 
