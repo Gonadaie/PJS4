@@ -67,7 +67,7 @@ function addMessageToDB(message){
 }
 
 io.sockets.on('connection', function (socket) {
-		console.log('Client connected to the messaging server !');
+		console.log('Client connected');
 		socket.isUnknown = true;
 		sockets.push(socket);
 
@@ -77,7 +77,7 @@ io.sockets.on('connection', function (socket) {
 		socket.on('message', function (message) {
 			//Expect the socket to identify itself
 			var msg = JSON.parse(message);
-			console.log(msg);
+			console.log("Received a messaged from student " + socket.id_client);
 			if(socket.isUnknown){
 				//TODO : Check if theres a match between the two ids
 				socket.id_client = msg[0];
@@ -91,8 +91,8 @@ io.sockets.on('connection', function (socket) {
 
 			try {
 				var dest = searchSocketWithId(id_dest);
-				console.log('jenvoie a la socket id ' + dest.id_client);
 				dest.emit('message' , message);
+				console.log("Message sent to destination browser");
 			} catch(e) {console.log("Client socket could not be found");}
 		});
 
