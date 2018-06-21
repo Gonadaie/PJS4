@@ -69,13 +69,16 @@ io.sockets.on('connection', function (socket) {
 			console.log(msg);
 			if(socket.isUnknown){
 				//TODO : Check if theres a match between the two ids
-				socket.id = msg[0];	
+				socket.id = msg[0];
+				socket.isUnknown = false;
 			}
 
 			var id_dest = msg[1];
 			try {
 				addMessageToDB(message);
-				searchSocketWithId(id_dest).emit('message' , message);
+				var dest = searchSocketWithId(id_dest);
+				console.log('jenvoie a la socket id ' + dest.id);
+				dest.emit('message' , message);
 			} catch(e) {}
 		});
 
