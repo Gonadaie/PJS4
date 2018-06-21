@@ -106,7 +106,7 @@ finalBtnOff.addEventListener('click', () => {
 
 	xhttp.onreadystatechange = function () {
 		if (this.readyState === 4 && this.status === 200) {
-			let resp = this.responseText;
+			let resp = this.responseText.replace(/\n/g, "");
 			console.log(resp);
 			if(resp === 'FINAL')
 				window.location("https://skipti.fr/view/final.php");
