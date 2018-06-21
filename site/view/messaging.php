@@ -130,6 +130,7 @@ EOD;
 				</div>
 			</div>
 		</div>
+		<script src="/socket.io/socket.io.js"></script>
 		<script src="../scripts/messaging.js"></script>
 	</body>
 
