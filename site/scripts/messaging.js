@@ -138,7 +138,7 @@ finalBtnOff.addEventListener('click', () => {
         }
         xhttp.open("POST", "../controller/find-the-right-one.php", true);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xhttp.send("other_student_id=" + id_receiver);
+        xhttp.send("other_student_id=" + other_student_id);
 
     }
 })
@@ -150,7 +150,7 @@ const display_received_message = (messages) => {
 		conversation_messages.insertBefore(div_message, conversation_messages.nextSibling)
 		div_message.innerHTML = messages.content
 	}
-}
+
 
 const display_send_message = (messages) => {
 	const conversation_messages = document.querySelector('.conversation_messages')
@@ -159,7 +159,7 @@ const display_send_message = (messages) => {
 		conversation_messages.insertBefore(div_message, conversation_messages.nextSibling)
 		div_message.innerHTML = messages.content
 	}
-}
+
 
 
 
