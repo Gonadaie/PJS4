@@ -83,7 +83,7 @@ io.sockets.on('connection', function (socket) {
 				var dest = searchSocketWithId(id_dest);
 				console.log('jenvoie a la socket id ' + dest.id);
 				dest.emit('message' , message);
-			} catch(e) {console.log("Client socket could not be found")}
+			} catch(e) {console.log("Client socket could not be found");}
 		});
 
 		socket.on('disconnect', function(data) {
