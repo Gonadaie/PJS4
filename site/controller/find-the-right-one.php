@@ -17,15 +17,17 @@ if(get_year_student($student_id)==1){  //student premiere annee
             updateFinal($student_id,$other_student_id);
             bloquerFilleul($student_id);
 
+            if(get_number_filleuls($other_student_id)>=4){
+                bloquerParrain($other_student_id);
+            }
+
             //+ affichage page finale
-            header("../view/final.php");
+            header("Location: https://skipti.fr/view/final.php");
 
         }
         else{
             //affichage massage d'attendre que le parrain click aussi
             error_log(print_r("Attendez que le parrain vous like",true));
-            error_log(print_r("id current student:" . $student_id,true));
-            error_log(print_r("id other student:" . $other_student_id,true));
         }
 
     }
@@ -37,8 +39,9 @@ else{ //student en deuxieme annee
         if(getFinalByGodSon($student_id,$other_student_id)==true){
             updateFinal($student_id,$other_student_id);
 
+            bloquerFilleul($other_student_id);
             //verifier si nb filleul<4
-            if(get_number_filleuls()>=4){
+            if(get_number_filleuls($student_id)>=4){
                 bloquerParrain($student_id);
             }
 
@@ -48,8 +51,6 @@ else{ //student en deuxieme annee
         else{
             //affichage massage d'attendre que le filleul click aussi
             error_log(print_r("Attendez que le filleul vous like",true));
-            error_log(print_r("id current student:" + $student_id,true));
-            error_log(print_r("id other student:" + $other_student_id,true));
         }
 
     }
