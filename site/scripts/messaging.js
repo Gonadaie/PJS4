@@ -38,11 +38,6 @@ function checkMessage(e){
 /***************************Socket stuff for message*********************/
 
 
-function onMessage(msg){
-	console.log(msg);
-  var jsonMsg = JSON.parse(msg);
-  console.log(jsonMsg);
-}
 
 function sendMessage(msg){
 	console.log(msg);
@@ -74,6 +69,7 @@ function createSocket(){
 	socket.on('message', function(message) {
 		var jsonMSG = JSON.parse(message);
 		console.log(jsonMSG);
+    display_received_message(jsonMSG[2]);
 	})
 }
 
