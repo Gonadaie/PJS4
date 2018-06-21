@@ -16,6 +16,19 @@ function insert_message($message, $sender_id, $receiver_id){
     $statement->bindValue(':message',encrypt_data($message));
     $statement->bindValue(':id',$sender_id);
     $statement->execute();
+
+    update_con($conv_id);
+
+  }
+}
+
+function update_con($conv_id){
+  $db = db_connect();
+  if($db) {
+    $query = "UPDATE conversation set last_message = now() where conversation_id = :conversation";
+    $statement = $db->prepare($query);
+    $statement->bindValue(':conversation',$conv_id);
+    $statement->execute();
   }
 }
 
