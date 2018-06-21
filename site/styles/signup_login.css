@@ -532,6 +532,10 @@ input[type="checkbox"]:checked+label::before {
 	z-index: 9;
 }
 
+.description_profile.new_description {
+	z-index: 0;
+}
+
 
 /***************************************Match**********************************************/
 
@@ -677,7 +681,7 @@ input[type="checkbox"]:checked+label::before {
 
 .edit_profile {
 	position: absolute;
-	top: 35vw;
+	top: 40vw;
 	left: 40vw;
 }
 
@@ -700,7 +704,6 @@ input[type="checkbox"]:checked+label::before {
 
 .first_foreground {
 	z-index: 1000;
-	margin-top: 10vw;
 }
 
 
