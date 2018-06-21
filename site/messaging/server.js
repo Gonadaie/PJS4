@@ -21,7 +21,7 @@ var io = require('socket.io').listen(server);
 var sockets = [];
 
 function searchSocketWithId(id) {
-	for(var i = 0; i < sockets.lenght; ++i) {
+	for(var i = 0; i < sockets.lenght-1; ++i) {
 		console.log(sockets[i]);
 		console.log("ID DE LA SOCKET : " + sockets[i].id);
 		if(sockets[i].id === id) return sockets[i];
