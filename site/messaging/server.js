@@ -7,7 +7,7 @@ var io = require('socket.io').listen(server);
 var sockets = [];
 
 function searchSocketWithId(id) {
-	for(let i = 0; i < sockets.lenght; ++i) {
+	for(var i = 0; i < sockets.lenght; ++i) {
 		if(sockets[i].id === id) return sockets[i];
 	}
 	throw "Invalid id"
@@ -46,15 +46,18 @@ io.sockets.on('connection', function (socket) {
 		socket.isUnknown = true;
 		sockets.push(socket);
 
+		/**
+ * 		 * A message should be composed like this : 
+ * 		 */
 		socket.on('message', function (message) {
 			//Expect the socket to identify itself
-			let msg = JSON.parse(message);
+			var msg = JSON.parse(message);
 			if(socket.isUnknown){
 				//Check if theres a match between the two ids
 				socket.id = msg[0];	
 			}
 			else {
-				let id_dest = msg[1];
+				var id_dest = msg[1];
 				try {
 					addMessageToDB(message);
 					searchSocketWithId(id_dest).emit('message' , message);
