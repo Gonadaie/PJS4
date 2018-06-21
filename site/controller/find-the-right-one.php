@@ -5,8 +5,8 @@ require ('../model/get_student.php');
 $student_id = $_SESSION['id'];
 $other_student_id = $_POST['other_student_id'];
 
-error_log(print_r("id current student:" + $student_id,true));
-error_log(print_r("id other student:" + $other_student_id,true));
+error_log(print_r("id current student:" . $student_id,true));
+error_log(print_r("id other student:" . $other_student_id,true));
 
 if(get_year_student($student_id)==1){  //student premiere annee
     if(get_number_click_itsTheRightOne($student_id)<1)   { // ok, droit de clicker
@@ -22,8 +22,8 @@ if(get_year_student($student_id)==1){  //student premiere annee
         else{
             //affichage massage d'attendre que le parrain click aussi
             error_log(print_r("Attendez que le parrain vous like",true));
-            error_log(print_r("id current student:" + $student_id,true));
-            error_log(print_r("id other student:" + $other_student_id,true));
+            error_log(print_r("id current student:" . $student_id,true));
+            error_log(print_r("id other student:" . $other_student_id,true));
         }
 
     }

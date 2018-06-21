@@ -96,7 +96,7 @@ const fetch_messages = (other_student_id) => {
 
 finalBtnOff.addEventListener('click', () => {
 	if (confirm("Êtes-vous sûr de vouloir choisir cette personne comme parrain/filleul?")){
-
+	console.log("je passe ici");
 	finalBtnOff.style.display = 'none';
 	var finalBtnOn = document.querySelector('.conversation_final_btn_on');
 	finalBtnOn.style.display = 'block';
