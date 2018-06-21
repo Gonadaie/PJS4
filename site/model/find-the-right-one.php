@@ -5,13 +5,14 @@ function get_number_click_itsTheRightOne($id){
     if($db) {
         if(get_year_student($id)==1)
         {
-            $query = "SELECT COUNT(*) FROM STUDENT_MATCH S WHERE student_id_god_son = :student_id  AND final_by_get_son=true";
+            $query = "SELECT COUNT(*) FROM STUDENT_MATCH  WHERE student_id_god_son = :student_id  AND final_by_god_son=true";
+            //SELECT COUNT(*) FROM STUDENT_MATCH WHERE student_id_god_son = 1  AND final_by_god_son=true
 
 
         }
         else
         {
-            $query = "SELECT COUNT(*) FROM STUDENT_MATCH  WHERE student_id_god_father = :student_id  AND final_by_get_fathers=true";
+            $query = "SELECT COUNT(*) FROM STUDENT_MATCH  WHERE student_id_god_father = :student_id  AND final_by_god_father=true";
 
         }
         $statement = $db->prepare($query);
