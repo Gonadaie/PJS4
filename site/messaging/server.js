@@ -21,12 +21,10 @@ var io = require('socket.io').listen(server);
 var sockets = [];
 
 function searchSocketWithId(id) {
-	for(var i = 0; i < sockets.lenght-1; ++i) {
-		console.log(sockets[i]);
-		console.log("ID DE LA SOCKET : " + sockets[i].id);
-		if(sockets[i].id === id) return sockets[i];
+	for(var i = 0; i < sockets.length; ++i) {
+		if(sockets[i].id_client === id) return sockets[i];
 	}
-//	throw "Invalid id"
+	throw "Invalid id"
 }
 
 function addMessageToDB(message){
@@ -79,11 +77,10 @@ io.sockets.on('connection', function (socket) {
 		socket.on('message', function (message) {
 			//Expect the socket to identify itself
 			var msg = JSON.parse(message);
-			console.log("un message !!!");
 			console.log(msg);
 			if(socket.isUnknown){
 				//TODO : Check if theres a match between the two ids
-				socket.id = msg[0];
+				socket.id_client = msg[0];
 				socket.isUnknown = false;
 			}
 
@@ -94,7 +91,7 @@ io.sockets.on('connection', function (socket) {
 
 			try {
 				var dest = searchSocketWithId(id_dest);
-				console.log('jenvoie a la socket id ' + dest.id);
+				console.log('jenvoie a la socket id ' + dest.id_client);
 				dest.emit('message' , message);
 			} catch(e) {console.log("Client socket could not be found");}
 		});
