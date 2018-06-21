@@ -37,10 +37,11 @@ function onMessage(msg){
 function sendMessage(msg){
 	console.log(msg);
 	//socket.send(msg);
+	socket.emit('message', msg);
 }
 
 function createSocket(){
-	url='skipti.fr:8080';
+/*	url='skipti.fr:8080';
 	socket = new WebSocket(url);
   var msg_data = [id_sender, id_receiver];
   sendMessage(JSON.stringify(msg_data));
@@ -56,7 +57,13 @@ function createSocket(){
 					if (onopen !== undefined){
 	    			onopen();
 					}
-  };
+  };*/
+
+	socket = io.connect('https://skipti.fr:8080');
+	socket.on('message', function(message) {
+		var jsonMSG = JSON.parse(message);
+		console.log(jsonMSG);
+	})
 }
 
 /**************************End of socket stuff**************************/
