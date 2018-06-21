@@ -23,7 +23,12 @@ function checkMessage(e){
 	else{
     var msg_data = [id_sender, id_receiver, send_messages_textbox.value];
     console.log(msg_data);
-    display_send_message(msg_data[2]);
+    try{
+      display_send_message(msg_data[2]);
+    }catch(error){
+      console.log(error);
+    }
+
     sendMessage(JSON.stringify(msg_data));
 		//recuperer msg et id reveiver, mettre dans une string, envoyer à travers la socket
 	}
