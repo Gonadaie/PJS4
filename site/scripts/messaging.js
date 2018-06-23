@@ -43,9 +43,7 @@ function createSocket(){
 	socket = io.connect('https://skipti.fr:8080');
 	socket.on('message', function(message) {
 		var jsonMSG = JSON.parse(message);
-		if(jsonMSG[0] != id_receiver){
     	display_received_message(jsonMSG[2]);
-	}
 	})
 }
 
