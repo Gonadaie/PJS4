@@ -8,7 +8,6 @@ ca: fs.readFileSync('/etc/letsencrypt/live/skipti.fr/fullchain.pem'),
 requestCert: false,
 rejectUnauthorized: false
 }, function (){
-console.log("merde");
 fs.readFile('./index.html', 'utf-8', function(error, content) {
 
 		res.writeHead(200, {"Content-Type": "text/html"});

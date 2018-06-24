@@ -122,7 +122,7 @@ function updateFlagLecture($conversation_id) {
 //new message avec tout dedans
 
 
-// add a message in db  : insert into message (conversation_id, message_date,content,sender_id) values (1,now(),'bite inchallah ',14);
+// add a message in db  : insert into message (conversation_id, message_date,content,sender_id) values (1,now(),'inchallah ',14);
 
 //SELECT C.conversation_id, S.pic, S.surname, M1.* FROM message M1, conversation C INNER JOIN student S ON C.student_2=S.student_id  WHERE C.student_1=6 AND M1.message_id =(SELECT COALESCE(MAX(message_id),'1') FROM message M where M.conversation_id=C.conversation_id );
 
