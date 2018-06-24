@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html lang="fr">
+
+	<head>
+		<meta charset="utf-8" />
+		<title>Admin-Matcher les non-inscrits</title>
+		<link rel="stylesheet" href="../styles/add_list.css">
+		<link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	</head>
+	<body>
+		<div id="back_adminpage">
+			<a href="session_admin.php" class="backmenu"> < Retour </a>
+		</div>
+		<div id="submit_form">
+			<div id="title_list">Matcher les étudiants non-inscrits</div>
+			<div id ="import_instruction">
+				Il faut importer deux fichier ".CSV" contenant la liste des parties<br>
+				des emails étudiants de première et deuxiéme année<br>
+				Exemple : "alice.capelle" <br>
+				<span>Aucunes vérifications sur le format ne sera effectué</span>
+			</div>
+			<div id="form_div"style="margin-left : 15%;">
+				<form action="../controller/random_match_unregistered.php" method="post" enctype="multipart/form-data">
+					<input type="file" name="fileyear1" id="file" class="list_input" onchange="setfilename()"></input>
+					<label id="label_input" for="file">DUT 1</label><br>
+					<input type="file" name="fileyear2" id="file2" class="list_input" onchange="setfilename2()"></input>
+					<label id="label_input2" for="file2">DUT2</label><br>
+					<input type="submit" name="submit" id="list_submit1" style="margin-left :5%;display:none;"></input>
+				</form>
+			</div>
+		</div>
+	</body>
+	<script src="../scripts/session_admin.js"></script>
+</html>

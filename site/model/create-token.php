@@ -1,26 +1,23 @@
 <?php
 
-require_once("db_connect.php");
+
+require_once("get_student.php");
+require_once("data_crypter.php");
 
 function create_token($token_hash, $student_mail) {
-	
+
 	$db = db_connect();
 
 	if($db){
-		$id_query = "SELECT id_student FROM student WHERE email = :mail";
-		$id_statement = $db->prepare($id_query);
-		$id_statement->bindValue(":mail", $student_mail);
-		$result_id_statement = $id_statement->execute();
 
-		$student_id;
-		while($row = $id_statement->fetch(PDO::FETCH_ASSOC))
-			$student_id = $row["id_student"];
+		$student = get_student_by_email_no_adj($student_mail);
+		$id = $student->getId();
 
-		$insert_query = "INSERT INTO token values (:date, :token, true, :id)";
+		$insert_query = "INSERT INTO token_on_create (birth, hash_oncr, is_alive, student_id) values (:date, :hash, true, :id)";
 		$insert_statement = $db->prepare($insert_query);
 		$insert_statement->bindValue(":date", date("Y-m-d"));
-		$insert_statement->bindValue(":token", $token_hash);
-		$insert_statement->bindValue(":id", $student_id);
+		$insert_statement->bindValue(":hash", $token_hash);
+		$insert_statement->bindValue(":id", $id);
 		$insert_statement->execute();
 	}
 }

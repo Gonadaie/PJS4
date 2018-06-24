@@ -1,45 +1,56 @@
 <?php
-require("db_connect.php");
-require("student.php");
 
-function getArrayStudents() {
-	
+function reset_dislike($student){
+	$db = db_connect();
+
+	if($db) {
+	if($student->getYear() == 1){
+		$query = "UPDATE student_match SET liked_by_god_son = -1 WHERE result = false AND student_id_god_son = :id and liked_by_god_son<>1";
+		$statement = $db->prepare($query);
+		$statement->bindValue(':id', $student->getId());
+		$statement->execute();
+	}
+	else{
+		$query = "UPDATE student_match SET liked_by_god_father = -1 WHERE result = false AND student_id_god_father = :id and liked_by_god_father<>1";
+		$statement = $db->prepare($query);
+		$statement->bindValue(':id', $student->getId());
+		$statement->execute();
+	}
+}
+$res = $statement->rowCount();
+error_log(print_r($res, TRUE));
+return $res;
+}
+
+
+function getArrayStudents($student) {
+
 	$db = db_connect();
 	$tab_student = array();
 	if($db) {
 
-		$query_get_score = "SELECT score, year  
-			FROM student
-			WHERE id_student = :student_id";
-		$statement_score = $db->prepare($query_get_score);
-		$statement_score->bindValue(':student_id', $_SESSION['id']); 
-		$statement_score->execute();
+		$score_min = $student->getScore() - 10;
+		$score_max = $student->getScore() + 10;
 
-		while($row = $statement_score->fetch(PDO::FETCH_ASSOC)){
-			$score_student = $row['score'];
-			$student_year = $row['year'];
-		}
-
-		$score_min = $score_student - 10;
-		$score_max = $score_student + 10;
-
-		if($student_year == 1){
-			$query_get_student = 
+		if($student->getYear() == 1){
+			$query_get_student =
 			"SELECT A.wording as adj1, A2.wording as adj2, A3.wording as adj3, S.surname, S.description, S.pic, S.email
 			FROM ADJECTIVE A, ADJECTIVE A2, ADJECTIVE A3, STUDENT S
-			WHERE S.id_student <> :student_id AND year = 2 AND S.score BETWEEN :score_min AND :score_max AND S.adjective_1 = 				A.id_adjective AND S.adjective_2 = A2.id_adjective AND S.adjective_3 = A3.id_adjective and S.id_student NOT IN (SELECT id_student_god_father FROM match WHERE id_student_god_son = :student_id and liked_by_god_son = true)"; 
+			WHERE S.student_id <> :student_id AND admin=false AND year = 2 AND (S.score BETWEEN :score_min AND :score_max)
+			AND S.adjective_1 = A.id_adjective AND S.adjective_2 = A2.id_adjective AND S.adjective_3 = A3.id_adjective and S.student_id NOT IN (SELECT student_id_god_father FROM student_match WHERE student_id_god_son = :student_id and (liked_by_god_son = 0 OR liked_by_god_son = 1))";
 		}
 		else {
-			$query_get_student = 
+			$query_get_student =
 			"SELECT A.wording as adj1, A2.wording as adj2, A3.wording as adj3, S.surname, S.description, S.pic, S.email
 			FROM ADJECTIVE A, ADJECTIVE A2, ADJECTIVE A3, STUDENT S
-			WHERE S.id_student <> :student_id AND year = 1 AND S.score BETWEEN :score_min AND :score_max AND S.adjective_1 = 				A.id_adjective AND S.adjective_2 = A2.id_adjective AND S.adjective_3 = A3.id_adjective and S.id_student NOT IN (SELECT id_student_god_son FROM match WHERE id_student_god_father = :student_id and liked_by_god_father = true)"; 
+			WHERE S.student_id <> :student_id AND admin=false AND year = 1
+			AND (S.score BETWEEN :score_min AND :score_max) AND S.adjective_1 = A.id_adjective AND S.adjective_2 = A2.id_adjective AND S.adjective_3 = A3.id_adjective and S.student_id NOT IN (SELECT student_id_god_son FROM student_match WHERE student_id_god_father = :student_id and (liked_by_god_father = 0 OR liked_by_god_father = 1))";
 		}
-			
+
 		$statement_student = $db->prepare($query_get_student);
 		$statement_student->bindValue(':score_min', $score_min, PDO::PARAM_INT);
 		$statement_student->bindValue(':score_max', $score_max, PDO::PARAM_INT);
-		$statement_student->bindValue(':student_id', $_SESSION['id']);
+		$statement_student->bindValue(':student_id',$student->getId());
 		$statement_student->execute();
 
 		$tab_student = array();
@@ -47,10 +58,12 @@ function getArrayStudents() {
 		$count = 0;
 
 		while($row = $statement_student->fetch(PDO::FETCH_ASSOC)){
-			$student = new Student($row['surname'], $row['description'], $row['adj1'], $row['adj2'], $row['adj3'], NULL, $row['email'], $row['pic'] );
+			$student = new Student(decrypt_data($row['surname']), $row['description'], NULL, decrypt_data($row['email']), $row['pic'] );
+			$student->setAdjectives($row['adj1'], $row['adj2'], $row['adj3']);
 			$tab_student[] = $student->to_array();
 			$count=$count+1;
 		}
 	}
-	return $tab_student;
+
+	return json_encode($tab_student);
 }

@@ -1,0 +1,64 @@
+/* styles Admin */
+body{
+	overflow:hidden;
+}
+.menu{
+	position : absolute;
+	top: 1vw;
+	left:1vw;
+}
+.menu a {
+	text-decoration:none;
+	color : #254463;
+}
+.menu a:hover{
+	text-decoration:none;
+	cursor : crosshair;
+	color: #4152BC;
+}
+#part,#action{
+	padding:0;
+}
+#export_part,#action_match_part,#envoi_mail_part{
+	display : flex;
+	height: 33.3333vh;
+}
+#export_part,#envoi_mail_part{
+	background-color : #F5F7FA;
+}
+
+#export,#action_match,#envoi_mail{
+	font-family:"Fjalla One";
+	font-size:3vw;
+	color:#707070;
+	width : 30vw;
+	text-align:center;
+	margin-top:11vh;
+}
+
+input[type="button"], input[type="submit"]{
+	margin-top:3vh;
+	margin-right : 2vw;
+	width:32vw;
+	text-align:center;
+	vertical-align:middle;
+	background-color:#4152BC;
+	font-family:'Open Sans',sans-serif;
+	border:none;
+	font-size:110%;
+	color:white;
+	padding : 1%;
+}
+
+
+#list_unsubscribe, #forced_matchunsub, #relance_unsubscribe{
+	opacity : 0.5;
+}
+#button_export,#button_actionb,#button_mail{
+	display:inline-block;
+	width : 70vw;
+	padding-top : 4vh;
+}
+/***************************************add_list.html*****************************/
+
+

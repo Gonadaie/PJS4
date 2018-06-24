@@ -1,0 +1,351 @@
+body {
+	overflow: hidden;
+	height: 100%;
+}
+
+.right_align {
+	text-align: right;
+}
+
+.no_padding {
+	padding: 0;
+}
+
+.preview_list::-webkit-scrollbar {
+	width: 2px;
+	height: 2px;
+}
+
+.preview_list::-webkit-scrollbar-button {
+	width: 0px;
+	height: 0px;
+}
+
+.preview_list::-webkit-scrollbar-thumb {
+	background: #000000;
+	border: 0px none #ffffff;
+	border-radius: 50px;
+}
+
+.preview_list::-webkit-scrollbar-thumb:hover {
+	background: #000000;
+}
+
+.preview_list::-webkit-scrollbar-thumb:active {
+	background: #000000;
+}
+
+.preview_list::-webkit-scrollbar-track {
+	background: #ffffff;
+	border: 0px none #ffffff;
+	border-radius: 50px;
+}
+
+.preview_list::-webkit-scrollbar-track:hover {
+	background: #ffffff;
+}
+
+.preview_list::-webkit-scrollbar-track:active {
+	background: #ffffff;
+}
+
+.preview_list::-webkit-scrollbar-corner {
+	background: transparent;
+}
+
+
+/******************************************right welcome messaging***************************************/
+
+.messaging_welcome_pic {
+	padding: 0;
+	margin: 0;
+	display: block;
+}
+
+.messaging_welcome_pic img {
+	width: 100%;
+	height: auto;
+}
+
+
+/******************************************Menu***************************************/
+
+.menu a:hover {
+	text-decoration: none;
+	color: #4152BC;
+	cursor: crosshair;
+}
+
+.menu a {
+	margin-left: 15px;
+	text-decoration: none;
+}
+
+.menu_inactive {
+	text-decoration: none;
+	font-family: 'Open Sans', sans-serif;
+	color: #254463;
+	font-size: 1vw;
+}
+
+.menu {
+	width: 100%;
+	text-align: center;
+}
+
+.my_account_messaging img {
+	width: 8vw;
+	height: auto;
+	margin-top: 20px;
+	filter: grayscale(100%);
+	-webkit-filter: grayscale(100%);
+	-moz-filter: grayscale(100%);
+	-ms-filter: grayscale(100%);
+	-o-filter: grayscale(100%);
+}
+
+.my_account_messaging {
+	text-align: center;
+}
+
+
+/*****************************************************************/
+
+.title {
+	font-family: Fjalla One;
+	color: #4152BC;
+	font-size: 2vw;
+	margin-right: 15px;
+}
+
+.preview_message {
+	display: flex;
+	align-items: center;
+	margin-top: 10px;
+	padding-top: 10px;
+	margin-right: 10px;
+	border-top: 1.2px solid #254463;
+}
+
+.preview_message:hover {
+	cursor: crosshair;
+}
+
+.preview_group {
+	padding-left: 0;
+}
+
+.preview_message div img {
+	width: 6vw;
+	height: auto;
+	filter: grayscale(100%);
+	-webkit-filter: grayscale(100%);
+	-moz-filter: grayscale(100%);
+	-ms-filter: grayscale(100%);
+	-o-filter: grayscale(100%);
+}
+
+.preview_message .name {
+	font-family: Fjalla One;
+	color: #254463;
+	font-size: 1.7vw;
+}
+
+.preview_message .preview {
+	font-family: 'Open Sans', sans-serif;
+	color: #707070;
+	font-size: 1vw;
+}
+
+.scrollable {
+	overflow-y: hidden;
+}
+
+.scrollable:hover {
+	overflow-y: auto;
+}
+
+.preview.not_read {
+	font-weight: bolder;
+	color: #464545;
+}
+
+.preview.no_message_yet {
+	color: #F05228;
+	font-family: Fjalla One;
+}
+
+.left_preview {
+	position: relative;
+}
+
+.notify_circle {
+	background-color: #61B8D0;
+	width: 2vw;
+	height: 2vw;
+	border-radius: 50%;
+	position: absolute;
+	right: 1.8vw;
+	top: 0;
+	z-index: 100;
+}
+
+
+/*******************************messaging part*******************************/
+
+.messaging_conversation {
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	background-color: #F5F7FA;
+	display: none;
+}
+
+.messaging_conversation .conversation_surname {
+	font-family: Fjalla One;
+	color: #254463;
+	font-size: 4vw;
+	position: absolute;
+	top: 10px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.conversation_final_btn_off {
+	position: absolute;
+	right: 2vw;
+	top: 0;
+	color: #F05228;
+	font-family: Fjalla One;
+	font-size: 3vw;
+	opacity: 0.5;
+	display: block;
+}
+
+.conversation_final_btn_on {
+	position: absolute;
+	right: 2vw;
+	top: 0;
+	color: #F05228;
+	font-family: Fjalla One;
+	font-size: 3vw;
+	display: none;
+}
+
+.conversation_send_messages {
+	width: 100%;
+	height: 6vh;
+	position: absolute;
+	bottom: 0;
+	margin: 0;
+	background-color: #F5F7FA;
+}
+
+.conversation_send_messages .text_zone {
+	height: 100%;
+}
+
+.conversation_send_messages .text_zone input {
+	width: 100%;
+	background-color: #E6F0F5;
+	border: none;
+	height: 80%;
+	color: #254463;
+	border-radius: 10px;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.conversation_send_messages .conversation_send_btn {
+	color: #4152BC;
+	font-family: Fjalla One;
+	font-size: 2vw;
+	padding-top: 0;
+	height: 100%;
+}
+
+.conversation_send_btn:hover,
+.conversation_final_btn_on:hover,
+.conversation_final_btn_off:hover {
+	cursor: crosshair;
+}
+
+
+/*******************************************************/
+
+.message_conversation_other_student {
+	background-color: #61B8D0;
+	border-radius: 10px 10px 10px 0;
+	width: 40%;
+	margin-top: 3vh;
+	margin-left: 3%;
+	margin-right: auto;
+	padding: 15px;
+	color: white;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.message_conversation_student {
+	background-color: #4152BC;
+	border-radius: 10px 10px 0 10px;
+	width: 40%;
+	margin-top: 3vh;
+	margin-right: 3%;
+	margin-left: auto;
+	padding: 15px;
+	color: white;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.top_marge_conversation {
+	width: 100%;
+	height: 10vh;
+	background-color: #F5F7FA;
+}
+
+.conversation_messages {
+	height: 80%;
+	width: 98%;
+	z-index: -1;
+}
+
+.conversation_messages::-webkit-scrollbar {
+	width: 2px;
+	height: 2px;
+}
+
+.conversation_messages::-webkit-scrollbar-button {
+	width: 0px;
+	height: 0px;
+}
+
+.conversation_messages::-webkit-scrollbar-thumb {
+	background: #000000;
+	border: 0px none #F5F7FA;
+	border-radius: 50px;
+}
+
+.conversation_messages::-webkit-scrollbar-thumb:hover {
+	background: #000000;
+}
+
+.conversation_messages::-webkit-scrollbar-thumb:active {
+	background: #000000;
+}
+
+.conversation_messages::-webkit-scrollbar-track {
+	background: #F5F7FA;
+	border: 0px none #F5F7FA;
+	border-radius: 50px;
+}
+
+.conversation_messages::-webkit-scrollbar-track:hover {
+	background: #F5F7FA;
+}
+
+.conversation_messages::-webkit-scrollbar-track:active {
+	background: #F5F7FA;
+}
+
+.conversation_messages::-webkit-scrollbar-corner {
+	background: transparent;
+}

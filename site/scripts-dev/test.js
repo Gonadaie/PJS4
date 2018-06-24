@@ -36,18 +36,22 @@ class Adjective extends React.Component {
 	}
 
 	clickHandler(){
-		let adj_inputs = document.getElementsByClassName("adj-input");	
+		let adj_inputs = document.getElementsByClassName("adj-input");
+		let cross_inputs = document.getElementsByClassName("close-cross");
 
 		for (let i = 0; i < adj_inputs.length; ++i){
 			if(adj_inputs[i].value === ''){
 				adj_inputs[i].value = this.props.wording;
 				adj_inputs[i].style.color = this.color;
+				cross_inputs[i].style.visibility = "visible"
 				this.setState({display: 'none'});
+				
 
 				let adj_comp = this;
 				let adj_obj = {adj: adj_comp, input: adj_inputs[i]};	
 				adj_inputs[i].onclick = function() { 
 					this.adj.setState({display: "block"});
+					cross_inputs[i].style.visibility = "hidden";
 					this.input.value = '';
 				}.bind(adj_obj);
 				break;
@@ -75,6 +79,7 @@ function get_adj() {
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function(){
 		if(this.readyState == 4 && this.status == 200){
+			console.log(this.responseText);
 			if(this.responseText != false){
 				var json = JSON.parse(this.responseText);
 				display_adj(json);
@@ -84,7 +89,7 @@ function get_adj() {
 		}
 	};
 
-	xhttp.open("GET", "../model/get-adj.php", true);
+	xhttp.open("GET", "../controller/get_adjs.php", true);
 	xhttp.send();
 }
 
@@ -107,5 +112,11 @@ function show_adj() {
 
 let adj_inputs = document.getElementsByClassName("adj-input");
 Array.from(adj_inputs).forEach(function(item) { item.value = "" } );	
+
+let cross_inputs = document.getElementsByClassName("close-cross");
+
+for(let i = 0; i < cross_inputs.length; ++i) {
+	cross_inputs[i].onclick = function() { adj_inputs[i].click(); };
+}
 
 get_adj();

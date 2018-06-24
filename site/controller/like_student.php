@@ -1,108 +1,99 @@
 <?php
-require("../model/db_connect.php");
-require("../model/student.php");
+/**
+ * Run everytime a student like someone else.
+ * First we test in what year the student is.
+ * Then we check if the other student had already like him or not.
+ * We run the appropriate query : update if match exist, insert otherwise.
+ * ALl the echo are user in js, to know wich page to run next (match or keep
+ * up swipe)
+ */
 
-$db = db_connect();
+require("../model/get_student.php");
+require("../model/like_student.php");
+
+
 session_start();
 
-if($db) {
-
-	//Id of the two student. One come from the session, we get the other one from a post method of the swipe page
+if(isset($_SESSION['id'])){
 	$id_student_connected = $_SESSION['id'];
 	if (isset($_POST["mail"])){
 		$mail_student_liked = $_POST["mail"];
 	}
+	$student_connected = get_student_by_id($id_student_connected);
+	$student_liked = get_student_by_email($mail_student_liked);
+}
+else {
+	$mail_student_liked = $_POST["mail"];
+	$mail_student_connected = $_POST["mail_co"];
+	$student_connected = get_student_by_email($mail_student_connected);
+	$student_liked = get_student_by_email($mail_student_liked);
+	$id_student_connected = $student_connected->getId();
+}
 
 
 
-	//We build a student object. That's the student curently connected
-	$query_get_student_connected = "SELECT S.year, S.score
-	FROM student S WHERE S.id_student = :id_student_connected";
-
-	$statement_get_student_connected = $db->prepare($query_get_student_connected);
-	$statement_get_student_connected->bindValue(':id_student_connected', $id_student_connected);
-	$statement_get_student_connected->execute();
-
-	$row_connected = $statement_get_student_connected->fetch(PDO::FETCH_ASSOC);
-	$student_connected = new Student(NULL, NULL, NULL, NULL, NULL, $row_connected['year'], NULL, NULL);
-	$student_connected_score = $row_connected['score'];
-
-
-	//We build a student object. That's the student who's liked
-	$query_get_student_liked = "SELECT S.year, S.id_student, S.score
-	FROM student S WHERE S.email = :mail_student_liked";
-
-	$statement_get_student_liked = $db->prepare($query_get_student_liked);
-	$statement_get_student_liked->bindValue(':mail_student_liked', $mail_student_liked);
-	$statement_get_student_liked->execute();
-
-	$row_liked = $statement_get_student_liked->fetch(PDO::FETCH_ASSOC);
-	$student_likde = new Student(NULL, NULL, NULL, NULL, NULL, $row_liked['year'], NULL, NULL);
-	$id_student_liked = $row_liked['id_student'];
-	$student_liked_score = $row_liked['score'];
+	$id_student_liked = $student_liked->getId();
 
 	if($student_connected->getYear()==1){
-		//Now we search if a match exist
-		$query_get_match_first = "SELECT id_student_god_father, id_student_god_son FROM match WHERE id_student_god_father = :id_student_liked AND id_student_god_son = :id_student_connected";
+		$get_match_first = array();
+		$get_match_first = get_student_match($id_student_liked, $id_student_connected);
 
-		$statement_get_match_first = $db->prepare($query_get_match_first);
-		$statement_get_match_first->bindValue(':id_student_liked', $id_student_liked);
-		$statement_get_match_first->bindValue(':id_student_connected', $id_student_connected);
-		$statement_get_match_first->execute();
-
-		if($statement_get_match_first->rowCount()>0){
-			//cela signifie que les deux personnes se sont likée. Result passe à true, on redirige vers la page de match
-			$query_update_match_first = "UPDATE match SET liked_by_god_son = true, result = true WHERE id_student_god_father = :id_student_liked AND id_student_god_son = :id_student_connected";
-			$statement_update_match_first = $db->prepare($query_update_match_first);
-			$statement_update_match_first->bindValue(':id_student_liked', $id_student_liked);
-			$statement_update_match_first->bindValue(':id_student_connected', $id_student_connected);
-			$statement_update_match_first->execute();
-
-			require("../model/score.php");
-
-			echo("MATCH");
+		if($get_match_first[0]>0){
+			update_student_match_first($id_student_liked, $id_student_connected);
+			require("score.php");
+			$match_result = get_match_result($id_student_liked, $id_student_connected);
+			error_log(print_r($match_result, TRUE));
+			error_log(print_r($get_match_first[2], TRUE));
+			if($get_match_first[2]==1){
+				update_match_result($id_student_liked, $id_student_connected);
+				insert_conversation($id_student_connected, $id_student_liked);
+				echo "MATCH";
+			}
+			else
+				echo("LIKE");
+			/*if($match_result){
+				insert_conversation($id_student_liked, $id_student_connected);
+				echo "MATCH";
+			}
+			else
+				echo "LIKE";*/
 		}
 		else{
-			$query_set_match_first = "INSERT INTO match(id_student_god_son, id_student_god_father, liked_by_god_son) VALUES(:id_student_connected,:id_student_liked, true)";
-			$statement_set_match_first = $db->prepare($query_set_match_first);
-			$statement_set_match_first->bindValue(':id_student_liked', $id_student_liked);
-			$statement_set_match_first->bindValue(':id_student_connected', $id_student_connected);
-			$statement_set_match_first->execute();
-			//on créer le match. Retour au swipe
-			echo("LIKE");
+			insert_match_first($id_student_connected, $id_student_liked);
+			require("score.php");
+			echo "LIKE";
 		}
 	}
 
 	else{
-		$query_get_match_second = "SELECT id_student_god_father, id_student_god_son FROM match WHERE id_student_god_father = :id_student_connected AND id_student_god_son = :id_student_liked";
+		$get_match_second = array();
+		$get_match_second = get_student_match($id_student_connected, $id_student_liked);
 
-		$statement_get_match_second = $db->prepare($query_get_match_second);
-		$statement_get_match_second->bindValue(':id_student_connected', $id_student_connected);
-		$statement_get_match_second->bindValue(':id_student_liked', $id_student_liked);
-		$statement_get_match_second->execute();
+		if($get_match_second[0]>0){
+			update_student_match_second($id_student_connected, $id_student_liked);
+			require("score.php");
+			$match_result =get_match_result($id_student_connected, $id_student_liked);
+			error_log(print_r($match_result, TRUE));
+			error_log(print_r($get_match_second[1], TRUE));
+			if($get_match_second[1]==1){
+				update_match_result($id_student_connected, $id_student_liked);
+				insert_conversation($id_student_liked, $id_student_connected);
+				echo "MATCH";
+			}
+			else {
+				echo "LIKE";
+			}
+			/*if($match_result){
+				insert_conversation($id_student_liked, $id_student_connected);
+				echo "MATCH";
+			}
+			else
+				echo "LIKE";*/
 
-		if($statement_get_match_second->rowCount()>0){
-			//cela signifie que les deux personnes se sont likée. Result passe à true, on redirige vers la page de match
-			$query_update_match_second= "UPDATE match SET liked_by_god_father = true, result = true WHERE id_student_god_father = :id_student_connected AND id_student_god_son = :id_student_liked";
-			$statement_update_match_second = $db->prepare($query_update_match_second);
-			$statement_update_match_second->bindValue(':id_student_liked', $id_student_liked);
-			$statement_update_match_second->bindValue(':id_student_connected', $id_student_connected);
-			$statement_update_match_second->execute();
-
-			require("../model/score.php");
-
-			echo("MATCH");
 		}
 		else{
-			$query_set_match_second = "INSERT INTO match(id_student_god_son, id_student_god_father, liked_by_god_father) VALUES(:id_student_liked,:id_student_connected, true)";
-			$statement_set_match_second = $db->prepare($query_set_match_second);
-			$statement_set_match_second->bindValue(':id_student_liked', $id_student_liked);
-			$statement_set_match_second->bindValue(':id_student_connected', $id_student_connected);
-			$statement_set_match_second->execute();
-			//on créer le match. Retour au swipe
-
-
-			echo("LIKE");
+			insert_match_second($id_student_liked, $id_student_connected);
+			require("score.php");
+			echo "LIKE";
 		}
 	}
-}

@@ -1,10 +1,12 @@
 <?php
 
 require("../model/create_forgot_passwd_token.php");
+require_once("../model/data_crypter.php");
 
 $student_name =	explode('.', $_POST['mail'])[0];
 $student_name = strtoupper($student_name[0]) . substr($student_name, 1, strlen($student_name) -1 );
 $student_mail = $_POST['mail'];
+$student_mail_encrypted = encrypt_data($_POST['mail']);
 $token_hash = md5($student_mail.date('Y-m-d H:i:s').rand());
 
 //Send mail to user
@@ -20,10 +22,10 @@ $mailer = new Swift_Mailer($transport);
 
 $root = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/';
 
-$psw_link = 'http://tinder.student.elwinar.com/view/change_passwd.php?mail='.$student_mail.'&token='.$token_hash;
+$psw_link = 'http://skipti.fr/view/change_passwd.php?mail='.$student_mail_encrypted.'&token='.$token_hash;
 
-$message = (new Swift_Message("Change your password"))
-	->setFrom(["find.the.r8.one@gmail.com" => "Find the right one"])
+$message = (new Swift_Message("Mot de passe oublié"))
+	->setFrom(["find.the.r8.one@gmail.com" => "Skipti"])
 	->setTo([$student_mail."@etu.parisdescartes.fr" => $student_name])
 	->setBody(
 		'<!DOCTYPE html>'.
@@ -33,17 +35,18 @@ $message = (new Swift_Message("Change your password"))
 		      '<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">'.
 		      '<link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet" type="text/css">'.
 		      '<link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">'.
+					'<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">'.
 		  '</head>'.
-		  '<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" style="font-family: Fjalla One;">'.
+		  '<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">'.
 
 		  '<table bgcolor="#F5F7FA" width="100%" border="0" cellpadding="0" cellspacing="0">'.
 		      '<tbody>'.
-		        '<tr style="color : #707070; font-size:20px">'.
+		        '<tr style="color : #707070; font-size:20px; font-family: Fjalla One>'.
 		    '	<td align="center">'.
 		        'Bonjour <span style="color : #FF5544">'.$student_name.'</span>,'.
 		      '</td>'.
 		        '</tr>'.
-		  '	<tr style="color : #707070; font-size:20px">'.
+		  '	<tr style="color : #707070; font-size:20px; font-family: Fjalla One">'.
 		  '		<td align="center">'.
 		  '			pour réinitialiser ton mot de passe clique sur le lien suivant :'.
 		  '		</td>'.
@@ -55,7 +58,7 @@ $message = (new Swift_Message("Change your password"))
 		  '	<tr>'.
 		  '	</tr>'.
 		  '		<td align="center">'.
-		  '			<a href="'.$psw_link.'" style="color : #FF5544; font-size:20px">'.$psw_link.'</a>'.
+		  '			<a href="'.$psw_link.'" style="color : #FF5544; font-size:20px; font-family: Fjalla One">'.$psw_link.'</a>'.
 		  '		</td>'.
 		  '	</tr>'.
 		  '	<tr>'.
@@ -65,25 +68,24 @@ $message = (new Swift_Message("Change your password"))
 		  '	</tr>'.
 		  '	<tr>'.
 		  '		<td align="center">'.
-		  '			<img src="https://zupimages.net/up/18/17/m23z.png" alt="Logo" width="500px" height="344px"/>'.
+		  '			<img src="https://skipti.fr/images/five.png" alt="Logo" width="500px" height="auto"/>'.
 		  '		</td>'.
 		  '	</tr>'.
 		  '	<tr>'.
 		  '		<td>'.
 		  '			&nbsp;'.
 		  '		</td>'.
-		    '<tr style="color : #707070">'.
-		    '	</tr>'.
+		   	'<tr style="color : #57BB8A; font-family: Open Sans">'.
 		    '	<td align="center">'.
 		    '		Pense à la planète, après avoir validé ton compte, supprime ce mail.'.
 		    '	</td>'.
 		    '</tr>'.
-		    '<tr style="color : #707070">'.
+		    '<tr style="color : #57BB8A; font-family: Open Sans">'.
 		    '	<td align="center">'.
 		    '		Le stockage de mail fait tourner quotidiennement l équivalent de'.
 		    '	</td>'.
 		  '	</tr>'.
-		      '<tr style="color : #707070">'.
+		      '<tr style="color : #57BB8A; font-family: Open Sans">'.
 		  '		<td align="center">'.
 		  '			quatre centrales nucléaire dans le monde.'.
 		  '		</td>'.
@@ -99,6 +101,5 @@ if($result)
 	create_forgot_passwd_token($token_hash, $student_mail);
 
 
-//equire("../view/forgot_passwd_sent.html");
 
 ?>

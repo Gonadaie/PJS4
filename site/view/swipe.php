@@ -1,15 +1,9 @@
 <?php
 session_start();
-require("../model/swipe.php");
-if(!isset($_SESSION['id'])) {
-	require('../model/stay_connected.php');
-	if(is_stay_connected($_COOKIE['fr81_stay_connected']))
-		header('Location: ../view/logout.php');
-}
+require("../controller/swipe.php");
 ?>
 	<!DOCTYPE html>
 	<html lang="fr">
-
 
 	<head>
 		<meta charset="utf-8" />
@@ -19,14 +13,21 @@ if(!isset($_SESSION['id'])) {
 		<link rel="stylesheet" href="../styles/main.css">
 		<link rel="stylesheet" href="../styles/signup_login.css">
 		<link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
-
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+		<!--		<fav icon>				-->
+		<link rel="apple-touch-icon" sizes="180x180" href="../favicon_package_v0.16/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="../favicon_package_v0.16/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="../favicon_package_v0.16/favicon-16x16.png">
+		<link rel="manifest" href="../favicon_package_v0.16/site.webmanifest">
+		<link rel="mask-icon" href="../favicon_package_v0.16/safari-pinned-tab.svg" color="#4152bc">
+		<meta name="msapplication-TileColor" content="#2b5797">
+		<meta name="theme-color" content="#e6f0f5">
 	</head>
 
 	<body>
 		<script type="text/javascript">
 			console.log("debut de la recuperation des data");
-			var students = <?php echo json_encode(getArrayStudents()); ?>;
+			var students = <?php echo $array_student; ?>;
 			var email;
 			console.log(students);
 			//students = JSON.parse(students);
@@ -40,7 +41,7 @@ if(!isset($_SESSION['id'])) {
 		<div class="menu">
 			<a href="#" class="menu_active">swipe</a>
 			<a href="../view/updateprofile.php" class="menu_inactive">mon compte</a>
-			<a href="#" class="menu_inactive">messages</a>
+			<a href="messaging.php" class="menu_inactive">messages</a>
 			<a href="../view/logout.php" class="menu_inactive">log out</a>
 		</div>
 		<div class="row fullscreen_height">
@@ -67,10 +68,18 @@ if(!isset($_SESSION['id'])) {
 					<div><img src="../images/sad_student.svg" alt="no more profile"></div>
 				</div>
 				<div class="no_more_profile_sorry">
-					Vous avez déjà vu tous les profiles que vous pouviez voir.
+					Vous avez déjà vu tous les profils que vous pouviez voir.
 				</div>
 				<div class="swipe_more_btn">
-					<div><a href="swipe.php">Voir encore</a></div>
+					<div class="reset_like"><a>Voir encore</a></div>
+				</div>
+			</div>
+			<div class="col-6 really_no_more_profile swipe_profile animated ">
+				<div class="crying_student">
+					<div><img src="../images/crying.png" alt="really no more profile" width="500px" height="auto"></div>
+				</div>
+				<div class="really_no_more_profile_sorry">
+					Plus aucun profile desolée ! Reviens plus tard.
 				</div>
 			</div>
 			<div class="col-3 swipe_icon yes">
@@ -80,6 +89,7 @@ if(!isset($_SESSION['id'])) {
 
 
 		</div>
+		<div id="myformcontainer"></div>
 		<script src="../scripts/swipe.js"></script>
 	</body>
 

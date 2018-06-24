@@ -1,17 +1,18 @@
+var d = new Date();
 function sign_up(e) {
-	console.log("we are in sign_up.js");
 	var xhttp = new XMLHttpRequest();
 	if(verifForm(e)){
 		xhttp.onreadystatechange = function(){
 			if(this.readyState == 4 && this.status == 200){
-				if(this.responseText == "NOK"){
-					console.log("mail already exist");
+				var response = this.responseText.replace(/\n/g, "");
+				console.log(response);
+				if(response == "NOK"){
 					highlight(document.getElementsByName("mail")[0], true);
 					document.getElementById("mail_not_valid").style.display = "none";
 					document.getElementById("mail_already_exist").style.display = "block";
-					console.log("nok");
 				}
-				else {
+				//else if(this.responseText == "OK"){
+				else{
 					var request = new XMLHttpRequest();
 					highlight(document.getElementsByName("mail")[0], false);
 					highlight(document.getElementsByName("password")[0], false);
@@ -27,13 +28,22 @@ function sign_up(e) {
 					if(document.getElementById('second').checked) {
 						year = 2;
 					}
-					console.log("ok");
-
-					request.send("&mail=" + mail + "&password=" + password + "&year=" + year);
-
+					var f = new Date();
+					console.log(f.getTime());
+					console.log(d.getTime());
+					var time = f.getTime() - d.getTime();
+					console.log(time);
+					if(time >= 5000){ 
+						request.send("&mail=" + mail + "&password=" + password + "&year=" + year);
+						d = new Date();
+					}
+					else{
+						console.log("goes here");
+						alert("Vous avez tenté d'envoyer le formulaire trop souvent, attendez puis réessayer");
+						return false;
+					}
 					request.onreadystatechange = function(){
 						if(request.readyState == 4){
-							console.log("final if");
 							window.location.href="../view/register-confirmation.php?mail="+mail;
 						}
 					}
@@ -43,13 +53,12 @@ function sign_up(e) {
 			}
 		};
 
-		xhttp.open("POST", "../controller/sign_up.php", true);
+		xhttp.open("POST", "../controller/student_exists.php", true);
 		xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
 		var mail = document.getElementsByName("mail")[0].value;
 
 		xhttp.send("mail=" + mail);
-		console.log("end");
 		return false;
 		}
 }

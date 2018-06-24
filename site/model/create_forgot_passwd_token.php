@@ -1,30 +1,30 @@
 <?php
 
-require("db_connect.php");
+require_once("db_connect.php");
+require_once("get_student.php");
+require_once("data_crypter.php");
 
+/**
+ * @brief Create a token linked to a user account in the database. The token will be send via email to the user to verify its identity
+ * @param token_hash	The hash of the token meant to be insert in the databse
+ * @param student_mail	Email adress of the user
+ */
 function create_forgot_passwd_token($token_hash, $student_mail) {
 
 	$db = db_connect();
 
 	if($db){
-		$id_query = "SELECT id_student FROM student WHERE email = :mail"; //Duplicate
-		$id_statement = $db->prepare($id_query);
-		$id_statement->bindValue(":mail", $student_mail);
-		$result_id_statement = $id_statement->execute();
-
-		$student_id;
-		while($row = $id_statement->fetch(PDO::FETCH_ASSOC))
-			$student_id = $row["id_student"];
+		$student_id = get_student_by_email($student_mail)->getId();
 		
 		if(isset($student_id)) {
 
 			//if a previous token exists, then delete it
-			$delete_query = "DELETE FROM token_forgot_passwd WHERE id_student=:id";
+			$delete_query = "DELETE FROM token_forgot_passwd WHERE student_id=:id";
 			$delete_statement = $db->prepare($delete_query);
-			$delete_statement->bindValue(":id", $student_id);
+			$delete_statement->bindValue(":id", ($student_id));
 			$delete_statement->execute();
 
-			$insert_query = "INSERT INTO token_forgot_passwd VALUES (:date, :token, :id)";
+			$insert_query = "INSERT INTO token_forgot_passwd (birth, hash_fp, is_alive, student_id) VALUES (:date, :token, true,:id)";
 			$insert_statement = $db->prepare($insert_query);
 			$insert_statement->bindValue(":date", date("Y-m-d"));
 			$insert_statement->bindValue(":token", $token_hash);

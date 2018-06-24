@@ -10,30 +10,38 @@ class Student {
 	private $email;
 	private $pic;
 	private $score;
-	private $id_student;
+	private $id;
+	private $password;
+	private $validate_account;
+	private $admin;
 
-
-	public function __construct($surname, $description=NULL, $adj1=NULL, $adj2=NULL, $adj3=NULL, $year=NULL, $email=NULL, $pic=NULL) {
-		$this->surname = $surname;
+	public function __construct($surname, $description=NULL, $year=NULL, $email=NULL, $pic=NULL) {
+		if(!$surname == NULL) $this->surname = $surname;
 		if(!$description == NULL) $this->description = $description;
-		if(!$adj1 == NULL)	$this->adj1 = $adj1;
-		if(!$adj2 == NULL)	$this->adj2 = $adj2;
-		if(!$adj3 == NULL)	$this->adj3 = $adj3;
 		if(!$year == NULL) 	$this->year = $year;
 		if(!$email == NULL) $this->email = $email;
 		if(!$pic == NULL) 	$this->pic = $pic;
 	}
 
-	public function setScore($score) {
-		$this->score = $score;
+
+	public function getAdmin(){
+		return $this->admin;
 	}
 
-	public function setId($id){
-		$this->$id_student = $id;
+	public function getAdj1() {
+		return $this->adj1;
 	}
 
 	public function getSurname() {
 		return $this->surname;
+	}
+
+	public function getValidateAccount() {
+		return $this->validate_account;
+	}
+
+	public function getPassword() {
+		return $this->password;
 	}
 
 	public function getDescription() {
@@ -51,11 +59,57 @@ class Student {
 	public function getYear(){
 		return $this->year;
 	}
+
 	public function getEmail(){
 		return $this->email;
 	}
+
 	public function getPic(){
 		return $this->pic;
+	}
+
+	public function getScore(){
+		return $this->score;
+	}
+
+	public function getId(){
+		return $this->id;
+	}
+	public function setId($id){
+		$this->id = $id;
+	}
+
+	public function setScore($score){
+		$this->score = $score;
+	}
+
+	public function setPassword($password){
+		$this->password = $password;
+	}
+	public function setValidateAccount($validate_account){
+		$this->validate_account = $validate_account;
+	}
+
+	public function setAdjectiveOne($adj1){
+		$this->adj1 = $adj1;
+	}
+
+	public function setAdjectives($adj1, $adj2, $adj3){
+		$this->adj1 = $adj1;
+		$this->adj2 = $adj2;
+		$this->adj3 = $adj3;
+	}
+
+	public function setDescription($description) {
+		$this->description = $description;
+	}
+
+	public function setPic($pic) {
+		$this->pic = $pic;
+	}
+
+	public function setAdmin($admin){
+		$this->admin = $admin;
 	}
 
 	public function to_array(){
@@ -71,4 +125,6 @@ class Student {
 		);
 		return $return;
 	}
+
+
 }

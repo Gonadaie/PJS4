@@ -6,7 +6,7 @@ function highlight(field, error) {
 }
 
 function checkMail(field) {
-	var regex = /^[a-z]+\.[a-z]+[0-9]*$/;
+	var regex = /^[a-z| _ | ]+\.[a-z | _ | -]+[0-9]*$/;
 	if (!regex.test(field.value)) {
 		highlight(field, true);
 		document.getElementById("mail_not_valid").style.display = "block";
@@ -23,8 +23,12 @@ function mailexist(){
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function(){
 		if(this.readyState == 4 && this.status == 200){
-			if(this.responseText == "NOK"){
+			var response = this.responseText.replace(/\n/g, "");
+			console.log(response);
+			
+			if(response == "NOK"){
 				console.log("exist");
+
 				var request = new XMLHttpRequest();
 				request.open("POST", "../controller/forgot_passwd.php", true);
 				request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -47,7 +51,7 @@ function mailexist(){
 		}
 	};
 
-	xhttp.open("POST", "../controller/sign_up.php", true);
+	xhttp.open("POST", "../controller/student_exists.php", true);
 	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
 	var mail = document.getElementsByName("mail")[0].value;
@@ -102,17 +106,7 @@ function verifFormForgot(e) {
 }
 
 
+	
 
-var form = document.getElementById("formsignup");
-form.addEventListener('submit', function () {
-	form.submit.disabled = true;
-});
-var form = document.getElementById("form_login");
-form.addEventListener('submit', function () {
-	form.submit.disabled = true;
-});
 
-var form = document.getElementById("form_changepasswd");
-form.addEventListener('submit', function () {
-	form.submit.disabled = true;
-});
+

@@ -1,21 +1,28 @@
 const MAX_TRIES = 5;
 var tries = 0;
-
+var d = new Date();
 function login() {
 	var xhttp = new XMLHttpRequest();
 	console.log("we are in login.js");
 
 	xhttp.onreadystatechange = function(){
 		if(this.readyState == 4 && this.status == 200){
-			if(this.responseText == "OK"){
+			var response = this.responseText.replace(/\n/g, "");
+			console.log(response);
+			if(response == "OK"){
 				highlight(document.getElementsByName("mail")[0], false);
 				highlight(document.getElementsByName("password")[0], false);
 				window.location.href="../view/swipe.php";
-				
-			} else if(this.responseText == "FIRST"){
+			} else if(response == "FIRST"){
 				highlight(document.getElementsByName("mail")[0], false);
 				highlight(document.getElementsByName("password")[0], false);
 				window.location.href="../view/test.php";
+			}
+			else if(response == "ADMIN"){
+				console.log("admin");
+				highlight(document.getElementsByName("mail")[0], false);
+				highlight(document.getElementsByName("password")[0], false);
+				window.location.href="../view/session_admin.php";
 			}
 			else {
 				highlight(document.getElementsByName("mail")[0], true);
@@ -27,14 +34,24 @@ function login() {
 		}
 	};
 
+
 	xhttp.open("POST", "../controller/login.php", true);
 	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
 	var mail = document.getElementsByName("mail")[0].value;
 	var password = document.getElementsByName("password")[0].value;
-	var stayConnected = document.getElementById('keeplog').value;
-
-	xhttp.send("mail=" + mail + "&password=" + password + "&stayConnected=" + stayConnected);
+	var keeplog = document.getElementById('keeplog').value;
+	var f = new Date();
+	var time = f.getTime() - d.getTime();
+	console.log(time);
+	if(time >= 5000){ 
+		xhttp.send("mail=" + mail + "&password=" + password + "&keeplog=" + keeplog);
+		d = new Date();
+	}
+	else{
+		console.log("goes here");
+		alert("Vous avez tenté d'envoyer le formulaire trop souvent, attendez puis réessayer");
+		return false;
+	}
 	return false;
 }
-

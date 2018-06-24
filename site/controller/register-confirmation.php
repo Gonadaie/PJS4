@@ -1,5 +1,7 @@
 <?php
-
+/**
+ *Send a mail to the student once he sign up
+**/
 require("better_crypt.php");
 require("../model/register-student.php");
 
@@ -11,10 +13,8 @@ $student_year =  $_POST['year'];
 
 register_student($student_name, $student_mail, $password_hash, $student_year);
 
-require("../view/register-confirmation.php");
 
 $token_hash = md5($student_mail.date('Y-m-d H:i:s').rand());
-
 
 require_once("../model/create-token.php");
 require_once("../vendor/autoload.php");
@@ -28,10 +28,10 @@ $mailer = new Swift_Mailer($transport);
 
 $root = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/';
 
-$registration_link = 'http://tinder.student.elwinar.com/view/loginPerso.php?token='.$token_hash.'&name='.$student_name;
+$registration_link = 'http://skipti.fr/view/loginPerso.php?token='.$token_hash.'&name='.$student_name;
 
-$message = (new Swift_Message("Registration confirmation"))
-	->setFrom(["find.the.r8.one@gmail.com" => "Find the right one"])
+$message = (new Swift_Message("Confirmation de l'inscription"))
+	->setFrom(["find.the.r8.one@gmail.com" => "Skipti"])
 	->setTo([$student_mail."@etu.parisdescartes.fr" => $student_name])
 
 	->setBody('<!DOCTYPE html>'.
@@ -41,17 +41,18 @@ $message = (new Swift_Message("Registration confirmation"))
 		    '<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">'.
 		    '<link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet" type="text/css">'.
 		    '<link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">'.
+				'<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">'.
 		'</head>'.
-		'<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" style="font-family: Fjalla One;">'.
+		'<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">'.
 
 		'<table bgcolor="#F5F7FA" width="100%" border="0" cellpadding="0" cellspacing="0">'.
 		    '<tbody>'.
-		    	'<tr style="color : #707070; font-size:20px">'.
+		    	'<tr style="color : #707070; font-size:20px; font-family: Fjalla One">'.
 			'	<td align="center">'.
 					'Bienvenue <span style="color : #61B8D0">'.$student_name.'</span>,'.
 				'</td>'.
 		    	'</tr>'.
-		'	<tr style="color : #707070; font-size:20px">'.
+		'	<tr style="color : #707070; font-size:20px; font-family: Fjalla One">'.
 		'		<td align="center">'.
 		'			pour valider ton compte clique sur le lien suivant :'.
 		'		</td>'.
@@ -63,7 +64,7 @@ $message = (new Swift_Message("Registration confirmation"))
 		'	<tr>'.
 		'	</tr>'.
 		'		<td align="center">'.
-		'			<a href="'.$registration_link.'" style="color : #61B8D0; font-size:20px">'.$registration_link.'</a>'.
+		'			<a href="'.$registration_link.'" style="color : #61B8D0; font-size:20px; font-family: Fjalla One">'.$registration_link.'</a>'.
 		'		</td>'.
 		'	</tr>'.
 		'	<tr>'.
@@ -73,25 +74,24 @@ $message = (new Swift_Message("Registration confirmation"))
 		'	</tr>'.
 		'	<tr>'.
 		'		<td align="center">'.
-		'			<img src="https://zupimages.net/up/18/17/m23z.png" alt="Logo" width="500px" height="344px"/>'.
+		'			<img src="https://skipti.fr/images/five.png" alt="Logo" width="500px" height="auto"/>'.
 		'		</td>'.
 		'	</tr>'.
 		'	<tr>'.
 		'		<td>'.
 		'			&nbsp;'.
 		'		</td>'.
-			'<tr style="color : #707070">'.
-			'	</tr>'.
+			'<tr style="color : #57BB8A; font-family: Open Sans">'.
 			'	<td align="center">'.
 			'		Pense à la planète, après avoir validé ton compte, supprime ce mail.'.
 			'	</td>'.
 			'</tr>'.
-			'<tr style="color : #707070">'.
+			'<tr style="color : #57BB8A; font-family: Open Sans">'.
 			'	<td align="center">'.
 			'		Le stockage de mail fait tourner quotidiennement l équivalent de'.
 			'	</td>'.
 		'	</tr>'.
-				'<tr style="color : #707070">'.
+				'<tr style="color : #57BB8A; font-family: Open Sans">'.
 		'		<td align="center">'.
 		'			quatre centrales nucléaire dans le monde.'.
 		'		</td>'.
@@ -101,14 +101,17 @@ $message = (new Swift_Message("Registration confirmation"))
 '		</html>'
 	, "text/html");
 
-//	->setBody("Please, confirm your registration by clicking on the following link : http://tinder.student.elwinar.com/view/loginPerso.php?token=".$token_hash."&name=".$student_name."\n")
-//	->setBody("Please, confirm your registration by clicking on the following link : " . $_SERVER['SERVER_NAME'] . "/view/loginPerso.php?token=".$token_hash."&name=".$student_name."\n")
 
 
 
 $result = $mailer->send($message);
 
-if($result)
+if($result) {
 	create_token($token_hash, $student_mail);
-echo "END";
+	echo "OK";
+}
+else
+	echo "FAIL";
+
+
 ?>

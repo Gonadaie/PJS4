@@ -10,6 +10,4 @@ require('../model/change_passwd.php');
 
 change_passwd_for($token, $passwd_hash);
 
-//require('../view/passwd_changed.php');
-
 ?>
